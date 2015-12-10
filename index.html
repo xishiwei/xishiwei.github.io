@@ -228,6 +228,249 @@
 
     
     
+      
+      
+        
+        
+        
+      
+
+      
+    
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2015/12/10/learning-ios-6/" itemprop="url">
+                  未命名
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            发表于
+            <time itemprop="dateCreated" datetime="2015-12-10T17:29:16+08:00" content="2015-12-10">
+              2015-12-10
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2015/12/10/learning-ios-6/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/12/10/learning-ios-6/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <span itemprop="articleBody">
+            
+              <p>title: learning ios 6<br>date: 2015-12-10 11:33:52<br>tags:</p>
+<hr>
+<ul>
+<li><p>NSURLSession/NSURLConnection HTTP load failed (kCFStreamErrorDomainSSL, -980<br>ios 9 的限制  在info。plist文件里加入NSAppTransportSecurity  dictionary-》NSAllowsArbitraryLoads  YES,实现任性加载</p>
+</li>
+<li><p>由于复制了项目，添加了文件夹，修改了info.plist文件 run的时候显示The file “WeiBo” couldn’t be opened because you don’t have permission to view,build Setting 中搜索plist文件配置，发现路径是上个项目的路径，修改为拷贝后的路径，run success</p>
+</li>
+<li><p>获取沙盒路径 将模型数据归档存储<br>  NSString <em>doc = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];<br>  NSString </em>file = [doc stringByAppendingPathComponent:@”account.data”];</p>
+<p>  [NSKeyedArchiver archiveRootObject:account toFile:file];</p>
+<p>归档时必须告诉模型对象，哪些属性需要存储和获取，模型实现代理NSCoding </p>
+</li>
+</ul>
+<pre><code>/**
+*  文件中解析调用
+*
+*  @param aDecoder <#adecoder description#="">
+*
+*  @return <#return value="" description#="">
+*/
+-(id)initWithCoder:(NSCoder *)aDecoder{
+if (self = [super init]) {
+self.access_token = [aDecoder decodeObjectForKey:@"access_token"];
+self.uid = [aDecoder decodeInt64ForKey:@"uid"];
+self.remind_in = [aDecoder decodeInt64ForKey:@"remind_in"];
+self.expires_in = [aDecoder decodeInt64ForKey:@"expires_in"];
+self.availbleTime = [aDecoder decodeObjectForKey:@"availbleTime"];
+
+}
+return self;
+}
+/**
+*  存储入文件调用
+*
+*  @param aCoder <#acoder description#="">
+*/
+
+-(void)encodeWithCoder:(NSCoder *)aCoder{
+[aCoder encodeObject:self.access_token forKey:@"access_token"];
+[aCoder encodeInt64:self.uid forKey:@"uid"];
+[aCoder encodeInt64:self.remind_in forKey:@"remind_in"];
+[aCoder encodeInt64:self.expires_in forKey:@"expires_in"];
+[aCoder encodeObject:self.availbleTime forKey:@"availbleTime"];
+
+}</#acoder></#return></#adecoder></code></pre>
+
+
+<ul>
+<li><p>AFNetWorking MBProgressHUD 网络加载和加载提示框架</p>
+</li>
+<li><p>OAuth认证 获取accessToken  获取用户信息</p>
+</li>
+<li><p>UIWebView </p>
+</li>
+</ul>
+<hr>
+
+            
+          </span>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2015/12/08/learning-ios-5/" itemprop="url">
+                  learning ios 5
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            发表于
+            <time itemprop="dateCreated" datetime="2015-12-08T16:03:10+08:00" content="2015-12-08">
+              2015-12-08
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2015/12/08/learning-ios-5/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/12/08/learning-ios-5/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <span itemprop="articleBody">
+            
+              <hr>
+<ul>
+<li>UIScrollView 实现新特性页面</li>
+<li>实现UIScrollView 的delegate 监听页面的滚动 显示pageControl</li>
+</ul>
+
+            
+          </span>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
 
     
       
@@ -920,7 +1163,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">7</span>
+              <span class="site-state-item-count">9</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
