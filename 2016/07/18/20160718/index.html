@@ -35,7 +35,7 @@
 <link href="/css/main.css?v=0.4.5.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="react native," />
+  <meta name="keywords" content="mongodb," />
 
 
 
@@ -51,16 +51,22 @@
 
 
 
-<meta name="description" content="react-native-vector-iconsfonticon 矢量图表在android平台下配置需要更改原生配置和代码，改完之后必须重新react-native run-android编译才能生效,不然屏幕上只会显示一个叉号或者模拟器上什么都没显示。">
+<meta name="description" content="windows 下安装让mongodb以windows服务启动，在mongo的bin目录下执行：
+mongod --dbpath &quot;d:\mongodb\data\db&quot; --logpath &quot;d:\mongodb\data\log\MongoDB.log&quot; --install --serviceName &quot;MongoDB&quot;
+启动mongodb服务：net start MongoDB 关闭mong">
 <meta property="og:type" content="article">
-<meta property="og:title" content="react native vector icons">
-<meta property="og:url" content="http://yoursite.com/2016/07/13/20160713/index.html">
+<meta property="og:title" content="20160718">
+<meta property="og:url" content="http://yoursite.com/2016/07/18/20160718/index.html">
 <meta property="og:site_name" content="you know nothing">
-<meta property="og:description" content="react-native-vector-iconsfonticon 矢量图表在android平台下配置需要更改原生配置和代码，改完之后必须重新react-native run-android编译才能生效,不然屏幕上只会显示一个叉号或者模拟器上什么都没显示。">
-<meta property="og:updated_time" content="2016-07-13T13:10:49.000Z">
+<meta property="og:description" content="windows 下安装让mongodb以windows服务启动，在mongo的bin目录下执行：
+mongod --dbpath &quot;d:\mongodb\data\db&quot; --logpath &quot;d:\mongodb\data\log\MongoDB.log&quot; --install --serviceName &quot;MongoDB&quot;
+启动mongodb服务：net start MongoDB 关闭mong">
+<meta property="og:updated_time" content="2016-07-18T14:35:33.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="react native vector icons">
-<meta name="twitter:description" content="react-native-vector-iconsfonticon 矢量图表在android平台下配置需要更改原生配置和代码，改完之后必须重新react-native run-android编译才能生效,不然屏幕上只会显示一个叉号或者模拟器上什么都没显示。">
+<meta name="twitter:title" content="20160718">
+<meta name="twitter:description" content="windows 下安装让mongodb以windows服务启动，在mongo的bin目录下执行：
+mongod --dbpath &quot;d:\mongodb\data\db&quot; --logpath &quot;d:\mongodb\data\log\MongoDB.log&quot; --install --serviceName &quot;MongoDB&quot;
+启动mongodb服务：net start MongoDB 关闭mong">
 
 
 
@@ -72,7 +78,7 @@
   };
 </script>
 
-  <title> react native vector icons | you know nothing </title>
+  <title> 20160718 | you know nothing </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -243,7 +249,7 @@
             
             
               
-                react native vector icons
+                20160718
               
             
           </h1>
@@ -252,8 +258,8 @@
         <div class="post-meta">
           <span class="post-time">
             发表于
-            <time itemprop="dateCreated" datetime="2016-07-13T21:03:23+08:00" content="2016-07-13">
-              2016-07-13
+            <time itemprop="dateCreated" datetime="2016-07-18T22:26:21+08:00" content="2016-07-18">
+              2016-07-18
             </time>
           </span>
 
@@ -263,8 +269,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/07/13/20160713/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/07/13/20160713/" itemprop="commentsCount"></span>
+                <a href="/2016/07/18/20160718/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/07/18/20160718/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -283,7 +289,24 @@
       
 
       
-        <span itemprop="articleBody"><p><a href="http://github.com/oblador/react-native-vector-icons" target="_blank" rel="external">react-native-vector-icons</a><br>fonticon 矢量图表在android平台下配置需要更改原生配置和代码，<br>改完之后必须重新react-native run-android编译才能生效,不然<br>屏幕上只会显示一个叉号或者模拟器上什么都没显示。</p>
+        <span itemprop="articleBody"><p>windows 下安装让mongodb以windows服务启动，在mongo的bin目录下执行：</p>
+<pre><code>mongod --dbpath "d:<span class="command">\mongodb</span><span class="command">\data</span><span class="command">\db</span>" --logpath "d:<span class="command">\mongodb</span><span class="command">\data</span><span class="command">\log</span><span class="command">\MongoDB</span>.log" --install --serviceName "MongoDB"
+</code></pre><p>启动mongodb服务：<strong>net start MongoDB</strong> <br><br>关闭mongodb服务：<strong>net stop MongoDB</strong><br></p>
+<p>基本的操作命令：<br></p>
+<ul>
+<li>mongo</li>
+<li>show dbs</li>
+<li>use dbname</li>
+<li>show collections</li>
+<li>db.colname.save({key:value})</li>
+<li>db colname.insert</li>
+<li>db.coldbname.find()</li>
+<li>db.coldbname.findOne()</li>
+<li>db.coldbname.update</li>
+<li>db.colname.remove</li>
+<li>db.colname.drop()</li>
+<li>ad.cloname.find().skip(5).limit(5)</li>
+</ul>
 </span>
       
     </div>
@@ -292,7 +315,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/react-native/" rel="tag">#react native</a>
+            <a href="/tags/mongodb/" rel="tag">#mongodb</a>
           
         </div>
       
@@ -301,17 +324,13 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/07/12/post/" rel="next" title="react native reload not work">
-                <i class="fa fa-chevron-left"></i> react native reload not work
+              <a href="/2016/07/15/20160715/" rel="next" title="20160715">
+                <i class="fa fa-chevron-left"></i> 20160715
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/07/14/20160714/" rel="prev" title="20160714">
-                20160714 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -338,8 +357,8 @@
         
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/07/13/20160713/"
-           data-title="react native vector icons" data-url="http://yoursite.com/2016/07/13/20160713/">
+      <div class="ds-thread" data-thread-key="2016/07/18/20160718/"
+           data-title="20160718" data-url="http://yoursite.com/2016/07/18/20160718/">
       </div>
     
   </div>
