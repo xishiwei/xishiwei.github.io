@@ -228,6 +228,145 @@
 
     
     
+      
+      
+        
+        
+        
+      
+
+      
+    
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/08/29/20160829/" itemprop="url">
+                  20160829
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            发表于
+            <time itemprop="dateCreated" datetime="2016-08-29T21:30:38+08:00" content="2016-08-29">
+              2016-08-29
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/08/29/20160829/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/29/20160829/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <span itemprop="articleBody">
+            
+              <h2 id="react_native_初始化项目指定version">react native 初始化项目指定version</h2><pre><code>react-native init projectname --version <span class="number">0.29</span><span class="number">.2</span>
+</code></pre><h2 id="react_native_realm">react native realm</h2><p>定义model</p>
+<pre><code><span class="keyword">var</span> Realm = <span class="built_in">require</span>(<span class="string">'realm'</span>);
+<span class="keyword">const</span> CarSchema = {
+    name: <span class="string">'Car'</span>,
+    properties: {
+    make:  <span class="string">'string'</span>,    
+    model: <span class="string">'string'</span>,
+    miles: {<span class="keyword">type</span>: <span class="string">'int'</span>, <span class="keyword">default</span>: <span class="number">0</span>},
+    }
+};
+<span class="keyword">const</span> PersonSchema = {
+    name: <span class="string">'Person'</span>,
+    properties: {
+    name:     <span class="string">'string'</span>,
+    birthday: <span class="string">'date'</span>,
+    cars:     {<span class="keyword">type</span>: <span class="string">'list'</span>, objectType: <span class="string">'Car'</span>},
+    picture:  {<span class="keyword">type</span>: <span class="string">'data'</span>, optional: <span class="literal">true</span>}, <span class="comment">// optional property</span>
+    }
+};
+
+<span class="comment">// Initialize a Realm with Car and Person models</span>
+<span class="keyword">let</span> realm = <span class="keyword">new</span> Realm({schema: [CarSchema, PersonSchema]});
+</code></pre><p>创建model</p>
+<pre><code>let realm = <span class="keyword">new</span> Realm({<span class="string">schema:</span> [CarSchema]);
+
+realm.write(() =&gt; {
+realm.create(<span class="string">'Car'</span>, {<span class="string">make:</span> <span class="string">'Honda'</span>, <span class="string">model:</span> <span class="string">'Accord'</span>, <span class="string">drive:</span> <span class="string">'awd'</span>});
+});
+</code></pre><p>通过主键创建更新对象</p>
+<pre><code><span class="tag">realm</span><span class="class">.write</span>(() =&gt; {
+<span class="comment">// Create a book object</span>
+<span class="tag">realm</span><span class="class">.create</span>(<span class="string">'Book'</span>, {<span class="attribute">id</span>: <span class="number">1</span>, <span class="attribute">title</span>: <span class="string">'Recipes'</span>, <span class="attribute">price</span>: <span class="number">35</span>});
+
+<span class="comment">// Update book with new price keyed off the id</span>
+<span class="tag">realm</span><span class="class">.create</span>(<span class="string">'Book'</span>, {<span class="attribute">id</span>: <span class="number">1</span>, <span class="attribute">price</span>: <span class="number">55</span>}, true);
+});
+</code></pre><p>查询</p>
+<pre><code><span class="keyword">let</span> hondas = realm.objects(<span class="string">'Car</span>').filtered(<span class="string">'make</span> = <span class="string">"Honda"</span>');
+<span class="keyword">let</span> cars = realm.objects(<span class="string">'Car</span>');
+
+<span class="comment">// get first 5 Car objects</span>
+<span class="keyword">let</span> firstCars = cars.slice(<span class="number">0</span>, <span class="number">5</span>);
+</code></pre>
+            
+          </span>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
 
     
       
@@ -1176,110 +1315,6 @@ nrm <span class="keyword">use</span> cnpm <span class="comment">//切换到cnpm<
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/07/14/20160714/" itemprop="url">
-                  20160714
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            发表于
-            <time itemprop="dateCreated" datetime="2016-07-14T20:23:24+08:00" content="2016-07-14">
-              2016-07-14
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/07/14/20160714/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/07/14/20160714/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <span itemprop="articleBody">
-            
-              <ul>
-<li>react native 最近升级到了0.29.+,android的原生文件添加了MainApplication,替代了原来MainActivity的功能，因此以前的工程升级版本的时候需要根据新的工程结构调整一下，不然一些经过rnpm link 的项目可能不发正常运行。</li>
-<li>react native 指定版本初始化项目 react-native init projectname - -version 0.26.0</li>
-<li>git config - -list 查看config 配置</li>
-<li>git config - -unset - -global user.name 取消全局用户 </li>
-<li>git config user.name “master” 配置某仓库的用户</li>
-<li><p>git 获取远程仓库的分支到本地 </p>
-<blockquote>
-<ol>
-<li>git clone xxx </li>
-<li>git checkout -b localbranchname origin/remotebranchname</li>
-</ol>
-</blockquote>
-</li>
-<li><p>react native 直接hack 了 rnpm的功能，现在可以直接react-native link 了。</p>
-</li>
-</ul>
-
-            
-          </span>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
 
   </section>
 
@@ -1326,7 +1361,7 @@ nrm <span class="keyword">use</span> cnpm <span class="comment">//切换到cnpm<
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">28</span>
+              <span class="site-state-item-count">29</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -1340,7 +1375,7 @@ nrm <span class="keyword">use</span> cnpm <span class="comment">//切换到cnpm<
 
           <div class="site-state-item site-state-tags">
             <a href="/tags">
-              <span class="site-state-item-count">10</span>
+              <span class="site-state-item-count">11</span>
               <span class="site-state-item-name">标签</span>
               </a>
           </div>

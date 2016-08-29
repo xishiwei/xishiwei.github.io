@@ -35,7 +35,7 @@
 <link href="/css/main.css?v=0.4.5.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="react native," />
+  <meta name="keywords" content="realm," />
 
 
 
@@ -51,22 +51,34 @@
 
 
 
-<meta name="description" content="react native TextInput  可以设置padding = 0,这样外部包裹view的的高度就等于TextInput的高度。
-使用友盟推送的时候，点击通知跳转到相关的界面，原生android 里可以打开指定的Activity,react native里没有activity给我们
-用,这时候可以在原生监听通知消息，通过DeviceEventEmitter发送事件和参数给JS端,然后通">
+<meta name="description" content="react native 初始化项目指定versionreact-native init projectname --version 0.29.2
+react native realm定义model
+var Realm = require(&apos;realm&apos;);
+const CarSchema = {
+    name: &apos;Car&apos;,
+    properties: {
+    make:  &apos;str">
 <meta property="og:type" content="article">
-<meta property="og:title" content="20160824">
-<meta property="og:url" content="http://yoursite.com/2016/08/24/20160824/index.html">
+<meta property="og:title" content="20160829">
+<meta property="og:url" content="http://yoursite.com/2016/08/29/20160829/index.html">
 <meta property="og:site_name" content="you know nothing">
-<meta property="og:description" content="react native TextInput  可以设置padding = 0,这样外部包裹view的的高度就等于TextInput的高度。
-使用友盟推送的时候，点击通知跳转到相关的界面，原生android 里可以打开指定的Activity,react native里没有activity给我们
-用,这时候可以在原生监听通知消息，通过DeviceEventEmitter发送事件和参数给JS端,然后通">
-<meta property="og:updated_time" content="2016-08-24T13:24:15.000Z">
+<meta property="og:description" content="react native 初始化项目指定versionreact-native init projectname --version 0.29.2
+react native realm定义model
+var Realm = require(&apos;realm&apos;);
+const CarSchema = {
+    name: &apos;Car&apos;,
+    properties: {
+    make:  &apos;str">
+<meta property="og:updated_time" content="2016-08-29T13:38:53.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="20160824">
-<meta name="twitter:description" content="react native TextInput  可以设置padding = 0,这样外部包裹view的的高度就等于TextInput的高度。
-使用友盟推送的时候，点击通知跳转到相关的界面，原生android 里可以打开指定的Activity,react native里没有activity给我们
-用,这时候可以在原生监听通知消息，通过DeviceEventEmitter发送事件和参数给JS端,然后通">
+<meta name="twitter:title" content="20160829">
+<meta name="twitter:description" content="react native 初始化项目指定versionreact-native init projectname --version 0.29.2
+react native realm定义model
+var Realm = require(&apos;realm&apos;);
+const CarSchema = {
+    name: &apos;Car&apos;,
+    properties: {
+    make:  &apos;str">
 
 
 
@@ -78,7 +90,7 @@
   };
 </script>
 
-  <title> 20160824 | you know nothing </title>
+  <title> 20160829 | you know nothing </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -249,7 +261,7 @@
             
             
               
-                20160824
+                20160829
               
             
           </h1>
@@ -258,8 +270,8 @@
         <div class="post-meta">
           <span class="post-time">
             发表于
-            <time itemprop="dateCreated" datetime="2016-08-24T20:52:19+08:00" content="2016-08-24">
-              2016-08-24
+            <time itemprop="dateCreated" datetime="2016-08-29T21:30:38+08:00" content="2016-08-29">
+              2016-08-29
             </time>
           </span>
 
@@ -269,8 +281,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/08/24/20160824/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/24/20160824/" itemprop="commentsCount"></span>
+                <a href="/2016/08/29/20160829/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/29/20160829/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -289,35 +301,50 @@
       
 
       
-        <span itemprop="articleBody"><ul>
-<li>react native TextInput  可以设置padding = 0,这样外部包裹view的的高度就等于TextInput的高度。</li>
-<li><p>使用友盟推送的时候，点击通知跳转到相关的界面，原生android 里可以打开指定的Activity,react native里没有activity给我们</p>
-<p>用,这时候可以在原生监听通知消息，通过DeviceEventEmitter发送事件和参数给JS端,然后通过navigator跳转</p>
-<p>原生中发送事件会调用如下代码：</p>
-<pre><code>   <span class="tag">private</span> <span class="tag">void</span> <span class="tag">sendEvent</span>(<span class="tag">ReactContext</span> <span class="tag">reactContext</span>,
-               <span class="tag">String</span> <span class="tag">eventName</span>,
-               <span class="at_rule">@<span class="keyword">Nullable</span> WritableMap params) </span>{
-  <span class="tag">reactContext</span>
-  <span class="class">.getJSModule</span>(<span class="tag">DeviceEventManagerModule</span><span class="class">.RCTDeviceEventEmitter</span><span class="class">.class</span>)
-  <span class="class">.emit</span>(<span class="tag">eventName</span>, <span class="tag">params</span>);
-}
-</code></pre><p> 如何在Activity/Application中获取ReactContext实例？</p>
-<pre><code>reactContext = <span class="function"><span class="title">getReactNativeHost</span><span class="params">()</span></span>.<span class="function"><span class="title">getReactInstanceManager</span><span class="params">()</span></span>.<span class="function"><span class="title">getCurrentReactContext</span><span class="params">()</span></span>
-</code></pre></li>
-<li><p>如何实现reactnative android 中按返回键不完全退出App?</p>
-<pre><code>   onBackAndroid = () =&gt; {
-<span class="keyword">const</span> nav = <span class="keyword">this</span>.navigator;
-<span class="keyword">const</span> routers = nav.getCurrentRoutes();
-<span class="keyword">if</span> (routers.length &gt; <span class="number">1</span>) {
-  nav.pop();
-  <span class="keyword">return</span> <span class="literal">true</span>;
-}
-ExitModule.<span class="built_in">exit</span>();<span class="comment">//调用原生的moveTaskToBack()方法</span>
-<span class="keyword">return</span> <span class="literal">true</span>;
-  };
-</code></pre></li>
-</ul>
-</span>
+        <span itemprop="articleBody"><h2 id="react_native_初始化项目指定version">react native 初始化项目指定version</h2><pre><code>react-native init projectname --version <span class="number">0.29</span><span class="number">.2</span>
+</code></pre><h2 id="react_native_realm">react native realm</h2><p>定义model</p>
+<pre><code><span class="keyword">var</span> Realm = <span class="built_in">require</span>(<span class="string">'realm'</span>);
+<span class="keyword">const</span> CarSchema = {
+    name: <span class="string">'Car'</span>,
+    properties: {
+    make:  <span class="string">'string'</span>,    
+    model: <span class="string">'string'</span>,
+    miles: {<span class="keyword">type</span>: <span class="string">'int'</span>, <span class="keyword">default</span>: <span class="number">0</span>},
+    }
+};
+<span class="keyword">const</span> PersonSchema = {
+    name: <span class="string">'Person'</span>,
+    properties: {
+    name:     <span class="string">'string'</span>,
+    birthday: <span class="string">'date'</span>,
+    cars:     {<span class="keyword">type</span>: <span class="string">'list'</span>, objectType: <span class="string">'Car'</span>},
+    picture:  {<span class="keyword">type</span>: <span class="string">'data'</span>, optional: <span class="literal">true</span>}, <span class="comment">// optional property</span>
+    }
+};
+
+<span class="comment">// Initialize a Realm with Car and Person models</span>
+<span class="keyword">let</span> realm = <span class="keyword">new</span> Realm({schema: [CarSchema, PersonSchema]});
+</code></pre><p>创建model</p>
+<pre><code>let realm = <span class="keyword">new</span> Realm({<span class="string">schema:</span> [CarSchema]);
+
+realm.write(() =&gt; {
+realm.create(<span class="string">'Car'</span>, {<span class="string">make:</span> <span class="string">'Honda'</span>, <span class="string">model:</span> <span class="string">'Accord'</span>, <span class="string">drive:</span> <span class="string">'awd'</span>});
+});
+</code></pre><p>通过主键创建更新对象</p>
+<pre><code><span class="tag">realm</span><span class="class">.write</span>(() =&gt; {
+<span class="comment">// Create a book object</span>
+<span class="tag">realm</span><span class="class">.create</span>(<span class="string">'Book'</span>, {<span class="attribute">id</span>: <span class="number">1</span>, <span class="attribute">title</span>: <span class="string">'Recipes'</span>, <span class="attribute">price</span>: <span class="number">35</span>});
+
+<span class="comment">// Update book with new price keyed off the id</span>
+<span class="tag">realm</span><span class="class">.create</span>(<span class="string">'Book'</span>, {<span class="attribute">id</span>: <span class="number">1</span>, <span class="attribute">price</span>: <span class="number">55</span>}, true);
+});
+</code></pre><p>查询</p>
+<pre><code><span class="keyword">let</span> hondas = realm.objects(<span class="string">'Car</span>').filtered(<span class="string">'make</span> = <span class="string">"Honda"</span>');
+<span class="keyword">let</span> cars = realm.objects(<span class="string">'Car</span>');
+
+<span class="comment">// get first 5 Car objects</span>
+<span class="keyword">let</span> firstCars = cars.slice(<span class="number">0</span>, <span class="number">5</span>);
+</code></pre></span>
       
     </div>
 
@@ -325,7 +352,7 @@ ExitModule.<span class="built_in">exit</span>();<span class="comment">//调用�
       
         <div class="post-tags">
           
-            <a href="/tags/react-native/" rel="tag">#react native</a>
+            <a href="/tags/realm/" rel="tag">#realm</a>
           
         </div>
       
@@ -334,17 +361,13 @@ ExitModule.<span class="built_in">exit</span>();<span class="comment">//调用�
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/08/17/20160817-1/" rel="next" title="20160817">
-                <i class="fa fa-chevron-left"></i> 20160817
+              <a href="/2016/08/27/20160827/" rel="next" title="20160827">
+                <i class="fa fa-chevron-left"></i> 20160827
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/08/27/20160827/" rel="prev" title="20160827">
-                20160827 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -371,8 +394,8 @@ ExitModule.<span class="built_in">exit</span>();<span class="comment">//调用�
         
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/08/24/20160824/"
-           data-title="20160824" data-url="http://yoursite.com/2016/08/24/20160824/">
+      <div class="ds-thread" data-thread-key="2016/08/29/20160829/"
+           data-title="20160829" data-url="http://yoursite.com/2016/08/29/20160829/">
       </div>
     
   </div>
@@ -480,7 +503,7 @@ ExitModule.<span class="built_in">exit</span>();<span class="comment">//调用�
               
             
             
-              <p class="post-toc-empty">此文章未包含目录</p>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#react_native_初始化项目指定version"><span class="nav-number">1.</span> <span class="nav-text">react native 初始化项目指定version</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#react_native_realm"><span class="nav-number">2.</span> <span class="nav-text">react native realm</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator">
