@@ -66,7 +66,7 @@
 <script type="text/javascript" id="hexo.configuration">
   var CONFIG = {
     scheme: 'Mist',
-    sidebar: 'always',
+    sidebar: 'hide',
     motion: true
   };
 </script>
@@ -400,9 +400,11 @@
 </li>
 <li><p>由于复制了项目，添加了文件夹，修改了info.plist文件 run的时候显示The file “WeiBo” couldn’t be opened because you don’t have permission to view,build Setting 中搜索plist文件配置，发现路径是上个项目的路径，修改为拷贝后的路径，run success</p>
 </li>
-<li><p>获取沙盒路径 将模型数据归档存储<br>  NSString <em>doc = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];<br>  NSString </em>file = [doc stringByAppendingPathComponent:@”account.data”];</p>
-<p>  [NSKeyedArchiver archiveRootObject:account toFile:file];</p>
-<p>归档时必须告诉模型对象，哪些属性需要存储和获取，模型实现代理NSCoding </p>
+<li><p>获取沙盒路径 将模型数据归档存储 </p>
+<pre><code>    <span class="built_in">NSString</span> *doc = [<span class="built_in">NSSearchPathForDirectoriesInDomains</span>(<span class="built_in">NSDocumentDirectory</span>, <span class="built_in">NSUserDomainMask</span>, <span class="literal">YES</span>) lastObject];
+<span class="built_in">NSString</span> *file = [doc stringByAppendingPathComponent:<span class="string">@"account.data"</span>];
+[<span class="built_in">NSKeyedArchiver</span> archiveRootObject:account toFile:file];
+</code></pre><p>归档时必须告诉模型对象，哪些属性需要存储和获取，模型实现代理NSCoding </p>
 </li>
 </ul>
 <pre><code>/**
@@ -722,9 +724,18 @@ return self;
           <span itemprop="articleBody">
             
               <hr>
-<p><em>设置代理<br>    在事件的发起对象里创建代理，声明协议和要实现的方法
-</em>KVO<br><em>bounds 和 frame
-</em>自定义UINavigationController 拦截pushviewController 隐藏tabBar<br>*tableview 的cell 点击事件的响应 ，方法自动补全不注意可能掉错 didselect 和diddeseleted</p>
+<ul>
+<li><p>设置代理 在事件的发起对象里创建代理，声明协议和要实现的方法</p>
+</li>
+<li><p>KVO </p>
+</li>
+<li><p>bounds 和 frame</p>
+</li>
+<li><p>自定义UINavigationController 拦截pushviewController 隐藏tabBar</p>
+</li>
+<li><p>tableview 的cell 点击事件的响应 ，方法自动补全不注意可能掉错 didselect 和diddeseleted</p>
+</li>
+</ul>
 
             
           </span>
@@ -865,7 +876,7 @@ return self;
               
                 
                 <a class="post-title-link" href="/2015/12/02/learning-IOS/" itemprop="url">
-                  learning IOS -
+                  learning iOS
                 </a>
               
             
@@ -909,14 +920,15 @@ return self;
         
           <span itemprop="articleBody">
             
-              <h2 id="IOS开发实战">IOS开发实战</h2><hr>
-<h3 id="调整项目文件位置后出现file_not_found_错误，在buildSetting_中修改相应文件的位置描述">调整项目文件位置后出现file not found 错误，在buildSetting 中修改相应文件的位置描述</h3><h3 id="prefix-pch_xcode_创建的预编译头文件_取消掉了。。。">prefix.pch xcode 创建的预编译头文件 取消掉了。。。</h3><blockquote>
-<p>头文件配置过大导致应用启动缓慢</p>
-</blockquote>
+              <h3 id="IOS开发实战">IOS开发实战</h3><ul>
+<li>调整项目文件位置后出现file not found 错误，在buildSetting 中修改相应文件的位置描述</li>
+<li>prefix.pch xcode 创建的预编译头文件 取消掉了。。。</li>
+<li>头文件配置过大导致应用启动缓慢</li>
+</ul>
 <h3 id="完成了最简单的UI框架">完成了最简单的UI框架</h3><ul>
-<li>1 <strong>UITabBarViewController</strong></li>
-<li>2 四个<strong>UINavigationViewController</strong></li>
-<li>3 四个<strong>UITableViewController</strong></li>
+<li>1 UITabBarViewController</li>
+<li>2 四个UINavigationViewController</li>
+<li>3 四个UITableViewController</li>
 </ul>
 
             
@@ -1145,7 +1157,7 @@ return self;
               
                 
                 <a class="post-title-link" href="/2015/11/19/Open-the-door/" itemprop="url">
-                  Open the door
+                  MarkDown
                 </a>
               
             
@@ -1189,7 +1201,47 @@ return self;
         
           <span itemprop="articleBody">
             
-              <p>so maybe this is the way you go</p>
+              <h1 id="一级标题">一级标题</h1><h2 id="二级标题">二级标题</h2><h3 id="三级标题">三级标题</h3><h4 id="四级标题">四级标题</h4><h5 id="五级标题">五级标题</h5><h6 id="六级标题">六级标题</h6><blockquote>
+<p>这是第一级引用。</p>
+<blockquote>
+<p>这是第二级引用。</p>
+</blockquote>
+<p>现在回到第一级引用。</p>
+</blockquote>
+<ul>
+<li>Red</li>
+<li>Green</li>
+<li>Blue</li>
+</ul>
+<ol>
+<li>Red</li>
+<li>Green</li>
+<li>Blue</li>
+</ol>
+<ul>
+<li>有以下主要功能:<blockquote>
+<p>代码托管平台<br>在线运行环境 </p>
+</blockquote>
+</li>
+<li>有以下主要功能:       <blockquote>
+<p>代码质量监控<br>项目管理平台</p>
+</blockquote>
+</li>
+</ul>
+<p><strong>Coding，让开发更简单</strong><br><em>Coding，让开发更简单</em></p>
+<p><a href="http://github.com/xiDaiDai" target="_blank" rel="external">robot</a></p>
+<p><a href="http://github.com/xiDaiDai" target="_blank" rel="external">http://github.com/xiDaiDai</a></p>
+<p><img src="http://ww3.sinaimg.cn/large/610dc034jw1f740f701gqj20u011hgo9.jpg" alt="Alt text"></p>
+<p><img src="http://ww3.sinaimg.cn/large/610dc034jw1f740f701gqj20u011hgo9.jpg" width="300" height="200" alt="图片名称" align="center"></p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">require</span> <span class="string">'redcarpet'</span></span><br><span class="line">markdown = <span class="constant">Redcarpet</span>.new(<span class="string">"Hello World!"</span>)</span><br><span class="line">puts markdown.to_html</span><br></pre></td></tr></table></figure>
+<pre><code class="java"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HelloWorld</span> </span>{
+
+    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>{
+        <span class="comment">// Prints "Hello, World" to the terminal window.</span>
+        System.out.println(<span class="string">"Hello, World"</span>);
+    }
+}
+</code></pre>
 
             
           </span>

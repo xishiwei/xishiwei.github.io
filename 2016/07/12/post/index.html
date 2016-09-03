@@ -51,23 +51,32 @@
 
 
 
-<meta name="description" content="修改js文件后，reload文件不生效react native issue">
+<meta name="description" content="最近React Native修改js文件后，reload文件不生效，让人十分郁闷,一番搜索后可行的方法如下：
+找到\node_modules\react-native\node_modules\node-haste\lib\FileWatcher\index.js文件
+将MAX_WAIT_TIME的值调的更大,避免因加载超时而没有任何消息提示。
+碰到坑的时候React Native GitHub">
 <meta property="og:type" content="article">
 <meta property="og:title" content="react native reload not work">
 <meta property="og:url" content="http://yoursite.com/2016/07/12/post/index.html">
 <meta property="og:site_name" content="you know nothing">
-<meta property="og:description" content="修改js文件后，reload文件不生效react native issue">
-<meta property="og:updated_time" content="2016-08-29T13:41:57.000Z">
+<meta property="og:description" content="最近React Native修改js文件后，reload文件不生效，让人十分郁闷,一番搜索后可行的方法如下：
+找到\node_modules\react-native\node_modules\node-haste\lib\FileWatcher\index.js文件
+将MAX_WAIT_TIME的值调的更大,避免因加载超时而没有任何消息提示。
+碰到坑的时候React Native GitHub">
+<meta property="og:updated_time" content="2016-09-03T07:47:01.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="react native reload not work">
-<meta name="twitter:description" content="修改js文件后，reload文件不生效react native issue">
+<meta name="twitter:description" content="最近React Native修改js文件后，reload文件不生效，让人十分郁闷,一番搜索后可行的方法如下：
+找到\node_modules\react-native\node_modules\node-haste\lib\FileWatcher\index.js文件
+将MAX_WAIT_TIME的值调的更大,避免因加载超时而没有任何消息提示。
+碰到坑的时候React Native GitHub">
 
 
 
 <script type="text/javascript" id="hexo.configuration">
   var CONFIG = {
     scheme: 'Mist',
-    sidebar: 'always',
+    sidebar: 'hide',
     motion: true
   };
 </script>
@@ -283,7 +292,11 @@
       
 
       
-        <span itemprop="articleBody"><p>修改js文件后，reload文件不生效<br><a href="https://github.com/facebook/react-native/issues/7257" target="_blank" rel="external">react native issue</a></p>
+        <span itemprop="articleBody"><p>最近React Native修改js文件后，reload文件不生效，让人十分郁闷,一番搜索后可行的方法如下：</p>
+<p>找到\node_modules\react-native\node_modules\node-haste\lib\FileWatcher\index.js文件</p>
+<p>将MAX_WAIT_TIME的值调的更大,避免因加载超时而没有任何消息提示。</p>
+<p>碰到坑的时候React Native GitHub 的issues和stackoverflow可以帮助解决很多问题。</p>
+<p><a href="https://github.com/facebook/react-native/issues/7257" target="_blank" rel="external">react native issue</a></p>
 </span>
       
     </div>
@@ -301,8 +314,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/07/09/android/" rel="next" title="android">
-                <i class="fa fa-chevron-left"></i> android
+              <a href="/2016/07/09/android/" rel="next" title="20160709">
+                <i class="fa fa-chevron-left"></i> 20160709
               </a>
             
           </div>

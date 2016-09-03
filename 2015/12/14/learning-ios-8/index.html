@@ -53,27 +53,30 @@
 
 <meta name="description" content="ios7 later
 NSDictionary *attributes = @{NSFontAttributeName:IWStatusContentFont};
-CGRect rect = [status.text boundingRectWithSize:CGSizeMake(contentLabelMaxW, MAXFLOAT)options:NSStringDrawingUsesLineF">
+CGRect rect = [status.text boundingRectWithSize:CGSizeMake(contentLabelMaxW, MAXFLOAT)
+options:NSStringDrawingUsesLine">
 <meta property="og:type" content="article">
 <meta property="og:title" content="learning ios 8">
 <meta property="og:url" content="http://yoursite.com/2015/12/14/learning-ios-8/index.html">
 <meta property="og:site_name" content="you know nothing">
 <meta property="og:description" content="ios7 later
 NSDictionary *attributes = @{NSFontAttributeName:IWStatusContentFont};
-CGRect rect = [status.text boundingRectWithSize:CGSizeMake(contentLabelMaxW, MAXFLOAT)options:NSStringDrawingUsesLineF">
-<meta property="og:updated_time" content="2015-12-15T09:07:02.000Z">
+CGRect rect = [status.text boundingRectWithSize:CGSizeMake(contentLabelMaxW, MAXFLOAT)
+options:NSStringDrawingUsesLine">
+<meta property="og:updated_time" content="2016-09-03T08:00:07.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="learning ios 8">
 <meta name="twitter:description" content="ios7 later
 NSDictionary *attributes = @{NSFontAttributeName:IWStatusContentFont};
-CGRect rect = [status.text boundingRectWithSize:CGSizeMake(contentLabelMaxW, MAXFLOAT)options:NSStringDrawingUsesLineF">
+CGRect rect = [status.text boundingRectWithSize:CGSizeMake(contentLabelMaxW, MAXFLOAT)
+options:NSStringDrawingUsesLine">
 
 
 
 <script type="text/javascript" id="hexo.configuration">
   var CONFIG = {
     scheme: 'Mist',
-    sidebar: 'always',
+    sidebar: 'hide',
     motion: true
   };
 </script>
@@ -291,10 +294,14 @@ CGRect rect = [status.text boundingRectWithSize:CGSizeMake(contentLabelMaxW, MAX
       
         <span itemprop="articleBody"><ul>
 <li><p>ios7 later</p>
-<p>NSDictionary *attributes = @{NSFontAttributeName:IWStatusContentFont};</p>
-<p>CGRect rect = [status.text boundingRectWithSize:CGSizeMake(contentLabelMaxW, MAXFLOAT)<br>options:NSStringDrawingUsesLineFragmentOrigin<br>attributes:attributes<br>context:nil];</p>
-<p>ios 6<br>CGSize retweetContentLabelSize = [status.retweeted_status.text sizeWithFont:IWRetweetStatusContentFont constrainedToSize:CGSizeMake(retweetContentLabelMaxW, MAXFLOAT)];</p>
-</li>
+<pre><code><span class="built_in">NSDictionary</span> *attributes = @{<span class="built_in">NSFontAttributeName</span>:IWStatusContentFont};
+<span class="built_in">CGRect</span> rect = [status<span class="variable">.text</span> boundingRectWithSize:<span class="built_in">CGSizeMake</span>(contentLabelMaxW, MAXFLOAT)
+options:<span class="built_in">NSStringDrawingUsesLineFragmentOrigin</span>
+attributes:attributes
+context:<span class="literal">nil</span>];
+</code></pre><p>ios 6</p>
+<pre><code>CGSize retweetContentLabelSize = [status.retweeted_status.text <span class="string">sizeWithFont:</span>IWRetweetStatusContentFont <span class="string">constrainedToSize:</span>CGSizeMake(retweetContentLabelMaxW, MAXFLOAT)];
+</code></pre></li>
 </ul>
 <ul>
 <li><p>cell view 的模块化整理封装，是得code清晰明了</p>

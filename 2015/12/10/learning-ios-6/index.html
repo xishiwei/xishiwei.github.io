@@ -61,7 +61,7 @@
 <meta property="og:description" content="NSURLSession/NSURLConnection HTTP load failed (kCFStreamErrorDomainSSL, -980ios 9 的限制  在info。plist文件里加入NSAppTransportSecurity  dictionary-》NSAllowsArbitraryLoads  YES,实现任性加载
 
 由于复制了项目，添加了文件夹，修改了info.pl">
-<meta property="og:updated_time" content="2015-12-10T10:40:27.000Z">
+<meta property="og:updated_time" content="2016-09-03T08:01:37.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="learning ios 6">
 <meta name="twitter:description" content="NSURLSession/NSURLConnection HTTP load failed (kCFStreamErrorDomainSSL, -980ios 9 的限制  在info。plist文件里加入NSAppTransportSecurity  dictionary-》NSAllowsArbitraryLoads  YES,实现任性加载
@@ -73,7 +73,7 @@
 <script type="text/javascript" id="hexo.configuration">
   var CONFIG = {
     scheme: 'Mist',
-    sidebar: 'always',
+    sidebar: 'hide',
     motion: true
   };
 </script>
@@ -295,9 +295,11 @@
 </li>
 <li><p>由于复制了项目，添加了文件夹，修改了info.plist文件 run的时候显示The file “WeiBo” couldn’t be opened because you don’t have permission to view,build Setting 中搜索plist文件配置，发现路径是上个项目的路径，修改为拷贝后的路径，run success</p>
 </li>
-<li><p>获取沙盒路径 将模型数据归档存储<br>  NSString <em>doc = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];<br>  NSString </em>file = [doc stringByAppendingPathComponent:@”account.data”];</p>
-<p>  [NSKeyedArchiver archiveRootObject:account toFile:file];</p>
-<p>归档时必须告诉模型对象，哪些属性需要存储和获取，模型实现代理NSCoding </p>
+<li><p>获取沙盒路径 将模型数据归档存储 </p>
+<pre><code>    <span class="built_in">NSString</span> *doc = [<span class="built_in">NSSearchPathForDirectoriesInDomains</span>(<span class="built_in">NSDocumentDirectory</span>, <span class="built_in">NSUserDomainMask</span>, <span class="literal">YES</span>) lastObject];
+<span class="built_in">NSString</span> *file = [doc stringByAppendingPathComponent:<span class="string">@"account.data"</span>];
+[<span class="built_in">NSKeyedArchiver</span> archiveRootObject:account toFile:file];
+</code></pre><p>归档时必须告诉模型对象，哪些属性需要存储和获取，模型实现代理NSCoding </p>
 </li>
 </ul>
 <pre><code>/**

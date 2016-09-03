@@ -66,7 +66,7 @@
 <script type="text/javascript" id="hexo.configuration">
   var CONFIG = {
     scheme: 'Mist',
-    sidebar: 'always',
+    sidebar: 'hide',
     motion: true
   };
 </script>
@@ -505,7 +505,11 @@
         
           <span itemprop="articleBody">
             
-              <p><a href="http://github.com/oblador/react-native-vector-icons" target="_blank" rel="external">react-native-vector-icons</a><br>fonticon 矢量图表在android平台下配置需要更改原生配置和代码，<br>改完之后必须重新react-native run-android编译才能生效,不然<br>屏幕上只会显示一个叉号或者模拟器上什么都没显示。</p>
+              <p><a href="http://github.com/oblador/react-native-vector-icons" target="_blank" rel="external">react-native-vector-icons</a></p>
+<p>fonticon 矢量图表在android平台下配置需要更改原生配置和代码，改完之后必须重新react-native </p>
+<p>run-android编译才能生效,不然屏幕上只会显示一个叉号或者模拟器上什么都没显示。</p>
+<p>当packager服务运行着的时候,如果往项目里添加了图片，必须重新启动packager服务，否则在引用该图片的时候</p>
+<p>会报错显示文件名乱码。</p>
 
             
           </span>
@@ -593,7 +597,11 @@
         
           <span itemprop="articleBody">
             
-              <p>修改js文件后，reload文件不生效<br><a href="https://github.com/facebook/react-native/issues/7257" target="_blank" rel="external">react native issue</a></p>
+              <p>最近React Native修改js文件后，reload文件不生效，让人十分郁闷,一番搜索后可行的方法如下：</p>
+<p>找到\node_modules\react-native\node_modules\node-haste\lib\FileWatcher\index.js文件</p>
+<p>将MAX_WAIT_TIME的值调的更大,避免因加载超时而没有任何消息提示。</p>
+<p>碰到坑的时候React Native GitHub 的issues和stackoverflow可以帮助解决很多问题。</p>
+<p><a href="https://github.com/facebook/react-native/issues/7257" target="_blank" rel="external">react native issue</a></p>
 
             
           </span>
@@ -637,7 +645,7 @@
               
                 
                 <a class="post-title-link" href="/2016/07/09/android/" itemprop="url">
-                  android
+                  20160709
                 </a>
               
             
@@ -681,15 +689,12 @@
         
           <span itemprop="articleBody">
             
-              <ul>
-<li><p>mac下配置Android环境，需要在用户目录下 新建文件</p>
+              <p>mac下配置Android环境，需要在用户目录下 新建文件</p>
 <pre><code><span class="tag">touch</span> <span class="class">.bash_profile</span>
-</code></pre><p>配置如下：</p>
+</code></pre><p>配置如下</p>
 <pre><code>  export <span class="constant">PATH=</span><span class="variable">${</span><span class="constant">PATH}</span><span class="symbol">:~/Library/Android/sdk/platform-tools</span>
 export <span class="constant">ANDROID_HOME=</span>~<span class="regexp">/Library/</span><span class="constant">Android/</span>sdk
 </code></pre><p>vi .bash_profile=&gt;insert=&gt;:wq</p>
-</li>
-</ul>
 
             
           </span>
@@ -825,8 +830,8 @@ export <span class="constant">ANDROID_HOME=</span>~<span class="regexp">/Library
             
               
                 
-                <a class="post-title-link" href="/2016/07/09/react-native/" itemprop="url">
-                  node.js
+                <a class="post-title-link" href="/2016/06/01/react-native/" itemprop="url">
+                  Node.js
                 </a>
               
             
@@ -836,8 +841,8 @@ export <span class="constant">ANDROID_HOME=</span>~<span class="regexp">/Library
         <div class="post-meta">
           <span class="post-time">
             发表于
-            <time itemprop="dateCreated" datetime="2016-07-09T00:00:00+08:00" content="2016-07-09">
-              2016-07-09
+            <time itemprop="dateCreated" datetime="2016-06-01T00:00:00+08:00" content="2016-06-01">
+              2016-06-01
             </time>
           </span>
 
@@ -847,8 +852,8 @@ export <span class="constant">ANDROID_HOME=</span>~<span class="regexp">/Library
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/07/09/react-native/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/07/09/react-native/" itemprop="commentsCount"></span>
+                <a href="/2016/06/01/react-native/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/06/01/react-native/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -870,7 +875,16 @@ export <span class="constant">ANDROID_HOME=</span>~<span class="regexp">/Library
         
           <span itemprop="articleBody">
             
-              
+              <p>Node.js 就是运行在服务端的 JavaScript。<br>Node.js 是一个基于Chrome JavaScript 运行时建立的一个平台。<br>Node.js是一个事件驱动IO服务端JavaScript环境，基于Google的V8引擎，V8引擎执行Javascript的速度非常快，性能非常好</p>
+<p>安装配置下载Node即可</p>
+<pre><code><span class="keyword">node</span><span class="identifier"> </span><span class="title">-v</span>
+</code></pre><p>查看是否安装成功</p>
+<p>sublime里新建hello.js文件输入 </p>
+<pre><code>console.log('hello <span class="keyword">node</span>.<span class="identifier"></span><span class="title">js</span>')
+</code></pre><p>node执行该文件：</p>
+<pre><code><span class="keyword">node</span><span class="identifier"> </span><span class="title">hello</span>.js
+</code></pre><p>终端输出 hello node.js</p>
+
             
           </span>
         
@@ -912,8 +926,8 @@ export <span class="constant">ANDROID_HOME=</span>~<span class="regexp">/Library
             
               
                 
-                <a class="post-title-link" href="/2016/07/09/node-js/" itemprop="url">
-                  react native
+                <a class="post-title-link" href="/2016/05/08/node-js/" itemprop="url">
+                  React Native
                 </a>
               
             
@@ -923,8 +937,8 @@ export <span class="constant">ANDROID_HOME=</span>~<span class="regexp">/Library
         <div class="post-meta">
           <span class="post-time">
             发表于
-            <time itemprop="dateCreated" datetime="2016-07-09T00:00:00+08:00" content="2016-07-09">
-              2016-07-09
+            <time itemprop="dateCreated" datetime="2016-05-08T00:00:00+08:00" content="2016-05-08">
+              2016-05-08
             </time>
           </span>
 
@@ -934,8 +948,8 @@ export <span class="constant">ANDROID_HOME=</span>~<span class="regexp">/Library
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/07/09/node-js/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/07/09/node-js/" itemprop="commentsCount"></span>
+                <a href="/2016/05/08/node-js/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/05/08/node-js/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -957,7 +971,31 @@ export <span class="constant">ANDROID_HOME=</span>~<span class="regexp">/Library
         
           <span itemprop="articleBody">
             
-              
+              <p>React Native使你能够在Javascript和React的基础上获得完全一致的开发体验，构建世界一流的原生APP。</p>
+<p>React Native着力于提高多平台开发的开发效率 —— 仅需学习一次，编写任何平台。(Learn once, write anywhere)</p>
+<p>Facebook已经在多项产品中使用了React Native，并且将持续地投入建设React Native。</p>
+<ul>
+<li><p>Android Windows环境：</p>
+<p>  Node:依赖Node启动packager服务，手机通过该服务加载项目文件以及npm的安装。</p>
+<p>  JDK,Android SDK：Android 开发环境必备，需要配置好环境变量ANDROID_HOME,JAVA_HOME,SDK以及里面的support包版本有一定的要求,编译时会有提示可通过SDK Manager进行下载。</p>
+<p>  Android Stuido,Sublime Text3:原生Android IDE,React Native 开发IDE,Sublime 需要安装相关插件支持去es6代码高亮等.推荐插件：Babel,JsFormat,React Native Snippet</p>
+<p>  Git</p>
+</li>
+<li><p>安装React Native 命令行工具</p>
+<pre><code>npm <span class="operator"><span class="keyword">install</span> -<span class="keyword">g</span> react-<span class="keyword">native</span>-cli</span>
+</code></pre></li>
+<li><p>初始化项目：</p>
+<pre><code>react-<span class="keyword">native</span> init firstProject
+</code></pre></li>
+<li><p>运行packager服务：</p>
+<pre><code>react-<span class="keyword">native</span> start
+</code></pre></li>
+<li><p>Android 手机上运行：</p>
+<pre><code>react-<span class="keyword">native</span> run-android
+</code></pre><p>通过设置键，或摇晃手机打开DevSetting页面,配置调试连接地址，电脑ip:8081端口</p>
+</li>
+</ul>
+
             
           </span>
         
@@ -1045,20 +1083,27 @@ export <span class="constant">ANDROID_HOME=</span>~<span class="regexp">/Library
           <span itemprop="articleBody">
             
               <ul>
-<li>下拉刷新UIRefreshControl</li>
-<li>集成pictrues browser</li>
-<li><p>[UIView animateWithDuration:0.7 animations:^{<br>btn.transform = CGAffineTransformMakeTranslation(0, btnH);<br>} completion:^(BOOL finished) {<br>  [UIView animateKeyframesWithDuration:0.7 delay:1.0 options:UIViewKeyframeAnimationOptionCalculationModeLinear animations:^{</p>
-<pre><code>// <span class="keyword">btn.transform </span>= CGAffineTransformMakeTranslation(<span class="number">0</span>, -<span class="keyword">btnH);
-</span> <span class="keyword">btn.transform </span>= CGAffineTransformIdentity<span class="comment">;</span>
-</code></pre><p>} completion:^(BOOL finished) {<br>[btn removeFromSuperview];<br>}];<br>}];</p>
+<li><p>下拉刷新UIRefreshControl</p>
 </li>
+<li><p>集成pictrues browser</p>
+<pre><code><span class="collection">[UIView animateWithDuration:0.7 animations:<span class="comment">^{
+  btn.transform = CGAffineTransformMakeTranslation(0, btnH);
+}</span> completion:^<span class="list">(<span class="keyword">BOOL</span> finished)</span> <span class="collection">{
+<span class="collection">[UIView animateKeyframesWithDuration:0.7 delay:1.0  options:UIViewKeyframeAnimationOptionCalculationModeLinear animations:<span class="comment">^{
+// btn.transform = CGAffineTransformMakeTranslation(0, -btnH);
+ btn.transform = CGAffineTransformIdentity;
+}</span> completion:^<span class="list">(<span class="keyword">BOOL</span> finished)</span> <span class="collection">{
+  <span class="collection">[btn removeFromSuperview]</span><span class="comment">;</span>
+}</span>]</span><span class="comment">;</span>
+}</span>]</span><span class="comment">;</span>
+</code></pre></li>
 <li><p>写图片进入相册 UIImageWriteToSavedPhotoAlbum(image,nil.nil,nil)</p>
 </li>
-<li><p>UIBarButtonItem的setTitleTextAttributes对Disabled颜色设置无效问题<br>解决方法：将设置为disabled的语句放置在viewWillAppear方法中。</p>
+<li><p>UIBarButtonItem的setTitleTextAttributes对Disabled颜色设置无效问题解决方法：将设置为disabled的语句放置在viewWillAppear方法中。</p>
 </li>
 <li><p>becomeFirstResponser 调起键盘</p>
 </li>
-<li><p>模拟器不显示键盘  iOS Simulator -&gt; Hardware -&gt; Keyboard<br>取消选择：“Connect Hardware Keyboard”</p>
+<li><p>模拟器不显示键盘  iOS Simulator -&gt; Hardware -&gt; Keyboard取消选择：“Connect Hardware Keyboard”</p>
 </li>
 </ul>
 
@@ -1150,10 +1195,14 @@ export <span class="constant">ANDROID_HOME=</span>~<span class="regexp">/Library
             
               <ul>
 <li><p>ios7 later</p>
-<p>NSDictionary *attributes = @{NSFontAttributeName:IWStatusContentFont};</p>
-<p>CGRect rect = [status.text boundingRectWithSize:CGSizeMake(contentLabelMaxW, MAXFLOAT)<br>options:NSStringDrawingUsesLineFragmentOrigin<br>attributes:attributes<br>context:nil];</p>
-<p>ios 6<br>CGSize retweetContentLabelSize = [status.retweeted_status.text sizeWithFont:IWRetweetStatusContentFont constrainedToSize:CGSizeMake(retweetContentLabelMaxW, MAXFLOAT)];</p>
-</li>
+<pre><code><span class="built_in">NSDictionary</span> *attributes = @{<span class="built_in">NSFontAttributeName</span>:IWStatusContentFont};
+<span class="built_in">CGRect</span> rect = [status<span class="variable">.text</span> boundingRectWithSize:<span class="built_in">CGSizeMake</span>(contentLabelMaxW, MAXFLOAT)
+options:<span class="built_in">NSStringDrawingUsesLineFragmentOrigin</span>
+attributes:attributes
+context:<span class="literal">nil</span>];
+</code></pre><p>ios 6</p>
+<pre><code>CGSize retweetContentLabelSize = [status.retweeted_status.text <span class="string">sizeWithFont:</span>IWRetweetStatusContentFont <span class="string">constrainedToSize:</span>CGSizeMake(retweetContentLabelMaxW, MAXFLOAT)];
+</code></pre></li>
 </ul>
 <ul>
 <li><p>cell view 的模块化整理封装，是得code清晰明了</p>
