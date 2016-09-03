@@ -228,6 +228,128 @@
 
     
     
+      
+      
+        
+        
+        
+      
+
+      
+    
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/09/03/20160903/" itemprop="url">
+                  20160903
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            发表于
+            <time itemprop="dateCreated" datetime="2016-09-03T11:46:06+08:00" content="2016-09-03">
+              2016-09-03
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/09/03/20160903/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/09/03/20160903/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <span itemprop="articleBody">
+            
+              <h3 id="android_studio">android studio</h3><pre><code> Error:Execution failed <span class="keyword">for</span> task <span class="string">':app:transformClassesWithDexForDebug'</span>.
+ com<span class="class">.android</span><span class="class">.build</span><span class="class">.api</span><span class="class">.transform</span><span class="class">.TransformException</span>:
+com<span class="class">.android</span><span class="class">.ide</span><span class="class">.common</span><span class="class">.process</span><span class="class">.ProcessException</span>: org<span class="class">.gradle</span><span class="class">.process</span><span class="class">.internal</span><span class="class">.ExecException</span>: 
+Process <span class="string">'command '</span>C:\Program Files\Java\jdk1.<span class="number">8.0</span>_31\bin\java.exe<span class="string">''</span> 
+finished with non-zero exit value <span class="number">2</span>
+</code></pre><p>在build.gradle里添加：</p>
+<pre><code><span class="title">defaultConfig</span> {
+    <span class="title">multiDexEnabled</span> <span class="built_in">true</span>
+}
+</code></pre><h3 id="ES6">ES6</h3><h4 id="export:">export:</h4><p>命名导出</p>
+<pre><code><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">gank</span>(<span class="params">n</span>)</span>{
+    <span class="keyword">return</span> <span class="string">'hello gank'</span>;
+}
+<span class="keyword">const</span> carry = <span class="string">'carry'</span>;
+<span class="keyword">export</span> {carry}
+<span class="comment">//或者直接export const carry = 'carry'</span>
+</code></pre><p>默认导出</p>
+<pre><code><span class="title">export</span> <span class="default"><span class="keyword">default</span> gank<span class="container">(<span class="title">io</span>)</span>{</span>
+    return 'hello <span class="default"><span class="keyword">default</span>';</span>
+}
+</code></pre><p>每个文件的export default 只能有一个</p>
+<h4 id="import:">import:</h4><p>以下代码将myDefault，foo，bar导入文件中,myDefault是默认导出的项,foo,bar为命名</p>
+<p>导出的项（即my-module.js中的代码为：…;export foo;export bar;export default myDefault;）</p>
+<pre><code><span class="keyword">import</span> myDefault, {foo, bar} <span class="keyword">from</span> <span class="string">"my-module.js"</span>
+</code></pre><p>在react native 可能看见如下写法：</p>
+<pre><code><span class="keyword">import</span> React, {Component} <span class="keyword">from</span> <span class="string">'react'</span>;
+</code></pre>
+            
+          </span>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
 
     
       
@@ -1206,106 +1328,6 @@ nrm <span class="keyword">use</span> cnpm <span class="comment">//切换到cnpm<
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/07/15/20160715/" itemprop="url">
-                  20160715
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            发表于
-            <time itemprop="dateCreated" datetime="2016-07-15T20:23:24+08:00" content="2016-07-15">
-              2016-07-15
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/07/15/20160715/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/07/15/20160715/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <span itemprop="articleBody">
-            
-              <ul>
-<li><p>apply 和 call 实现调用别人的方法吗，区别在于apply的参数是数组<br>  foo.call(this, arg1,arg2,arg3) == foo.apply(this, arguments)==this.foo(arg1, arg2, arg3)</p>
-</li>
-<li><p>javascript 方法默认是有一个arguments数组参数，当调用函数传入参数时，函数即使没有指明参数名称，也一样可以使用参数数组的对象获取参数</p>
-</li>
-<li><p>今天给一台型机器安装了Android环境，reactnative 环境</p>
-<ul>
-<li>jdk=&gt;JAVA_HOME=&gt;android studio=&gt;android sdk  ANDROID_HOME</li>
-<li>node.js=&gt;react-native-cli=&gt;npm init</li>
-</ul>
-</li>
-</ul>
-<p>jdk 安装真等的蛋疼，以前没有这种感觉啊，最后只能copy以前的jdk，android 环境sdk下载速度感觉变快了啊，我都没有配置国内的镜像，他妹的就直接现在完了，完了，完了。。。。<br>安装完整android环境，直接就给react native 环境疏通了道路，过程很顺利。</p>
-
-            
-          </span>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
 
   </section>
 
@@ -1352,7 +1374,7 @@ nrm <span class="keyword">use</span> cnpm <span class="comment">//切换到cnpm<
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">29</span>
+              <span class="site-state-item-count">30</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -1366,7 +1388,7 @@ nrm <span class="keyword">use</span> cnpm <span class="comment">//切换到cnpm<
 
           <div class="site-state-item site-state-tags">
             <a href="/tags">
-              <span class="site-state-item-count">10</span>
+              <span class="site-state-item-count">11</span>
               <span class="site-state-item-name">标签</span>
               </a>
           </div>
