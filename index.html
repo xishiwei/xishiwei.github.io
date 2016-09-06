@@ -251,6 +251,110 @@
             
               
                 
+                <a class="post-title-link" href="/2016/09/06/20160906/" itemprop="url">
+                  20160906
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            发表于
+            <time itemprop="dateCreated" datetime="2016-09-06T21:33:18+08:00" content="2016-09-06">
+              2016-09-06
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/09/06/20160906/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/09/06/20160906/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <span itemprop="articleBody">
+            
+              <ul>
+<li><p>react native 切换页面过快时出现黄色警告：</p>
+<pre><code><span class="function"><span class="title">setState</span><span class="params">(...)</span></span>: Can only update <span class="tag">a</span> mounted or mounting component.
+</code></pre><p>  黄色警告在release版本中是不会出现的，也不会有其他的衍生错误，暂时可以选择忽略，如果强迫要解决的话可以通过如下方法：</p>
+<pre><code>componentWillUnmount() {
+        <span class="keyword">this</span>.isUnmount = <span class="literal">true</span>;
+ }
+</code></pre><p>  在请求完数据更新数据源之前做判断：</p>
+<pre><code><span class="tag">if</span>（<span class="tag">this</span><span class="class">.isUnmount</span>）<span class="tag">return</span>;
+    <span class="tag">this</span><span class="class">.setState</span>(<span class="rules">{
+    <span class="rule"><span class="attribute">data</span>:<span class="value">responseData
+</span></span></span>})
+</code></pre><p>  还有一种办法让请求去走redux流程。</p>
+</li>
+<li><p>页面切换的过程中为了避免每次请求数据，可以通过redux维护的state来保存数据源。</p>
+</li>
+</ul>
+
+            
+          </span>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/09/04/Installation/" itemprop="url">
                   Docker Installation
                 </a>
@@ -1262,104 +1366,6 @@ ExitModule.<span class="built_in">exit</span>();<span class="comment">//调用�
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/07/21/20160721/" itemprop="url">
-                  20160721
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            发表于
-            <time itemprop="dateCreated" datetime="2016-07-21T22:24:44+08:00" content="2016-07-21">
-              2016-07-21
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/07/21/20160721/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/07/21/20160721/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <span itemprop="articleBody">
-            
-              <ul>
-<li><p>react-native创建的工程修改android包名<br>比如：react-native init hello得到的包名会是com.hello<br>想修改成com.companyname.hello,需要在android目录下修改<br>AndroidManifest.xml 里的package,以及app.gradule里的applicationId</p>
-</li>
-<li><p>react-native debug模式时候，出现<br>  debugger and device times have drifted by xxxxms,please<br>  correct this by running adb shell….<br>这是因为手机的时间和电脑的时间差的太多，调整一下就好了。。。。</p>
-</li>
-<li><p>更改npm registery</p>
-<pre><code>npm install -<span class="keyword">g</span> nrm
-nrm <span class="keyword">list</span> <span class="comment">//显示所有registery</span>
-nrm <span class="keyword">use</span> cnpm <span class="comment">//切换到cnpm</span>
-</code></pre></li>
-</ul>
-
-            
-          </span>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
 
   </section>
 
@@ -1406,7 +1412,7 @@ nrm <span class="keyword">use</span> cnpm <span class="comment">//切换到cnpm<
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">31</span>
+              <span class="site-state-item-count">32</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>

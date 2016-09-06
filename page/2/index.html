@@ -251,6 +251,104 @@
             
               
                 
+                <a class="post-title-link" href="/2016/07/21/20160721/" itemprop="url">
+                  20160721
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            发表于
+            <time itemprop="dateCreated" datetime="2016-07-21T22:24:44+08:00" content="2016-07-21">
+              2016-07-21
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/07/21/20160721/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/07/21/20160721/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <span itemprop="articleBody">
+            
+              <ul>
+<li><p>react-native创建的工程修改android包名<br>比如：react-native init hello得到的包名会是com.hello<br>想修改成com.companyname.hello,需要在android目录下修改<br>AndroidManifest.xml 里的package,以及app.gradule里的applicationId</p>
+</li>
+<li><p>react-native debug模式时候，出现<br>  debugger and device times have drifted by xxxxms,please<br>  correct this by running adb shell….<br>这是因为手机的时间和电脑的时间差的太多，调整一下就好了。。。。</p>
+</li>
+<li><p>更改npm registery</p>
+<pre><code>npm install -<span class="keyword">g</span> nrm
+nrm <span class="keyword">list</span> <span class="comment">//显示所有registery</span>
+nrm <span class="keyword">use</span> cnpm <span class="comment">//切换到cnpm</span>
+</code></pre></li>
+</ul>
+
+            
+          </span>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/07/18/20160718/" itemprop="url">
                   20160718
                 </a>
@@ -1116,117 +1214,6 @@ export <span class="constant">ANDROID_HOME=</span>~<span class="regexp">/Library
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2015/12/16/learning-ios-9/" itemprop="url">
-                  learning ios 9
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            发表于
-            <time itemprop="dateCreated" datetime="2015-12-16T16:37:17+08:00" content="2015-12-16">
-              2015-12-16
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2015/12/16/learning-ios-9/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/12/16/learning-ios-9/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <span itemprop="articleBody">
-            
-              <ul>
-<li><p>下拉刷新UIRefreshControl</p>
-</li>
-<li><p>集成pictrues browser</p>
-<pre><code><span class="collection">[UIView animateWithDuration:0.7 animations:<span class="comment">^{
-  btn.transform = CGAffineTransformMakeTranslation(0, btnH);
-}</span> completion:^<span class="list">(<span class="keyword">BOOL</span> finished)</span> <span class="collection">{
-<span class="collection">[UIView animateKeyframesWithDuration:0.7 delay:1.0  options:UIViewKeyframeAnimationOptionCalculationModeLinear animations:<span class="comment">^{
-// btn.transform = CGAffineTransformMakeTranslation(0, -btnH);
- btn.transform = CGAffineTransformIdentity;
-}</span> completion:^<span class="list">(<span class="keyword">BOOL</span> finished)</span> <span class="collection">{
-  <span class="collection">[btn removeFromSuperview]</span><span class="comment">;</span>
-}</span>]</span><span class="comment">;</span>
-}</span>]</span><span class="comment">;</span>
-</code></pre></li>
-<li><p>写图片进入相册 UIImageWriteToSavedPhotoAlbum(image,nil.nil,nil)</p>
-</li>
-<li><p>UIBarButtonItem的setTitleTextAttributes对Disabled颜色设置无效问题解决方法：将设置为disabled的语句放置在viewWillAppear方法中。</p>
-</li>
-<li><p>becomeFirstResponser 调起键盘</p>
-</li>
-<li><p>模拟器不显示键盘  iOS Simulator -&gt; Hardware -&gt; Keyboard取消选择：“Connect Hardware Keyboard”</p>
-</li>
-</ul>
-
-            
-          </span>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
 
   </section>
 
@@ -1273,7 +1260,7 @@ export <span class="constant">ANDROID_HOME=</span>~<span class="regexp">/Library
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">31</span>
+              <span class="site-state-item-count">32</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
