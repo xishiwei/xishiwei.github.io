@@ -251,6 +251,165 @@
             
               
                 
+                <a class="post-title-link" href="/2016/09/07/20160907/" itemprop="url">
+                  20160907
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            发表于
+            <time itemprop="dateCreated" datetime="2016-09-07T21:46:44+08:00" content="2016-09-07">
+              2016-09-07
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/09/07/20160907/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/09/07/20160907/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <span itemprop="articleBody">
+            
+              <p> React Native 里需要接入友盟推送,首先按照官方文档在Android Studio里导入推送Module依赖,然后在MainApplication里添加PushSDK服务，处理通知</p>
+<pre><code> <span class="keyword">private</span> <span class="literal">void</span> initPushSDk() {
+    PushAgent mPushAgent = PushAgent<span class="built_in">.</span>getInstance(getApplicationContext());
+    mPushAgent<span class="built_in">.</span>enable();
+    mPushAgent<span class="built_in">.</span>setNotificationClickHandler(notificationClickHandler);
+
+}
+
+<span class="keyword">private</span> static final <span class="built_in">String</span> a = UmengNotificationClickHandler<span class="built_in">.</span>class<span class="built_in">.</span>getName();
+<span class="comment">//友盟通知自定义点击处理</span>
+UmengNotificationClickHandler notificationClickHandler = <span class="literal">new</span> UmengNotificationClickHandler(){
+    @Override
+    <span class="keyword">public</span> <span class="literal">void</span> dealWithCustomAction(Context context, UMessage msg) {
+        launchApplication(context,msg);<span class="comment">//先启动后台应用</span>
+        WritableMap <span class="keyword">params</span> = Arguments<span class="built_in">.</span>createMap();
+        <span class="built_in">String</span> custom = msg<span class="built_in">.</span>custom;
+        <span class="keyword">params</span><span class="built_in">.</span>putString(<span class="string">"custom"</span>,custom);
+        <span class="keyword">Log</span><span class="built_in">.</span>e(<span class="string">"custome"</span>,custom);
+        ReactContext reactContext = getReactNativeHost()<span class="built_in">.</span>getReactInstanceManager()<span class="built_in">.</span>getCurrentReactContext();
+        sendEvent(reactContext, <span class="string">"umeng_notification"</span>, <span class="keyword">params</span>);
+    }
+};
+
+<span class="keyword">private</span> <span class="literal">void</span> launchApplication(Context context,UMessage msg){
+    Intent var3 = context<span class="built_in">.</span>getPackageManager()<span class="built_in">.</span>getLaunchIntentForPackage(context<span class="built_in">.</span>getPackageName());
+    <span class="keyword">if</span>(var3 == <span class="built_in">null</span>) {
+        com<span class="built_in">.</span>umeng<span class="built_in">.</span>common<span class="built_in">.</span>message<span class="built_in">.</span><span class="keyword">Log</span><span class="built_in">.</span>b(a, <span class="string">"handleMessage(): cannot find app: "</span> + context<span class="built_in">.</span>getPackageName());
+    } <span class="keyword">else</span> {
+        var3<span class="built_in">.</span>setPackage((<span class="built_in">String</span>) <span class="built_in">null</span>);
+        var3<span class="built_in">.</span>addFlags(<span class="number">268435456</span>);
+        context<span class="built_in">.</span>startActivity(var3);
+    }
+}
+
+<span class="keyword">private</span>  <span class="literal">void</span> sendEvent(ReactContext reactContext,
+                              <span class="built_in">String</span> eventName,
+                              @Nullable WritableMap <span class="keyword">params</span>) {
+    reactContext
+            <span class="built_in">.</span>getJSModule(DeviceEventManagerModule<span class="built_in">.</span>RCTDeviceEventEmitter<span class="built_in">.</span>class)
+            <span class="built_in">.</span>emit(eventName, <span class="keyword">params</span>);
+}
+</code></pre><p>React Native 主页面里监听原生里发送的事件,跳转到相应的界面：</p>
+<pre><code>componentDidMount() {
+    <span class="keyword">if</span> (Platform.OS === <span class="string">'android'</span>) {
+          BackAndroid.addEventListener(<span class="string">'hardwareBackPress'</span>, <span class="function"><span class="params">()</span> =&gt;</span> <span class="keyword">this</span>.onBackAndroid());
+    };
+    DeviceEventEmitter.addListener(<span class="string">'umeng_notification'</span>, <span class="function"><span class="params">(e: Event)</span> =&gt;</span> {
+      <span class="regexp">//</span>e为原生传递过来的参数e.custom
+    <span class="keyword">this</span>.navigator.push({
+        <span class="attribute">component</span>: ShowNotificationPage
+      });
+      });
+  }
+</code></pre><p>可能是生命周期的原因,当android回退键退出应用时,只能拉起App却无法跳转到相应的界面,因此我在回退键的事件处理上进行了拦截,让App movebacktostack,而不是让界面销毁掉，相当于Home键的功能。</p>
+<p>React Native组件之间通信一般是通过props就可以实现父控件向子控件传值,父控件获取子控件的值.<br>也可以通过React Native 中的DeviceEventEmitter处理组件之间的监听事件,方式如下：</p>
+<pre><code>componentWillUnmount() {  
+    <span class="keyword">this</span>.subscription.remove();
+  }
+
+  componentDidMount() {  
+    <span class="keyword">this</span>.subscription = DeviceEventEmitter.addListener(<span class="string">'followChanged'</span>, <span class="function"><span class="params">()</span> =&gt;</span> {
+          <span class="keyword">this</span>.onRefresh()
+        });
+
+    <span class="keyword">this</span>.onRefresh();
+  }
+
+  onRefresh() {
+        <span class="keyword">this</span>.reuqestFans(<span class="keyword">this</span>.props.mid);
+  }
+</code></pre><p>其他组件触发事件：</p>
+<pre><code>DeviceEventEmitter.<span class="keyword">emit</span>(<span class="string">'followChanged'</span>);
+</code></pre>
+            
+          </span>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/09/06/20160906/" itemprop="url">
                   20160906
                 </a>
@@ -1268,104 +1427,6 @@ ExitModule.<span class="built_in">exit</span>();<span class="comment">//调用�
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/07/24/20160724/" itemprop="url">
-                  20160724
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            发表于
-            <time itemprop="dateCreated" datetime="2016-07-24T20:20:53+08:00" content="2016-07-24">
-              2016-07-24
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/07/24/20160724/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/07/24/20160724/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <span itemprop="articleBody">
-            
-              <ul>
-<li><p>react-native run-android时使用genymotion，报错如下：</p>
-<pre><code>adb server <span class="property">version</span> (<span class="number">32</span>) doesn't match this client (<span class="number">36</span>); killing...
-<span class="keyword">error</span>: could <span class="keyword">not</span> install *smartsocket* listener: Address already <span class="keyword">in</span> use
-</code></pre><p>原因是genymotion的Android sdk没有配置为custom,将本地的sdk 设置上后 运行成功。</p>
-</li>
-<li><p>mac 下查看android sdk 安装的目录时候通过echo  $ANDROID_HOME</p>
-<pre><code><span class="regexp">/Users/</span>jichao<span class="regexp">/Library/</span>Android<span class="regexp">/sdk</span>
-</code></pre><p>Library是隐藏的，前往该目录需要在Finder选择 <b>前往文件夹</b><br>输入 <b>~/Library</b></p>
-</li>
-</ul>
-
-            
-          </span>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
 
   </section>
 
@@ -1412,7 +1473,7 @@ ExitModule.<span class="built_in">exit</span>();<span class="comment">//调用�
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">32</span>
+              <span class="site-state-item-count">33</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
