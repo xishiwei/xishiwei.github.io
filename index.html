@@ -228,6 +228,119 @@
 
     
     
+      
+      
+        
+        
+        
+      
+
+      
+    
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/09/08/20160908/" itemprop="url">
+                  20160908
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            发表于
+            <time itemprop="dateCreated" datetime="2016-09-08T20:47:04+08:00" content="2016-09-08">
+              2016-09-08
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/09/08/20160908/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/09/08/20160908/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <span itemprop="articleBody">
+            
+              <p>React Native 打开Remote Debugger请求服务器的时候出现如下错误：</p>
+<pre><code>No <span class="attribute">'Access</span>-Control-Allow-Origin' header <span class="keyword">is</span> present <span class="keyword">on</span> the requested resource. 
+Origin <span class="attribute">'http</span>://localhost:<span class="number">8081</span>' <span class="keyword">is</span> therefore <span class="keyword">not</span> allowed <span class="keyword">access</span>.
+</code></pre><p>按照google,stackoverflow,GitHub issues里的方法始终无法解决，真是让人抓狂，<br>无法在Chrome里调试，你特么逗我了，那我要你何用，拿刀来！！！最后没办法只能在Android Studio里查看<br>React Native 里console.log()和redux-logger的输出日志。<br>既然Android Studio logcat 可以打出React Native里的日志,adb logcat也可以在cmd中打React Native日志</p>
+<pre><code>adb logcat <span class="operator">-s</span> ReactNativeJS
+</code></pre><p>React Native 日志的tag为ReactNativeJS，这样就可以全部过滤了，结果过程中又发现不支持中文显示，<br>你特么够了，那只能接着解决</p>
+<ol>
+<li><p>输入 chcp 回车查看当前的编码；</p>
+</li>
+<li><p>输入chcp 65001 回车；</p>
+</li>
+<li><p>在窗体上右键选择属性来设置字体为Lucida Consola；</p>
+</li>
+<li><p>如果想换回原来的编码chcp 936</p>
+</li>
+</ol>
+<p>搜索过程中发现Android 大神 JakeWharton 对logcat封装的工具 <a href="https://github.com/JakeWharton/pidcat" target="_blank" rel="external">pidcat</a>,可以在控制台输出指定应用的日志,非常不错。</p>
+
+            
+          </span>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
 
     
       
@@ -1337,96 +1450,6 @@ ExitModule.<span class="built_in">exit</span>();<span class="comment">//调用�
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/07/28/友盟三方登录/" itemprop="url">
-                  开始了，同志们！
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            发表于
-            <time itemprop="dateCreated" datetime="2016-07-28T22:43:49+08:00" content="2016-07-28">
-              2016-07-28
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/07/28/友盟三方登录/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/07/28/友盟三方登录/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <span itemprop="articleBody">
-            
-              <p>最近要上react native 项目，需要用到微博，QQ,微信三方登录，准备封装友盟的sdk,过程是相当不爽，<br>各个平台的key,appid都特么没有，还得使用上个项目的环境测试也是没谁了，友盟sdk5.0+的新版本不知道是我太傻还是友盟的sdk不够完善，尽然各种不走回调方法，论坛也是比较寂寥。</p>
-<p>这是第一个react native 要上线的项目，启动过程比较艰难感觉，两个平台并行开发还要共用很多react代码，git版本控制让我觉得双平台并行开发有点烦，实在是没有先只开发一个平台，然后修改来的爽快。</p>
-<p>整个项目目测比较复杂，业务比较多和繁琐，单独一个模块领出来就足可以造一个app了，这么重的应用我特么想互相伤害，定于九月底出第一版本，目测项目会被延期毕业。工作管理使用的Tower,挺不错的办公协作软件，可是在这关键的时刻我要请假回家，玩几天，谁怕谁！</p>
-
-            
-          </span>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
 
   </section>
 
@@ -1473,7 +1496,7 @@ ExitModule.<span class="built_in">exit</span>();<span class="comment">//调用�
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">33</span>
+              <span class="site-state-item-count">34</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -1487,7 +1510,7 @@ ExitModule.<span class="built_in">exit</span>();<span class="comment">//调用�
 
           <div class="site-state-item site-state-tags">
             <a href="/tags">
-              <span class="site-state-item-count">12</span>
+              <span class="site-state-item-count">13</span>
               <span class="site-state-item-name">标签</span>
               </a>
           </div>
