@@ -730,6 +730,29 @@ For more examples <span class="operator">and</span> ideas, visit:
 <li><p>让Docker开机自启动</p>
 <pre><code>$ sudo chkconfig docker <span class="function_start"><span class="keyword">on</span></span>
 </code></pre></li>
+<li><p>注册Docker Hub账号 username:jichao password:712534</p>
+</li>
+<li><p>终端登录</p>
+<pre><code><span class="variable">$ </span>docker <span class="symbol">login:</span>
+</code></pre></li>
+<li><p>搜索仓库：</p>
+<pre><code><span class="variable">$ </span>docker search centos
+</code></pre></li>
+<li><p>拉取镜像：</p>
+<pre><code><span class="variable">$ </span>docker pull centos
+</code></pre></li>
+<li><p>查看本地有哪些镜像</p>
+<pre><code><span class="variable">$ </span>docker images
+</code></pre></li>
+<li><p>使用镜像启动一个容器：</p>
+<pre><code>$ docker run -t -<span class="tag">i</span> centos /bin/bash
+</code></pre></li>
+<li><p>终止终端,停止容器</p>
+<pre><code><span class="variable">$ </span>exit|<span class="constant">Ctrl</span>+<span class="constant">D</span>|<span class="variable">$ </span>docker stop
+</code></pre></li>
+<li><p>终止状态容器查看：</p>
+<pre><code>$ docker ps -<span class="literal">a</span>
+</code></pre></li>
 </ol>
 
             
