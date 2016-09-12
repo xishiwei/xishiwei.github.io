@@ -35,7 +35,7 @@
 <link href="/css/main.css?v=0.4.5.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="mongodb," />
+  <meta name="keywords" content="Linux," />
 
 
 
@@ -51,25 +51,34 @@
 
 
 
-<meta name="description" content="brew install mongodb
-mongod —config /usr/local/etc/mongod.conf 
-mongo
-可视化工具：robomongo">
+<meta name="description" content="在CentOS Linux系统上安装NVM（Node version Manager
+
+安装NVM,运行Install Script
+curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.31.7/install.sh | bash
+ 可以在GitHub上搜索到nvm仓库。
+
+安装完成后会出现 Close and reopen y">
 <meta property="og:type" content="article">
-<meta property="og:title" content="mongodb on mac">
-<meta property="og:url" content="http://yoursite.com/2016/07/09/mac mongodb/index.html">
+<meta property="og:title" content="Install NVM on CentOS7">
+<meta property="og:url" content="http://yoursite.com/2016/09/12/Install-NVM-on-CentOS7/index.html">
 <meta property="og:site_name" content="you know nothing">
-<meta property="og:description" content="brew install mongodb
-mongod —config /usr/local/etc/mongod.conf 
-mongo
-可视化工具：robomongo">
-<meta property="og:updated_time" content="2016-07-09T14:37:19.000Z">
+<meta property="og:description" content="在CentOS Linux系统上安装NVM（Node version Manager
+
+安装NVM,运行Install Script
+curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.31.7/install.sh | bash
+ 可以在GitHub上搜索到nvm仓库。
+
+安装完成后会出现 Close and reopen y">
+<meta property="og:updated_time" content="2016-09-12T15:01:20.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="mongodb on mac">
-<meta name="twitter:description" content="brew install mongodb
-mongod —config /usr/local/etc/mongod.conf 
-mongo
-可视化工具：robomongo">
+<meta name="twitter:title" content="Install NVM on CentOS7">
+<meta name="twitter:description" content="在CentOS Linux系统上安装NVM（Node version Manager
+
+安装NVM,运行Install Script
+curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.31.7/install.sh | bash
+ 可以在GitHub上搜索到nvm仓库。
+
+安装完成后会出现 Close and reopen y">
 
 
 
@@ -81,7 +90,7 @@ mongo
   };
 </script>
 
-  <title> mongodb on mac | you know nothing </title>
+  <title> Install NVM on CentOS7 | you know nothing </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -252,7 +261,7 @@ mongo
             
             
               
-                mongodb on mac
+                Install NVM on CentOS7
               
             
           </h1>
@@ -261,8 +270,8 @@ mongo
         <div class="post-meta">
           <span class="post-time">
             发表于
-            <time itemprop="dateCreated" datetime="2016-07-09T00:00:00+08:00" content="2016-07-09">
-              2016-07-09
+            <time itemprop="dateCreated" datetime="2016-09-12T22:50:06+08:00" content="2016-09-12">
+              2016-09-12
             </time>
           </span>
 
@@ -272,8 +281,8 @@ mongo
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/07/09/mac mongodb/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/07/09/mac mongodb/" itemprop="commentsCount"></span>
+                <a href="/2016/09/12/Install-NVM-on-CentOS7/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/09/12/Install-NVM-on-CentOS7/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -292,12 +301,20 @@ mongo
       
 
       
-        <span itemprop="articleBody"><ul>
-<li>brew install mongodb</li>
-<li>mongod —config /usr/local/etc/mongod.conf </li>
-<li>mongo</li>
-<li>可视化工具：robomongo</li>
-</ul>
+        <span itemprop="articleBody"><p>在CentOS Linux系统上安装NVM（Node version Manager</p>
+<ol>
+<li><p>安装NVM,运行Install Script</p>
+<pre><code>curl -<span class="keyword">o</span>- http<span class="variable">s:</span>//raw.githubusercontent.<span class="keyword">com</span>/creationix/nvm/v0.<span class="number">31.7</span>/install.<span class="keyword">sh</span> | bash
+</code></pre><p> 可以在GitHub上搜索到nvm仓库。</p>
+</li>
+<li><p>安装完成后会出现 Close and reopen your terminal to start using nvm 类似的信息，可以关掉终端再打开,或者运行下面的命令后即可使用nvm：</p>
+<pre><code><span class="built_in">source</span> ~/.bashrc
+</code></pre></li>
+<li><p>安装验证</p>
+<pre><code>nvm <span class="comment">--version</span>
+</code></pre><p> 如果输出 <strong>0.31.7</strong> 那就成功了。</p>
+</li>
+</ol>
 </span>
       
     </div>
@@ -306,7 +323,7 @@ mongo
       
         <div class="post-tags">
           
-            <a href="/tags/mongodb/" rel="tag">#mongodb</a>
+            <a href="/tags/Linux/" rel="tag">#Linux</a>
           
         </div>
       
@@ -315,17 +332,13 @@ mongo
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/06/01/react-native/" rel="next" title="Node.js">
-                <i class="fa fa-chevron-left"></i> Node.js
+              <a href="/2016/09/11/React-Native-on-Docker/" rel="next" title="React Native in Docker">
+                <i class="fa fa-chevron-left"></i> React Native in Docker
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/07/09/android/" rel="prev" title="20160709">
-                20160709 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -352,8 +365,8 @@ mongo
         
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/07/09/mac mongodb/"
-           data-title="mongodb on mac" data-url="http://yoursite.com/2016/07/09/mac mongodb/">
+      <div class="ds-thread" data-thread-key="2016/09/12/Install-NVM-on-CentOS7/"
+           data-title="Install NVM on CentOS7" data-url="http://yoursite.com/2016/09/12/Install-NVM-on-CentOS7/">
       </div>
     
   </div>

@@ -228,15 +228,194 @@
 
     
     
+
+    
       
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/09/12/Install-NVM-on-CentOS7/" itemprop="url">
+                  Install NVM on CentOS7
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            发表于
+            <time itemprop="dateCreated" datetime="2016-09-12T22:50:06+08:00" content="2016-09-12">
+              2016-09-12
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/09/12/Install-NVM-on-CentOS7/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/09/12/Install-NVM-on-CentOS7/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body">
+
       
-        
-        
-        
       
 
       
+        
+          <span itemprop="articleBody">
+            
+              <p>在CentOS Linux系统上安装NVM（Node version Manager</p>
+<ol>
+<li><p>安装NVM,运行Install Script</p>
+<pre><code>curl -<span class="keyword">o</span>- http<span class="variable">s:</span>//raw.githubusercontent.<span class="keyword">com</span>/creationix/nvm/v0.<span class="number">31.7</span>/install.<span class="keyword">sh</span> | bash
+</code></pre><p> 可以在GitHub上搜索到nvm仓库。</p>
+</li>
+<li><p>安装完成后会出现 Close and reopen your terminal to start using nvm 类似的信息，可以关掉终端再打开,或者运行下面的命令后即可使用nvm：</p>
+<pre><code><span class="built_in">source</span> ~/.bashrc
+</code></pre></li>
+<li><p>安装验证</p>
+<pre><code>nvm <span class="comment">--version</span>
+</code></pre><p> 如果输出 <strong>0.31.7</strong> 那就成功了。</p>
+</li>
+</ol>
+
+            
+          </span>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
     
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/09/11/React-Native-on-Docker/" itemprop="url">
+                  React Native in Docker
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            发表于
+            <time itemprop="dateCreated" datetime="2016-09-11T20:31:33+08:00" content="2016-09-11">
+              2016-09-11
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/09/11/React-Native-on-Docker/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/09/11/React-Native-on-Docker/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <span itemprop="articleBody">
+            
+              
+            
+          </span>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
 
     
       
@@ -1233,246 +1412,6 @@ ExitModule.<span class="built_in">exit</span>();<span class="comment">//调用�
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/08/17/20160817-1/" itemprop="url">
-                  20160817
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            发表于
-            <time itemprop="dateCreated" datetime="2016-08-17T21:32:28+08:00" content="2016-08-17">
-              2016-08-17
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/08/17/20160817-1/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/17/20160817-1/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <span itemprop="articleBody">
-            
-              <ul>
-<li><p>react native 中 pageA-&gt;pageB 想在pageB返回时刷新pageA的内容</p>
-<p>方案一：</p>
-<pre><code>props传递
-</code></pre><p>方案二：</p>
-<pre><code>DeviceEventEmitter
-</code></pre></li>
-<li><p>sina微博 授权未安装客户端登陆出错：</p>
-<pre><code><span class="attribute">android.content.ActivityNotFoundException</span>: <span class="string">Unable to find explicit activity class {edu.gdut.myweibo/</span>
-
-<span class="css"><span class="tag">com</span><span class="class">.sina</span><span class="class">.weibo</span><span class="class">.sdk</span><span class="class">.component</span><span class="class">.WeiboSdkBrowser</span>}; <span class="tag">have</span> <span class="tag">you</span> <span class="tag">declared</span> <span class="tag">this</span> 
-
-<span class="tag">activity</span> <span class="tag">in</span> <span class="tag">your</span> <span class="tag">AndroidManifest</span><span class="class">.xml</span>?</span>
-</code></pre><p>在Manifest.xml中注入SDK的WebBrowser</p>
-<pre><code><span class="tag">&lt;<span class="title">activity</span>
-    <span class="attribute">android:name</span>=<span class="value">"com.sina.weibo.sdk.component.WeiboSdkBrowser"</span>
-    <span class="attribute">android:configChanges</span>=<span class="value">"keyboardHidden|orientation"</span>
-    <span class="attribute">android:exported</span>=<span class="value">"false"</span>
-    <span class="attribute">android:windowSoftInputMode</span>=<span class="value">"adjustResize"</span> &gt;</span>
-<span class="tag">&lt;/<span class="title">activity</span>&gt;</span>
-</code></pre></li>
-<li><p>react native 再次点击退出</p>
-<pre><code>onBackAndroid() {
-   <span class="keyword">let</span> routers = <span class="keyword">this</span>.nav.getCurrentRoutes();
- <span class="keyword">if</span> (<span class="keyword">this</span>.nav &amp;&amp; routers.length &gt; <span class="number">1</span>) {
-       <span class="keyword">this</span>.nav.pop();
-      <span class="keyword">return</span> <span class="literal">true</span>;
-}
-
-<span class="keyword">let</span> current = <span class="keyword">new</span> <span class="built_in">Date</span>().getTime();
-    <span class="keyword">if</span> (current - last &gt; <span class="number">2000</span>) {
-  last = current;
-  ToastAndroid.show(<span class="string">'再次点击退出'</span>, <span class="number">1000</span>);
-  <span class="keyword">return</span> <span class="literal">true</span>;
-    } <span class="keyword">else</span> {
-      <span class="keyword">return</span> <span class="literal">false</span>;
-        }
-  }
-</code></pre></li>
-</ul>
-
-            
-          </span>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/08/14/20160814/" itemprop="url">
-                  20160814
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            发表于
-            <time itemprop="dateCreated" datetime="2016-08-14T22:13:59+08:00" content="2016-08-14">
-              2016-08-14
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/08/14/20160814/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/14/20160814/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <span itemprop="articleBody">
-            
-              <h2 id="AndroidStudio工程">AndroidStudio工程</h2><h3 id="android_studio_下引入有-so文件的包，出现如下错误：">android studio 下引入有.so文件的包，出现如下错误：</h3><pre><code>java.lang.UnsatisfiedLinkError: 
-   dalvik.system.PathClassLoader[DexPathList[[zip file <span class="string">"/data/app/net.comet.example-1/base.apk"</span>],
-   nativeLibraryDirectories=[/data/app/net.comet.example-<span class="number">1</span>/lib/arm64, /vendor/lib64, /system/lib64]]] 
-   couldn't find <span class="string">"libffmpeg.so"</span>
- at java.lang.Runtime.<span class="built_in">load</span>Library(Runtime.java:<span class="number">366</span>)
- at java.lang.System.<span class="built_in">load</span>Library(System.java:<span class="number">989</span>)
- at com.dtr.zbar.build.ZBarDecoder.<span class="variable">&lt;clinit&gt;</span>(ZBarDecoder.java:<span class="number">6</span>)
- at me.ele.hbdteam.widget.ScanView<span class="variable">$1</span>.<span class="keyword">on</span>PreviewFrame(ScanView.java:<span class="number">263</span>)
- at android.hardware.Camera<span class="variable">$EventHandler</span>.handleMessage(Camera.java:<span class="number">1565</span>)
- at android.<span class="keyword">os</span>.Handler.dispatchMessage(Handler.java:<span class="number">102</span>)
- at android.<span class="keyword">os</span>.Looper.loop(Looper.java:<span class="number">155</span>)
- at android.app.ActivityThread.main(ActivityThread.java:<span class="number">5696</span>)
- at java.lang.reflect.Method.invoke(Native Method)
- at java.lang.reflect.Method.invoke(Method.java:<span class="number">372</span>)
- at com.android.internal.<span class="keyword">os</span>.ZygoteInit<span class="variable">$MethodAndArgsCaller</span>.run(ZygoteInit.java:<span class="number">1029</span>)
- at com.android.internal.<span class="keyword">os</span>.ZygoteInit.main(ZygoteInit.java:<span class="number">824</span>)
-</code></pre><p>   解决思路是：</p>
-<ul>
-<li>1、把libffmpeg.so拷贝一份到armeabi-v7a目录</li>
-<li><p>2、在app.gradle增加jniLibs声明</p>
-<pre><code><span class="built_in">source</span>Sets.main {
-        jniLibs.srcDirs = [<span class="string">'libs'</span>]
-}
-</code></pre></li>
-</ul>
-<h2 id="SurfaceView">SurfaceView</h2><p>播放视频的时候只有声音没有图像，主要的原因是，在调用MediaPlayer开始播放视频时 <br>SurfaceView却还未创建成功，解决办法是判断SurfaceView创建成功后再调用MediaPlayer的播放，<br>通过surfaceHolder的addCallBack()方法来监听surfaceCreated    </p>
-
-            
-          </span>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
 
   </section>
 
@@ -1519,7 +1458,7 @@ ExitModule.<span class="built_in">exit</span>();<span class="comment">//调用�
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">34</span>
+              <span class="site-state-item-count">36</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -1533,7 +1472,7 @@ ExitModule.<span class="built_in">exit</span>();<span class="comment">//调用�
 
           <div class="site-state-item site-state-tags">
             <a href="/tags">
-              <span class="site-state-item-count">13</span>
+              <span class="site-state-item-count">14</span>
               <span class="site-state-item-name">标签</span>
               </a>
           </div>
