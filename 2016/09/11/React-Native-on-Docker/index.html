@@ -51,16 +51,49 @@
 
 
 
-<meta name="description" content="Why PM2.5 is so High">
+<meta name="description" content="登录DockerHub账户
+$ docker login
+搜索repos
+$ docker search centos
+拉取centos镜像
+$ docker pull centos
+启动容器基于centos镜像
+$ docker run -it --name react-native -p 8080:8080 centos /bin/bash
+进入容器:
+
+查看存在的容器
+$ docker ps">
 <meta property="og:type" content="article">
 <meta property="og:title" content="React Native in Docker">
 <meta property="og:url" content="http://yoursite.com/2016/09/11/React-Native-on-Docker/index.html">
 <meta property="og:site_name" content="you know nothing">
-<meta property="og:description" content="Why PM2.5 is so High">
-<meta property="og:updated_time" content="2016-09-11T12:33:10.000Z">
+<meta property="og:description" content="登录DockerHub账户
+$ docker login
+搜索repos
+$ docker search centos
+拉取centos镜像
+$ docker pull centos
+启动容器基于centos镜像
+$ docker run -it --name react-native -p 8080:8080 centos /bin/bash
+进入容器:
+
+查看存在的容器
+$ docker ps">
+<meta property="og:updated_time" content="2016-09-12T16:32:38.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="React Native in Docker">
-<meta name="twitter:description" content="Why PM2.5 is so High">
+<meta name="twitter:description" content="登录DockerHub账户
+$ docker login
+搜索repos
+$ docker search centos
+拉取centos镜像
+$ docker pull centos
+启动容器基于centos镜像
+$ docker run -it --name react-native -p 8080:8080 centos /bin/bash
+进入容器:
+
+查看存在的容器
+$ docker ps">
 
 
 
@@ -283,7 +316,47 @@
       
 
       
-        <span itemprop="articleBody"></span>
+        <span itemprop="articleBody"><p>登录DockerHub账户</p>
+<pre><code><span class="variable">$ </span>docker login
+</code></pre><p>搜索repos</p>
+<pre><code><span class="variable">$ </span>docker search centos
+</code></pre><p>拉取centos镜像</p>
+<pre><code><span class="variable">$ </span>docker pull centos
+</code></pre><p>启动容器基于centos镜像</p>
+<pre><code>$ docker <span class="command">run</span> -<span class="keyword">it</span> <span class="comment">--name react-native -p 8080:8080 centos /bin/bash</span>
+</code></pre><p>进入容器:</p>
+<ul>
+<li><p>查看存在的容器</p>
+<pre><code>$ docker ps -<span class="literal">a</span>
+</code></pre></li>
+<li><p>运行容器</p>
+<pre><code>$ docker <span class="literal">start</span> containerID
+</code></pre></li>
+<li><p>进入一个在运行的容器：</p>
+<pre><code>$ docker exec -<span class="keyword">it </span>containerID /<span class="keyword">bin/bash </span>    
+</code></pre></li>
+</ul>
+<p>一系列的环境安装后，生成新的镜像：</p>
+<ul>
+<li><p>退出容器Ctrl+D|exit</p>
+</li>
+<li><p>提交修改生成新的镜像：</p>
+<pre><code>$ docker <span class="operator"><span class="keyword">commit</span> <span class="number">0</span>cd2240a8ae5(容器<span class="keyword">id</span>) docker-react-<span class="keyword">native</span>（生成的镜像名）</span>
+</code></pre></li>
+</ul>
+<p>将新生成的镜像push到仓库</p>
+<ul>
+<li><p>查看镜像ID </p>
+<pre><code><span class="variable">$ </span>docker images
+</code></pre></li>
+<li><p>给镜像添加tag</p>
+<pre><code>$ docker <span class="keyword">tag</span> <span class="title">7d9495d03763</span>(镜像id) jichao/docker-react-native:latest
+</code></pre></li>
+<li><p>推送到DockerHub(如果之前没有登录需要 $ docker login)</p>
+<pre><code>$ docker push jichao/docker-react-<span class="keyword">native</span>
+</code></pre></li>
+</ul>
+</span>
       
     </div>
 
