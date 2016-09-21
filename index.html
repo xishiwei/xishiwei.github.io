@@ -228,6 +228,156 @@
 
     
     
+      
+      
+        
+        
+        
+      
+
+      
+    
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/09/21/sublimetext3/" itemprop="url">
+                  Sublime Text3
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            发表于
+            <time itemprop="dateCreated" datetime="2016-09-21T22:19:49+08:00" content="2016-09-21">
+              2016-09-21
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/09/21/sublimetext3/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/09/21/sublimetext3/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <span itemprop="articleBody">
+            
+              <p>在开发React Native 项目时候,选择Sublime Text编辑器作为开发工具，相对来说sublime轻巧流畅，代码高亮，丰富的插件写写React Native差不多可以了。</p>
+<h3 id="1-下载">1.下载</h3><p>下载地址：<a href="http://www.sublimetext.com/3" target="_blank" rel="external">Sublime Text3</a> ,选择相应平台下载即可。</p>
+<h3 id="2-Package_Control">2.Package Control</h3><p>想方便的安装插件首先得安装package control,可通过快捷键ctrl+`，调出console,然后粘贴如下代码，点击回车等待安装。</p>
+<pre><code>import urllib.request,os,hashlib; h = <span class="string">'2915d1851351e5ee549c20394736b442'</span> + <span class="string">'8bc59f460fa1548d1514676163dafc88'</span>; pf = <span class="string">'Package Control.sublime-package'</span>; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); <span class="keyword">by</span> = urllib.request.urlopen( <span class="string">'http://packagecontrol.io/'</span> + pf.<span class="built_in">replace</span>(<span class="string">' '</span>, <span class="string">'%20'</span>)).<span class="built_in">read</span>(); dh = hashlib.sha256(<span class="keyword">by</span>).hexdigest(); print(<span class="string">'Error validating download (got %s instead of %s), please try manual install'</span> % (dh, h)) <span class="keyword">if</span> dh != h <span class="keyword">else</span> <span class="built_in">open</span>(os.path.join( ipp, pf), <span class="string">'wb'</span> ).<span class="built_in">write</span>(<span class="keyword">by</span>)
+</code></pre><h3 id="3-安装插件">3.安装插件</h3><p>快捷键Ctrl+shift+P打开安装界面,选择install package,稍等一会儿弹出插件搜索界面，输入插件名称<br>选择即可安装,react native 相关插件</p>
+<ul>
+<li>Babel</li>
+<li>Emmet</li>
+<li>Termina</li>
+<li>JsFormat</li>
+</ul>
+<h3 id="4-日常快捷键">4.日常快捷键</h3><p>MacOS:</p>
+<ul>
+<li>command+P 快速查找,输入@查找函数,输入#匹配文本</li>
+<li>command+D 多行游标，选中多个当前文本同时编辑</li>
+<li>command +F 查找内容</li>
+<li>command +Shift+F 查找并替换</li>
+<li>ctrl+command+上下箭头 移动当前行</li>
+<li>command+L 选行，可以此选择下行</li>
+<li>command+shit+L 选多行</li>
+<li>command + W 关闭当前窗口</li>
+<li>command + N 新建</li>
+<li>ctrl+G 调转到行号处</li>
+<li>command + Enter 可以在当前行下新建一行</li>
+<li>command + Shift + Enter 可以在当前行上面添加一行</li>
+<li>command + Shift + D 复制当前行</li>
+</ul>
+<p>Windows:</p>
+<ul>
+<li>ctrl+P 快速查找,输入@查找函数,输入#匹配文本</li>
+<li>ctrl+D 多行游标，选中多个当前文本同时编辑</li>
+<li>ctrl +F 查找内容</li>
+<li>ctrl +H 查找并替换</li>
+<li>ctrl+ctrl+上下箭头 移动当前行</li>
+<li>ctrl+L 选行，可以此选择下行</li>
+<li>ctrl+shit+L 选多行</li>
+<li>ctrl + W 关闭当前窗口</li>
+<li>ctrl + N 新建</li>
+<li>ctrl+G 调转到行号处</li>
+<li>ctrl + Enter 可以在当前行下新建一行</li>
+<li>ctrl + Shift + Enter 可以在当前行上面添加一行</li>
+<li>ctrl + Shift + D 复制当前行</li>
+</ul>
+<h3 id="5-设置">5.设置</h3><ul>
+<li><p>tab键空格数 Preference -&gt; Settings-User </p>
+<pre><code> // The number <span class="keyword">of</span> spaces a tab is considered equal <span class="keyword">to</span>  
+<span class="string">"tab_size"</span>: <span class="number">4</span>,  
+// Set <span class="keyword">to</span> <span class="literal">true</span> <span class="keyword">to</span> <span class="keyword">insert</span> spaces <span class="keyword">when</span> tab is pressed  
+<span class="string">"translate_tabs_to_spaces"</span>: <span class="literal">true</span>, 
+</code></pre></li>
+<li><p>删除末尾空格 Preference -&gt; Settings-User添加：</p>
+<pre><code><span class="string">"trim_trailing_white_space_on_save"</span>: <span class="literal">true</span>
+</code></pre></li>
+</ul>
+<h3 id="6-开发时候大家环境要统一,因为我之前安装了JsFormat,会自动格式化代码，结果队友的代码一过来卡卡就变了形状,版本控制合并冲突他么的就上来了,特别烦的是JSX被格式化后各种报错,暗示你有空格字符串，我了个fuck,无奈之下我配合他们ctrl+shit+p-&gt;remove_package-&gt;JsFormat卸载插件。">6.开发时候大家环境要统一,因为我之前安装了JsFormat,会自动格式化代码，结果队友的代码一过来卡卡就变了形状,版本控制合并冲突他么的就上来了,特别烦的是JSX被格式化后各种报错,暗示你有空格字符串，我了个fuck,无奈之下我配合他们ctrl+shit+p-&gt;remove package-&gt;JsFormat卸载插件。</h3>
+            
+          </span>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
 
     
       
@@ -1337,121 +1487,6 @@ srv.listen(<span class="number">8080</span>, <span class="function"><span class=
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/08/24/20160824/" itemprop="url">
-                  20160824
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            发表于
-            <time itemprop="dateCreated" datetime="2016-08-24T20:52:19+08:00" content="2016-08-24">
-              2016-08-24
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/08/24/20160824/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/24/20160824/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <span itemprop="articleBody">
-            
-              <ul>
-<li>react native TextInput  可以设置padding = 0,这样外部包裹view的的高度就等于TextInput的高度。</li>
-<li><p>使用友盟推送的时候，点击通知跳转到相关的界面，原生android 里可以打开指定的Activity,react native里没有activity给我们</p>
-<p>用,这时候可以在原生监听通知消息，通过DeviceEventEmitter发送事件和参数给JS端,然后通过navigator跳转</p>
-<p>原生中发送事件会调用如下代码：</p>
-<pre><code>   <span class="tag">private</span> <span class="tag">void</span> <span class="tag">sendEvent</span>(<span class="tag">ReactContext</span> <span class="tag">reactContext</span>,
-               <span class="tag">String</span> <span class="tag">eventName</span>,
-               <span class="at_rule">@<span class="keyword">Nullable</span> WritableMap params) </span>{
-  <span class="tag">reactContext</span>
-  <span class="class">.getJSModule</span>(<span class="tag">DeviceEventManagerModule</span><span class="class">.RCTDeviceEventEmitter</span><span class="class">.class</span>)
-  <span class="class">.emit</span>(<span class="tag">eventName</span>, <span class="tag">params</span>);
-}
-</code></pre><p> 如何在Activity/Application中获取ReactContext实例？</p>
-<pre><code>reactContext = <span class="function"><span class="title">getReactNativeHost</span><span class="params">()</span></span>.<span class="function"><span class="title">getReactInstanceManager</span><span class="params">()</span></span>.<span class="function"><span class="title">getCurrentReactContext</span><span class="params">()</span></span>
-</code></pre></li>
-<li><p>如何实现reactnative android 中按返回键不完全退出App?</p>
-<pre><code>   onBackAndroid = () =&gt; {
-<span class="keyword">const</span> nav = <span class="keyword">this</span>.navigator;
-<span class="keyword">const</span> routers = nav.getCurrentRoutes();
-<span class="keyword">if</span> (routers.length &gt; <span class="number">1</span>) {
-  nav.pop();
-  <span class="keyword">return</span> <span class="literal">true</span>;
-}
-ExitModule.<span class="built_in">exit</span>();<span class="comment">//调用原生的moveTaskToBack()方法</span>
-<span class="keyword">return</span> <span class="literal">true</span>;
-  };
-</code></pre></li>
-</ul>
-
-            
-          </span>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
 
   </section>
 
@@ -1498,7 +1533,7 @@ ExitModule.<span class="built_in">exit</span>();<span class="comment">//调用�
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">36</span>
+              <span class="site-state-item-count">37</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -1512,7 +1547,7 @@ ExitModule.<span class="built_in">exit</span>();<span class="comment">//调用�
 
           <div class="site-state-item site-state-tags">
             <a href="/tags">
-              <span class="site-state-item-count">14</span>
+              <span class="site-state-item-count">15</span>
               <span class="site-state-item-name">标签</span>
               </a>
           </div>
