@@ -256,6 +256,106 @@
             
               
                 
+                <a class="post-title-link" href="/2016/08/27/20160827/" itemprop="url">
+                  20160827
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            发表于
+            <time itemprop="dateCreated" datetime="2016-08-27T23:06:35+08:00" content="2016-08-27">
+              2016-08-27
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/08/27/20160827/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/27/20160827/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <span itemprop="articleBody">
+            
+              <h2 id="node_返回json数据">node 返回json数据</h2><pre><code><span class="keyword">var</span> http = <span class="built_in">require</span>(<span class="string">'http'</span>);
+
+<span class="keyword">var</span> data = {key: <span class="string">'value'</span>, hello: <span class="string">'world'</span>};
+
+<span class="keyword">var</span> srv = http.createServer(<span class="function"><span class="keyword">function</span> (<span class="params">req, res</span>) </span>{
+  res.writeHead(<span class="number">200</span>, {<span class="string">'Content-Type'</span>: <span class="string">'application/json'</span>});
+  res.end(<span class="built_in">JSON</span>.stringify(data));
+});
+
+srv.listen(<span class="number">8080</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{
+  <span class="built_in">console</span>.log(<span class="string">'listening on localhost:8080'</span>);
+});
+</code></pre><h2 id="iOS_真机调试">iOS 真机调试</h2><p>   进入xcode，菜单栏选择xcode –&gt; preferences （快捷键 command + ,）在Accounts选项卡添加自己的Apple ID,然后按步骤操作。</p>
+
+            
+          </span>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/08/24/20160824/" itemprop="url">
                   20160824
                 </a>
@@ -1185,98 +1285,6 @@ nrm <span class="keyword">use</span> cnpm <span class="comment">//切换到cnpm<
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/07/13/20160713/" itemprop="url">
-                  react native vector icons
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            发表于
-            <time itemprop="dateCreated" datetime="2016-07-13T21:03:23+08:00" content="2016-07-13">
-              2016-07-13
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/07/13/20160713/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/07/13/20160713/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <span itemprop="articleBody">
-            
-              <p><a href="http://github.com/oblador/react-native-vector-icons" target="_blank" rel="external">react-native-vector-icons</a></p>
-<p>fonticon 矢量图表在android平台下配置需要更改原生配置和代码，改完之后必须重新react-native </p>
-<p>run-android编译才能生效,不然屏幕上只会显示一个叉号或者模拟器上什么都没显示。</p>
-<p>当packager服务运行着的时候,如果往项目里添加了图片，必须重新启动packager服务，否则在引用该图片的时候</p>
-<p>会报错显示文件名乱码。</p>
-
-            
-          </span>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
 
   </section>
 
@@ -1323,7 +1331,7 @@ nrm <span class="keyword">use</span> cnpm <span class="comment">//切换到cnpm<
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">37</span>
+              <span class="site-state-item-count">38</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -1337,7 +1345,7 @@ nrm <span class="keyword">use</span> cnpm <span class="comment">//切换到cnpm<
 
           <div class="site-state-item site-state-tags">
             <a href="/tags">
-              <span class="site-state-item-count">15</span>
+              <span class="site-state-item-count">16</span>
               <span class="site-state-item-name">标签</span>
               </a>
           </div>
