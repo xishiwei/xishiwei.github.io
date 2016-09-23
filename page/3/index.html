@@ -53,12 +53,12 @@
 
 <meta name="description" content="Why PM2.5 is so High">
 <meta property="og:type" content="website">
-<meta property="og:title" content="you know nothing">
+<meta property="og:title" content="To Be a Better Man">
 <meta property="og:url" content="http://yoursite.com/page/3/index.html">
-<meta property="og:site_name" content="you know nothing">
+<meta property="og:site_name" content="To Be a Better Man">
 <meta property="og:description" content="Why PM2.5 is so High">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="you know nothing">
+<meta name="twitter:title" content="To Be a Better Man">
 <meta name="twitter:description" content="Why PM2.5 is so High">
 
 
@@ -71,7 +71,7 @@
   };
 </script>
 
-  <title> you know nothing </title>
+  <title> To Be a Better Man </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -104,7 +104,7 @@
   <div class="custom-logo-site-title">
     <a href="/"  class="brand" rel="start">
       <span class="logo-line-before"><i></i></span>
-      <span class="site-title">you know nothing</span>
+      <span class="site-title">To Be a Better Man</span>
       <span class="logo-line-after"><i></i></span>
     </a>
   </div>
@@ -228,6 +228,11 @@
 
     
     
+      
+      
+
+      
+    
 
     
       
@@ -251,8 +256,8 @@
             
               
                 
-                <a class="post-title-link" href="/2016/07/13/20160713/" itemprop="url">
-                  react native vector icons
+                <a class="post-title-link" href="/2016/08/29/20160829/" itemprop="url">
+                  20160829
                 </a>
               
             
@@ -262,8 +267,8 @@
         <div class="post-meta">
           <span class="post-time">
             发表于
-            <time itemprop="dateCreated" datetime="2016-07-13T21:03:23+08:00" content="2016-07-13">
-              2016-07-13
+            <time itemprop="dateCreated" datetime="2016-08-29T21:30:38+08:00" content="2016-08-29">
+              2016-08-29
             </time>
           </span>
 
@@ -273,8 +278,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/07/13/20160713/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/07/13/20160713/" itemprop="commentsCount"></span>
+                <a href="/2016/08/29/20160829/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/29/20160829/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -296,11 +301,149 @@
         
           <span itemprop="articleBody">
             
-              <p><a href="http://github.com/oblador/react-native-vector-icons" target="_blank" rel="external">react-native-vector-icons</a></p>
-<p>fonticon 矢量图表在android平台下配置需要更改原生配置和代码，改完之后必须重新react-native </p>
-<p>run-android编译才能生效,不然屏幕上只会显示一个叉号或者模拟器上什么都没显示。</p>
-<p>当packager服务运行着的时候,如果往项目里添加了图片，必须重新启动packager服务，否则在引用该图片的时候</p>
-<p>会报错显示文件名乱码。</p>
+              <h2 id="react_native_初始化项目指定version">react native 初始化项目指定version</h2><pre><code>react-native init projectname --version <span class="number">0.29</span><span class="number">.2</span>
+</code></pre><h2 id="react_native_realm">react native realm</h2><p>定义model</p>
+<pre><code><span class="keyword">var</span> Realm = <span class="built_in">require</span>(<span class="string">'realm'</span>);
+<span class="keyword">const</span> CarSchema = {
+    name: <span class="string">'Car'</span>,
+    properties: {
+    make:  <span class="string">'string'</span>,    
+    model: <span class="string">'string'</span>,
+    miles: {<span class="keyword">type</span>: <span class="string">'int'</span>, <span class="keyword">default</span>: <span class="number">0</span>},
+    }
+};
+<span class="keyword">const</span> PersonSchema = {
+    name: <span class="string">'Person'</span>,
+    properties: {
+    name:     <span class="string">'string'</span>,
+    birthday: <span class="string">'date'</span>,
+    cars:     {<span class="keyword">type</span>: <span class="string">'list'</span>, objectType: <span class="string">'Car'</span>},
+    picture:  {<span class="keyword">type</span>: <span class="string">'data'</span>, optional: <span class="literal">true</span>}, <span class="comment">// optional property</span>
+    }
+};
+
+<span class="comment">// Initialize a Realm with Car and Person models</span>
+<span class="keyword">let</span> realm = <span class="keyword">new</span> Realm({schema: [CarSchema, PersonSchema]});
+</code></pre><p>创建model</p>
+<pre><code>let realm = <span class="keyword">new</span> Realm({<span class="string">schema:</span> [CarSchema]);
+
+realm.write(() =&gt; {
+realm.create(<span class="string">'Car'</span>, {<span class="string">make:</span> <span class="string">'Honda'</span>, <span class="string">model:</span> <span class="string">'Accord'</span>, <span class="string">drive:</span> <span class="string">'awd'</span>});
+});
+</code></pre><p>通过主键创建更新对象</p>
+<pre><code><span class="tag">realm</span><span class="class">.write</span>(() =&gt; {
+<span class="comment">// Create a book object</span>
+<span class="tag">realm</span><span class="class">.create</span>(<span class="string">'Book'</span>, {<span class="attribute">id</span>: <span class="number">1</span>, <span class="attribute">title</span>: <span class="string">'Recipes'</span>, <span class="attribute">price</span>: <span class="number">35</span>});
+
+<span class="comment">// Update book with new price keyed off the id</span>
+<span class="tag">realm</span><span class="class">.create</span>(<span class="string">'Book'</span>, {<span class="attribute">id</span>: <span class="number">1</span>, <span class="attribute">price</span>: <span class="number">55</span>}, true);
+});
+</code></pre><p>查询</p>
+<pre><code><span class="keyword">let</span> hondas = realm.objects(<span class="string">'Car</span>').filtered(<span class="string">'make</span> = <span class="string">"Honda"</span>');
+<span class="keyword">let</span> cars = realm.objects(<span class="string">'Car</span>');
+
+<span class="comment">// get first 5 Car objects</span>
+<span class="keyword">let</span> firstCars = cars.slice(<span class="number">0</span>, <span class="number">5</span>);
+</code></pre>
+            
+          </span>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/08/27/20160827/" itemprop="url">
+                  20160827
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            发表于
+            <time itemprop="dateCreated" datetime="2016-08-27T23:06:35+08:00" content="2016-08-27">
+              2016-08-27
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/08/27/20160827/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/27/20160827/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <span itemprop="articleBody">
+            
+              <h2 id="node_返回json数据">node 返回json数据</h2><pre><code><span class="keyword">var</span> http = <span class="built_in">require</span>(<span class="string">'http'</span>);
+
+<span class="keyword">var</span> data = {key: <span class="string">'value'</span>, hello: <span class="string">'world'</span>};
+
+<span class="keyword">var</span> srv = http.createServer(<span class="function"><span class="keyword">function</span> (<span class="params">req, res</span>) </span>{
+  res.writeHead(<span class="number">200</span>, {<span class="string">'Content-Type'</span>: <span class="string">'application/json'</span>});
+  res.end(<span class="built_in">JSON</span>.stringify(data));
+});
+
+srv.listen(<span class="number">8080</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{
+  <span class="built_in">console</span>.log(<span class="string">'listening on localhost:8080'</span>);
+});
+</code></pre><h2 id="iOS_真机调试">iOS 真机调试</h2><p>   进入xcode，菜单栏选择xcode –&gt; preferences （快捷键 command + ,）在Accounts选项卡添加自己的Apple ID,然后按步骤操作。</p>
 
             
           </span>
@@ -343,8 +486,8 @@
             
               
                 
-                <a class="post-title-link" href="/2016/07/12/post/" itemprop="url">
-                  react native reload not work
+                <a class="post-title-link" href="/2016/08/24/20160824/" itemprop="url">
+                  20160824
                 </a>
               
             
@@ -354,8 +497,8 @@
         <div class="post-meta">
           <span class="post-time">
             发表于
-            <time itemprop="dateCreated" datetime="2016-07-12T22:39:18+08:00" content="2016-07-12">
-              2016-07-12
+            <time itemprop="dateCreated" datetime="2016-08-24T20:52:19+08:00" content="2016-08-24">
+              2016-08-24
             </time>
           </span>
 
@@ -365,193 +508,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/07/12/post/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/07/12/post/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <span itemprop="articleBody">
-            
-              <p>最近React Native修改js文件后，reload文件不生效，让人十分郁闷,一番搜索后可行的方法如下：</p>
-<p>找到\node_modules\react-native\node_modules\node-haste\lib\FileWatcher\index.js文件</p>
-<p>将MAX_WAIT_TIME的值调的更大,避免因加载超时而没有任何消息提示。</p>
-<p>碰到坑的时候React Native GitHub 的issues和stackoverflow可以帮助解决很多问题。</p>
-<p><a href="https://github.com/facebook/react-native/issues/7257" target="_blank" rel="external">react native issue</a></p>
-
-            
-          </span>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/07/09/android/" itemprop="url">
-                  20160709
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            发表于
-            <time itemprop="dateCreated" datetime="2016-07-09T22:43:18+08:00" content="2016-07-09">
-              2016-07-09
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/07/09/android/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/07/09/android/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <span itemprop="articleBody">
-            
-              <p>mac下配置Android环境，需要在用户目录下 新建文件</p>
-<pre><code><span class="tag">touch</span> <span class="class">.bash_profile</span>
-</code></pre><p>配置如下</p>
-<pre><code>  export <span class="constant">PATH=</span><span class="variable">${</span><span class="constant">PATH}</span><span class="symbol">:~/Library/Android/sdk/platform-tools</span>
-export <span class="constant">ANDROID_HOME=</span>~<span class="regexp">/Library/</span><span class="constant">Android/</span>sdk
-</code></pre><p>vi .bash_profile=&gt;insert=&gt;:wq</p>
-
-            
-          </span>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/07/09/mac mongodb/" itemprop="url">
-                  mongodb on mac
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            发表于
-            <time itemprop="dateCreated" datetime="2016-07-09T00:00:00+08:00" content="2016-07-09">
-              2016-07-09
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/07/09/mac mongodb/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/07/09/mac mongodb/" itemprop="commentsCount"></span>
+                <a href="/2016/08/24/20160824/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/24/20160824/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -574,671 +532,273 @@ export <span class="constant">ANDROID_HOME=</span>~<span class="regexp">/Library
           <span itemprop="articleBody">
             
               <ul>
-<li>brew install mongodb</li>
-<li>mongod —config /usr/local/etc/mongod.conf </li>
-<li>mongo</li>
-<li>可视化工具：robomongo</li>
-</ul>
-
-            
-          </span>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/06/01/react-native/" itemprop="url">
-                  Node.js
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            发表于
-            <time itemprop="dateCreated" datetime="2016-06-01T00:00:00+08:00" content="2016-06-01">
-              2016-06-01
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/06/01/react-native/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/06/01/react-native/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <span itemprop="articleBody">
-            
-              <p>Node.js 就是运行在服务端的 JavaScript。<br>Node.js 是一个基于Chrome JavaScript 运行时建立的一个平台。<br>Node.js是一个事件驱动IO服务端JavaScript环境，基于Google的V8引擎，V8引擎执行Javascript的速度非常快，性能非常好</p>
-<p>安装配置下载Node即可</p>
-<pre><code><span class="keyword">node</span><span class="identifier"> </span><span class="title">-v</span>
-</code></pre><p>查看是否安装成功</p>
-<p>sublime里新建hello.js文件输入 </p>
-<pre><code>console.log('hello <span class="keyword">node</span>.<span class="identifier"></span><span class="title">js</span>')
-</code></pre><p>node执行该文件：</p>
-<pre><code><span class="keyword">node</span><span class="identifier"> </span><span class="title">hello</span>.js
-</code></pre><p>终端输出 hello node.js</p>
-
-            
-          </span>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/05/08/node-js/" itemprop="url">
-                  React Native
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            发表于
-            <time itemprop="dateCreated" datetime="2016-05-08T00:00:00+08:00" content="2016-05-08">
-              2016-05-08
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/05/08/node-js/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/05/08/node-js/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <span itemprop="articleBody">
-            
-              <p>React Native使你能够在Javascript和React的基础上获得完全一致的开发体验，构建世界一流的原生APP。</p>
-<p>React Native着力于提高多平台开发的开发效率 —— 仅需学习一次，编写任何平台。(Learn once, write anywhere)</p>
-<p>Facebook已经在多项产品中使用了React Native，并且将持续地投入建设React Native。</p>
-<ul>
-<li><p>Android Windows环境：</p>
-<p>  Node:依赖Node启动packager服务，手机通过该服务加载项目文件以及npm的安装。</p>
-<p>  JDK,Android SDK：Android 开发环境必备，需要配置好环境变量ANDROID_HOME,JAVA_HOME,SDK以及里面的support包版本有一定的要求,编译时会有提示可通过SDK Manager进行下载。</p>
-<p>  Android Stuido,Sublime Text3:原生Android IDE,React Native 开发IDE,Sublime 需要安装相关插件支持去es6代码高亮等.推荐插件：Babel,JsFormat,React Native Snippet</p>
-<p>  Git</p>
-</li>
-<li><p>安装React Native 命令行工具</p>
-<pre><code>npm <span class="operator"><span class="keyword">install</span> -<span class="keyword">g</span> react-<span class="keyword">native</span>-cli</span>
-</code></pre></li>
-<li><p>初始化项目：</p>
-<pre><code>react-<span class="keyword">native</span> init firstProject
-</code></pre></li>
-<li><p>运行packager服务：</p>
-<pre><code>react-<span class="keyword">native</span> start
-</code></pre></li>
-<li><p>Android 手机上运行：</p>
-<pre><code>react-<span class="keyword">native</span> run-android
-</code></pre><p>通过设置键，或摇晃手机打开DevSetting页面,配置调试连接地址，电脑ip:8081端口</p>
-</li>
-</ul>
-
-            
-          </span>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2015/12/16/learning-ios-9/" itemprop="url">
-                  learning ios 9
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            发表于
-            <time itemprop="dateCreated" datetime="2015-12-16T16:37:17+08:00" content="2015-12-16">
-              2015-12-16
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2015/12/16/learning-ios-9/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/12/16/learning-ios-9/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <span itemprop="articleBody">
-            
-              <ul>
-<li><p>下拉刷新UIRefreshControl</p>
-</li>
-<li><p>集成pictrues browser</p>
-<pre><code><span class="collection">[UIView animateWithDuration:0.7 animations:<span class="comment">^{
-  btn.transform = CGAffineTransformMakeTranslation(0, btnH);
-}</span> completion:^<span class="list">(<span class="keyword">BOOL</span> finished)</span> <span class="collection">{
-<span class="collection">[UIView animateKeyframesWithDuration:0.7 delay:1.0  options:UIViewKeyframeAnimationOptionCalculationModeLinear animations:<span class="comment">^{
-// btn.transform = CGAffineTransformMakeTranslation(0, -btnH);
- btn.transform = CGAffineTransformIdentity;
-}</span> completion:^<span class="list">(<span class="keyword">BOOL</span> finished)</span> <span class="collection">{
-  <span class="collection">[btn removeFromSuperview]</span><span class="comment">;</span>
-}</span>]</span><span class="comment">;</span>
-}</span>]</span><span class="comment">;</span>
-</code></pre></li>
-<li><p>写图片进入相册 UIImageWriteToSavedPhotoAlbum(image,nil.nil,nil)</p>
-</li>
-<li><p>UIBarButtonItem的setTitleTextAttributes对Disabled颜色设置无效问题解决方法：将设置为disabled的语句放置在viewWillAppear方法中。</p>
-</li>
-<li><p>becomeFirstResponser 调起键盘</p>
-</li>
-<li><p>模拟器不显示键盘  iOS Simulator -&gt; Hardware -&gt; Keyboard取消选择：“Connect Hardware Keyboard”</p>
-</li>
-</ul>
-
-            
-          </span>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2015/12/14/learning-ios-8/" itemprop="url">
-                  learning ios 8
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            发表于
-            <time itemprop="dateCreated" datetime="2015-12-14T15:57:40+08:00" content="2015-12-14">
-              2015-12-14
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2015/12/14/learning-ios-8/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/12/14/learning-ios-8/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <span itemprop="articleBody">
-            
-              <ul>
-<li><p>ios7 later</p>
-<pre><code><span class="built_in">NSDictionary</span> *attributes = @{<span class="built_in">NSFontAttributeName</span>:IWStatusContentFont};
-<span class="built_in">CGRect</span> rect = [status<span class="variable">.text</span> boundingRectWithSize:<span class="built_in">CGSizeMake</span>(contentLabelMaxW, MAXFLOAT)
-options:<span class="built_in">NSStringDrawingUsesLineFragmentOrigin</span>
-attributes:attributes
-context:<span class="literal">nil</span>];
-</code></pre><p>ios 6</p>
-<pre><code>CGSize retweetContentLabelSize = [status.retweeted_status.text <span class="string">sizeWithFont:</span>IWRetweetStatusContentFont <span class="string">constrainedToSize:</span>CGSizeMake(retweetContentLabelMaxW, MAXFLOAT)];
-</code></pre></li>
-</ul>
-<ul>
-<li><p>cell view 的模块化整理封装，是得code清晰明了</p>
-</li>
-<li><p>其中在解析json数据的时候，使用了MJExtension ，由于库版本更新，其中的方法也改变了，结果给自己弄了个坑。</p>
-</li>
-</ul>
-
-            
-          </span>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2015/12/11/learning-ios-7/" itemprop="url">
-                  learning ios 7
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            发表于
-            <time itemprop="dateCreated" datetime="2015-12-11T16:03:28+08:00" content="2015-12-11">
-              2015-12-11
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2015/12/11/learning-ios-7/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/12/11/learning-ios-7/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <span itemprop="articleBody">
-            
-              <ul>
-<li><p>自定义cell<br>  1.新建cell UITableViewCell<br>  2.重写initWithStyle:reuseIdentifier<br>  添加所有子控件，不需要设置frame 和数据 ;子控件一次性的属性设置<br>  3.提供两个模型  数据模型和frame模型<br>  4.cell 拥有一个frame模型<br>  5.重写frame模型的setter方法 在这个方法中设置子控件的显示数据和frame</p>
-</li>
-<li><p>Unknown type name “CGRect”,did you mean “Rect”? 原因：Xcode 6 之后创建文件 不自动导入 #import <uikit uikit.h="">,添加上之后就好了。</uikit></p>
-</li>
-</ul>
-
-            
-          </span>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2015/12/10/learning-ios-6/" itemprop="url">
-                  learning ios 6
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            发表于
-            <time itemprop="dateCreated" datetime="2015-12-10T11:33:52+08:00" content="2015-12-10">
-              2015-12-10
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2015/12/10/learning-ios-6/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/12/10/learning-ios-6/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <span itemprop="articleBody">
-            
-              <hr>
-<ul>
-<li><p>NSURLSession/NSURLConnection HTTP load failed (kCFStreamErrorDomainSSL, -980<br>ios 9 的限制  在info。plist文件里加入NSAppTransportSecurity  dictionary-》NSAllowsArbitraryLoads  YES,实现任性加载</p>
-</li>
-<li><p>由于复制了项目，添加了文件夹，修改了info.plist文件 run的时候显示The file “WeiBo” couldn’t be opened because you don’t have permission to view,build Setting 中搜索plist文件配置，发现路径是上个项目的路径，修改为拷贝后的路径，run success</p>
-</li>
-<li><p>获取沙盒路径 将模型数据归档存储 </p>
-<pre><code>    <span class="built_in">NSString</span> *doc = [<span class="built_in">NSSearchPathForDirectoriesInDomains</span>(<span class="built_in">NSDocumentDirectory</span>, <span class="built_in">NSUserDomainMask</span>, <span class="literal">YES</span>) lastObject];
-<span class="built_in">NSString</span> *file = [doc stringByAppendingPathComponent:<span class="string">@"account.data"</span>];
-[<span class="built_in">NSKeyedArchiver</span> archiveRootObject:account toFile:file];
-</code></pre><p>归档时必须告诉模型对象，哪些属性需要存储和获取，模型实现代理NSCoding </p>
-</li>
-</ul>
-<pre><code>/**
-*  文件中解析调用
-*
-*  @param aDecoder <#adecoder description#="">
-*
-*  @return <#return value="" description#="">
-*/
--(id)initWithCoder:(NSCoder *)aDecoder{
-if (self = [super init]) {
-self.access_token = [aDecoder decodeObjectForKey:@"access_token"];
-self.uid = [aDecoder decodeInt64ForKey:@"uid"];
-self.remind_in = [aDecoder decodeInt64ForKey:@"remind_in"];
-self.expires_in = [aDecoder decodeInt64ForKey:@"expires_in"];
-self.availbleTime = [aDecoder decodeObjectForKey:@"availbleTime"];
-
+<li>react native TextInput  可以设置padding = 0,这样外部包裹view的的高度就等于TextInput的高度。</li>
+<li><p>使用友盟推送的时候，点击通知跳转到相关的界面，原生android 里可以打开指定的Activity,react native里没有activity给我们</p>
+<p>用,这时候可以在原生监听通知消息，通过DeviceEventEmitter发送事件和参数给JS端,然后通过navigator跳转</p>
+<p>原生中发送事件会调用如下代码：</p>
+<pre><code>   <span class="tag">private</span> <span class="tag">void</span> <span class="tag">sendEvent</span>(<span class="tag">ReactContext</span> <span class="tag">reactContext</span>,
+               <span class="tag">String</span> <span class="tag">eventName</span>,
+               <span class="at_rule">@<span class="keyword">Nullable</span> WritableMap params) </span>{
+  <span class="tag">reactContext</span>
+  <span class="class">.getJSModule</span>(<span class="tag">DeviceEventManagerModule</span><span class="class">.RCTDeviceEventEmitter</span><span class="class">.class</span>)
+  <span class="class">.emit</span>(<span class="tag">eventName</span>, <span class="tag">params</span>);
 }
-return self;
+</code></pre><p> 如何在Activity/Application中获取ReactContext实例？</p>
+<pre><code>reactContext = <span class="function"><span class="title">getReactNativeHost</span><span class="params">()</span></span>.<span class="function"><span class="title">getReactInstanceManager</span><span class="params">()</span></span>.<span class="function"><span class="title">getCurrentReactContext</span><span class="params">()</span></span>
+</code></pre></li>
+<li><p>如何实现reactnative android 中按返回键不完全退出App?</p>
+<pre><code>   onBackAndroid = () =&gt; {
+<span class="keyword">const</span> nav = <span class="keyword">this</span>.navigator;
+<span class="keyword">const</span> routers = nav.getCurrentRoutes();
+<span class="keyword">if</span> (routers.length &gt; <span class="number">1</span>) {
+  nav.pop();
+  <span class="keyword">return</span> <span class="literal">true</span>;
 }
-/**
-*  存储入文件调用
-*
-*  @param aCoder <#acoder description#="">
-*/
-
--(void)encodeWithCoder:(NSCoder *)aCoder{
-[aCoder encodeObject:self.access_token forKey:@"access_token"];
-[aCoder encodeInt64:self.uid forKey:@"uid"];
-[aCoder encodeInt64:self.remind_in forKey:@"remind_in"];
-[aCoder encodeInt64:self.expires_in forKey:@"expires_in"];
-[aCoder encodeObject:self.availbleTime forKey:@"availbleTime"];
-
-}</#acoder></#return></#adecoder></code></pre>
-
-
-<ul>
-<li><p>AFNetWorking MBProgressHUD 网络加载和加载提示框架</p>
-</li>
-<li><p>OAuth认证 获取accessToken  获取用户信息</p>
-</li>
-<li><p>UIWebView </p>
-</li>
-<li><p>SDWebImage  build failed<br>Use of undeclared identifier ‘_executing’；<br>Use of undeclared identifier ‘_finished’；<br>添加 SDWebImageDownloaderOperation类的实现中(@implementation SDWebImageDownloaderOperation{…}下面)添加@synthesize executing=_executing;@synthesize finished=_finished;</p>
-</li>
+ExitModule.<span class="built_in">exit</span>();<span class="comment">//调用原生的moveTaskToBack()方法</span>
+<span class="keyword">return</span> <span class="literal">true</span>;
+  };
+</code></pre></li>
 </ul>
-<hr>
+
+            
+          </span>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/08/17/20160817-1/" itemprop="url">
+                  20160817
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            发表于
+            <time itemprop="dateCreated" datetime="2016-08-17T21:32:28+08:00" content="2016-08-17">
+              2016-08-17
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/08/17/20160817-1/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/17/20160817-1/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <span itemprop="articleBody">
+            
+              <ul>
+<li><p>react native 中 pageA-&gt;pageB 想在pageB返回时刷新pageA的内容</p>
+<p>方案一：</p>
+<pre><code>props传递
+</code></pre><p>方案二：</p>
+<pre><code>DeviceEventEmitter
+</code></pre></li>
+<li><p>sina微博 授权未安装客户端登陆出错：</p>
+<pre><code><span class="attribute">android.content.ActivityNotFoundException</span>: <span class="string">Unable to find explicit activity class {edu.gdut.myweibo/</span>
+
+<span class="css"><span class="tag">com</span><span class="class">.sina</span><span class="class">.weibo</span><span class="class">.sdk</span><span class="class">.component</span><span class="class">.WeiboSdkBrowser</span>}; <span class="tag">have</span> <span class="tag">you</span> <span class="tag">declared</span> <span class="tag">this</span> 
+
+<span class="tag">activity</span> <span class="tag">in</span> <span class="tag">your</span> <span class="tag">AndroidManifest</span><span class="class">.xml</span>?</span>
+</code></pre><p>在Manifest.xml中注入SDK的WebBrowser</p>
+<pre><code><span class="tag">&lt;<span class="title">activity</span>
+    <span class="attribute">android:name</span>=<span class="value">"com.sina.weibo.sdk.component.WeiboSdkBrowser"</span>
+    <span class="attribute">android:configChanges</span>=<span class="value">"keyboardHidden|orientation"</span>
+    <span class="attribute">android:exported</span>=<span class="value">"false"</span>
+    <span class="attribute">android:windowSoftInputMode</span>=<span class="value">"adjustResize"</span> &gt;</span>
+<span class="tag">&lt;/<span class="title">activity</span>&gt;</span>
+</code></pre></li>
+<li><p>react native 再次点击退出</p>
+<pre><code>onBackAndroid() {
+   <span class="keyword">let</span> routers = <span class="keyword">this</span>.nav.getCurrentRoutes();
+ <span class="keyword">if</span> (<span class="keyword">this</span>.nav &amp;&amp; routers.length &gt; <span class="number">1</span>) {
+       <span class="keyword">this</span>.nav.pop();
+      <span class="keyword">return</span> <span class="literal">true</span>;
+}
+
+<span class="keyword">let</span> current = <span class="keyword">new</span> <span class="built_in">Date</span>().getTime();
+    <span class="keyword">if</span> (current - last &gt; <span class="number">2000</span>) {
+  last = current;
+  ToastAndroid.show(<span class="string">'再次点击退出'</span>, <span class="number">1000</span>);
+  <span class="keyword">return</span> <span class="literal">true</span>;
+    } <span class="keyword">else</span> {
+      <span class="keyword">return</span> <span class="literal">false</span>;
+        }
+  }
+</code></pre></li>
+</ul>
+
+            
+          </span>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/08/14/20160814/" itemprop="url">
+                  20160814
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            发表于
+            <time itemprop="dateCreated" datetime="2016-08-14T22:13:59+08:00" content="2016-08-14">
+              2016-08-14
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/08/14/20160814/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/14/20160814/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <span itemprop="articleBody">
+            
+              <h2 id="AndroidStudio工程">AndroidStudio工程</h2><h3 id="android_studio_下引入有-so文件的包，出现如下错误：">android studio 下引入有.so文件的包，出现如下错误：</h3><pre><code>java.lang.UnsatisfiedLinkError: 
+   dalvik.system.PathClassLoader[DexPathList[[zip file <span class="string">"/data/app/net.comet.example-1/base.apk"</span>],
+   nativeLibraryDirectories=[/data/app/net.comet.example-<span class="number">1</span>/lib/arm64, /vendor/lib64, /system/lib64]]] 
+   couldn't find <span class="string">"libffmpeg.so"</span>
+ at java.lang.Runtime.<span class="built_in">load</span>Library(Runtime.java:<span class="number">366</span>)
+ at java.lang.System.<span class="built_in">load</span>Library(System.java:<span class="number">989</span>)
+ at com.dtr.zbar.build.ZBarDecoder.<span class="variable">&lt;clinit&gt;</span>(ZBarDecoder.java:<span class="number">6</span>)
+ at me.ele.hbdteam.widget.ScanView<span class="variable">$1</span>.<span class="keyword">on</span>PreviewFrame(ScanView.java:<span class="number">263</span>)
+ at android.hardware.Camera<span class="variable">$EventHandler</span>.handleMessage(Camera.java:<span class="number">1565</span>)
+ at android.<span class="keyword">os</span>.Handler.dispatchMessage(Handler.java:<span class="number">102</span>)
+ at android.<span class="keyword">os</span>.Looper.loop(Looper.java:<span class="number">155</span>)
+ at android.app.ActivityThread.main(ActivityThread.java:<span class="number">5696</span>)
+ at java.lang.reflect.Method.invoke(Native Method)
+ at java.lang.reflect.Method.invoke(Method.java:<span class="number">372</span>)
+ at com.android.internal.<span class="keyword">os</span>.ZygoteInit<span class="variable">$MethodAndArgsCaller</span>.run(ZygoteInit.java:<span class="number">1029</span>)
+ at com.android.internal.<span class="keyword">os</span>.ZygoteInit.main(ZygoteInit.java:<span class="number">824</span>)
+</code></pre><p>   解决思路是：</p>
+<ul>
+<li>1、把libffmpeg.so拷贝一份到armeabi-v7a目录</li>
+<li><p>2、在app.gradle增加jniLibs声明</p>
+<pre><code><span class="built_in">source</span>Sets.main {
+        jniLibs.srcDirs = [<span class="string">'libs'</span>]
+}
+</code></pre></li>
+</ul>
+<h2 id="SurfaceView">SurfaceView</h2><p>播放视频的时候只有声音没有图像，主要的原因是，在调用MediaPlayer开始播放视频时 <br>SurfaceView却还未创建成功，解决办法是判断SurfaceView创建成功后再调用MediaPlayer的播放，<br>通过surfaceHolder的addCallBack()方法来监听surfaceCreated    </p>
 
             
           </span>
@@ -1265,7 +825,7 @@ return self;
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1306,7 +866,7 @@ return self;
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">38</span>
+              <span class="site-state-item-count">39</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>

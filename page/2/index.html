@@ -53,12 +53,12 @@
 
 <meta name="description" content="Why PM2.5 is so High">
 <meta property="og:type" content="website">
-<meta property="og:title" content="you know nothing">
+<meta property="og:title" content="To Be a Better Man">
 <meta property="og:url" content="http://yoursite.com/page/2/index.html">
-<meta property="og:site_name" content="you know nothing">
+<meta property="og:site_name" content="To Be a Better Man">
 <meta property="og:description" content="Why PM2.5 is so High">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="you know nothing">
+<meta name="twitter:title" content="To Be a Better Man">
 <meta name="twitter:description" content="Why PM2.5 is so High">
 
 
@@ -71,7 +71,7 @@
   };
 </script>
 
-  <title> you know nothing </title>
+  <title> To Be a Better Man </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -104,7 +104,7 @@
   <div class="custom-logo-site-title">
     <a href="/"  class="brand" rel="start">
       <span class="logo-line-before"><i></i></span>
-      <span class="site-title">you know nothing</span>
+      <span class="site-title">To Be a Better Man</span>
       <span class="logo-line-after"><i></i></span>
     </a>
   </div>
@@ -228,6 +228,11 @@
 
     
     
+      
+      
+
+      
+    
 
     
       
@@ -251,8 +256,8 @@
             
               
                 
-                <a class="post-title-link" href="/2016/08/27/20160827/" itemprop="url">
-                  20160827
+                <a class="post-title-link" href="/2016/09/08/20160908/" itemprop="url">
+                  20160908
                 </a>
               
             
@@ -262,8 +267,8 @@
         <div class="post-meta">
           <span class="post-time">
             发表于
-            <time itemprop="dateCreated" datetime="2016-08-27T23:06:35+08:00" content="2016-08-27">
-              2016-08-27
+            <time itemprop="dateCreated" datetime="2016-09-08T20:47:04+08:00" content="2016-09-08">
+              2016-09-08
             </time>
           </span>
 
@@ -273,8 +278,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/08/27/20160827/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/27/20160827/" itemprop="commentsCount"></span>
+                <a href="/2016/09/08/20160908/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/09/08/20160908/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -296,970 +301,569 @@
         
           <span itemprop="articleBody">
             
-              <h2 id="node_返回json数据">node 返回json数据</h2><pre><code><span class="keyword">var</span> http = <span class="built_in">require</span>(<span class="string">'http'</span>);
-
-<span class="keyword">var</span> data = {key: <span class="string">'value'</span>, hello: <span class="string">'world'</span>};
-
-<span class="keyword">var</span> srv = http.createServer(<span class="function"><span class="keyword">function</span> (<span class="params">req, res</span>) </span>{
-  res.writeHead(<span class="number">200</span>, {<span class="string">'Content-Type'</span>: <span class="string">'application/json'</span>});
-  res.end(<span class="built_in">JSON</span>.stringify(data));
-});
-
-srv.listen(<span class="number">8080</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{
-  <span class="built_in">console</span>.log(<span class="string">'listening on localhost:8080'</span>);
-});
-</code></pre><h2 id="iOS_真机调试">iOS 真机调试</h2><p>   进入xcode，菜单栏选择xcode –&gt; preferences （快捷键 command + ,）在Accounts选项卡添加自己的Apple ID,然后按步骤操作。</p>
-
-            
-          </span>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/08/24/20160824/" itemprop="url">
-                  20160824
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            发表于
-            <time itemprop="dateCreated" datetime="2016-08-24T20:52:19+08:00" content="2016-08-24">
-              2016-08-24
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/08/24/20160824/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/24/20160824/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <span itemprop="articleBody">
-            
-              <ul>
-<li>react native TextInput  可以设置padding = 0,这样外部包裹view的的高度就等于TextInput的高度。</li>
-<li><p>使用友盟推送的时候，点击通知跳转到相关的界面，原生android 里可以打开指定的Activity,react native里没有activity给我们</p>
-<p>用,这时候可以在原生监听通知消息，通过DeviceEventEmitter发送事件和参数给JS端,然后通过navigator跳转</p>
-<p>原生中发送事件会调用如下代码：</p>
-<pre><code>   <span class="tag">private</span> <span class="tag">void</span> <span class="tag">sendEvent</span>(<span class="tag">ReactContext</span> <span class="tag">reactContext</span>,
-               <span class="tag">String</span> <span class="tag">eventName</span>,
-               <span class="at_rule">@<span class="keyword">Nullable</span> WritableMap params) </span>{
-  <span class="tag">reactContext</span>
-  <span class="class">.getJSModule</span>(<span class="tag">DeviceEventManagerModule</span><span class="class">.RCTDeviceEventEmitter</span><span class="class">.class</span>)
-  <span class="class">.emit</span>(<span class="tag">eventName</span>, <span class="tag">params</span>);
-}
-</code></pre><p> 如何在Activity/Application中获取ReactContext实例？</p>
-<pre><code>reactContext = <span class="function"><span class="title">getReactNativeHost</span><span class="params">()</span></span>.<span class="function"><span class="title">getReactInstanceManager</span><span class="params">()</span></span>.<span class="function"><span class="title">getCurrentReactContext</span><span class="params">()</span></span>
-</code></pre></li>
-<li><p>如何实现reactnative android 中按返回键不完全退出App?</p>
-<pre><code>   onBackAndroid = () =&gt; {
-<span class="keyword">const</span> nav = <span class="keyword">this</span>.navigator;
-<span class="keyword">const</span> routers = nav.getCurrentRoutes();
-<span class="keyword">if</span> (routers.length &gt; <span class="number">1</span>) {
-  nav.pop();
-  <span class="keyword">return</span> <span class="literal">true</span>;
-}
-ExitModule.<span class="built_in">exit</span>();<span class="comment">//调用原生的moveTaskToBack()方法</span>
-<span class="keyword">return</span> <span class="literal">true</span>;
-  };
-</code></pre></li>
-</ul>
-
-            
-          </span>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/08/17/20160817-1/" itemprop="url">
-                  20160817
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            发表于
-            <time itemprop="dateCreated" datetime="2016-08-17T21:32:28+08:00" content="2016-08-17">
-              2016-08-17
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/08/17/20160817-1/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/17/20160817-1/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <span itemprop="articleBody">
-            
-              <ul>
-<li><p>react native 中 pageA-&gt;pageB 想在pageB返回时刷新pageA的内容</p>
-<p>方案一：</p>
-<pre><code>props传递
-</code></pre><p>方案二：</p>
-<pre><code>DeviceEventEmitter
-</code></pre></li>
-<li><p>sina微博 授权未安装客户端登陆出错：</p>
-<pre><code><span class="attribute">android.content.ActivityNotFoundException</span>: <span class="string">Unable to find explicit activity class {edu.gdut.myweibo/</span>
-
-<span class="css"><span class="tag">com</span><span class="class">.sina</span><span class="class">.weibo</span><span class="class">.sdk</span><span class="class">.component</span><span class="class">.WeiboSdkBrowser</span>}; <span class="tag">have</span> <span class="tag">you</span> <span class="tag">declared</span> <span class="tag">this</span> 
-
-<span class="tag">activity</span> <span class="tag">in</span> <span class="tag">your</span> <span class="tag">AndroidManifest</span><span class="class">.xml</span>?</span>
-</code></pre><p>在Manifest.xml中注入SDK的WebBrowser</p>
-<pre><code><span class="tag">&lt;<span class="title">activity</span>
-    <span class="attribute">android:name</span>=<span class="value">"com.sina.weibo.sdk.component.WeiboSdkBrowser"</span>
-    <span class="attribute">android:configChanges</span>=<span class="value">"keyboardHidden|orientation"</span>
-    <span class="attribute">android:exported</span>=<span class="value">"false"</span>
-    <span class="attribute">android:windowSoftInputMode</span>=<span class="value">"adjustResize"</span> &gt;</span>
-<span class="tag">&lt;/<span class="title">activity</span>&gt;</span>
-</code></pre></li>
-<li><p>react native 再次点击退出</p>
-<pre><code>onBackAndroid() {
-   <span class="keyword">let</span> routers = <span class="keyword">this</span>.nav.getCurrentRoutes();
- <span class="keyword">if</span> (<span class="keyword">this</span>.nav &amp;&amp; routers.length &gt; <span class="number">1</span>) {
-       <span class="keyword">this</span>.nav.pop();
-      <span class="keyword">return</span> <span class="literal">true</span>;
-}
-
-<span class="keyword">let</span> current = <span class="keyword">new</span> <span class="built_in">Date</span>().getTime();
-    <span class="keyword">if</span> (current - last &gt; <span class="number">2000</span>) {
-  last = current;
-  ToastAndroid.show(<span class="string">'再次点击退出'</span>, <span class="number">1000</span>);
-  <span class="keyword">return</span> <span class="literal">true</span>;
-    } <span class="keyword">else</span> {
-      <span class="keyword">return</span> <span class="literal">false</span>;
-        }
-  }
-</code></pre></li>
-</ul>
-
-            
-          </span>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/08/14/20160814/" itemprop="url">
-                  20160814
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            发表于
-            <time itemprop="dateCreated" datetime="2016-08-14T22:13:59+08:00" content="2016-08-14">
-              2016-08-14
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/08/14/20160814/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/14/20160814/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <span itemprop="articleBody">
-            
-              <h2 id="AndroidStudio工程">AndroidStudio工程</h2><h3 id="android_studio_下引入有-so文件的包，出现如下错误：">android studio 下引入有.so文件的包，出现如下错误：</h3><pre><code>java.lang.UnsatisfiedLinkError: 
-   dalvik.system.PathClassLoader[DexPathList[[zip file <span class="string">"/data/app/net.comet.example-1/base.apk"</span>],
-   nativeLibraryDirectories=[/data/app/net.comet.example-<span class="number">1</span>/lib/arm64, /vendor/lib64, /system/lib64]]] 
-   couldn't find <span class="string">"libffmpeg.so"</span>
- at java.lang.Runtime.<span class="built_in">load</span>Library(Runtime.java:<span class="number">366</span>)
- at java.lang.System.<span class="built_in">load</span>Library(System.java:<span class="number">989</span>)
- at com.dtr.zbar.build.ZBarDecoder.<span class="variable">&lt;clinit&gt;</span>(ZBarDecoder.java:<span class="number">6</span>)
- at me.ele.hbdteam.widget.ScanView<span class="variable">$1</span>.<span class="keyword">on</span>PreviewFrame(ScanView.java:<span class="number">263</span>)
- at android.hardware.Camera<span class="variable">$EventHandler</span>.handleMessage(Camera.java:<span class="number">1565</span>)
- at android.<span class="keyword">os</span>.Handler.dispatchMessage(Handler.java:<span class="number">102</span>)
- at android.<span class="keyword">os</span>.Looper.loop(Looper.java:<span class="number">155</span>)
- at android.app.ActivityThread.main(ActivityThread.java:<span class="number">5696</span>)
- at java.lang.reflect.Method.invoke(Native Method)
- at java.lang.reflect.Method.invoke(Method.java:<span class="number">372</span>)
- at com.android.internal.<span class="keyword">os</span>.ZygoteInit<span class="variable">$MethodAndArgsCaller</span>.run(ZygoteInit.java:<span class="number">1029</span>)
- at com.android.internal.<span class="keyword">os</span>.ZygoteInit.main(ZygoteInit.java:<span class="number">824</span>)
-</code></pre><p>   解决思路是：</p>
-<ul>
-<li>1、把libffmpeg.so拷贝一份到armeabi-v7a目录</li>
-<li><p>2、在app.gradle增加jniLibs声明</p>
-<pre><code><span class="built_in">source</span>Sets.main {
-        jniLibs.srcDirs = [<span class="string">'libs'</span>]
-}
-</code></pre></li>
-</ul>
-<h2 id="SurfaceView">SurfaceView</h2><p>播放视频的时候只有声音没有图像，主要的原因是，在调用MediaPlayer开始播放视频时 <br>SurfaceView却还未创建成功，解决办法是判断SurfaceView创建成功后再调用MediaPlayer的播放，<br>通过surfaceHolder的addCallBack()方法来监听surfaceCreated    </p>
-
-            
-          </span>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/07/28/友盟三方登录/" itemprop="url">
-                  开始了，同志们！
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            发表于
-            <time itemprop="dateCreated" datetime="2016-07-28T22:43:49+08:00" content="2016-07-28">
-              2016-07-28
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/07/28/友盟三方登录/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/07/28/友盟三方登录/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <span itemprop="articleBody">
-            
-              <p>最近要上react native 项目，需要用到微博，QQ,微信三方登录，准备封装友盟的sdk,过程是相当不爽，<br>各个平台的key,appid都特么没有，还得使用上个项目的环境测试也是没谁了，友盟sdk5.0+的新版本不知道是我太傻还是友盟的sdk不够完善，尽然各种不走回调方法，论坛也是比较寂寥。</p>
-<p>这是第一个react native 要上线的项目，启动过程比较艰难感觉，两个平台并行开发还要共用很多react代码，git版本控制让我觉得双平台并行开发有点烦，实在是没有先只开发一个平台，然后修改来的爽快。</p>
-<p>整个项目目测比较复杂，业务比较多和繁琐，单独一个模块领出来就足可以造一个app了，这么重的应用我特么想互相伤害，定于九月底出第一版本，目测项目会被延期毕业。工作管理使用的Tower,挺不错的办公协作软件，可是在这关键的时刻我要请假回家，玩几天，谁怕谁！</p>
-
-            
-          </span>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/07/24/20160724/" itemprop="url">
-                  20160724
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            发表于
-            <time itemprop="dateCreated" datetime="2016-07-24T20:20:53+08:00" content="2016-07-24">
-              2016-07-24
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/07/24/20160724/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/07/24/20160724/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <span itemprop="articleBody">
-            
-              <ul>
-<li><p>react-native run-android时使用genymotion，报错如下：</p>
-<pre><code>adb server <span class="property">version</span> (<span class="number">32</span>) doesn't match this client (<span class="number">36</span>); killing...
-<span class="keyword">error</span>: could <span class="keyword">not</span> install *smartsocket* listener: Address already <span class="keyword">in</span> use
-</code></pre><p>原因是genymotion的Android sdk没有配置为custom,将本地的sdk 设置上后 运行成功。</p>
-</li>
-<li><p>mac 下查看android sdk 安装的目录时候通过echo  $ANDROID_HOME</p>
-<pre><code><span class="regexp">/Users/</span>jichao<span class="regexp">/Library/</span>Android<span class="regexp">/sdk</span>
-</code></pre><p>Library是隐藏的，前往该目录需要在Finder选择 <b>前往文件夹</b><br>输入 <b>~/Library</b></p>
-</li>
-</ul>
-
-            
-          </span>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/07/21/20160721/" itemprop="url">
-                  20160721
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            发表于
-            <time itemprop="dateCreated" datetime="2016-07-21T22:24:44+08:00" content="2016-07-21">
-              2016-07-21
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/07/21/20160721/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/07/21/20160721/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <span itemprop="articleBody">
-            
-              <ul>
-<li><p>react-native创建的工程修改android包名<br>比如：react-native init hello得到的包名会是com.hello<br>想修改成com.companyname.hello,需要在android目录下修改<br>AndroidManifest.xml 里的package,以及app.gradule里的applicationId</p>
-</li>
-<li><p>react-native debug模式时候，出现<br>  debugger and device times have drifted by xxxxms,please<br>  correct this by running adb shell….<br>这是因为手机的时间和电脑的时间差的太多，调整一下就好了。。。。</p>
-</li>
-<li><p>更改npm registery</p>
-<pre><code>npm install -<span class="keyword">g</span> nrm
-nrm <span class="keyword">list</span> <span class="comment">//显示所有registery</span>
-nrm <span class="keyword">use</span> cnpm <span class="comment">//切换到cnpm</span>
-</code></pre></li>
-</ul>
-
-            
-          </span>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/07/18/20160718/" itemprop="url">
-                  20160718
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            发表于
-            <time itemprop="dateCreated" datetime="2016-07-18T22:26:21+08:00" content="2016-07-18">
-              2016-07-18
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/07/18/20160718/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/07/18/20160718/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <span itemprop="articleBody">
-            
-              <p>windows 下安装让mongodb以windows服务启动，在mongo的bin目录下执行：</p>
-<pre><code>mongod --dbpath "d:<span class="command">\mongodb</span><span class="command">\data</span><span class="command">\db</span>" --logpath "d:<span class="command">\mongodb</span><span class="command">\data</span><span class="command">\log</span><span class="command">\MongoDB</span>.log" --install --serviceName "MongoDB"
-</code></pre><p>启动mongodb服务：<strong>net start MongoDB</strong> <br><br>关闭mongodb服务：<strong>net stop MongoDB</strong><br></p>
-<p>基本的操作命令：<br></p>
-<ul>
-<li>mongo</li>
-<li>show dbs</li>
-<li>use dbname</li>
-<li>show collections</li>
-<li>db.colname.save({key:value})</li>
-<li>db colname.insert</li>
-<li>db.coldbname.find()</li>
-<li>db.coldbname.findOne()</li>
-<li>db.coldbname.update</li>
-<li>db.colname.remove</li>
-<li>db.colname.drop()</li>
-<li>ad.cloname.find().skip(5).limit(5)</li>
-</ul>
-
-            
-          </span>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/07/15/20160715/" itemprop="url">
-                  20160715
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            发表于
-            <time itemprop="dateCreated" datetime="2016-07-15T20:23:24+08:00" content="2016-07-15">
-              2016-07-15
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/07/15/20160715/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/07/15/20160715/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <span itemprop="articleBody">
-            
-              <ul>
-<li><p>apply 和 call 实现调用别人的方法吗，区别在于apply的参数是数组</p>
-<pre><code>foo.<span class="function"><span class="title">call</span><span class="params">(this, arg1,arg2,arg3)</span></span> == foo.<span class="function"><span class="title">apply</span><span class="params">(this, arguments)</span></span>==this.<span class="function"><span class="title">foo</span><span class="params">(arg1, arg2, arg3)</span></span>
-</code></pre></li>
-<li><p>javascript方法默认是有一个arguments数组参数，当调用函数传入参数时，</p>
-<p>函数即使没有指明参数名称，也一样可以使用参数数组的对象获取参数</p>
-</li>
-<li><p>今天给一台型机器安装了Android环境，React Native 环境</p>
-<pre><code>* jdk=&gt;JAVA_HOME=&gt;android studio=&gt;android sdk  ANDROID_HOME
-* node.js=&gt;react-native-cli=&gt;npm init
-</code></pre><p>jdk 安装真等的蛋疼，以前没有这种感觉啊，最后只能copy以前的jdk，android 环境sdk下载速度感觉变快了啊，我都没有配置国内的镜像，他妹的就直接现在完了，完了，完了。。。。<br>安装完整android环境，直接就给react native 环境疏通了道路，过程很顺利。</p>
-</li>
-</ul>
-
-            
-          </span>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/07/14/20160714/" itemprop="url">
-                  20160714
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            发表于
-            <time itemprop="dateCreated" datetime="2016-07-14T20:23:24+08:00" content="2016-07-14">
-              2016-07-14
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/07/14/20160714/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/07/14/20160714/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <span itemprop="articleBody">
-            
-              <ul>
-<li>react native 最近升级到了0.29.+,android的原生文件添加了MainApplication,替代了原来MainActivity的功能，因此以前的工程升级版本的时候需要根据新的工程结构调整一下，不然一些经过rnpm link 的项目可能不发正常运行。</li>
-<li>react native 指定版本初始化项目 react-native init projectname - -version 0.26.0</li>
-<li>git config - -list 查看config 配置</li>
-<li>git config - -unset - -global user.name 取消全局用户 </li>
-<li>git config user.name “master” 配置某仓库的用户</li>
-<li><p>git 获取远程仓库的分支到本地 </p>
-<blockquote>
+              <p>React Native 打开Remote Debugger请求服务器的时候出现如下错误：</p>
+<pre><code>No <span class="attribute">'Access</span>-Control-Allow-Origin' header <span class="keyword">is</span> present <span class="keyword">on</span> the requested resource. 
+Origin <span class="attribute">'http</span>://localhost:<span class="number">8081</span>' <span class="keyword">is</span> therefore <span class="keyword">not</span> allowed <span class="keyword">access</span>.
+</code></pre><p>按照google,stackoverflow,GitHub issues里的方法始终无法解决，真是让人抓狂，<br>无法在Chrome里调试，你特么逗我了，那我要你何用，拿刀来！！！最后没办法只能在Android Studio里查看<br>React Native 里console.log()和redux-logger的输出日志。<br>既然Android Studio logcat 可以打出React Native里的日志,adb logcat也可以在cmd中打React Native日志</p>
+<pre><code>adb logcat <span class="operator">-s</span> ReactNativeJS
+</code></pre><p>React Native 日志的tag为ReactNativeJS，这样就可以全部过滤了，结果过程中又发现不支持中文显示，<br>你特么够了，那只能接着解决</p>
 <ol>
-<li>git clone xxx </li>
-<li>git checkout -b localbranchname origin/remotebranchname</li>
+<li><p>输入 chcp 回车查看当前的编码；</p>
+</li>
+<li><p>输入chcp 65001 回车；</p>
+</li>
+<li><p>在窗体上右键选择属性来设置字体为Lucida Consola；</p>
+</li>
+<li><p>如果想换回原来的编码chcp 936</p>
+</li>
 </ol>
+<p>搜索过程中发现Android 大神 JakeWharton 对logcat封装的工具 <a href="https://github.com/JakeWharton/pidcat" target="_blank" rel="external">pidcat</a>,可以在控制台输出指定应用的日志,非常不错。</p>
+
+            
+          </span>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/09/07/20160907/" itemprop="url">
+                  20160907
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            发表于
+            <time itemprop="dateCreated" datetime="2016-09-07T21:46:44+08:00" content="2016-09-07">
+              2016-09-07
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/09/07/20160907/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/09/07/20160907/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <span itemprop="articleBody">
+            
+              <p> React Native 里需要接入友盟推送,首先按照官方文档在Android Studio里导入推送Module依赖,然后在MainApplication里添加PushSDK服务，处理通知</p>
+<pre><code> <span class="keyword">private</span> <span class="literal">void</span> initPushSDk() {
+    PushAgent mPushAgent = PushAgent<span class="built_in">.</span>getInstance(getApplicationContext());
+    mPushAgent<span class="built_in">.</span>enable();
+    mPushAgent<span class="built_in">.</span>setNotificationClickHandler(notificationClickHandler);
+
+}
+
+<span class="keyword">private</span> static final <span class="built_in">String</span> a = UmengNotificationClickHandler<span class="built_in">.</span>class<span class="built_in">.</span>getName();
+<span class="comment">//友盟通知自定义点击处理</span>
+UmengNotificationClickHandler notificationClickHandler = <span class="literal">new</span> UmengNotificationClickHandler(){
+    @Override
+    <span class="keyword">public</span> <span class="literal">void</span> dealWithCustomAction(Context context, UMessage msg) {
+        launchApplication(context,msg);<span class="comment">//先启动后台应用</span>
+        WritableMap <span class="keyword">params</span> = Arguments<span class="built_in">.</span>createMap();
+        <span class="built_in">String</span> custom = msg<span class="built_in">.</span>custom;
+        <span class="keyword">params</span><span class="built_in">.</span>putString(<span class="string">"custom"</span>,custom);
+        <span class="keyword">Log</span><span class="built_in">.</span>e(<span class="string">"custome"</span>,custom);
+        ReactContext reactContext = getReactNativeHost()<span class="built_in">.</span>getReactInstanceManager()<span class="built_in">.</span>getCurrentReactContext();
+        sendEvent(reactContext, <span class="string">"umeng_notification"</span>, <span class="keyword">params</span>);
+    }
+};
+
+<span class="keyword">private</span> <span class="literal">void</span> launchApplication(Context context,UMessage msg){
+    Intent var3 = context<span class="built_in">.</span>getPackageManager()<span class="built_in">.</span>getLaunchIntentForPackage(context<span class="built_in">.</span>getPackageName());
+    <span class="keyword">if</span>(var3 == <span class="built_in">null</span>) {
+        com<span class="built_in">.</span>umeng<span class="built_in">.</span>common<span class="built_in">.</span>message<span class="built_in">.</span><span class="keyword">Log</span><span class="built_in">.</span>b(a, <span class="string">"handleMessage(): cannot find app: "</span> + context<span class="built_in">.</span>getPackageName());
+    } <span class="keyword">else</span> {
+        var3<span class="built_in">.</span>setPackage((<span class="built_in">String</span>) <span class="built_in">null</span>);
+        var3<span class="built_in">.</span>addFlags(<span class="number">268435456</span>);
+        context<span class="built_in">.</span>startActivity(var3);
+    }
+}
+
+<span class="keyword">private</span>  <span class="literal">void</span> sendEvent(ReactContext reactContext,
+                              <span class="built_in">String</span> eventName,
+                              @Nullable WritableMap <span class="keyword">params</span>) {
+    reactContext
+            <span class="built_in">.</span>getJSModule(DeviceEventManagerModule<span class="built_in">.</span>RCTDeviceEventEmitter<span class="built_in">.</span>class)
+            <span class="built_in">.</span>emit(eventName, <span class="keyword">params</span>);
+}
+</code></pre><p>React Native 主页面里监听原生里发送的事件,跳转到相应的界面：</p>
+<pre><code>componentDidMount() {
+    <span class="keyword">if</span> (Platform.OS === <span class="string">'android'</span>) {
+          BackAndroid.addEventListener(<span class="string">'hardwareBackPress'</span>, <span class="function"><span class="params">()</span> =&gt;</span> <span class="keyword">this</span>.onBackAndroid());
+    };
+    DeviceEventEmitter.addListener(<span class="string">'umeng_notification'</span>, <span class="function"><span class="params">(e: Event)</span> =&gt;</span> {
+      <span class="regexp">//</span>e为原生传递过来的参数e.custom
+    <span class="keyword">this</span>.navigator.push({
+        <span class="attribute">component</span>: ShowNotificationPage
+      });
+      });
+  }
+</code></pre><p>可能是生命周期的原因,当android回退键退出应用时,只能拉起App却无法跳转到相应的界面,因此我在回退键的事件处理上进行了拦截,让App movebacktostack,而不是让界面销毁掉，相当于Home键的功能。</p>
+<p>React Native组件之间通信一般是通过props就可以实现父控件向子控件传值,父控件获取子控件的值.<br>也可以通过React Native 中的DeviceEventEmitter处理组件之间的监听事件,方式如下：</p>
+<pre><code>componentWillUnmount() {  
+    <span class="keyword">this</span>.subscription.remove();
+  }
+
+  componentDidMount() {  
+    <span class="keyword">this</span>.subscription = DeviceEventEmitter.addListener(<span class="string">'followChanged'</span>, <span class="function"><span class="params">()</span> =&gt;</span> {
+          <span class="keyword">this</span>.onRefresh()
+        });
+
+    <span class="keyword">this</span>.onRefresh();
+  }
+
+  onRefresh() {
+        <span class="keyword">this</span>.reuqestFans(<span class="keyword">this</span>.props.mid);
+  }
+</code></pre><p>其他组件触发事件：</p>
+<pre><code>DeviceEventEmitter.<span class="keyword">emit</span>(<span class="string">'followChanged'</span>);
+</code></pre>
+            
+          </span>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/09/06/20160906/" itemprop="url">
+                  20160906
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            发表于
+            <time itemprop="dateCreated" datetime="2016-09-06T21:33:18+08:00" content="2016-09-06">
+              2016-09-06
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/09/06/20160906/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/09/06/20160906/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <span itemprop="articleBody">
+            
+              <ul>
+<li><p>react native 切换页面过快时出现黄色警告：</p>
+<pre><code><span class="function"><span class="title">setState</span><span class="params">(...)</span></span>: Can only update <span class="tag">a</span> mounted or mounting component.
+</code></pre><p>  黄色警告在release版本中是不会出现的，也不会有其他的衍生错误，暂时可以选择忽略，如果强迫要解决的话可以通过如下方法：</p>
+<pre><code>componentWillUnmount() {
+        <span class="keyword">this</span>.isUnmount = <span class="literal">true</span>;
+ }
+</code></pre><p>  在请求完数据更新数据源之前做判断：</p>
+<pre><code><span class="tag">if</span>（<span class="tag">this</span><span class="class">.isUnmount</span>）<span class="tag">return</span>;
+    <span class="tag">this</span><span class="class">.setState</span>(<span class="rules">{
+    <span class="rule"><span class="attribute">data</span>:<span class="value">responseData
+</span></span></span>})
+</code></pre><p>  还有一种办法让请求去走redux流程。</p>
+</li>
+<li><p>页面切换的过程中为了避免每次请求数据，可以通过redux维护的state来保存数据源。</p>
+</li>
+</ul>
+
+            
+          </span>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/09/04/Installation/" itemprop="url">
+                  Docker Installation
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            发表于
+            <time itemprop="dateCreated" datetime="2016-09-04T11:29:19+08:00" content="2016-09-04">
+              2016-09-04
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/09/04/Installation/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/09/04/Installation/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <span itemprop="articleBody">
+            
+              <p>安装前提：b4bit centos 7.X,kenel 3.10+<br>可以通过yum或者curl安装,本次选择yum安装</p>
+<ol>
+<li>以root或sudo权限登录linux</li>
+<li><p>确保yum是最新版本</p>
+<pre><code><span class="variable">$ </span>sudo yum update
+</code></pre></li>
+<li><p>添加yum repo</p>
+<blockquote>
+<ul>
+<li>vi /etc/yum.repos.d/docker.repo</li>
+<li><p>添加内容：</p>
+<pre><code>[dockerrepo]
+  name=Docker Repository
+baseurl=https:<span class="comment">//yum.dockerproject.org/repo/main/centos/7/</span>
+enabled=<span class="number">1</span>
+gpgcheck=<span class="number">1</span>
+gpgkey=https:<span class="comment">//yum.dockerproject.org/gpg</span>
+</code></pre></li>
+<li>:wq保存退出</li>
+</ul>
 </blockquote>
 </li>
-<li><p>react native 直接hack 了 rnpm的功能，现在可以直接react-native link 了。</p>
-</li>
-</ul>
+<li><p>安装Docker Package</p>
+<pre><code>$ sudo yum <span class="operator"><span class="keyword">install</span> docker-<span class="keyword">engine</span></span>
+</code></pre></li>
+<li><p>开启Docker后台驻留程序</p>
+<pre><code>$ sudo service docker <span class="literal">start</span>
+</code></pre></li>
+<li><p>验证docker是否安装成功</p>
+<pre><code>$ sudo docker run hello-world
+Unable <span class="built_in">to</span> find image <span class="string">'hello-world:latest'</span> locally
+latest: Pulling <span class="built_in">from</span> hello-world
+a8219747be10: Pull complete
+<span class="number">91</span>c95931e552: Already exists
+hello-world:latest: The image you are pulling has been verified. Important: image verification is <span class="operator">a</span> tech preview feature <span class="operator">and</span> should <span class="operator">not</span> be relied <span class="command"><span class="keyword">on</span> <span class="title">to</span> <span class="title">provide</span> <span class="title">security</span>.</span>
+Digest: sha256:aa03e5d0d5553b4c3473e89c8619cf79df368babd1<span class="number">.7</span><span class="number">.1</span>cf5daeb82aab55838d
+Status: Downloaded newer image <span class="keyword">for</span> hello-world:latest
+Hello <span class="built_in">from</span> Docker.
+This message shows that your installation appears <span class="built_in">to</span> be working correctly.
 
+To generate this message, Docker took <span class="operator">the</span> following steps:
+ <span class="number">1.</span> The Docker client contacted <span class="operator">the</span> Docker daemon.
+ <span class="number">2.</span> The Docker daemon pulled <span class="operator">the</span> <span class="string">"hello-world"</span> image <span class="built_in">from</span> <span class="operator">the</span> Docker Hub.
+    (Assuming <span class="keyword">it</span> was <span class="operator">not</span> already locally available.)
+ <span class="number">3.</span> The Docker daemon created <span class="operator">a</span> <span class="built_in">new</span> container <span class="built_in">from</span> that image which runs <span class="operator">the</span>
+    executable that produces <span class="operator">the</span> output you are currently reading.
+ <span class="number">4.</span> The Docker daemon streamed that output <span class="built_in">to</span> <span class="operator">the</span> Docker client, which sent <span class="keyword">it</span>
+    <span class="built_in">to</span> your terminal.
+
+To <span class="keyword">try</span> something more ambitious, you can run <span class="operator">an</span> Ubuntu container <span class="operator">with</span>:
+ $ docker run -<span class="keyword">it</span> ubuntu bash
+
+For more examples <span class="operator">and</span> ideas, visit:
+ <span class="keyword">http</span>://docs.docker.com/userguide/
+</code></pre></li>
+<li><p>让Docker开机自启动</p>
+<pre><code>$ sudo chkconfig docker <span class="function_start"><span class="keyword">on</span></span>
+</code></pre></li>
+<li><p>注册Docker Hub账号 username:jichao password:712534</p>
+</li>
+<li><p>终端登录</p>
+<pre><code><span class="variable">$ </span>docker <span class="symbol">login:</span>
+</code></pre></li>
+<li><p>搜索仓库：</p>
+<pre><code><span class="variable">$ </span>docker search centos
+</code></pre></li>
+<li><p>拉取镜像：</p>
+<pre><code><span class="variable">$ </span>docker pull centos
+</code></pre></li>
+<li><p>查看本地有哪些镜像</p>
+<pre><code><span class="variable">$ </span>docker images
+</code></pre></li>
+<li><p>使用镜像启动一个容器：</p>
+<pre><code>$ docker run -t -<span class="tag">i</span> centos /bin/bash
+</code></pre></li>
+<li><p>终止终端,停止容器</p>
+<pre><code><span class="variable">$ </span>exit|<span class="constant">Ctrl</span>+<span class="constant">D</span>|<span class="variable">$ </span>docker stop
+</code></pre></li>
+<li><p>终止状态容器查看：</p>
+<pre><code>$ docker ps -<span class="literal">a</span>
+</code></pre></li>
+</ol>
+
+            
+          </span>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/09/03/20160903/" itemprop="url">
+                  20160903
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            发表于
+            <time itemprop="dateCreated" datetime="2016-09-03T11:46:06+08:00" content="2016-09-03">
+              2016-09-03
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/09/03/20160903/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/09/03/20160903/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <span itemprop="articleBody">
+            
+              <h3 id="android_studio">android studio</h3><pre><code> Error:Execution failed <span class="keyword">for</span> task <span class="string">':app:transformClassesWithDexForDebug'</span>.
+ com<span class="class">.android</span><span class="class">.build</span><span class="class">.api</span><span class="class">.transform</span><span class="class">.TransformException</span>:
+com<span class="class">.android</span><span class="class">.ide</span><span class="class">.common</span><span class="class">.process</span><span class="class">.ProcessException</span>: org<span class="class">.gradle</span><span class="class">.process</span><span class="class">.internal</span><span class="class">.ExecException</span>: 
+Process <span class="string">'command '</span>C:\Program Files\Java\jdk1.<span class="number">8.0</span>_31\bin\java.exe<span class="string">''</span> 
+finished with non-zero exit value <span class="number">2</span>
+</code></pre><p>在build.gradle里添加：</p>
+<pre><code><span class="title">defaultConfig</span> {
+    <span class="title">multiDexEnabled</span> <span class="built_in">true</span>
+}
+</code></pre><h3 id="ES6">ES6</h3><h4 id="export:">export:</h4><p>命名导出</p>
+<pre><code><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">gank</span>(<span class="params">n</span>)</span>{
+    <span class="keyword">return</span> <span class="string">'hello gank'</span>;
+}
+<span class="keyword">const</span> carry = <span class="string">'carry'</span>;
+<span class="keyword">export</span> {carry}
+<span class="comment">//或者直接export const carry = 'carry'</span>
+</code></pre><p>默认导出</p>
+<pre><code><span class="title">export</span> <span class="default"><span class="keyword">default</span> gank<span class="container">(<span class="title">io</span>)</span>{</span>
+    return 'hello <span class="default"><span class="keyword">default</span>';</span>
+}
+</code></pre><p>每个文件的export default 只能有一个</p>
+<h4 id="import:">import:</h4><p>以下代码将myDefault，foo，bar导入文件中,myDefault是默认导出的项,foo,bar为命名</p>
+<p>导出的项（即my-module.js中的代码为：…;export foo;export bar;export default myDefault;）</p>
+<pre><code><span class="keyword">import</span> myDefault, {foo, bar} <span class="keyword">from</span> <span class="string">"my-module.js"</span>
+</code></pre><p>在react native 可能看见如下写法：</p>
+<pre><code><span class="keyword">import</span> React, {Component} <span class="keyword">from</span> <span class="string">'react'</span>;
+</code></pre>
             
           </span>
         
@@ -1285,7 +889,7 @@ nrm <span class="keyword">use</span> cnpm <span class="comment">//切换到cnpm<
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1326,7 +930,7 @@ nrm <span class="keyword">use</span> cnpm <span class="comment">//切换到cnpm<
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">38</span>
+              <span class="site-state-item-count">39</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
