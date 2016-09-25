@@ -228,11 +228,119 @@
 
     
     
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/08/14/20160814/" itemprop="url">
+                  20160814
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            发表于
+            <time itemprop="dateCreated" datetime="2016-08-14T22:13:59+08:00" content="2016-08-14">
+              2016-08-14
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/08/14/20160814/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/14/20160814/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body">
+
       
       
 
       
-    
+        
+          <span itemprop="articleBody">
+            
+              <h2 id="AndroidStudio工程">AndroidStudio工程</h2><h3 id="android_studio_下引入有-so文件的包，出现如下错误：">android studio 下引入有.so文件的包，出现如下错误：</h3><pre><code>java.lang.UnsatisfiedLinkError: 
+   dalvik.system.PathClassLoader[DexPathList[[zip file <span class="string">"/data/app/net.comet.example-1/base.apk"</span>],
+   nativeLibraryDirectories=[/data/app/net.comet.example-<span class="number">1</span>/lib/arm64, /vendor/lib64, /system/lib64]]] 
+   couldn't find <span class="string">"libffmpeg.so"</span>
+ at java.lang.Runtime.<span class="built_in">load</span>Library(Runtime.java:<span class="number">366</span>)
+ at java.lang.System.<span class="built_in">load</span>Library(System.java:<span class="number">989</span>)
+ at com.dtr.zbar.build.ZBarDecoder.<span class="variable">&lt;clinit&gt;</span>(ZBarDecoder.java:<span class="number">6</span>)
+ at me.ele.hbdteam.widget.ScanView<span class="variable">$1</span>.<span class="keyword">on</span>PreviewFrame(ScanView.java:<span class="number">263</span>)
+ at android.hardware.Camera<span class="variable">$EventHandler</span>.handleMessage(Camera.java:<span class="number">1565</span>)
+ at android.<span class="keyword">os</span>.Handler.dispatchMessage(Handler.java:<span class="number">102</span>)
+ at android.<span class="keyword">os</span>.Looper.loop(Looper.java:<span class="number">155</span>)
+ at android.app.ActivityThread.main(ActivityThread.java:<span class="number">5696</span>)
+ at java.lang.reflect.Method.invoke(Native Method)
+ at java.lang.reflect.Method.invoke(Method.java:<span class="number">372</span>)
+ at com.android.internal.<span class="keyword">os</span>.ZygoteInit<span class="variable">$MethodAndArgsCaller</span>.run(ZygoteInit.java:<span class="number">1029</span>)
+ at com.android.internal.<span class="keyword">os</span>.ZygoteInit.main(ZygoteInit.java:<span class="number">824</span>)
+</code></pre><p>   解决思路是：</p>
+<ul>
+<li>1、把libffmpeg.so拷贝一份到armeabi-v7a目录</li>
+<li><p>2、在app.gradle增加jniLibs声明</p>
+<pre><code><span class="built_in">source</span>Sets.main {
+        jniLibs.srcDirs = [<span class="string">'libs'</span>]
+}
+</code></pre></li>
+</ul>
+<h2 id="SurfaceView">SurfaceView</h2><p>播放视频的时候只有声音没有图像，主要的原因是，在调用MediaPlayer开始播放视频时 <br>SurfaceView却还未创建成功，解决办法是判断SurfaceView创建成功后再调用MediaPlayer的播放，<br>通过surfaceHolder的addCallBack()方法来监听surfaceCreated    </p>
+
+            
+          </span>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
 
     
       
@@ -626,106 +734,6 @@ nrm <span class="keyword">use</span> cnpm <span class="comment">//切换到cnpm<
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/07/15/20160715/" itemprop="url">
-                  20160715
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            发表于
-            <time itemprop="dateCreated" datetime="2016-07-15T20:23:24+08:00" content="2016-07-15">
-              2016-07-15
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/07/15/20160715/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/07/15/20160715/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <span itemprop="articleBody">
-            
-              <ul>
-<li><p>apply 和 call 实现调用别人的方法吗，区别在于apply的参数是数组</p>
-<pre><code>foo.<span class="function"><span class="title">call</span><span class="params">(this, arg1,arg2,arg3)</span></span> == foo.<span class="function"><span class="title">apply</span><span class="params">(this, arguments)</span></span>==this.<span class="function"><span class="title">foo</span><span class="params">(arg1, arg2, arg3)</span></span>
-</code></pre></li>
-<li><p>javascript方法默认是有一个arguments数组参数，当调用函数传入参数时，</p>
-<p>函数即使没有指明参数名称，也一样可以使用参数数组的对象获取参数</p>
-</li>
-<li><p>今天给一台型机器安装了Android环境，React Native 环境</p>
-<pre><code>* jdk=&gt;JAVA_HOME=&gt;android studio=&gt;android sdk  ANDROID_HOME
-* node.js=&gt;react-native-cli=&gt;npm init
-</code></pre><p>jdk 安装真等的蛋疼，以前没有这种感觉啊，最后只能copy以前的jdk，android 环境sdk下载速度感觉变快了啊，我都没有配置国内的镜像，他妹的就直接现在完了，完了，完了。。。。<br>安装完整android环境，直接就给react native 环境疏通了道路，过程很顺利。</p>
-</li>
-</ul>
-
-            
-          </span>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
 
   </section>
 
@@ -772,7 +780,7 @@ nrm <span class="keyword">use</span> cnpm <span class="comment">//切换到cnpm<
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">39</span>
+              <span class="site-state-item-count">40</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -786,7 +794,7 @@ nrm <span class="keyword">use</span> cnpm <span class="comment">//切换到cnpm<
 
           <div class="site-state-item site-state-tags">
             <a href="/tags">
-              <span class="site-state-item-count">17</span>
+              <span class="site-state-item-count">18</span>
               <span class="site-state-item-name">标签</span>
               </a>
           </div>
