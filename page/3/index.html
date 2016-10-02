@@ -228,6 +228,115 @@
 
     
     
+      
+      
+
+      
+    
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/09/06/20160906/" itemprop="url">
+                  20160906
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            发表于
+            <time itemprop="dateCreated" datetime="2016-09-06T21:33:18+08:00" content="2016-09-06">
+              2016-09-06
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/09/06/20160906/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/09/06/20160906/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <span itemprop="articleBody">
+            
+              <ul>
+<li><p>react native 切换页面过快时出现黄色警告：</p>
+<pre><code><span class="function"><span class="title">setState</span><span class="params">(...)</span></span>: Can only update <span class="tag">a</span> mounted or mounting component.
+</code></pre><p>  黄色警告在release版本中是不会出现的，也不会有其他的衍生错误，暂时可以选择忽略，如果强迫要解决的话可以通过如下方法：</p>
+<pre><code>componentWillUnmount() {
+        <span class="keyword">this</span>.isUnmount = <span class="literal">true</span>;
+ }
+</code></pre><p>  在请求完数据更新数据源之前做判断：</p>
+<pre><code><span class="tag">if</span>（<span class="tag">this</span><span class="class">.isUnmount</span>）<span class="tag">return</span>;
+    <span class="tag">this</span><span class="class">.setState</span>(<span class="rules">{
+    <span class="rule"><span class="attribute">data</span>:<span class="value">responseData
+</span></span></span>})
+</code></pre><p>  还有一种办法让请求去走redux流程。</p>
+</li>
+<li><p>页面切换的过程中为了避免每次请求数据，可以通过redux维护的state来保存数据源。</p>
+</li>
+</ul>
+
+            
+          </span>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
 
     
       
@@ -742,121 +851,6 @@ srv.listen(<span class="number">8080</span>, <span class="function"><span class=
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/08/24/20160824/" itemprop="url">
-                  20160824
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            发表于
-            <time itemprop="dateCreated" datetime="2016-08-24T20:52:19+08:00" content="2016-08-24">
-              2016-08-24
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/08/24/20160824/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/24/20160824/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <span itemprop="articleBody">
-            
-              <ul>
-<li>react native TextInput  可以设置padding = 0,这样外部包裹view的的高度就等于TextInput的高度。</li>
-<li><p>使用友盟推送的时候，点击通知跳转到相关的界面，原生android 里可以打开指定的Activity,react native里没有activity给我们</p>
-<p>用,这时候可以在原生监听通知消息，通过DeviceEventEmitter发送事件和参数给JS端,然后通过navigator跳转</p>
-<p>原生中发送事件会调用如下代码：</p>
-<pre><code>   <span class="tag">private</span> <span class="tag">void</span> <span class="tag">sendEvent</span>(<span class="tag">ReactContext</span> <span class="tag">reactContext</span>,
-               <span class="tag">String</span> <span class="tag">eventName</span>,
-               <span class="at_rule">@<span class="keyword">Nullable</span> WritableMap params) </span>{
-  <span class="tag">reactContext</span>
-  <span class="class">.getJSModule</span>(<span class="tag">DeviceEventManagerModule</span><span class="class">.RCTDeviceEventEmitter</span><span class="class">.class</span>)
-  <span class="class">.emit</span>(<span class="tag">eventName</span>, <span class="tag">params</span>);
-}
-</code></pre><p> 如何在Activity/Application中获取ReactContext实例？</p>
-<pre><code>reactContext = <span class="function"><span class="title">getReactNativeHost</span><span class="params">()</span></span>.<span class="function"><span class="title">getReactInstanceManager</span><span class="params">()</span></span>.<span class="function"><span class="title">getCurrentReactContext</span><span class="params">()</span></span>
-</code></pre></li>
-<li><p>如何实现reactnative android 中按返回键不完全退出App?</p>
-<pre><code>   onBackAndroid = () =&gt; {
-<span class="keyword">const</span> nav = <span class="keyword">this</span>.navigator;
-<span class="keyword">const</span> routers = nav.getCurrentRoutes();
-<span class="keyword">if</span> (routers.length &gt; <span class="number">1</span>) {
-  nav.pop();
-  <span class="keyword">return</span> <span class="literal">true</span>;
-}
-ExitModule.<span class="built_in">exit</span>();<span class="comment">//调用原生的moveTaskToBack()方法</span>
-<span class="keyword">return</span> <span class="literal">true</span>;
-  };
-</code></pre></li>
-</ul>
-
-            
-          </span>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
 
   </section>
 
@@ -903,7 +897,7 @@ ExitModule.<span class="built_in">exit</span>();<span class="comment">//调用�
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">41</span>
+              <span class="site-state-item-count">42</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>

@@ -228,6 +228,103 @@
 
     
     
+      
+      
+
+      
+    
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/07/12/post/" itemprop="url">
+                  react native reload not work
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            发表于
+            <time itemprop="dateCreated" datetime="2016-07-12T22:39:18+08:00" content="2016-07-12">
+              2016-07-12
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/07/12/post/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/07/12/post/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <span itemprop="articleBody">
+            
+              <p>最近React Native修改js文件后，reload文件不生效，让人十分郁闷,一番搜索后可行的方法如下：</p>
+<p>找到\node_modules\react-native\node_modules\node-haste\lib\FileWatcher\index.js文件</p>
+<p>将MAX_WAIT_TIME的值调的更大,避免因加载超时而没有任何消息提示。</p>
+<p>碰到坑的时候React Native GitHub 的issues和stackoverflow可以帮助解决很多问题。</p>
+<p><a href="https://github.com/facebook/react-native/issues/7257" target="_blank" rel="external">react native issue</a></p>
+
+            
+          </span>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
 
     
       
@@ -623,117 +720,6 @@ export <span class="constant">ANDROID_HOME=</span>~<span class="regexp">/Library
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2015/12/16/learning-ios-9/" itemprop="url">
-                  learning ios 9
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            发表于
-            <time itemprop="dateCreated" datetime="2015-12-16T16:37:17+08:00" content="2015-12-16">
-              2015-12-16
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2015/12/16/learning-ios-9/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/12/16/learning-ios-9/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <span itemprop="articleBody">
-            
-              <ul>
-<li><p>下拉刷新UIRefreshControl</p>
-</li>
-<li><p>集成pictrues browser</p>
-<pre><code><span class="collection">[UIView animateWithDuration:0.7 animations:<span class="comment">^{
-  btn.transform = CGAffineTransformMakeTranslation(0, btnH);
-}</span> completion:^<span class="list">(<span class="keyword">BOOL</span> finished)</span> <span class="collection">{
-<span class="collection">[UIView animateKeyframesWithDuration:0.7 delay:1.0  options:UIViewKeyframeAnimationOptionCalculationModeLinear animations:<span class="comment">^{
-// btn.transform = CGAffineTransformMakeTranslation(0, -btnH);
- btn.transform = CGAffineTransformIdentity;
-}</span> completion:^<span class="list">(<span class="keyword">BOOL</span> finished)</span> <span class="collection">{
-  <span class="collection">[btn removeFromSuperview]</span><span class="comment">;</span>
-}</span>]</span><span class="comment">;</span>
-}</span>]</span><span class="comment">;</span>
-</code></pre></li>
-<li><p>写图片进入相册 UIImageWriteToSavedPhotoAlbum(image,nil.nil,nil)</p>
-</li>
-<li><p>UIBarButtonItem的setTitleTextAttributes对Disabled颜色设置无效问题解决方法：将设置为disabled的语句放置在viewWillAppear方法中。</p>
-</li>
-<li><p>becomeFirstResponser 调起键盘</p>
-</li>
-<li><p>模拟器不显示键盘  iOS Simulator -&gt; Hardware -&gt; Keyboard取消选择：“Connect Hardware Keyboard”</p>
-</li>
-</ul>
-
-            
-          </span>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
 
   </section>
 
@@ -780,7 +766,7 @@ export <span class="constant">ANDROID_HOME=</span>~<span class="regexp">/Library
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">41</span>
+              <span class="site-state-item-count">42</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
