@@ -51,26 +51,46 @@
 
 
 
-<meta name="description" content="第一个React Native应用BetterThan终于上线了,是一款健身健康类应用,Android,iOS里面涉及到很多各自平台的原生技术点,因为React Native 主要是做UI相关,而很多东西需要原生实现别如：第三方登录分享,推送通知,视频录制播放等,所以说不是纯ReactNative应用,应用的第一个版本包含了直播,社交圈子和我的个人信息三部分,目前来看只能算作测试版本先行试水,接下">
+<meta name="description" content="React Native 触摸事件响应事件：
+
+View.props.onStartShouldSetResponder
+View.props.onMoveShouldSetResponder
+
+两个属性的回调函数里返回true表示响应事件，组件成为事件的处理者会走回调
+
+View.props.onResponderGrant: (evt) =&amp;gt; {}
+被拒绝成为处理者，执行回调：
+
+Vie">
 <meta property="og:type" content="article">
-<meta property="og:title" content="betterthan">
-<meta property="og:url" content="http://yoursite.com/2016/10/02/betterthan/index.html">
+<meta property="og:title" content="React Native 触摸事件">
+<meta property="og:url" content="http://yoursite.com/2016/10/10/20161010/index.html">
 <meta property="og:site_name" content="To Be a Better Man">
-<meta property="og:description" content="第一个React Native应用BetterThan终于上线了,是一款健身健康类应用,Android,iOS里面涉及到很多各自平台的原生技术点,因为React Native 主要是做UI相关,而很多东西需要原生实现别如：第三方登录分享,推送通知,视频录制播放等,所以说不是纯ReactNative应用,应用的第一个版本包含了直播,社交圈子和我的个人信息三部分,目前来看只能算作测试版本先行试水,接下">
-<meta property="og:image" content="https://raw.githubusercontent.com/xiDaiDai/iOS_ReactNative/master/img/login.jpg">
-<meta property="og:image" content="https://raw.githubusercontent.com/xiDaiDai/iOS_ReactNative/master/img/live.jpg">
-<meta property="og:image" content="https://raw.githubusercontent.com/xiDaiDai/iOS_ReactNative/master/img/find.jpg">
-<meta property="og:image" content="https://raw.githubusercontent.com/xiDaiDai/iOS_ReactNative/master/img/share.jpg">
-<meta property="og:image" content="https://raw.githubusercontent.com/xiDaiDai/iOS_ReactNative/master/img/send.jpg">
-<meta property="og:image" content="https://raw.githubusercontent.com/xiDaiDai/iOS_ReactNative/master/img/topic.jpg">
-<meta property="og:image" content="https://raw.githubusercontent.com/xiDaiDai/iOS_ReactNative/master/img/mine.jpg">
-<meta property="og:image" content="https://raw.githubusercontent.com/xiDaiDai/iOS_ReactNative/master/img/profile.jpg">
-<meta property="og:image" content="https://raw.githubusercontent.com/xiDaiDai/iOS_ReactNative/master/img/setting.jpg">
-<meta property="og:image" content="https://raw.githubusercontent.com/xiDaiDai/iOS_ReactNative/master/img/rcode.png">
-<meta property="og:updated_time" content="2016-10-02T05:20:14.000Z">
+<meta property="og:description" content="React Native 触摸事件响应事件：
+
+View.props.onStartShouldSetResponder
+View.props.onMoveShouldSetResponder
+
+两个属性的回调函数里返回true表示响应事件，组件成为事件的处理者会走回调
+
+View.props.onResponderGrant: (evt) =&amp;gt; {}
+被拒绝成为处理者，执行回调：
+
+Vie">
+<meta property="og:updated_time" content="2016-10-10T13:51:42.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="betterthan">
-<meta name="twitter:description" content="第一个React Native应用BetterThan终于上线了,是一款健身健康类应用,Android,iOS里面涉及到很多各自平台的原生技术点,因为React Native 主要是做UI相关,而很多东西需要原生实现别如：第三方登录分享,推送通知,视频录制播放等,所以说不是纯ReactNative应用,应用的第一个版本包含了直播,社交圈子和我的个人信息三部分,目前来看只能算作测试版本先行试水,接下">
+<meta name="twitter:title" content="React Native 触摸事件">
+<meta name="twitter:description" content="React Native 触摸事件响应事件：
+
+View.props.onStartShouldSetResponder
+View.props.onMoveShouldSetResponder
+
+两个属性的回调函数里返回true表示响应事件，组件成为事件的处理者会走回调
+
+View.props.onResponderGrant: (evt) =&amp;gt; {}
+被拒绝成为处理者，执行回调：
+
+Vie">
 
 
 
@@ -82,7 +102,7 @@
   };
 </script>
 
-  <title> betterthan | To Be a Better Man </title>
+  <title> React Native 触摸事件 | To Be a Better Man </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -253,7 +273,7 @@
             
             
               
-                betterthan
+                React Native 触摸事件
               
             
           </h1>
@@ -262,8 +282,8 @@
         <div class="post-meta">
           <span class="post-time">
             发表于
-            <time itemprop="dateCreated" datetime="2016-10-02T11:56:13+08:00" content="2016-10-02">
-              2016-10-02
+            <time itemprop="dateCreated" datetime="2016-10-10T20:39:24+08:00" content="2016-10-10">
+              2016-10-10
             </time>
           </span>
 
@@ -273,8 +293,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/10/02/betterthan/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/02/betterthan/" itemprop="commentsCount"></span>
+                <a href="/2016/10/10/20161010/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/10/20161010/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -293,9 +313,57 @@
       
 
       
-        <span itemprop="articleBody"><p>第一个React Native应用BetterThan终于上线了,是一款健身健康类应用,Android,iOS里面涉及到很多各自平台的原生技术点,因为React Native 主要是做UI相关,而很多东西需要原生实现别如：第三方登录分享,推送通知,视频录制播放等,所以说不是纯ReactNative应用,应用的第一个版本包含了直播,社交圈子和我的个人信息三部分,目前来看只能算作测试版本先行试水,接下来会迭代新的模块和继续填坑。</p>
-<p><img src="https://raw.githubusercontent.com/xiDaiDai/iOS_ReactNative/master/img/login.jpg" width="200" height="100" alt="图片名称"><br><img src="https://raw.githubusercontent.com/xiDaiDai/iOS_ReactNative/master/img/live.jpg" width="200" height="100" alt="图片名称"><br><img src="https://raw.githubusercontent.com/xiDaiDai/iOS_ReactNative/master/img/find.jpg" width="200" height="100" alt="图片名称" align="center"><br><img src="https://raw.githubusercontent.com/xiDaiDai/iOS_ReactNative/master/img/share.jpg" width="200" height="100" alt="图片名称" align="center"><br><img src="https://raw.githubusercontent.com/xiDaiDai/iOS_ReactNative/master/img/send.jpg" width="200" height="100" alt="图片名称" align="center"><br><img src="https://raw.githubusercontent.com/xiDaiDai/iOS_ReactNative/master/img/topic.jpg" width="200" height="100" alt="图片名称" align="center"><br><img src="https://raw.githubusercontent.com/xiDaiDai/iOS_ReactNative/master/img/mine.jpg" width="200" height="100" alt="图片名称" align="center"><br><img src="https://raw.githubusercontent.com/xiDaiDai/iOS_ReactNative/master/img/profile.jpg" width="200" height="100" alt="图片名称" align="center"><br><img src="https://raw.githubusercontent.com/xiDaiDai/iOS_ReactNative/master/img/setting.jpg" width="200" height="100" alt="图片名称" align="center"></p>
-<p>Android版本下载：<br><img src="https://raw.githubusercontent.com/xiDaiDai/iOS_ReactNative/master/img/rcode.png" width="100" height="100" alt="图片名称" align="center"></p>
+        <span itemprop="articleBody"><h3 id="React_Native_触摸事件">React Native 触摸事件</h3><p>响应事件：</p>
+<ul>
+<li>View.props.onStartShouldSetResponder</li>
+<li>View.props.onMoveShouldSetResponder</li>
+</ul>
+<p>两个属性的回调函数里返回true表示响应事件，组件成为事件的处理者会走回调</p>
+<ul>
+<li><p>View.props.onResponderGrant: (evt) =&gt; {}</p>
+<p>被拒绝成为处理者，执行回调：</p>
+</li>
+<li><p>View.props.onResponderReject: (evt) =&gt; {}</p>
+</li>
+</ul>
+<p>组件处理触摸事件的回调：</p>
+<ul>
+<li><p>View.props.onResponderStart: (evt) =&gt; {}</p>
+</li>
+<li><p>View.props.onResponderMove: (evt) =&gt; {}</p>
+</li>
+<li><p>View.props.onResponderRelease: (evt) =&gt; {}</p>
+</li>
+<li><p>View.props.onResponderEnd: (evt) =&gt; {}</p>
+<p>是否释放事件处理权限</p>
+</li>
+<li><p>View.props.onResponderTerminationRequest: (evt) =&gt; bool</p>
+</li>
+<li><p>View.props.onResponderTerminate: (evt) =&gt; {}</p>
+</li>
+</ul>
+<p>多个组件嵌套响应事件：</p>
+<p>如果多个父子组件都onStartShouldSetResponder返回true,那么最内层的子组件会最先响应，这是所谓的事件处理的冒泡机制，当然层层深入到子组件首先得得到父组件的同意：</p>
+<ul>
+<li>View.props.onStartShouldSetResponderCapture</li>
+<li>View.props.onMoveShouldSetResponderCapture</li>
+</ul>
+<p>回调返回true表示该组件捕获了该事件，那么子组件就无法成为事件响应者了</p>
+<h3 id="React_Native_手势识别系统PanResponder">React Native 手势识别系统PanResponder</h3><p>panresponder对触摸事件进行了封装提供的API让我们可以更方便的使用手势识别功能</p>
+<ul>
+<li>onStartShouldSetPanResponder: (e, gestureState) =&gt; bool</li>
+<li>onStartShouldSetPanResponderCapture: (e, gestureState) =&gt; bool</li>
+<li>onMoveShouldSetPanResponder: (e, gestureState) =&gt; bool</li>
+<li>onMoveShouldSetPanResponderCapture: (e, gestureState) =&gt; bool</li>
+<li>onPanResponderGrant: (e, gestureState) =&gt; {…}</li>
+<li>onPanResponderStart: (e, gestureState) =&gt; {…}</li>
+<li>onPanResponderMove: (e, gestureState) =&gt; {…}</li>
+<li>onPanResponderRelease: (e, gestureState) =&gt; {…}</li>
+<li>onPanResponderTerminationRequest: (e, gestureState) =&gt; {…}</li>
+<li>onPanResponderTerminate: (e, gestureState) =&gt; {…}</li>
+<li>onShouldBlockNativeResponder: (e, gestureState) =&gt; bool</li>
+</ul>
+<p>在最近的项目里要实现parallax的scrollview头部图像拉伸效果,GitHub上搜索后发现有实现的库，那好啊npm install —save简单粗暴，咔咔import结果Android手机分分钟没效果，遂弃之，决定自己实现一个，这里面就用到了手势识别，结合动画下拉伸缩图片，scrollview和外别view手势识别冲突的拦截等。</p>
 </span>
       
     </div>
@@ -313,17 +381,13 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/09/26/20160926/" rel="next" title="20160926">
-                <i class="fa fa-chevron-left"></i> 20160926
+              <a href="/2016/10/02/betterthan/" rel="next" title="betterthan">
+                <i class="fa fa-chevron-left"></i> betterthan
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/10/10/20161010/" rel="prev" title="React Native 触摸事件">
-                React Native 触摸事件 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -350,8 +414,8 @@
         
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/10/02/betterthan/"
-           data-title="betterthan" data-url="http://yoursite.com/2016/10/02/betterthan/">
+      <div class="ds-thread" data-thread-key="2016/10/10/20161010/"
+           data-title="React Native 触摸事件" data-url="http://yoursite.com/2016/10/10/20161010/">
       </div>
     
   </div>
@@ -459,7 +523,7 @@
               
             
             
-              <p class="post-toc-empty">此文章未包含目录</p>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#React_Native_触摸事件"><span class="nav-number">1.</span> <span class="nav-text">React Native 触摸事件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#React_Native_手势识别系统PanResponder"><span class="nav-number">2.</span> <span class="nav-text">React Native 手势识别系统PanResponder</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator">
