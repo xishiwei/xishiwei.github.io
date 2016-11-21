@@ -228,11 +228,110 @@
 
     
     
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/07/14/20160714/" itemprop="url">
+                  20160714
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            发表于
+            <time itemprop="dateCreated" datetime="2016-07-14T20:23:24+08:00" content="2016-07-14">
+              2016-07-14
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/07/14/20160714/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/07/14/20160714/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body">
+
       
       
 
       
-    
+        
+          <span itemprop="articleBody">
+            
+              <ul>
+<li>react native 最近升级到了0.29.+,android的原生文件添加了MainApplication,替代了原来MainActivity的功能，因此以前的工程升级版本的时候需要根据新的工程结构调整一下，不然一些经过rnpm link 的项目可能不发正常运行。</li>
+<li>react native 指定版本初始化项目 react-native init projectname - -version 0.26.0</li>
+<li>git config - -list 查看config 配置</li>
+<li>git config - -unset - -global user.name 取消全局用户 </li>
+<li>git config user.name “master” 配置某仓库的用户</li>
+<li><p>git 获取远程仓库的分支到本地 </p>
+<blockquote>
+<ol>
+<li>git clone xxx </li>
+<li>git checkout -b localbranchname origin/remotebranchname</li>
+</ol>
+</blockquote>
+</li>
+<li><p>react native 直接hack 了 rnpm的功能，现在可以直接react-native link 了。</p>
+</li>
+</ul>
+
+            
+          </span>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
 
     
       
@@ -605,102 +704,6 @@ export <span class="constant">ANDROID_HOME=</span>~<span class="regexp">/Library
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/06/01/react-native/" itemprop="url">
-                  Node.js
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            发表于
-            <time itemprop="dateCreated" datetime="2016-06-01T00:00:00+08:00" content="2016-06-01">
-              2016-06-01
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/06/01/react-native/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/06/01/react-native/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <span itemprop="articleBody">
-            
-              <p>Node.js 就是运行在服务端的 JavaScript。<br>Node.js 是一个基于Chrome JavaScript 运行时建立的一个平台。<br>Node.js是一个事件驱动IO服务端JavaScript环境，基于Google的V8引擎，V8引擎执行Javascript的速度非常快，性能非常好</p>
-<p>安装配置下载Node即可</p>
-<pre><code><span class="keyword">node</span><span class="identifier"> </span><span class="title">-v</span>
-</code></pre><p>查看是否安装成功</p>
-<p>sublime里新建hello.js文件输入 </p>
-<pre><code>console.log('hello <span class="keyword">node</span>.<span class="identifier"></span><span class="title">js</span>')
-</code></pre><p>node执行该文件：</p>
-<pre><code><span class="keyword">node</span><span class="identifier"> </span><span class="title">hello</span>.js
-</code></pre><p>终端输出 hello node.js</p>
-
-            
-          </span>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
 
   </section>
 
@@ -747,7 +750,7 @@ export <span class="constant">ANDROID_HOME=</span>~<span class="regexp">/Library
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">43</span>
+              <span class="site-state-item-count">44</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -761,7 +764,7 @@ export <span class="constant">ANDROID_HOME=</span>~<span class="regexp">/Library
 
           <div class="site-state-item site-state-tags">
             <a href="/tags">
-              <span class="site-state-item-count">18</span>
+              <span class="site-state-item-count">19</span>
               <span class="site-state-item-name">标签</span>
               </a>
           </div>

@@ -228,15 +228,132 @@
 
     
     
+
+    
       
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/11/21/underscore使用/" itemprop="url">
+                  underscore使用
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            发表于
+            <time itemprop="dateCreated" datetime="2016-11-21T22:33:56+08:00" content="2016-11-21">
+              2016-11-21
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/11/21/underscore使用/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/21/underscore使用/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body">
+
       
-        
-        
-        
       
 
       
-    
+        
+          <span itemprop="articleBody">
+            
+              <h2 id="underscore-js">underscore.js</h2><p>在做本地缓存视频管理的时候，需要对数组进行大量的操作，本来React Native 有lodash工具库，旁边的前端同事使用的是underscore,大神在边上我就使用了underscore,其实api和lodash差不多，只是lodash更加完善，简单的处理underscore也足够。</p>
+<p>直接下载underscore-min.js</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> _ <span class="keyword">from</span> <span class="string">'./path/underscore-min'</span>;</span><br></pre></td></tr></table></figure>
+<p>下面是我主要用到的Api:</p>
+<ol>
+<li>map方法遍历数组或对象，将返回的结果组成一个新的数组或对象</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">let</span> data = _.map([<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>],<span class="function"><span class="keyword">function</span>(<span class="params">n</span>)</span>&#123; retrun n*<span class="number">2</span>; &#125;)</span><br><span class="line"><span class="comment">//data = [2,4,6]</span></span><br><span class="line"><span class="keyword">let</span> data = _map([&#123;name:<span class="string">'james'</span>&#125;,&#123;name:<span class="string">'jakson'</span>&#125;,&#123;name:<span class="string">'tom'</span>&#125;],<span class="function"><span class="keyword">function</span>(<span class="params">item</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">return</span> &#123;</span><br><span class="line">    name:item.name,</span><br><span class="line">    isChecked:<span class="literal">true</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">//data = [&#123;name:'james',isChecked:true&#125;,</span></span><br><span class="line"><span class="comment">//&#123;name:'jakson',isChecked:true&#125;,</span></span><br><span class="line"><span class="comment">//  &#123;name:'tom',isChecked:true&#125;]</span></span><br></pre></td></tr></table></figure>
+<ol>
+<li>filter返回结果为true的成员</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> data = _.filter([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>], <span class="function"><span class="keyword">function</span>(<span class="params">num</span>)</span>&#123; <span class="keyword">return</span> num % <span class="number">2</span> == <span class="number">0</span>; &#125;);</span><br><span class="line"><span class="comment">//data = [2,4,6]</span></span><br></pre></td></tr></table></figure>
+<ol>
+<li>reject返回操作结果为false的成员</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> data = _.filter([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>], <span class="function"><span class="keyword">function</span>(<span class="params">num</span>)</span>&#123; <span class="keyword">return</span> num % <span class="number">2</span> == <span class="number">0</span>; &#125;);</span><br><span class="line"><span class="comment">//data = [2,4,6]</span></span><br></pre></td></tr></table></figure>
+<ol>
+<li>difference </li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> data = _.difference([<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">5</span>], [<span class="number">2</span>,<span class="number">3</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>])</span><br><span class="line"><span class="comment">//data=[1,5]  只保留[1,2,3,5]中不相同的</span></span><br></pre></td></tr></table></figure>
+<ol>
+<li>uniq</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">_.uniq(array, [isSorted], [iteratee])</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> data = _uniq([<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">3</span>])</span><br><span class="line"><span class="comment">//data=[1,2,3,4]</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> data= _uniq([&#123;id:<span class="number">1</span>,name:<span class="string">'bob'</span>&#125;,&#123;id:<span class="number">2</span>,name:<span class="string">'jane'</span>&#125;,&#123;id:<span class="number">3</span>,name:<span class="string">'jack'</span>&#125;,&#123;id:<span class="number">1</span>,name:<span class="string">'bob'</span>&#125;],<span class="literal">false</span>,(item)=&gt;&#123;</span><br><span class="line">  <span class="keyword">return</span> item.id</span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">//data=[&#123;id:1,name:'bob'&#125;,&#123;id:2,name:'jane'&#125;,&#123;id:3,name:'jack'&#125;]</span></span><br></pre></td></tr></table></figure>
+<ol>
+<li>indexOf</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">_.indexOf([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>], <span class="number">2</span>);</span><br><span class="line"><span class="comment">//1,</span></span><br></pre></td></tr></table></figure>
+<ol>
+<li>contains</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">_.contains(list, value, [fromIndex])</span><br><span class="line"></span><br><span class="line"><span class="comment">//可以用includes</span></span><br></pre></td></tr></table></figure>
+<ol>
+<li><p>compact返回一个除去所有<em>false</em>值的 <strong>array</strong>副本。</p>
+<p> 在javascript中, <em>false</em>, <em>null</em>, <em>0</em>, <em>“”</em>, <em>undefined</em> 和 <em>NaN</em> 都是<em>false</em>值.</p>
+</li>
+</ol>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">_</span>.compact([<span class="number">0</span>, <span class="number">1</span>, <span class="keyword">false</span>, <span class="number">2</span>, <span class="string">''</span>, <span class="number">3</span>]);</span><br><span class="line"><span class="status">=&gt;</span> [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]</span><br></pre></td></tr></table></figure>
+<p>更多Api参考文档<a href="http://www.css88.com/doc/underscore/" target="_blank" rel="external">http://www.css88.com/doc/underscore/</a></p>
+
+            
+          </span>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
 
     
       
@@ -683,136 +800,6 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/09/23/20160923/" itemprop="url">
-                  20160923
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            发表于
-            <time itemprop="dateCreated" datetime="2016-09-23T20:15:48+08:00" content="2016-09-23">
-              2016-09-23
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/09/23/20160923/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/09/23/20160923/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <span itemprop="articleBody">
-            
-              <p>之前使用版本控制工具Git,经常的命令是这些：</p>
-<ul>
-<li>git clone</li>
-<li>git branch</li>
-<li>git checkout </li>
-<li>git status</li>
-<li>git add </li>
-<li>git commit </li>
-<li>git fetch</li>
-<li>git pull</li>
-<li>git merge</li>
-<li>git push</li>
-</ul>
-<p>突然让给版本打个tag,这什么鬼，只是知道基本这个命令，之前基本没使用然后特意翻出来看看</p>
-<h2 id="tag">tag</h2><p>add tag</p>
-<pre><code>git <span class="keyword">tag</span> <span class="title">v1</span>
-</code></pre><p>show tag list</p>
-<pre><code>git <span class="operator">tag</span>
-</code></pre><p>show format log:</p>
-<pre><code>git <span class="command">log</span> <span class="comment">--pretty=oneline</span>
-</code></pre><p>quit git log</p>
-<pre><code><span class="attribute">:q</span>
-</code></pre><p>add tag on commitID(get from git log)</p>
-<pre><code>git <span class="keyword">tag</span> <span class="title">v2</span>.<span class="number">0</span> commitID
-</code></pre><p>show commit information by tag_name</p>
-<pre><code><span class="label">git</span> show <span class="literal">v2</span>.<span class="number">0</span>
-</code></pre><p>checkout branch with tag_name</p>
-<pre><code><span class="label">git</span> checkout -<span class="keyword">b </span><span class="keyword">branch_name </span>tag_name
-</code></pre><h2 id="diff">diff</h2><p>比较与上次提交的差异</p>
-<pre><code><span class="title">git</span> diff
-</code></pre><p>版本差异比较，如果是统计一下有哪些文件被改动可以使用’–stat’ 参数</p>
-<p>比较与其他分支版本之间的差异：</p>
-<pre><code><span class="title">git</span> diff other_branch
-</code></pre><p>比较任意两个版本之间的差异：</p>
-<pre><code>git diff <span class="literal">master</span>..test
-</code></pre><h2 id="reset">reset</h2><p>上一个版本就是 <strong>HEAD^</strong>，上上一个版本就是 <strong>HEAD^^</strong>，或者 <strong>HEAD~2</strong>，往上50个版本 <strong>HEAD~50</strong></p>
-<p>回退所有内容到上一个版本</p>
-<pre><code>git <span class="operator"><span class="keyword">reset</span> <span class="keyword">HEAD</span>^  </span>
-</code></pre><p>回退所有内容到某个版本</p>
-<pre><code>git <span class="operator"><span class="keyword">reset</span> <span class="comment">--hard commitID</span></span>
-</code></pre><p>如果后悔了，Git提供了一个命令用来记录你的每一次命令</p>
-<pre><code><span class="title">git</span> reflog
-</code></pre><p>可以找到commitID,然后 git reset –hard commitID</p>
-
-            
-          </span>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
 
   </section>
 
@@ -859,7 +846,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">43</span>
+              <span class="site-state-item-count">44</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -873,7 +860,7 @@
 
           <div class="site-state-item site-state-tags">
             <a href="/tags">
-              <span class="site-state-item-count">18</span>
+              <span class="site-state-item-count">19</span>
               <span class="site-state-item-name">标签</span>
               </a>
           </div>

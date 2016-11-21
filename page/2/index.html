@@ -228,11 +228,136 @@
 
     
     
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/09/23/20160923/" itemprop="url">
+                  20160923
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            发表于
+            <time itemprop="dateCreated" datetime="2016-09-23T20:15:48+08:00" content="2016-09-23">
+              2016-09-23
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/09/23/20160923/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/09/23/20160923/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body">
+
       
       
 
       
-    
+        
+          <span itemprop="articleBody">
+            
+              <p>之前使用版本控制工具Git,经常的命令是这些：</p>
+<ul>
+<li>git clone</li>
+<li>git branch</li>
+<li>git checkout </li>
+<li>git status</li>
+<li>git add </li>
+<li>git commit </li>
+<li>git fetch</li>
+<li>git pull</li>
+<li>git merge</li>
+<li>git push</li>
+</ul>
+<p>突然让给版本打个tag,这什么鬼，只是知道基本这个命令，之前基本没使用然后特意翻出来看看</p>
+<h2 id="tag">tag</h2><p>add tag</p>
+<pre><code>git <span class="keyword">tag</span> <span class="title">v1</span>
+</code></pre><p>show tag list</p>
+<pre><code>git <span class="operator">tag</span>
+</code></pre><p>show format log:</p>
+<pre><code>git <span class="command">log</span> <span class="comment">--pretty=oneline</span>
+</code></pre><p>quit git log</p>
+<pre><code><span class="attribute">:q</span>
+</code></pre><p>add tag on commitID(get from git log)</p>
+<pre><code>git <span class="keyword">tag</span> <span class="title">v2</span>.<span class="number">0</span> commitID
+</code></pre><p>show commit information by tag_name</p>
+<pre><code><span class="label">git</span> show <span class="literal">v2</span>.<span class="number">0</span>
+</code></pre><p>checkout branch with tag_name</p>
+<pre><code><span class="label">git</span> checkout -<span class="keyword">b </span><span class="keyword">branch_name </span>tag_name
+</code></pre><h2 id="diff">diff</h2><p>比较与上次提交的差异</p>
+<pre><code><span class="title">git</span> diff
+</code></pre><p>版本差异比较，如果是统计一下有哪些文件被改动可以使用’–stat’ 参数</p>
+<p>比较与其他分支版本之间的差异：</p>
+<pre><code><span class="title">git</span> diff other_branch
+</code></pre><p>比较任意两个版本之间的差异：</p>
+<pre><code>git diff <span class="literal">master</span>..test
+</code></pre><h2 id="reset">reset</h2><p>上一个版本就是 <strong>HEAD^</strong>，上上一个版本就是 <strong>HEAD^^</strong>，或者 <strong>HEAD~2</strong>，往上50个版本 <strong>HEAD~50</strong></p>
+<p>回退所有内容到上一个版本</p>
+<pre><code>git <span class="operator"><span class="keyword">reset</span> <span class="keyword">HEAD</span>^  </span>
+</code></pre><p>回退所有内容到某个版本</p>
+<pre><code>git <span class="operator"><span class="keyword">reset</span> <span class="comment">--hard commitID</span></span>
+</code></pre><p>如果后悔了，Git提供了一个命令用来记录你的每一次命令</p>
+<pre><code><span class="title">git</span> reflog
+</code></pre><p>可以找到commitID,然后 git reset –hard commitID</p>
+
+            
+          </span>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
 
     
       
@@ -692,110 +817,6 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/09/08/20160908/" itemprop="url">
-                  20160908
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            发表于
-            <time itemprop="dateCreated" datetime="2016-09-08T20:47:04+08:00" content="2016-09-08">
-              2016-09-08
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/09/08/20160908/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/09/08/20160908/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <span itemprop="articleBody">
-            
-              <p>React Native 打开Remote Debugger请求服务器的时候出现如下错误：</p>
-<pre><code>No <span class="attribute">'Access</span>-Control-Allow-Origin' header <span class="keyword">is</span> present <span class="keyword">on</span> the requested resource. 
-Origin <span class="attribute">'http</span>://localhost:<span class="number">8081</span>' <span class="keyword">is</span> therefore <span class="keyword">not</span> allowed <span class="keyword">access</span>.
-</code></pre><p>按照google,stackoverflow,GitHub issues里的方法始终无法解决，真是让人抓狂，<br>无法在Chrome里调试，你特么逗我了，那我要你何用，拿刀来！！！最后没办法只能在Android Studio里查看<br>React Native 里console.log()和redux-logger的输出日志。<br>既然Android Studio logcat 可以打出React Native里的日志,adb logcat也可以在cmd中打React Native日志</p>
-<pre><code>adb logcat <span class="operator">-s</span> ReactNativeJS
-</code></pre><p>React Native 日志的tag为ReactNativeJS，这样就可以全部过滤了，结果过程中又发现不支持中文显示，<br>你特么够了，那只能接着解决</p>
-<ol>
-<li><p>输入 chcp 回车查看当前的编码；</p>
-</li>
-<li><p>输入chcp 65001 回车；</p>
-</li>
-<li><p>在窗体上右键选择属性来设置字体为Lucida Consola；</p>
-</li>
-<li><p>如果想换回原来的编码chcp 936</p>
-</li>
-</ol>
-<p>搜索过程中发现Android 大神 JakeWharton 对logcat封装的工具 <a href="https://github.com/JakeWharton/pidcat" target="_blank" rel="external">pidcat</a>,可以在控制台输出指定应用的日志,非常不错。</p>
-
-            
-          </span>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
 
   </section>
 
@@ -842,7 +863,7 @@ Origin <span class="attribute">'http</span>://localhost:<span class="number">808
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">43</span>
+              <span class="site-state-item-count">44</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -856,7 +877,7 @@ Origin <span class="attribute">'http</span>://localhost:<span class="number">808
 
           <div class="site-state-item site-state-tags">
             <a href="/tags">
-              <span class="site-state-item-count">18</span>
+              <span class="site-state-item-count">19</span>
               <span class="site-state-item-name">标签</span>
               </a>
           </div>

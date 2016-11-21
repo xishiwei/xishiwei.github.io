@@ -35,7 +35,7 @@
 <link href="/css/main.css?v=0.4.5.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="react native," />
+  <meta name="keywords" content="underscore," />
 
 
 
@@ -51,22 +51,22 @@
 
 
 
-<meta name="description" content="React Native 里需要接入友盟推送,首先按照官方文档在Android Studio里导入推送Module依赖,然后在MainApplication里添加PushSDK服务，处理通知
- private void initPushSDk() {
-    PushAgent mPushAgent = PushAgent.getInstance(getApplicationContext());">
+<meta name="description" content="underscore.js在做本地缓存视频管理的时候，需要对数组进行大量的操作，本来React Native 有lodash工具库，旁边的前端同事使用的是underscore,大神在边上我就使用了underscore,其实api和lodash差不多，只是lodash更加完善，简单的处理underscore也足够。
+直接下载underscore-min.js
+1import _ from &apos;./pa">
 <meta property="og:type" content="article">
-<meta property="og:title" content="20160907">
-<meta property="og:url" content="http://yoursite.com/2016/09/07/20160907/index.html">
+<meta property="og:title" content="underscore使用">
+<meta property="og:url" content="http://yoursite.com/2016/11/21/underscore使用/index.html">
 <meta property="og:site_name" content="To Be a Better Man">
-<meta property="og:description" content="React Native 里需要接入友盟推送,首先按照官方文档在Android Studio里导入推送Module依赖,然后在MainApplication里添加PushSDK服务，处理通知
- private void initPushSDk() {
-    PushAgent mPushAgent = PushAgent.getInstance(getApplicationContext());">
-<meta property="og:updated_time" content="2016-09-07T14:09:08.000Z">
+<meta property="og:description" content="underscore.js在做本地缓存视频管理的时候，需要对数组进行大量的操作，本来React Native 有lodash工具库，旁边的前端同事使用的是underscore,大神在边上我就使用了underscore,其实api和lodash差不多，只是lodash更加完善，简单的处理underscore也足够。
+直接下载underscore-min.js
+1import _ from &apos;./pa">
+<meta property="og:updated_time" content="2016-11-21T14:36:21.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="20160907">
-<meta name="twitter:description" content="React Native 里需要接入友盟推送,首先按照官方文档在Android Studio里导入推送Module依赖,然后在MainApplication里添加PushSDK服务，处理通知
- private void initPushSDk() {
-    PushAgent mPushAgent = PushAgent.getInstance(getApplicationContext());">
+<meta name="twitter:title" content="underscore使用">
+<meta name="twitter:description" content="underscore.js在做本地缓存视频管理的时候，需要对数组进行大量的操作，本来React Native 有lodash工具库，旁边的前端同事使用的是underscore,大神在边上我就使用了underscore,其实api和lodash差不多，只是lodash更加完善，简单的处理underscore也足够。
+直接下载underscore-min.js
+1import _ from &apos;./pa">
 
 
 
@@ -78,7 +78,7 @@
   };
 </script>
 
-  <title> 20160907 | To Be a Better Man </title>
+  <title> underscore使用 | To Be a Better Man </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -249,7 +249,7 @@
             
             
               
-                20160907
+                underscore使用
               
             
           </h1>
@@ -258,8 +258,8 @@
         <div class="post-meta">
           <span class="post-time">
             发表于
-            <time itemprop="dateCreated" datetime="2016-09-07T21:46:44+08:00" content="2016-09-07">
-              2016-09-07
+            <time itemprop="dateCreated" datetime="2016-11-21T22:33:56+08:00" content="2016-11-21">
+              2016-11-21
             </time>
           </span>
 
@@ -269,8 +269,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/09/07/20160907/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/09/07/20160907/" itemprop="commentsCount"></span>
+                <a href="/2016/11/21/underscore使用/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/21/underscore使用/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -289,79 +289,46 @@
       
 
       
-        <span itemprop="articleBody"><p> React Native 里需要接入友盟推送,首先按照官方文档在Android Studio里导入推送Module依赖,然后在MainApplication里添加PushSDK服务，处理通知</p>
-<pre><code> <span class="keyword">private</span> <span class="literal">void</span> initPushSDk() {
-    PushAgent mPushAgent = PushAgent<span class="built_in">.</span>getInstance(getApplicationContext());
-    mPushAgent<span class="built_in">.</span>enable();
-    mPushAgent<span class="built_in">.</span>setNotificationClickHandler(notificationClickHandler);
-
-}
-
-<span class="keyword">private</span> static final <span class="built_in">String</span> a = UmengNotificationClickHandler<span class="built_in">.</span>class<span class="built_in">.</span>getName();
-<span class="comment">//友盟通知自定义点击处理</span>
-UmengNotificationClickHandler notificationClickHandler = <span class="literal">new</span> UmengNotificationClickHandler(){
-    @Override
-    <span class="keyword">public</span> <span class="literal">void</span> dealWithCustomAction(Context context, UMessage msg) {
-        launchApplication(context,msg);<span class="comment">//先启动后台应用</span>
-        WritableMap <span class="keyword">params</span> = Arguments<span class="built_in">.</span>createMap();
-        <span class="built_in">String</span> custom = msg<span class="built_in">.</span>custom;
-        <span class="keyword">params</span><span class="built_in">.</span>putString(<span class="string">"custom"</span>,custom);
-        <span class="keyword">Log</span><span class="built_in">.</span>e(<span class="string">"custome"</span>,custom);
-        ReactContext reactContext = getReactNativeHost()<span class="built_in">.</span>getReactInstanceManager()<span class="built_in">.</span>getCurrentReactContext();
-        sendEvent(reactContext, <span class="string">"umeng_notification"</span>, <span class="keyword">params</span>);
-    }
-};
-
-<span class="keyword">private</span> <span class="literal">void</span> launchApplication(Context context,UMessage msg){
-    Intent var3 = context<span class="built_in">.</span>getPackageManager()<span class="built_in">.</span>getLaunchIntentForPackage(context<span class="built_in">.</span>getPackageName());
-    <span class="keyword">if</span>(var3 == <span class="built_in">null</span>) {
-        com<span class="built_in">.</span>umeng<span class="built_in">.</span>common<span class="built_in">.</span>message<span class="built_in">.</span><span class="keyword">Log</span><span class="built_in">.</span>b(a, <span class="string">"handleMessage(): cannot find app: "</span> + context<span class="built_in">.</span>getPackageName());
-    } <span class="keyword">else</span> {
-        var3<span class="built_in">.</span>setPackage((<span class="built_in">String</span>) <span class="built_in">null</span>);
-        var3<span class="built_in">.</span>addFlags(<span class="number">268435456</span>);
-        context<span class="built_in">.</span>startActivity(var3);
-    }
-}
-
-<span class="keyword">private</span>  <span class="literal">void</span> sendEvent(ReactContext reactContext,
-                              <span class="built_in">String</span> eventName,
-                              @Nullable WritableMap <span class="keyword">params</span>) {
-    reactContext
-            <span class="built_in">.</span>getJSModule(DeviceEventManagerModule<span class="built_in">.</span>RCTDeviceEventEmitter<span class="built_in">.</span>class)
-            <span class="built_in">.</span>emit(eventName, <span class="keyword">params</span>);
-}
-</code></pre><p>React Native 主页面里监听原生里发送的事件,跳转到相应的界面：</p>
-<pre><code>componentDidMount() {
-    <span class="keyword">if</span> (Platform.OS === <span class="string">'android'</span>) {
-          BackAndroid.addEventListener(<span class="string">'hardwareBackPress'</span>, <span class="function"><span class="params">()</span> =&gt;</span> <span class="keyword">this</span>.onBackAndroid());
-    };
-    DeviceEventEmitter.addListener(<span class="string">'umeng_notification'</span>, <span class="function"><span class="params">(e: Event)</span> =&gt;</span> {
-      <span class="regexp">//</span>e为原生传递过来的参数e.custom
-    <span class="keyword">this</span>.navigator.push({
-        <span class="attribute">component</span>: ShowNotificationPage
-      });
-      });
-  }
-</code></pre><p>可能是生命周期的原因,当android回退键退出应用时,只能拉起App却无法跳转到相应的界面,因此我在回退键的事件处理上进行了拦截,让App movebacktostack,而不是让界面销毁掉，相当于Home键的功能。</p>
-<p>React Native组件之间通信一般是通过props就可以实现父控件向子控件传值,父控件获取子控件的值.<br>也可以通过React Native 中的DeviceEventEmitter处理组件之间的监听事件,方式如下：</p>
-<pre><code>componentWillUnmount() {  
-    <span class="keyword">this</span>.subscription.remove();
-  }
-
-  componentDidMount() {  
-    <span class="keyword">this</span>.subscription = DeviceEventEmitter.addListener(<span class="string">'followChanged'</span>, <span class="function"><span class="params">()</span> =&gt;</span> {
-          <span class="keyword">this</span>.onRefresh()
-        });
-
-    <span class="keyword">this</span>.onRefresh();
-  }
-
-  onRefresh() {
-        <span class="keyword">this</span>.reuqestFans(<span class="keyword">this</span>.props.mid);
-  }
-</code></pre><p>其他组件触发事件：</p>
-<pre><code>DeviceEventEmitter.<span class="keyword">emit</span>(<span class="string">'followChanged'</span>);
-</code></pre></span>
+        <span itemprop="articleBody"><h2 id="underscore-js">underscore.js</h2><p>在做本地缓存视频管理的时候，需要对数组进行大量的操作，本来React Native 有lodash工具库，旁边的前端同事使用的是underscore,大神在边上我就使用了underscore,其实api和lodash差不多，只是lodash更加完善，简单的处理underscore也足够。</p>
+<p>直接下载underscore-min.js</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> _ <span class="keyword">from</span> <span class="string">'./path/underscore-min'</span>;</span><br></pre></td></tr></table></figure>
+<p>下面是我主要用到的Api:</p>
+<ol>
+<li>map方法遍历数组或对象，将返回的结果组成一个新的数组或对象</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">let</span> data = _.map([<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>],<span class="function"><span class="keyword">function</span>(<span class="params">n</span>)</span>&#123; retrun n*<span class="number">2</span>; &#125;)</span><br><span class="line"><span class="comment">//data = [2,4,6]</span></span><br><span class="line"><span class="keyword">let</span> data = _map([&#123;name:<span class="string">'james'</span>&#125;,&#123;name:<span class="string">'jakson'</span>&#125;,&#123;name:<span class="string">'tom'</span>&#125;],<span class="function"><span class="keyword">function</span>(<span class="params">item</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">return</span> &#123;</span><br><span class="line">    name:item.name,</span><br><span class="line">    isChecked:<span class="literal">true</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">//data = [&#123;name:'james',isChecked:true&#125;,</span></span><br><span class="line"><span class="comment">//&#123;name:'jakson',isChecked:true&#125;,</span></span><br><span class="line"><span class="comment">//  &#123;name:'tom',isChecked:true&#125;]</span></span><br></pre></td></tr></table></figure>
+<ol>
+<li>filter返回结果为true的成员</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> data = _.filter([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>], <span class="function"><span class="keyword">function</span>(<span class="params">num</span>)</span>&#123; <span class="keyword">return</span> num % <span class="number">2</span> == <span class="number">0</span>; &#125;);</span><br><span class="line"><span class="comment">//data = [2,4,6]</span></span><br></pre></td></tr></table></figure>
+<ol>
+<li>reject返回操作结果为false的成员</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> data = _.filter([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>], <span class="function"><span class="keyword">function</span>(<span class="params">num</span>)</span>&#123; <span class="keyword">return</span> num % <span class="number">2</span> == <span class="number">0</span>; &#125;);</span><br><span class="line"><span class="comment">//data = [2,4,6]</span></span><br></pre></td></tr></table></figure>
+<ol>
+<li>difference </li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> data = _.difference([<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">5</span>], [<span class="number">2</span>,<span class="number">3</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>])</span><br><span class="line"><span class="comment">//data=[1,5]  只保留[1,2,3,5]中不相同的</span></span><br></pre></td></tr></table></figure>
+<ol>
+<li>uniq</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">_.uniq(array, [isSorted], [iteratee])</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> data = _uniq([<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">3</span>])</span><br><span class="line"><span class="comment">//data=[1,2,3,4]</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> data= _uniq([&#123;id:<span class="number">1</span>,name:<span class="string">'bob'</span>&#125;,&#123;id:<span class="number">2</span>,name:<span class="string">'jane'</span>&#125;,&#123;id:<span class="number">3</span>,name:<span class="string">'jack'</span>&#125;,&#123;id:<span class="number">1</span>,name:<span class="string">'bob'</span>&#125;],<span class="literal">false</span>,(item)=&gt;&#123;</span><br><span class="line">  <span class="keyword">return</span> item.id</span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">//data=[&#123;id:1,name:'bob'&#125;,&#123;id:2,name:'jane'&#125;,&#123;id:3,name:'jack'&#125;]</span></span><br></pre></td></tr></table></figure>
+<ol>
+<li>indexOf</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">_.indexOf([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>], <span class="number">2</span>);</span><br><span class="line"><span class="comment">//1,</span></span><br></pre></td></tr></table></figure>
+<ol>
+<li>contains</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">_.contains(list, value, [fromIndex])</span><br><span class="line"></span><br><span class="line"><span class="comment">//可以用includes</span></span><br></pre></td></tr></table></figure>
+<ol>
+<li><p>compact返回一个除去所有<em>false</em>值的 <strong>array</strong>副本。</p>
+<p> 在javascript中, <em>false</em>, <em>null</em>, <em>0</em>, <em>“”</em>, <em>undefined</em> 和 <em>NaN</em> 都是<em>false</em>值.</p>
+</li>
+</ol>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">_</span>.compact([<span class="number">0</span>, <span class="number">1</span>, <span class="keyword">false</span>, <span class="number">2</span>, <span class="string">''</span>, <span class="number">3</span>]);</span><br><span class="line"><span class="status">=&gt;</span> [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]</span><br></pre></td></tr></table></figure>
+<p>更多Api参考文档<a href="http://www.css88.com/doc/underscore/" target="_blank" rel="external">http://www.css88.com/doc/underscore/</a></p>
+</span>
       
     </div>
 
@@ -369,7 +336,7 @@ UmengNotificationClickHandler notificationClickHandler = <span class="literal">n
       
         <div class="post-tags">
           
-            <a href="/tags/react-native/" rel="tag">#react native</a>
+            <a href="/tags/underscore/" rel="tag">#underscore</a>
           
         </div>
       
@@ -378,17 +345,13 @@ UmengNotificationClickHandler notificationClickHandler = <span class="literal">n
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/09/06/20160906/" rel="next" title="20160906">
-                <i class="fa fa-chevron-left"></i> 20160906
+              <a href="/2016/10/10/20161010/" rel="next" title="React Native 触摸事件">
+                <i class="fa fa-chevron-left"></i> React Native 触摸事件
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/09/08/20160908/" rel="prev" title="20160908">
-                20160908 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -415,8 +378,8 @@ UmengNotificationClickHandler notificationClickHandler = <span class="literal">n
         
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/09/07/20160907/"
-           data-title="20160907" data-url="http://yoursite.com/2016/09/07/20160907/">
+      <div class="ds-thread" data-thread-key="2016/11/21/underscore使用/"
+           data-title="underscore使用" data-url="http://yoursite.com/2016/11/21/underscore使用/">
       </div>
     
   </div>
@@ -524,7 +487,7 @@ UmengNotificationClickHandler notificationClickHandler = <span class="literal">n
               
             
             
-              <p class="post-toc-empty">此文章未包含目录</p>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#underscore-js"><span class="nav-number">1.</span> <span class="nav-text">underscore.js</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator">
