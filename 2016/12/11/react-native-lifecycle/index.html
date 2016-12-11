@@ -35,7 +35,7 @@
 <link href="/css/main.css?v=0.4.5.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="react native," />
 
 
 
@@ -51,15 +51,19 @@
 
 
 
-<meta name="description" content="Why PM2.5 is so High">
-<meta property="og:type" content="website">
-<meta property="og:title" content="To Be a Better Man">
-<meta property="og:url" content="http://yoursite.com/index.html">
+<meta name="description" content="开发过程中发现对React Native生命周期的理解还不够完整，导致渲染的时候性能出现问题，所以写了个例子观察了一下。
+12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667/** * Sample R">
+<meta property="og:type" content="article">
+<meta property="og:title" content="react-native-lifecycle">
+<meta property="og:url" content="http://yoursite.com/2016/12/11/react-native-lifecycle/index.html">
 <meta property="og:site_name" content="To Be a Better Man">
-<meta property="og:description" content="Why PM2.5 is so High">
+<meta property="og:description" content="开发过程中发现对React Native生命周期的理解还不够完整，导致渲染的时候性能出现问题，所以写了个例子观察了一下。
+12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667/** * Sample R">
+<meta property="og:updated_time" content="2016-12-11T04:46:58.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="To Be a Better Man">
-<meta name="twitter:description" content="Why PM2.5 is so High">
+<meta name="twitter:title" content="react-native-lifecycle">
+<meta name="twitter:description" content="开发过程中发现对React Native生命周期的理解还不够完整，导致渲染的时候性能出现问题，所以写了个例子观察了一下。
+12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667/** * Sample R">
 
 
 
@@ -71,7 +75,7 @@
   };
 </script>
 
-  <title> To Be a Better Man </title>
+  <title> react-native-lifecycle | To Be a Better Man </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -92,9 +96,7 @@
 
 
 
-  <div class="container one-column 
-   page-home 
-">
+  <div class="container one-column page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -222,15 +224,9 @@
       <div class="main-inner">
         <div id="content" class="content">
           
-  <section id="posts" class="posts-expand">
 
+  <div id="posts" class="posts-expand">
     
-
-    
-    
-
-    
-      
 
   
   
@@ -250,10 +246,7 @@
             
             
               
-                
-                <a class="post-title-link" href="/2016/12/11/react-native-lifecycle/" itemprop="url">
-                  react-native-lifecycle
-                </a>
+                react-native-lifecycle
               
             
           </h1>
@@ -293,496 +286,50 @@
       
 
       
-        
-          <span itemprop="articleBody">
-            
-              <p>开发过程中发现对React Native生命周期的理解还不够完整，导致渲染的时候性能出现问题，所以写了个例子观察了一下。</p>
+        <span itemprop="articleBody"><p>开发过程中发现对React Native生命周期的理解还不够完整，导致渲染的时候性能出现问题，所以写了个例子观察了一下。</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span><br><span class="line"> * Sample React Native App</span><br><span class="line"> * https://github.com/facebook/react-native</span><br><span class="line"> * @flow</span><br><span class="line"> */</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> React, &#123; Component &#125; <span class="keyword">from</span> <span class="string">'react'</span>;</span><br><span class="line"><span class="keyword">import</span> &#123;</span><br><span class="line">  AppRegistry,</span><br><span class="line">  StyleSheet,</span><br><span class="line">  Text,</span><br><span class="line">  View</span><br><span class="line">&#125; <span class="keyword">from</span> <span class="string">'react-native'</span>;</span><br><span class="line"><span class="keyword">import</span> ChildComponent <span class="keyword">from</span> <span class="string">'./child'</span>;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="class"><span class="keyword">class</span> <span class="title">Parent</span> <span class="keyword">extends</span> <span class="title">Component</span> </span>&#123;</span><br><span class="line">  constructor(props) &#123;</span><br><span class="line">    <span class="keyword">super</span>(props);</span><br><span class="line">    <span class="keyword">this</span>.state = &#123;</span><br><span class="line">    	content:<span class="string">'content'</span></span><br><span class="line">    &#125;;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  componentDidMount()&#123;</span><br><span class="line">  	<span class="built_in">console</span>.log(<span class="string">'Parent====componentDidMount'</span>)</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  render() &#123;</span><br><span class="line">  	<span class="built_in">console</span>.log(<span class="string">'Parent====render'</span>)</span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line">      <span class="xml"><span class="tag">&lt;<span class="title">View</span> <span class="attribute">style</span>=<span class="value">&#123;styles.container&#125;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">Text</span> <span class="attribute">style</span>=<span class="value">&#123;styles.welcome&#125;</span>&gt;</span></span><br><span class="line">         &#123;this.state.content&#125;</span><br><span class="line">        <span class="tag">&lt;/<span class="title">Text</span>&gt;</span></span><br><span class="line">         <span class="tag">&lt;<span class="title">ChildComponent</span> <span class="attribute">content</span>=<span class="value">&#123;this.state.content&#125;</span>/&gt;</span></span><br><span class="line">         <span class="tag">&lt;<span class="title">Text</span> <span class="attribute">style</span>=<span class="value">&#123;&#123;margin:20&#125;&#125;</span> <span class="attribute">onPress</span>=<span class="value">&#123;()=</span>&gt;</span>&#123;this.onPress()&#125;&#125;&gt;Press Me!<span class="tag">&lt;/<span class="title">Text</span>&gt;</span></span><br><span class="line">         <span class="tag">&lt;<span class="title">Text</span> <span class="attribute">style</span>=<span class="value">&#123;&#123;margin:20&#125;&#125;</span> <span class="attribute">onPress</span>=<span class="value">&#123;()=</span>&gt;</span>&#123;this.onPressME()&#125;&#125;&gt;Press!<span class="tag">&lt;/<span class="title">Text</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="title">View</span>&gt;</span></span><br><span class="line">    )</span>;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  onPress()&#123;</span><br><span class="line">  	<span class="keyword">this</span>.setState(&#123;content:<span class="string">'React Native Props'</span>&#125;);</span><br><span class="line">  &#125; </span><br><span class="line"></span><br><span class="line">  onPressME()&#123;</span><br><span class="line">  	<span class="keyword">this</span>.setState(&#123;content:<span class="string">'React Native'</span>&#125;);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> styles = StyleSheet.create(&#123;</span><br><span class="line">  container: &#123;</span><br><span class="line">    flex: <span class="number">1</span>,</span><br><span class="line">    justifyContent: <span class="string">'center'</span>,</span><br><span class="line">    alignItems: <span class="string">'center'</span>,</span><br><span class="line">    backgroundColor: <span class="string">'#F5FCFF'</span>,</span><br><span class="line">  &#125;,</span><br><span class="line">  welcome: &#123;</span><br><span class="line">    fontSize: <span class="number">20</span>,</span><br><span class="line">    textAlign: <span class="string">'center'</span>,</span><br><span class="line">    margin: <span class="number">10</span>,</span><br><span class="line">  &#125;,</span><br><span class="line">  instructions: &#123;</span><br><span class="line">    textAlign: <span class="string">'center'</span>,</span><br><span class="line">    color: <span class="string">'#333333'</span>,</span><br><span class="line">    marginBottom: <span class="number">5</span>,</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span><br><span class="line"> * Sample React Native App</span><br><span class="line"> * https://github.com/facebook/react-native</span><br><span class="line"> * @flow</span><br><span class="line"> */</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> React, &#123; Component &#125; <span class="keyword">from</span> <span class="string">'react'</span>;</span><br><span class="line"><span class="keyword">import</span> &#123;</span><br><span class="line">  AppRegistry,</span><br><span class="line">  StyleSheet,</span><br><span class="line">  Text,</span><br><span class="line">  View</span><br><span class="line">&#125; <span class="keyword">from</span> <span class="string">'react-native'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="class"><span class="keyword">class</span> <span class="title">Child</span> <span class="keyword">extends</span> <span class="title">Component</span> </span>&#123;</span><br><span class="line">  constructor(props) &#123;</span><br><span class="line">    <span class="keyword">super</span>(props);</span><br><span class="line">    <span class="keyword">this</span>.state = &#123;</span><br><span class="line">    	content:<span class="keyword">this</span>.props.content</span><br><span class="line">    &#125;;</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  componentWillMount()&#123;</span><br><span class="line">  	<span class="built_in">console</span>.log(<span class="string">'child====componentWillMount'</span>)</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">//先调用子组件的 componentDidMount()，然后调用父组件的函数</span></span><br><span class="line">  componentDidMount()&#123;</span><br><span class="line">  	<span class="built_in">console</span>.log(<span class="string">'child====componentDidMount'</span>)</span><br><span class="line">  &#125;</span><br><span class="line">	</span><br><span class="line">	<span class="comment">//1.父组件触发render后触发子组件该方法，不管属性是否改变；</span></span><br><span class="line">	<span class="comment">//2.这里setState不会触发额外的render()</span></span><br><span class="line">	componentWillReceiveProps(nextProps)&#123;</span><br><span class="line">			<span class="built_in">console</span>.log(<span class="keyword">this</span>.props.content+<span class="string">'===='</span>+<span class="string">'componentWillReceiveProps'</span>+<span class="string">'====='</span>+nextProps.content)</span><br><span class="line">			<span class="keyword">this</span>.setState(&#123;content:<span class="string">'componentWillReceiveProps'</span>&#125;);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	shouldComponentUpdate(nextProps,nextState)&#123;</span><br><span class="line">		<span class="built_in">console</span>.log(<span class="string">'shouldComponentUpdate'</span>)</span><br><span class="line">		<span class="keyword">return</span> <span class="literal">true</span></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">// 这个函数调用之后，就会把 nextProps 和 nextState 分别设置到 this.props 和 this.state 中</span></span><br><span class="line">	componentWillUpdate(nextProps,nextState)&#123;</span><br><span class="line">		<span class="built_in">console</span>.log(<span class="string">'componentWillUpdate'</span>)</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">  render() &#123;</span><br><span class="line">  	<span class="built_in">console</span>.log(<span class="string">'child render'</span>)</span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line">      <span class="xml"><span class="tag">&lt;<span class="title">View</span> <span class="attribute">style</span>=<span class="value">&#123;styles.container&#125;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">Text</span> <span class="attribute">style</span>=<span class="value">&#123;styles.welcome&#125;</span>&gt;</span></span><br><span class="line">         &#123;this.props.content&#125;</span><br><span class="line">        <span class="tag">&lt;/<span class="title">Text</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">Text</span> <span class="attribute">style</span>=<span class="value">&#123;styles.instructions&#125;</span>&gt;</span></span><br><span class="line">          To get started, edit index.android.js</span><br><span class="line">        <span class="tag">&lt;/<span class="title">Text</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="title">View</span>&gt;</span></span><br><span class="line">    )</span>;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  componentDidUpdate(prevProps,prevState)&#123;</span><br><span class="line">  	<span class="built_in">console</span>.log(prevProps.content+<span class="string">'===='</span>+<span class="string">'componentDidUpdate'</span>+<span class="string">'====='</span>+<span class="keyword">this</span>.props.content)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> styles = StyleSheet.create(&#123;</span><br><span class="line">  container: &#123;</span><br><span class="line">    </span><br><span class="line">    justifyContent: <span class="string">'center'</span>,</span><br><span class="line">    alignItems: <span class="string">'center'</span>,</span><br><span class="line">    backgroundColor: <span class="string">'#F5FCFF'</span>,</span><br><span class="line">  &#125;,</span><br><span class="line">  welcome: &#123;</span><br><span class="line">    fontSize: <span class="number">20</span>,</span><br><span class="line">    textAlign: <span class="string">'center'</span>,</span><br><span class="line">    margin: <span class="number">10</span>,</span><br><span class="line">  &#125;,</span><br><span class="line">  instructions: &#123;</span><br><span class="line">    textAlign: <span class="string">'center'</span>,</span><br><span class="line">    color: <span class="string">'#333333'</span>,</span><br><span class="line">    marginBottom: <span class="number">5</span>,</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">第一次加载：</span><br><span class="line">parent.js:<span class="number">28</span> Parent====render</span><br><span class="line">child.js:<span class="number">24</span> child====componentWillMount</span><br><span class="line">child.js:<span class="number">52</span> child render</span><br><span class="line">child.js:<span class="number">29</span> child====componentDidMount</span><br><span class="line">parent.js:<span class="number">24</span> Parent====componentDidMount</span><br><span class="line"></span><br><span class="line">点击Press Me!:</span><br><span class="line">parent.js:<span class="number">28</span> Parent====render</span><br><span class="line">child.js:<span class="number">35</span> content====componentWillReceiveProps=====React Native Props</span><br><span class="line">child.js:<span class="number">42</span> shouldComponentUpdate</span><br><span class="line">child.js:<span class="number">48</span> componentWillUpdate</span><br><span class="line">child.js:<span class="number">52</span> child render</span><br><span class="line">child.js:<span class="number">66</span> content====componentDidUpdate=====React Native Props</span><br><span class="line"></span><br><span class="line">再次点击Press Me:</span><br><span class="line">parent.js:<span class="number">28</span> Parent====render</span><br><span class="line">child.js:<span class="number">35</span> React Native Props====componentWillReceiveProps=====React Native Props</span><br><span class="line">child.js:<span class="number">42</span> shouldComponentUpdate</span><br><span class="line">child.js:<span class="number">48</span> componentWillUpdate</span><br><span class="line">child.js:<span class="number">52</span> child render</span><br><span class="line">child.js:<span class="number">66</span> React Native Props====componentDidUpdate=====React Native Props</span><br><span class="line"></span><br><span class="line">点击Press!:</span><br><span class="line">parent.js:<span class="number">28</span> Parent====render</span><br><span class="line">child.js:<span class="number">35</span> React Native Props====componentWillReceiveProps=====React Native</span><br><span class="line">child.js:<span class="number">42</span> shouldComponentUpdate</span><br><span class="line">child.js:<span class="number">48</span> componentWillUpdate</span><br><span class="line">child.js:<span class="number">52</span> child render</span><br><span class="line">child.js:<span class="number">66</span> React Native Props====componentDidUpdate=====React Native</span><br></pre></td></tr></table></figure>
-
-            
-          </span>
-        
+</span>
       
     </div>
 
     <footer class="post-footer">
       
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/11/21/underscore使用/" itemprop="url">
-                  underscore使用
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            发表于
-            <time itemprop="dateCreated" datetime="2016-11-21T22:33:56+08:00" content="2016-11-21">
-              2016-11-21
-            </time>
-          </span>
-
+        <div class="post-tags">
           
-
+            <a href="/tags/react-native/" rel="tag">#react native</a>
           
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/11/21/underscore使用/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/21/underscore使用/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
         </div>
-      </header>
-    
-
-
-    <div class="post-body">
-
-      
       
 
       
-        
-          <span itemprop="articleBody">
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
             
-              <h2 id="underscore-js">underscore.js</h2><p>在做本地缓存视频管理的时候，需要对数组进行大量的操作，本来React Native 有lodash工具库，旁边的前端同事使用的是underscore,大神在边上我就使用了underscore,其实api和lodash差不多，只是lodash更加完善，简单的处理underscore也足够。</p>
-<p>直接下载underscore-min.js</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> _ <span class="keyword">from</span> <span class="string">'./path/underscore-min'</span>;</span><br></pre></td></tr></table></figure>
-<p>下面是我主要用到的Api:</p>
-<ol>
-<li>map方法遍历数组或对象，将返回的结果组成一个新的数组或对象</li>
-</ol>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">let</span> data = _.map([<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>],<span class="function"><span class="keyword">function</span>(<span class="params">n</span>)</span>&#123; retrun n*<span class="number">2</span>; &#125;)</span><br><span class="line"><span class="comment">//data = [2,4,6]</span></span><br><span class="line"><span class="keyword">let</span> data = _map([&#123;name:<span class="string">'james'</span>&#125;,&#123;name:<span class="string">'jakson'</span>&#125;,&#123;name:<span class="string">'tom'</span>&#125;],<span class="function"><span class="keyword">function</span>(<span class="params">item</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">return</span> &#123;</span><br><span class="line">    name:item.name,</span><br><span class="line">    isChecked:<span class="literal">true</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">//data = [&#123;name:'james',isChecked:true&#125;,</span></span><br><span class="line"><span class="comment">//&#123;name:'jakson',isChecked:true&#125;,</span></span><br><span class="line"><span class="comment">//  &#123;name:'tom',isChecked:true&#125;]</span></span><br></pre></td></tr></table></figure>
-<ol>
-<li>filter返回结果为true的成员</li>
-</ol>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> data = _.filter([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>], <span class="function"><span class="keyword">function</span>(<span class="params">num</span>)</span>&#123; <span class="keyword">return</span> num % <span class="number">2</span> == <span class="number">0</span>; &#125;);</span><br><span class="line"><span class="comment">//data = [2,4,6]</span></span><br></pre></td></tr></table></figure>
-<ol>
-<li>reject返回操作结果为false的成员</li>
-</ol>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> data = _.filter([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>], <span class="function"><span class="keyword">function</span>(<span class="params">num</span>)</span>&#123; <span class="keyword">return</span> num % <span class="number">2</span> == <span class="number">0</span>; &#125;);</span><br><span class="line"><span class="comment">//data = [2,4,6]</span></span><br></pre></td></tr></table></figure>
-<ol>
-<li>difference </li>
-</ol>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> data = _.difference([<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">5</span>], [<span class="number">2</span>,<span class="number">3</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>])</span><br><span class="line"><span class="comment">//data=[1,5]  只保留[1,2,3,5]中不相同的</span></span><br></pre></td></tr></table></figure>
-<ol>
-<li>uniq</li>
-</ol>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">_.uniq(array, [isSorted], [iteratee])</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> data = _uniq([<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">3</span>])</span><br><span class="line"><span class="comment">//data=[1,2,3,4]</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> data= _uniq([&#123;id:<span class="number">1</span>,name:<span class="string">'bob'</span>&#125;,&#123;id:<span class="number">2</span>,name:<span class="string">'jane'</span>&#125;,&#123;id:<span class="number">3</span>,name:<span class="string">'jack'</span>&#125;,&#123;id:<span class="number">1</span>,name:<span class="string">'bob'</span>&#125;],<span class="literal">false</span>,(item)=&gt;&#123;</span><br><span class="line">  <span class="keyword">return</span> item.id</span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">//data=[&#123;id:1,name:'bob'&#125;,&#123;id:2,name:'jane'&#125;,&#123;id:3,name:'jack'&#125;]</span></span><br></pre></td></tr></table></figure>
-<ol>
-<li>indexOf</li>
-</ol>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">_.indexOf([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>], <span class="number">2</span>);</span><br><span class="line"><span class="comment">//1,</span></span><br></pre></td></tr></table></figure>
-<ol>
-<li>contains</li>
-</ol>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">_.contains(list, value, [fromIndex])</span><br><span class="line"></span><br><span class="line"><span class="comment">//可以用includes</span></span><br></pre></td></tr></table></figure>
-<ol>
-<li><p>compact返回一个除去所有<em>false</em>值的 <strong>array</strong>副本。</p>
-<p> 在javascript中, <em>false</em>, <em>null</em>, <em>0</em>, <em>“”</em>, <em>undefined</em> 和 <em>NaN</em> 都是<em>false</em>值.</p>
-</li>
-</ol>
-<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">_</span>.compact([<span class="number">0</span>, <span class="number">1</span>, <span class="keyword">false</span>, <span class="number">2</span>, <span class="string">''</span>, <span class="number">3</span>]);</span><br><span class="line"><span class="status">=&gt;</span> [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]</span><br></pre></td></tr></table></figure>
-<p>更多Api参考文档<a href="http://www.css88.com/doc/underscore/" target="_blank" rel="external">http://www.css88.com/doc/underscore/</a></p>
-
+              <a href="/2016/11/21/underscore使用/" rel="next" title="underscore使用">
+                <i class="fa fa-chevron-left"></i> underscore使用
+              </a>
             
-          </span>
-        
-      
-    </div>
+          </div>
 
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
+          <div class="post-nav-prev post-nav-item">
             
-            
-              
-                
-                <a class="post-title-link" href="/2016/10/10/20161010/" itemprop="url">
-                  React Native 触摸事件
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            发表于
-            <time itemprop="dateCreated" datetime="2016-10-10T20:39:24+08:00" content="2016-10-10">
-              2016-10-10
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/10/10/20161010/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/10/20161010/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
+          </div>
         </div>
-      </header>
-    
-
-
-    <div class="post-body">
-
-      
       
 
       
-        
-          <span itemprop="articleBody">
-            
-              <h3 id="React_Native_触摸事件">React Native 触摸事件</h3><p>响应事件：</p>
-<ul>
-<li>View.props.onStartShouldSetResponder</li>
-<li>View.props.onMoveShouldSetResponder</li>
-</ul>
-<p>两个属性的回调函数里返回true表示响应事件，组件成为事件的处理者会走回调</p>
-<ul>
-<li><p>View.props.onResponderGrant: (evt) =&gt; {}</p>
-<p>被拒绝成为处理者，执行回调：</p>
-</li>
-<li><p>View.props.onResponderReject: (evt) =&gt; {}</p>
-</li>
-</ul>
-<p>组件处理触摸事件的回调：</p>
-<ul>
-<li><p>View.props.onResponderStart: (evt) =&gt; {}</p>
-</li>
-<li><p>View.props.onResponderMove: (evt) =&gt; {}</p>
-</li>
-<li><p>View.props.onResponderRelease: (evt) =&gt; {}</p>
-</li>
-<li><p>View.props.onResponderEnd: (evt) =&gt; {}</p>
-<p>是否释放事件处理权限</p>
-</li>
-<li><p>View.props.onResponderTerminationRequest: (evt) =&gt; bool</p>
-</li>
-<li><p>View.props.onResponderTerminate: (evt) =&gt; {}</p>
-</li>
-</ul>
-<p>多个组件嵌套响应事件：</p>
-<p>如果多个父子组件都onStartShouldSetResponder返回true,那么最内层的子组件会最先响应，这是所谓的事件处理的冒泡机制，当然层层深入到子组件首先得得到父组件的同意：</p>
-<ul>
-<li>View.props.onStartShouldSetResponderCapture</li>
-<li>View.props.onMoveShouldSetResponderCapture</li>
-</ul>
-<p>回调返回true表示该组件捕获了该事件，那么子组件就无法成为事件响应者了</p>
-<h3 id="React_Native_手势识别系统PanResponder">React Native 手势识别系统PanResponder</h3><p>panresponder对触摸事件进行了封装提供的API让我们可以更方便的使用手势识别功能</p>
-<ul>
-<li>onStartShouldSetPanResponder: (e, gestureState) =&gt; bool</li>
-<li>onStartShouldSetPanResponderCapture: (e, gestureState) =&gt; bool</li>
-<li>onMoveShouldSetPanResponder: (e, gestureState) =&gt; bool</li>
-<li>onMoveShouldSetPanResponderCapture: (e, gestureState) =&gt; bool</li>
-<li>onPanResponderGrant: (e, gestureState) =&gt; {…}</li>
-<li>onPanResponderStart: (e, gestureState) =&gt; {…}</li>
-<li>onPanResponderMove: (e, gestureState) =&gt; {…}</li>
-<li>onPanResponderRelease: (e, gestureState) =&gt; {…}</li>
-<li>onPanResponderTerminationRequest: (e, gestureState) =&gt; {…}</li>
-<li>onPanResponderTerminate: (e, gestureState) =&gt; {…}</li>
-<li>onShouldBlockNativeResponder: (e, gestureState) =&gt; bool</li>
-</ul>
-<p>在最近的项目里要实现parallax的scrollview头部图像拉伸效果,GitHub上搜索后发现有实现的库，那好啊npm install —save简单粗暴，咔咔import结果Android手机分分钟没效果，遂弃之，决定自己实现一个，这里面就用到了手势识别，结合动画下拉伸缩图片，scrollview和外别view手势识别冲突的拦截等。</p>
-
-            
-          </span>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </article>
 
 
-    
-      
 
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/10/02/betterthan/" itemprop="url">
-                  betterthan
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            发表于
-            <time itemprop="dateCreated" datetime="2016-10-02T11:56:13+08:00" content="2016-10-02">
-              2016-10-02
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/10/02/betterthan/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/02/betterthan/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <span itemprop="articleBody">
-            
-              <p>第一个React Native应用BetterThan终于上线了,是一款健身健康类应用,Android,iOS里面涉及到很多各自平台的原生技术点,因为React Native 主要是做UI相关,而很多东西需要原生实现别如：第三方登录分享,推送通知,视频录制播放等,所以说不是纯ReactNative应用,应用的第一个版本包含了直播,社交圈子和我的个人信息三部分,目前来看只能算作测试版本先行试水,接下来会迭代新的模块和继续填坑。</p>
-<p><img src="https://raw.githubusercontent.com/xiDaiDai/iOS_ReactNative/master/img/login.jpg" width="200" height="100" alt="图片名称"><br><img src="https://raw.githubusercontent.com/xiDaiDai/iOS_ReactNative/master/img/live.jpg" width="200" height="100" alt="图片名称"><br><img src="https://raw.githubusercontent.com/xiDaiDai/iOS_ReactNative/master/img/find.jpg" width="200" height="100" alt="图片名称" align="center"><br><img src="https://raw.githubusercontent.com/xiDaiDai/iOS_ReactNative/master/img/share.jpg" width="200" height="100" alt="图片名称" align="center"><br><img src="https://raw.githubusercontent.com/xiDaiDai/iOS_ReactNative/master/img/send.jpg" width="200" height="100" alt="图片名称" align="center"><br><img src="https://raw.githubusercontent.com/xiDaiDai/iOS_ReactNative/master/img/topic.jpg" width="200" height="100" alt="图片名称" align="center"><br><img src="https://raw.githubusercontent.com/xiDaiDai/iOS_ReactNative/master/img/mine.jpg" width="200" height="100" alt="图片名称" align="center"><br><img src="https://raw.githubusercontent.com/xiDaiDai/iOS_ReactNative/master/img/profile.jpg" width="200" height="100" alt="图片名称" align="center"><br><img src="https://raw.githubusercontent.com/xiDaiDai/iOS_ReactNative/master/img/setting.jpg" width="200" height="100" alt="图片名称" align="center"></p>
-<p>Android版本下载：<br><img src="https://raw.githubusercontent.com/xiDaiDai/iOS_ReactNative/master/img/rcode.png" width="100" height="100" alt="图片名称" align="center"></p>
-
-            
-          </span>
-        
+    <div class="post-spread">
       
     </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/09/26/20160926/" itemprop="url">
-                  20160926
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            发表于
-            <time itemprop="dateCreated" datetime="2016-09-26T23:04:05+08:00" content="2016-09-26">
-              2016-09-26
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/09/26/20160926/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/09/26/20160926/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <span itemprop="articleBody">
-            
-              <p>Mac下Linux实现shift+pageup/pagedown 翻页</p>
-<figure class="highlight x86asm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">shift+fn+<span class="preprocessor">up</span>/<span class="preprocessor">down</span></span><br></pre></td></tr></table></figure>
-<p>查看Linux 服务器地址</p>
-<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">ip</span> addr</span><br></pre></td></tr></table></figure>
-<p>Mac终端连接Linux</p>
-<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">ssh</span> username<span class="variable">@ipaddress</span></span><br></pre></td></tr></table></figure>
-<p>redis安装后后台运行服务</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">src/redis-server &amp;</span><br></pre></td></tr></table></figure>
-<p>启动客户端</p>
-<figure class="highlight avrasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">src/redis-<span class="keyword">cli</span></span><br></pre></td></tr></table></figure>
-<p>关闭服务</p>
-<figure class="highlight autoit"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">shutdown</span></span><br></pre></td></tr></table></figure>
-<p>[redis安装参考]（<a href="http://itbilu.com/database/redis/4kB2ninp.html）" target="_blank" rel="external">http://itbilu.com/database/redis/4kB2ninp.html）</a></p>
-
-            
-          </span>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-
-  </section>
-
-  
-  <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
-  </nav>
-
+  </div>
 
 
         </div>
@@ -791,6 +338,14 @@
 
 
         
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/12/11/react-native-lifecycle/"
+           data-title="react-native-lifecycle" data-url="http://yoursite.com/2016/12/11/react-native-lifecycle/">
+      </div>
+    
+  </div>
+
 
       </div>
 
@@ -811,8 +366,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel  sidebar-panel-active ">
+      <section class="site-overview sidebar-panel ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" src="http://tx.haiqq.com/uploads/allimg/150320/1KU56233-0.jpg" alt="Mr.Robot" itemprop="image"/>
           <p class="site-author-name" itemprop="name">Mr.Robot</p>
@@ -875,6 +439,23 @@
 
       </section>
 
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator">
+            <i class="fa fa-angle-double-up"></i>
+          </div>
+          <div class="post-toc">
+            
+              
+            
+            
+              <p class="post-toc-empty">此文章未包含目录</p>
+            
+          </div>
+          <div class="post-toc-indicator-bottom post-toc-indicator">
+            <i class="fa fa-angle-double-down"></i>
+          </div>
+        </section>
       
 
     </div>
@@ -962,6 +543,167 @@
   <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
 
   
+  
+<script type="text/javascript" src="/js/bootstrap.scrollspy.js?v=0.4.5.2" id="bootstrap.scrollspy.custom"></script>
+
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.motion.complete', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      var $indicator = $(indicator);
+      var opacity = action === 'show' ? 1 : 0;
+      $indicator.velocity ?
+        $indicator.velocity('stop').velocity({
+          opacity: opacity
+        }, { duration: 100 }) :
+        $indicator.stop().animate({
+          opacity: opacity
+        }, 100);
+    }
+
+  });
+</script>
+
+<script type="text/javascript" id="sidebar.nav">
+  $(document).ready(function () {
+    var html = $('html');
+    var TAB_ANIMATE_DURATION = 200;
+    var hasVelocity = $.isFunction(html.velocity);
+
+    $('.sidebar-nav li').on('click', function () {
+      var item = $(this);
+      var activeTabClassName = 'sidebar-nav-active';
+      var activePanelClassName = 'sidebar-panel-active';
+      if (item.hasClass(activeTabClassName)) {
+        return;
+      }
+
+      var currentTarget = $('.' + activePanelClassName);
+      var target = $('.' + item.data('target'));
+
+      hasVelocity ?
+        currentTarget.velocity('transition.slideUpOut', TAB_ANIMATE_DURATION, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', TAB_ANIMATE_DURATION)
+            .addClass(activePanelClassName);
+        }) :
+        currentTarget.animate({ opacity: 0 }, TAB_ANIMATE_DURATION, function () {
+          currentTarget.hide();
+          target
+            .stop()
+            .css({'opacity': 0, 'display': 'block'})
+            .animate({ opacity: 1 }, TAB_ANIMATE_DURATION, function () {
+              currentTarget.removeClass(activePanelClassName);
+              target.addClass(activePanelClassName);
+            });
+        });
+
+      item.siblings().removeClass(activeTabClassName);
+      item.addClass(activeTabClassName);
+    });
+
+    $('.post-toc a').on('click', function (e) {
+      e.preventDefault();
+      var targetSelector = escapeSelector(this.getAttribute('href'));
+      var offset = $(targetSelector).offset().top;
+      hasVelocity ?
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        }) :
+        $('html, body').stop().animate({
+          scrollTop: offset
+        }, 500);
+    });
+
+    // Expand sidebar on post detail page by default, when post has a toc.
+    motionMiddleWares.sidebar = function () {
+      var $tocContent = $('.post-toc-content');
+      if (CONFIG.sidebar === 'post') {
+        if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
+          displaySidebar();
+        }
+      }
+    };
+  });
+</script>
+
+
 
   <script type="text/javascript" src="/js/bootstrap.js"></script>
 

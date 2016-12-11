@@ -228,11 +228,119 @@
 
     
     
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/08/14/20160814/" itemprop="url">
+                  20160814
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            发表于
+            <time itemprop="dateCreated" datetime="2016-08-14T22:13:59+08:00" content="2016-08-14">
+              2016-08-14
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/08/14/20160814/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/14/20160814/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body">
+
       
       
 
       
-    
+        
+          <span itemprop="articleBody">
+            
+              <h2 id="AndroidStudio工程">AndroidStudio工程</h2><h3 id="android_studio_下引入有-so文件的包，出现如下错误：">android studio 下引入有.so文件的包，出现如下错误：</h3><pre><code>java.lang.UnsatisfiedLinkError: 
+   dalvik.system.PathClassLoader[DexPathList[[zip file <span class="string">"/data/app/net.comet.example-1/base.apk"</span>],
+   nativeLibraryDirectories=[/data/app/net.comet.example-<span class="number">1</span>/lib/arm64, /vendor/lib64, /system/lib64]]] 
+   couldn't find <span class="string">"libffmpeg.so"</span>
+ at java.lang.Runtime.<span class="built_in">load</span>Library(Runtime.java:<span class="number">366</span>)
+ at java.lang.System.<span class="built_in">load</span>Library(System.java:<span class="number">989</span>)
+ at com.dtr.zbar.build.ZBarDecoder.<span class="variable">&lt;clinit&gt;</span>(ZBarDecoder.java:<span class="number">6</span>)
+ at me.ele.hbdteam.widget.ScanView<span class="variable">$1</span>.<span class="keyword">on</span>PreviewFrame(ScanView.java:<span class="number">263</span>)
+ at android.hardware.Camera<span class="variable">$EventHandler</span>.handleMessage(Camera.java:<span class="number">1565</span>)
+ at android.<span class="keyword">os</span>.Handler.dispatchMessage(Handler.java:<span class="number">102</span>)
+ at android.<span class="keyword">os</span>.Looper.loop(Looper.java:<span class="number">155</span>)
+ at android.app.ActivityThread.main(ActivityThread.java:<span class="number">5696</span>)
+ at java.lang.reflect.Method.invoke(Native Method)
+ at java.lang.reflect.Method.invoke(Method.java:<span class="number">372</span>)
+ at com.android.internal.<span class="keyword">os</span>.ZygoteInit<span class="variable">$MethodAndArgsCaller</span>.run(ZygoteInit.java:<span class="number">1029</span>)
+ at com.android.internal.<span class="keyword">os</span>.ZygoteInit.main(ZygoteInit.java:<span class="number">824</span>)
+</code></pre><p>   解决思路是：</p>
+<ul>
+<li>1、把libffmpeg.so拷贝一份到armeabi-v7a目录</li>
+<li><p>2、在app.gradle增加jniLibs声明</p>
+<pre><code><span class="built_in">source</span>Sets.main {
+        jniLibs.srcDirs = [<span class="string">'libs'</span>]
+}
+</code></pre></li>
+</ul>
+<h2 id="SurfaceView">SurfaceView</h2><p>播放视频的时候只有声音没有图像，主要的原因是，在调用MediaPlayer开始播放视频时 <br>SurfaceView却还未创建成功，解决办法是判断SurfaceView创建成功后再调用MediaPlayer的播放，<br>通过surfaceHolder的addCallBack()方法来监听surfaceCreated    </p>
+
+            
+          </span>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
 
     
       
@@ -325,6 +433,307 @@
 
 
     
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/07/24/20160724/" itemprop="url">
+                  20160724
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            发表于
+            <time itemprop="dateCreated" datetime="2016-07-24T20:20:53+08:00" content="2016-07-24">
+              2016-07-24
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/07/24/20160724/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/07/24/20160724/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <span itemprop="articleBody">
+            
+              <ul>
+<li><p>react-native run-android时使用genymotion，报错如下：</p>
+<pre><code>adb server <span class="property">version</span> (<span class="number">32</span>) doesn't match this client (<span class="number">36</span>); killing...
+<span class="keyword">error</span>: could <span class="keyword">not</span> install *smartsocket* listener: Address already <span class="keyword">in</span> use
+</code></pre><p>原因是genymotion的Android sdk没有配置为custom,将本地的sdk 设置上后 运行成功。</p>
+</li>
+<li><p>mac 下查看android sdk 安装的目录时候通过echo  $ANDROID_HOME</p>
+<pre><code><span class="regexp">/Users/</span>jichao<span class="regexp">/Library/</span>Android<span class="regexp">/sdk</span>
+</code></pre><p>Library是隐藏的，前往该目录需要在Finder选择 <b>前往文件夹</b><br>输入 <b>~/Library</b></p>
+</li>
+</ul>
+
+            
+          </span>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/07/21/20160721/" itemprop="url">
+                  20160721
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            发表于
+            <time itemprop="dateCreated" datetime="2016-07-21T22:24:44+08:00" content="2016-07-21">
+              2016-07-21
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/07/21/20160721/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/07/21/20160721/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <span itemprop="articleBody">
+            
+              <ul>
+<li><p>react-native创建的工程修改android包名<br>比如：react-native init hello得到的包名会是com.hello<br>想修改成com.companyname.hello,需要在android目录下修改<br>AndroidManifest.xml 里的package,以及app.gradule里的applicationId</p>
+</li>
+<li><p>react-native debug模式时候，出现<br>  debugger and device times have drifted by xxxxms,please<br>  correct this by running adb shell….<br>这是因为手机的时间和电脑的时间差的太多，调整一下就好了。。。。</p>
+</li>
+<li><p>更改npm registery</p>
+<pre><code>npm install -<span class="keyword">g</span> nrm
+nrm <span class="keyword">list</span> <span class="comment">//显示所有registery</span>
+nrm <span class="keyword">use</span> cnpm <span class="comment">//切换到cnpm</span>
+</code></pre></li>
+</ul>
+
+            
+          </span>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/07/18/20160718/" itemprop="url">
+                  20160718
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            发表于
+            <time itemprop="dateCreated" datetime="2016-07-18T22:26:21+08:00" content="2016-07-18">
+              2016-07-18
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/07/18/20160718/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/07/18/20160718/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <span itemprop="articleBody">
+            
+              <p>windows 下安装让mongodb以windows服务启动，在mongo的bin目录下执行：</p>
+<pre><code>mongod --dbpath "d:<span class="command">\mongodb</span><span class="command">\data</span><span class="command">\db</span>" --logpath "d:<span class="command">\mongodb</span><span class="command">\data</span><span class="command">\log</span><span class="command">\MongoDB</span>.log" --install --serviceName "MongoDB"
+</code></pre><p>启动mongodb服务：<strong>net start MongoDB</strong> <br><br>关闭mongodb服务：<strong>net stop MongoDB</strong><br></p>
+<p>基本的操作命令：<br></p>
+<ul>
+<li>mongo</li>
+<li>show dbs</li>
+<li>use dbname</li>
+<li>show collections</li>
+<li>db.colname.save({key:value})</li>
+<li>db colname.insert</li>
+<li>db.coldbname.find()</li>
+<li>db.coldbname.findOne()</li>
+<li>db.coldbname.update</li>
+<li>db.colname.remove</li>
+<li>db.colname.drop()</li>
+<li>ad.cloname.find().skip(5).limit(5)</li>
+</ul>
+
+            
+          </span>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
 
   </section>
 
@@ -371,7 +780,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">44</span>
+              <span class="site-state-item-count">45</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
