@@ -251,6 +251,107 @@
             
               
                 
+                <a class="post-title-link" href="/2016/09/12/Install-NVM-on-CentOS7/" itemprop="url">
+                  Install NVM on CentOS7
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            发表于
+            <time itemprop="dateCreated" datetime="2016-09-12T22:50:06+08:00" content="2016-09-12">
+              2016-09-12
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/09/12/Install-NVM-on-CentOS7/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/09/12/Install-NVM-on-CentOS7/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <span itemprop="articleBody">
+            
+              <p>在CentOS Linux系统上安装NVM（Node version Manager</p>
+<ol>
+<li><p>安装NVM,运行Install Script</p>
+<pre><code>curl -<span class="keyword">o</span>- http<span class="variable">s:</span>//raw.githubusercontent.<span class="keyword">com</span>/creationix/nvm/v0.<span class="number">31.7</span>/install.<span class="keyword">sh</span> | bash
+</code></pre><p> 可以在GitHub上搜索到nvm仓库。</p>
+</li>
+<li><p>安装完成后会出现 Close and reopen your terminal to start using nvm 类似的信息，可以关掉终端再打开,或者运行下面的命令后即可使用nvm：</p>
+<pre><code><span class="built_in">source</span> ~/.bashrc
+</code></pre></li>
+<li><p>安装验证</p>
+<pre><code>nvm <span class="comment">--version</span>
+</code></pre><p> 如果输出 <strong>0.31.7</strong> 那就成功了。</p>
+</li>
+</ol>
+
+            
+          </span>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/09/11/React-Native-on-Docker/" itemprop="url">
                   React Native in Docker
                 </a>
@@ -724,181 +825,12 @@ UmengNotificationClickHandler notificationClickHandler = <span class="literal">n
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/09/04/Installation/" itemprop="url">
-                  Docker Installation
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            发表于
-            <time itemprop="dateCreated" datetime="2016-09-04T11:29:19+08:00" content="2016-09-04">
-              2016-09-04
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/09/04/Installation/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/09/04/Installation/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <span itemprop="articleBody">
-            
-              <p>安装前提：b4bit centos 7.X,kenel 3.10+<br>可以通过yum或者curl安装,本次选择yum安装</p>
-<ol>
-<li>以root或sudo权限登录linux</li>
-<li><p>确保yum是最新版本</p>
-<pre><code><span class="variable">$ </span>sudo yum update
-</code></pre></li>
-<li><p>添加yum repo</p>
-<blockquote>
-<ul>
-<li>vi /etc/yum.repos.d/docker.repo</li>
-<li><p>添加内容：</p>
-<pre><code>[dockerrepo]
-  name=Docker Repository
-baseurl=https:<span class="comment">//yum.dockerproject.org/repo/main/centos/7/</span>
-enabled=<span class="number">1</span>
-gpgcheck=<span class="number">1</span>
-gpgkey=https:<span class="comment">//yum.dockerproject.org/gpg</span>
-</code></pre></li>
-<li>:wq保存退出</li>
-</ul>
-</blockquote>
-</li>
-<li><p>安装Docker Package</p>
-<pre><code>$ sudo yum <span class="operator"><span class="keyword">install</span> docker-<span class="keyword">engine</span></span>
-</code></pre></li>
-<li><p>开启Docker后台驻留程序</p>
-<pre><code>$ sudo service docker <span class="literal">start</span>
-</code></pre></li>
-<li><p>验证docker是否安装成功</p>
-<pre><code>$ sudo docker run hello-world
-Unable <span class="built_in">to</span> find image <span class="string">'hello-world:latest'</span> locally
-latest: Pulling <span class="built_in">from</span> hello-world
-a8219747be10: Pull complete
-<span class="number">91</span>c95931e552: Already exists
-hello-world:latest: The image you are pulling has been verified. Important: image verification is <span class="operator">a</span> tech preview feature <span class="operator">and</span> should <span class="operator">not</span> be relied <span class="command"><span class="keyword">on</span> <span class="title">to</span> <span class="title">provide</span> <span class="title">security</span>.</span>
-Digest: sha256:aa03e5d0d5553b4c3473e89c8619cf79df368babd1<span class="number">.7</span><span class="number">.1</span>cf5daeb82aab55838d
-Status: Downloaded newer image <span class="keyword">for</span> hello-world:latest
-Hello <span class="built_in">from</span> Docker.
-This message shows that your installation appears <span class="built_in">to</span> be working correctly.
-
-To generate this message, Docker took <span class="operator">the</span> following steps:
- <span class="number">1.</span> The Docker client contacted <span class="operator">the</span> Docker daemon.
- <span class="number">2.</span> The Docker daemon pulled <span class="operator">the</span> <span class="string">"hello-world"</span> image <span class="built_in">from</span> <span class="operator">the</span> Docker Hub.
-    (Assuming <span class="keyword">it</span> was <span class="operator">not</span> already locally available.)
- <span class="number">3.</span> The Docker daemon created <span class="operator">a</span> <span class="built_in">new</span> container <span class="built_in">from</span> that image which runs <span class="operator">the</span>
-    executable that produces <span class="operator">the</span> output you are currently reading.
- <span class="number">4.</span> The Docker daemon streamed that output <span class="built_in">to</span> <span class="operator">the</span> Docker client, which sent <span class="keyword">it</span>
-    <span class="built_in">to</span> your terminal.
-
-To <span class="keyword">try</span> something more ambitious, you can run <span class="operator">an</span> Ubuntu container <span class="operator">with</span>:
- $ docker run -<span class="keyword">it</span> ubuntu bash
-
-For more examples <span class="operator">and</span> ideas, visit:
- <span class="keyword">http</span>://docs.docker.com/userguide/
-</code></pre></li>
-<li><p>让Docker开机自启动</p>
-<pre><code>$ sudo chkconfig docker <span class="function_start"><span class="keyword">on</span></span>
-</code></pre></li>
-<li><p>注册Docker Hub账号 username:jichao password:712534</p>
-</li>
-<li><p>终端登录</p>
-<pre><code><span class="variable">$ </span>docker <span class="symbol">login:</span>
-</code></pre></li>
-<li><p>搜索仓库：</p>
-<pre><code><span class="variable">$ </span>docker search centos
-</code></pre></li>
-<li><p>拉取镜像：</p>
-<pre><code><span class="variable">$ </span>docker pull centos
-</code></pre></li>
-<li><p>查看本地有哪些镜像</p>
-<pre><code><span class="variable">$ </span>docker images
-</code></pre></li>
-<li><p>使用镜像启动一个容器：</p>
-<pre><code>$ docker run -t -<span class="tag">i</span> centos /bin/bash
-</code></pre></li>
-<li><p>终止终端,停止容器</p>
-<pre><code><span class="variable">$ </span>exit|<span class="constant">Ctrl</span>+<span class="constant">D</span>|<span class="variable">$ </span>docker stop
-</code></pre></li>
-<li><p>终止状态容器查看：</p>
-<pre><code>$ docker ps -<span class="literal">a</span>
-</code></pre></li>
-</ol>
-
-            
-          </span>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
 
   </section>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -939,7 +871,7 @@ For more examples <span class="operator">and</span> ideas, visit:
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">45</span>
+              <span class="site-state-item-count">46</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -953,7 +885,7 @@ For more examples <span class="operator">and</span> ideas, visit:
 
           <div class="site-state-item site-state-tags">
             <a href="/tags">
-              <span class="site-state-item-count">19</span>
+              <span class="site-state-item-count">20</span>
               <span class="site-state-item-name">标签</span>
               </a>
           </div>
@@ -1007,7 +939,7 @@ For more examples <span class="operator">and</span> ideas, visit:
         <div class="copyright" >
   
   &copy; 
-  <span itemprop="copyrightYear">2016</span>
+  <span itemprop="copyrightYear">2017</span>
   <span class="with-love">
     <i class="icon-next-heart fa fa-heart"></i>
   </span>
