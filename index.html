@@ -251,6 +251,112 @@
             
               
                 
+                <a class="post-title-link" href="/2017/05/03/less-learn/" itemprop="url">
+                  less-learn
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            发表于
+            <time itemprop="dateCreated" datetime="2017-05-03T16:54:21+08:00" content="2017-05-03">
+              2017-05-03
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2017/05/03/less-learn/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/05/03/less-learn/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <span itemprop="articleBody">
+            
+              <h2 id="{less}">{less}</h2><p>css扩展语言，兼容css，因此在less文件里即可使用扩展的特性也可使用标准css</p>
+<h3 id="定义变量">定义变量</h3><figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">@color:</span>red</span><br><span class="line"></span><br><span class="line">#header&#123;<span class="attribute">background-color</span>:<span class="variable">@color</span>&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="定义函数">定义函数</h3><figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="class">.border-color</span>(<span class="variable">@color</span>)&#123;</span><br><span class="line">	<span class="attribute">border-color</span>:<span class="variable">@color</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>使用：</p>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="class">.header</span>&#123;</span><br><span class="line">	<span class="class">.border-color</span>(red)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="混合">混合</h3><figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="class">.border</span>&#123;</span><br><span class="line">  <span class="attribute">border-color</span>:red;</span><br><span class="line">  <span class="attribute">border-top</span>:solid <span class="number">1px</span> black;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>其他属性集合内部使用：</p>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="id">#menu</span>&#123;</span><br><span class="line">  <span class="attribute">color</span>:red;</span><br><span class="line">  <span class="class">.border</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="嵌套">嵌套</h3><p>标准css写法</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="id">#header</span><span class="rules">&#123;</span><br><span class="line">  <span class="rule"><span class="attribute">color</span>:<span class="value">black</span></span>;</span><br><span class="line">&#125;</span></span><br><span class="line"><span class="id">#header</span> <span class="class">.navigation</span><span class="rules">&#123;</span><br><span class="line">  <span class="rule"><span class="attribute">font-size</span>:<span class="value"><span class="number">12px</span></span></span>;</span><br><span class="line">&#125;</span></span><br><span class="line"><span class="id">#header</span> <span class="class">.logo</span><span class="rules">&#123;</span><br><span class="line">  <span class="rule"><span class="attribute">width</span>:<span class="value"><span class="number">300px</span></span></span>;</span><br><span class="line">&#125;</span></span><br></pre></td></tr></table></figure>
+<p>less的写法</p>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="id">#header</span>&#123;</span><br><span class="line">  <span class="attribute">color</span>:black;</span><br><span class="line">  <span class="class">.navigation</span>&#123;</span><br><span class="line">    <span class="attribute">font-size</span>:<span class="number">12px</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="class">.logo</span>&#123;</span><br><span class="line">    <span class="attribute">width</span>:<span class="number">300px</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="运算">运算</h3><p>任何数值，颜色和变量都可以进行运算</p>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">@base:</span><span class="number">5%</span>;</span><br><span class="line"><span class="variable">@filler:</span><span class="variable">@base</span> * <span class="number">2</span>;</span><br><span class="line"><span class="variable">@other:</span><span class="variable">@base</span> + <span class="variable">@filler</span></span><br></pre></td></tr></table></figure>
+<h3 id="作用域">作用域</h3><p>less中变量的作用域，首先会在局部查找，如果没有再去父作用域查找</p>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">@var:</span>red</span><br><span class="line">#header&#123;</span><br><span class="line">  <span class="variable">@var:</span>white;</span><br><span class="line">  <span class="id">#title</span>&#123;</span><br><span class="line">    <span class="attribute">color</span>:<span class="variable">@var</span>;<span class="comment">//white</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="导入">导入</h3><figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="at_rule">@import</span> <span class="string">"library.less"</span>;</span><br></pre></td></tr></table></figure>
+<h3 id="函数">函数</h3><p>less提供了许多的用于颜色转换，字符串处理，运算等的函数。</p>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">@base:</span><span class="number">0.5</span>;</span><br><span class="line"><span class="class">.header</span>&#123;</span><br><span class="line">  <span class="attribute">width</span>:<span class="function">percentage</span>(<span class="variable">@base</span>);<span class="comment">//50%</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+            
+          </span>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2017/02/12/webpack/" itemprop="url">
                   webpack
                 </a>
@@ -755,96 +861,6 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/10/02/betterthan/" itemprop="url">
-                  betterthan
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            发表于
-            <time itemprop="dateCreated" datetime="2016-10-02T11:56:13+08:00" content="2016-10-02">
-              2016-10-02
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/10/02/betterthan/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/02/betterthan/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <span itemprop="articleBody">
-            
-              <p>第一个React Native应用BetterThan终于上线了,是一款健身健康类应用,Android,iOS里面涉及到很多各自平台的原生技术点,因为React Native 主要是做UI相关,而很多东西需要原生实现别如：第三方登录分享,推送通知,视频录制播放等,所以说不是纯ReactNative应用,应用的第一个版本包含了直播,社交圈子和我的个人信息三部分,目前来看只能算作测试版本先行试水,接下来会迭代新的模块和继续填坑。</p>
-<p><img src="https://raw.githubusercontent.com/xiDaiDai/iOS_ReactNative/master/img/login.jpg" width="200" height="100" alt="图片名称"><br><img src="https://raw.githubusercontent.com/xiDaiDai/iOS_ReactNative/master/img/live.jpg" width="200" height="100" alt="图片名称"><br><img src="https://raw.githubusercontent.com/xiDaiDai/iOS_ReactNative/master/img/find.jpg" width="200" height="100" alt="图片名称" align="center"><br><img src="https://raw.githubusercontent.com/xiDaiDai/iOS_ReactNative/master/img/share.jpg" width="200" height="100" alt="图片名称" align="center"><br><img src="https://raw.githubusercontent.com/xiDaiDai/iOS_ReactNative/master/img/send.jpg" width="200" height="100" alt="图片名称" align="center"><br><img src="https://raw.githubusercontent.com/xiDaiDai/iOS_ReactNative/master/img/topic.jpg" width="200" height="100" alt="图片名称" align="center"><br><img src="https://raw.githubusercontent.com/xiDaiDai/iOS_ReactNative/master/img/mine.jpg" width="200" height="100" alt="图片名称" align="center"><br><img src="https://raw.githubusercontent.com/xiDaiDai/iOS_ReactNative/master/img/profile.jpg" width="200" height="100" alt="图片名称" align="center"><br><img src="https://raw.githubusercontent.com/xiDaiDai/iOS_ReactNative/master/img/setting.jpg" width="200" height="100" alt="图片名称" align="center"></p>
-<p>Android版本下载：<br><img src="https://raw.githubusercontent.com/xiDaiDai/iOS_ReactNative/master/img/rcode.png" width="100" height="100" alt="图片名称" align="center"></p>
-
-            
-          </span>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
 
   </section>
 
@@ -891,7 +907,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">46</span>
+              <span class="site-state-item-count">47</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -905,7 +921,7 @@
 
           <div class="site-state-item site-state-tags">
             <a href="/tags">
-              <span class="site-state-item-count">20</span>
+              <span class="site-state-item-count">21</span>
               <span class="site-state-item-name">标签</span>
               </a>
           </div>

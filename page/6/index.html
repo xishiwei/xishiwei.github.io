@@ -251,6 +251,104 @@
             
               
                 
+                <a class="post-title-link" href="/2016/07/21/20160721/" itemprop="url">
+                  20160721
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            发表于
+            <time itemprop="dateCreated" datetime="2016-07-21T22:24:44+08:00" content="2016-07-21">
+              2016-07-21
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/07/21/20160721/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/07/21/20160721/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <span itemprop="articleBody">
+            
+              <ul>
+<li><p>react-native创建的工程修改android包名<br>比如：react-native init hello得到的包名会是com.hello<br>想修改成com.companyname.hello,需要在android目录下修改<br>AndroidManifest.xml 里的package,以及app.gradule里的applicationId</p>
+</li>
+<li><p>react-native debug模式时候，出现<br>  debugger and device times have drifted by xxxxms,please<br>  correct this by running adb shell….<br>这是因为手机的时间和电脑的时间差的太多，调整一下就好了。。。。</p>
+</li>
+<li><p>更改npm registery</p>
+<pre><code>npm install -<span class="keyword">g</span> nrm
+nrm <span class="keyword">list</span> <span class="comment">//显示所有registery</span>
+nrm <span class="keyword">use</span> cnpm <span class="comment">//切换到cnpm</span>
+</code></pre></li>
+</ul>
+
+            
+          </span>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/07/18/20160718/" itemprop="url">
                   20160718
                 </a>
@@ -631,98 +729,6 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/07/12/post/" itemprop="url">
-                  react native reload not work
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            发表于
-            <time itemprop="dateCreated" datetime="2016-07-12T22:39:18+08:00" content="2016-07-12">
-              2016-07-12
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/07/12/post/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/07/12/post/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <span itemprop="articleBody">
-            
-              <p>最近React Native修改js文件后，reload文件不生效，让人十分郁闷,一番搜索后可行的方法如下：</p>
-<p>找到\node_modules\react-native\node_modules\node-haste\lib\FileWatcher\index.js文件</p>
-<p>将MAX_WAIT_TIME的值调的更大,避免因加载超时而没有任何消息提示。</p>
-<p>碰到坑的时候React Native GitHub 的issues和stackoverflow可以帮助解决很多问题。</p>
-<p><a href="https://github.com/facebook/react-native/issues/7257" target="_blank" rel="external">react native issue</a></p>
-
-            
-          </span>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
 
   </section>
 
@@ -769,7 +775,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">46</span>
+              <span class="site-state-item-count">47</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -783,7 +789,7 @@
 
           <div class="site-state-item site-state-tags">
             <a href="/tags">
-              <span class="site-state-item-count">20</span>
+              <span class="site-state-item-count">21</span>
               <span class="site-state-item-name">标签</span>
               </a>
           </div>

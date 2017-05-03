@@ -251,6 +251,117 @@
             
               
                 
+                <a class="post-title-link" href="/2015/12/16/learning-ios-9/" itemprop="url">
+                  learning ios 9
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            发表于
+            <time itemprop="dateCreated" datetime="2015-12-16T16:37:17+08:00" content="2015-12-16">
+              2015-12-16
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2015/12/16/learning-ios-9/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/12/16/learning-ios-9/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <span itemprop="articleBody">
+            
+              <ul>
+<li><p>下拉刷新UIRefreshControl</p>
+</li>
+<li><p>集成pictrues browser</p>
+<pre><code><span class="collection">[UIView animateWithDuration:0.7 animations:<span class="comment">^{
+  btn.transform = CGAffineTransformMakeTranslation(0, btnH);
+}</span> completion:^<span class="list">(<span class="keyword">BOOL</span> finished)</span> <span class="collection">{
+<span class="collection">[UIView animateKeyframesWithDuration:0.7 delay:1.0  options:UIViewKeyframeAnimationOptionCalculationModeLinear animations:<span class="comment">^{
+// btn.transform = CGAffineTransformMakeTranslation(0, -btnH);
+ btn.transform = CGAffineTransformIdentity;
+}</span> completion:^<span class="list">(<span class="keyword">BOOL</span> finished)</span> <span class="collection">{
+  <span class="collection">[btn removeFromSuperview]</span><span class="comment">;</span>
+}</span>]</span><span class="comment">;</span>
+}</span>]</span><span class="comment">;</span>
+</code></pre></li>
+<li><p>写图片进入相册 UIImageWriteToSavedPhotoAlbum(image,nil.nil,nil)</p>
+</li>
+<li><p>UIBarButtonItem的setTitleTextAttributes对Disabled颜色设置无效问题解决方法：将设置为disabled的语句放置在viewWillAppear方法中。</p>
+</li>
+<li><p>becomeFirstResponser 调起键盘</p>
+</li>
+<li><p>模拟器不显示键盘  iOS Simulator -&gt; Hardware -&gt; Keyboard取消选择：“Connect Hardware Keyboard”</p>
+</li>
+</ul>
+
+            
+          </span>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2015/12/14/learning-ios-8/" itemprop="url">
                   learning ios 8
                 </a>
@@ -664,98 +775,6 @@ return self;
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2015/12/07/learning-ios-4/" itemprop="url">
-                  learning ios 4
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            发表于
-            <time itemprop="dateCreated" datetime="2015-12-07T17:27:02+08:00" content="2015-12-07">
-              2015-12-07
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2015/12/07/learning-ios-4/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/12/07/learning-ios-4/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <span itemprop="articleBody">
-            
-              <ul>
-<li>navigationitem UIBarButtonItem 的分类</li>
-<li>自定义navigationitem 的titleview  UIButton</li>
-<li>自定义navigationitem 的搜索框UITextField</li>
-</ul>
-
-            
-          </span>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
 
   </section>
 
@@ -802,7 +821,7 @@ return self;
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">46</span>
+              <span class="site-state-item-count">47</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -816,7 +835,7 @@ return self;
 
           <div class="site-state-item site-state-tags">
             <a href="/tags">
-              <span class="site-state-item-count">20</span>
+              <span class="site-state-item-count">21</span>
               <span class="site-state-item-name">标签</span>
               </a>
           </div>

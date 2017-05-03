@@ -35,7 +35,7 @@
 <link href="/css/main.css?v=0.4.5.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="android," />
+  <meta name="keywords" content="Less," />
 
 
 
@@ -51,22 +51,28 @@
 
 
 
-<meta name="description" content="AndroidStudio工程android studio 下引入有.so文件的包，出现如下错误：java.lang.UnsatisfiedLinkError: 
-   dalvik.system.PathClassLoader[DexPathList[[zip file &quot;/data/app/net.comet.example-1/base.apk&quot;],
-   nativeLibraryDire">
+<meta name="description" content="{less}css扩展语言，兼容css，因此在less文件里即可使用扩展的特性也可使用标准css
+定义变量123@color:red#header&amp;#123;background-color:@color&amp;#125;
+定义函数123.border-color(@color)&amp;#123;	border-color:@color&amp;#125;
+使用：
+123.header&amp;#123;	.border-c">
 <meta property="og:type" content="article">
-<meta property="og:title" content="20160814">
-<meta property="og:url" content="http://yoursite.com/2016/08/14/20160814/index.html">
+<meta property="og:title" content="less-learn">
+<meta property="og:url" content="http://yoursite.com/2017/05/03/less-learn/index.html">
 <meta property="og:site_name" content="To Be a Better Man">
-<meta property="og:description" content="AndroidStudio工程android studio 下引入有.so文件的包，出现如下错误：java.lang.UnsatisfiedLinkError: 
-   dalvik.system.PathClassLoader[DexPathList[[zip file &quot;/data/app/net.comet.example-1/base.apk&quot;],
-   nativeLibraryDire">
-<meta property="og:updated_time" content="2016-08-14T14:17:17.000Z">
+<meta property="og:description" content="{less}css扩展语言，兼容css，因此在less文件里即可使用扩展的特性也可使用标准css
+定义变量123@color:red#header&amp;#123;background-color:@color&amp;#125;
+定义函数123.border-color(@color)&amp;#123;	border-color:@color&amp;#125;
+使用：
+123.header&amp;#123;	.border-c">
+<meta property="og:updated_time" content="2017-05-03T08:56:14.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="20160814">
-<meta name="twitter:description" content="AndroidStudio工程android studio 下引入有.so文件的包，出现如下错误：java.lang.UnsatisfiedLinkError: 
-   dalvik.system.PathClassLoader[DexPathList[[zip file &quot;/data/app/net.comet.example-1/base.apk&quot;],
-   nativeLibraryDire">
+<meta name="twitter:title" content="less-learn">
+<meta name="twitter:description" content="{less}css扩展语言，兼容css，因此在less文件里即可使用扩展的特性也可使用标准css
+定义变量123@color:red#header&amp;#123;background-color:@color&amp;#125;
+定义函数123.border-color(@color)&amp;#123;	border-color:@color&amp;#125;
+使用：
+123.header&amp;#123;	.border-c">
 
 
 
@@ -78,7 +84,7 @@
   };
 </script>
 
-  <title> 20160814 | To Be a Better Man </title>
+  <title> less-learn | To Be a Better Man </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -249,7 +255,7 @@
             
             
               
-                20160814
+                less-learn
               
             
           </h1>
@@ -258,8 +264,8 @@
         <div class="post-meta">
           <span class="post-time">
             发表于
-            <time itemprop="dateCreated" datetime="2016-08-14T22:13:59+08:00" content="2016-08-14">
-              2016-08-14
+            <time itemprop="dateCreated" datetime="2017-05-03T16:54:21+08:00" content="2017-05-03">
+              2017-05-03
             </time>
           </span>
 
@@ -269,8 +275,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/08/14/20160814/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/14/20160814/" itemprop="commentsCount"></span>
+                <a href="/2017/05/03/less-learn/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/05/03/less-learn/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -289,32 +295,25 @@
       
 
       
-        <span itemprop="articleBody"><h2 id="AndroidStudio工程">AndroidStudio工程</h2><h3 id="android_studio_下引入有-so文件的包，出现如下错误：">android studio 下引入有.so文件的包，出现如下错误：</h3><pre><code>java.lang.UnsatisfiedLinkError: 
-   dalvik.system.PathClassLoader[DexPathList[[zip file <span class="string">"/data/app/net.comet.example-1/base.apk"</span>],
-   nativeLibraryDirectories=[/data/app/net.comet.example-<span class="number">1</span>/lib/arm64, /vendor/lib64, /system/lib64]]] 
-   couldn't find <span class="string">"libffmpeg.so"</span>
- at java.lang.Runtime.<span class="built_in">load</span>Library(Runtime.java:<span class="number">366</span>)
- at java.lang.System.<span class="built_in">load</span>Library(System.java:<span class="number">989</span>)
- at com.dtr.zbar.build.ZBarDecoder.<span class="variable">&lt;clinit&gt;</span>(ZBarDecoder.java:<span class="number">6</span>)
- at me.ele.hbdteam.widget.ScanView<span class="variable">$1</span>.<span class="keyword">on</span>PreviewFrame(ScanView.java:<span class="number">263</span>)
- at android.hardware.Camera<span class="variable">$EventHandler</span>.handleMessage(Camera.java:<span class="number">1565</span>)
- at android.<span class="keyword">os</span>.Handler.dispatchMessage(Handler.java:<span class="number">102</span>)
- at android.<span class="keyword">os</span>.Looper.loop(Looper.java:<span class="number">155</span>)
- at android.app.ActivityThread.main(ActivityThread.java:<span class="number">5696</span>)
- at java.lang.reflect.Method.invoke(Native Method)
- at java.lang.reflect.Method.invoke(Method.java:<span class="number">372</span>)
- at com.android.internal.<span class="keyword">os</span>.ZygoteInit<span class="variable">$MethodAndArgsCaller</span>.run(ZygoteInit.java:<span class="number">1029</span>)
- at com.android.internal.<span class="keyword">os</span>.ZygoteInit.main(ZygoteInit.java:<span class="number">824</span>)
-</code></pre><p>   解决思路是：</p>
-<ul>
-<li>1、把libffmpeg.so拷贝一份到armeabi-v7a目录</li>
-<li><p>2、在app.gradle增加jniLibs声明</p>
-<pre><code><span class="built_in">source</span>Sets.main {
-        jniLibs.srcDirs = [<span class="string">'libs'</span>]
-}
-</code></pre></li>
-</ul>
-<h2 id="SurfaceView">SurfaceView</h2><p>播放视频的时候只有声音没有图像，主要的原因是，在调用MediaPlayer开始播放视频时 <br>SurfaceView却还未创建成功，解决办法是判断SurfaceView创建成功后再调用MediaPlayer的播放，<br>通过surfaceHolder的addCallBack()方法来监听surfaceCreated    </p>
+        <span itemprop="articleBody"><h2 id="{less}">{less}</h2><p>css扩展语言，兼容css，因此在less文件里即可使用扩展的特性也可使用标准css</p>
+<h3 id="定义变量">定义变量</h3><figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">@color:</span>red</span><br><span class="line"></span><br><span class="line">#header&#123;<span class="attribute">background-color</span>:<span class="variable">@color</span>&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="定义函数">定义函数</h3><figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="class">.border-color</span>(<span class="variable">@color</span>)&#123;</span><br><span class="line">	<span class="attribute">border-color</span>:<span class="variable">@color</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>使用：</p>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="class">.header</span>&#123;</span><br><span class="line">	<span class="class">.border-color</span>(red)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="混合">混合</h3><figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="class">.border</span>&#123;</span><br><span class="line">  <span class="attribute">border-color</span>:red;</span><br><span class="line">  <span class="attribute">border-top</span>:solid <span class="number">1px</span> black;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>其他属性集合内部使用：</p>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="id">#menu</span>&#123;</span><br><span class="line">  <span class="attribute">color</span>:red;</span><br><span class="line">  <span class="class">.border</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="嵌套">嵌套</h3><p>标准css写法</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="id">#header</span><span class="rules">&#123;</span><br><span class="line">  <span class="rule"><span class="attribute">color</span>:<span class="value">black</span></span>;</span><br><span class="line">&#125;</span></span><br><span class="line"><span class="id">#header</span> <span class="class">.navigation</span><span class="rules">&#123;</span><br><span class="line">  <span class="rule"><span class="attribute">font-size</span>:<span class="value"><span class="number">12px</span></span></span>;</span><br><span class="line">&#125;</span></span><br><span class="line"><span class="id">#header</span> <span class="class">.logo</span><span class="rules">&#123;</span><br><span class="line">  <span class="rule"><span class="attribute">width</span>:<span class="value"><span class="number">300px</span></span></span>;</span><br><span class="line">&#125;</span></span><br></pre></td></tr></table></figure>
+<p>less的写法</p>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="id">#header</span>&#123;</span><br><span class="line">  <span class="attribute">color</span>:black;</span><br><span class="line">  <span class="class">.navigation</span>&#123;</span><br><span class="line">    <span class="attribute">font-size</span>:<span class="number">12px</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="class">.logo</span>&#123;</span><br><span class="line">    <span class="attribute">width</span>:<span class="number">300px</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="运算">运算</h3><p>任何数值，颜色和变量都可以进行运算</p>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">@base:</span><span class="number">5%</span>;</span><br><span class="line"><span class="variable">@filler:</span><span class="variable">@base</span> * <span class="number">2</span>;</span><br><span class="line"><span class="variable">@other:</span><span class="variable">@base</span> + <span class="variable">@filler</span></span><br></pre></td></tr></table></figure>
+<h3 id="作用域">作用域</h3><p>less中变量的作用域，首先会在局部查找，如果没有再去父作用域查找</p>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">@var:</span>red</span><br><span class="line">#header&#123;</span><br><span class="line">  <span class="variable">@var:</span>white;</span><br><span class="line">  <span class="id">#title</span>&#123;</span><br><span class="line">    <span class="attribute">color</span>:<span class="variable">@var</span>;<span class="comment">//white</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="导入">导入</h3><figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="at_rule">@import</span> <span class="string">"library.less"</span>;</span><br></pre></td></tr></table></figure>
+<h3 id="函数">函数</h3><p>less提供了许多的用于颜色转换，字符串处理，运算等的函数。</p>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">@base:</span><span class="number">0.5</span>;</span><br><span class="line"><span class="class">.header</span>&#123;</span><br><span class="line">  <span class="attribute">width</span>:<span class="function">percentage</span>(<span class="variable">@base</span>);<span class="comment">//50%</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </span>
       
     </div>
@@ -323,7 +322,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/android/" rel="tag">#android</a>
+            <a href="/tags/Less/" rel="tag">#Less</a>
           
         </div>
       
@@ -332,17 +331,13 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/07/28/友盟三方登录/" rel="next" title="开始了，同志们！">
-                <i class="fa fa-chevron-left"></i> 开始了，同志们！
+              <a href="/2017/02/12/webpack/" rel="next" title="webpack">
+                <i class="fa fa-chevron-left"></i> webpack
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/08/17/20160817-1/" rel="prev" title="20160817">
-                20160817 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -369,8 +364,8 @@
         
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/08/14/20160814/"
-           data-title="20160814" data-url="http://yoursite.com/2016/08/14/20160814/">
+      <div class="ds-thread" data-thread-key="2017/05/03/less-learn/"
+           data-title="less-learn" data-url="http://yoursite.com/2017/05/03/less-learn/">
       </div>
     
   </div>
@@ -478,7 +473,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#AndroidStudio工程"><span class="nav-number">1.</span> <span class="nav-text">AndroidStudio工程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#android_studio_下引入有-so文件的包，出现如下错误："><span class="nav-number">1.1.</span> <span class="nav-text">android studio 下引入有.so文件的包，出现如下错误：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SurfaceView"><span class="nav-number">2.</span> <span class="nav-text">SurfaceView</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#{less}"><span class="nav-number">1.</span> <span class="nav-text">{less}</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#定义变量"><span class="nav-number">1.1.</span> <span class="nav-text">定义变量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#定义函数"><span class="nav-number">1.2.</span> <span class="nav-text">定义函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#混合"><span class="nav-number">1.3.</span> <span class="nav-text">混合</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#嵌套"><span class="nav-number">1.4.</span> <span class="nav-text">嵌套</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#运算"><span class="nav-number">1.5.</span> <span class="nav-text">运算</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#作用域"><span class="nav-number">1.6.</span> <span class="nav-text">作用域</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#导入"><span class="nav-number">1.7.</span> <span class="nav-text">导入</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#函数"><span class="nav-number">1.8.</span> <span class="nav-text">函数</span></a></li></ol></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator">

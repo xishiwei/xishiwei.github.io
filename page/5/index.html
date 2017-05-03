@@ -251,6 +251,121 @@
             
               
                 
+                <a class="post-title-link" href="/2016/08/24/20160824/" itemprop="url">
+                  20160824
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            发表于
+            <time itemprop="dateCreated" datetime="2016-08-24T20:52:19+08:00" content="2016-08-24">
+              2016-08-24
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/08/24/20160824/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/24/20160824/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <span itemprop="articleBody">
+            
+              <ul>
+<li>react native TextInput  可以设置padding = 0,这样外部包裹view的的高度就等于TextInput的高度。</li>
+<li><p>使用友盟推送的时候，点击通知跳转到相关的界面，原生android 里可以打开指定的Activity,react native里没有activity给我们</p>
+<p>用,这时候可以在原生监听通知消息，通过DeviceEventEmitter发送事件和参数给JS端,然后通过navigator跳转</p>
+<p>原生中发送事件会调用如下代码：</p>
+<pre><code>   <span class="tag">private</span> <span class="tag">void</span> <span class="tag">sendEvent</span>(<span class="tag">ReactContext</span> <span class="tag">reactContext</span>,
+               <span class="tag">String</span> <span class="tag">eventName</span>,
+               <span class="at_rule">@<span class="keyword">Nullable</span> WritableMap params) </span>{
+  <span class="tag">reactContext</span>
+  <span class="class">.getJSModule</span>(<span class="tag">DeviceEventManagerModule</span><span class="class">.RCTDeviceEventEmitter</span><span class="class">.class</span>)
+  <span class="class">.emit</span>(<span class="tag">eventName</span>, <span class="tag">params</span>);
+}
+</code></pre><p> 如何在Activity/Application中获取ReactContext实例？</p>
+<pre><code>reactContext = <span class="function"><span class="title">getReactNativeHost</span><span class="params">()</span></span>.<span class="function"><span class="title">getReactInstanceManager</span><span class="params">()</span></span>.<span class="function"><span class="title">getCurrentReactContext</span><span class="params">()</span></span>
+</code></pre></li>
+<li><p>如何实现reactnative android 中按返回键不完全退出App?</p>
+<pre><code>   onBackAndroid = () =&gt; {
+<span class="keyword">const</span> nav = <span class="keyword">this</span>.navigator;
+<span class="keyword">const</span> routers = nav.getCurrentRoutes();
+<span class="keyword">if</span> (routers.length &gt; <span class="number">1</span>) {
+  nav.pop();
+  <span class="keyword">return</span> <span class="literal">true</span>;
+}
+ExitModule.<span class="built_in">exit</span>();<span class="comment">//调用原生的moveTaskToBack()方法</span>
+<span class="keyword">return</span> <span class="literal">true</span>;
+  };
+</code></pre></li>
+</ul>
+
+            
+          </span>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/08/17/20160817-1/" itemprop="url">
                   20160817
                 </a>
@@ -658,104 +773,6 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/07/21/20160721/" itemprop="url">
-                  20160721
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            发表于
-            <time itemprop="dateCreated" datetime="2016-07-21T22:24:44+08:00" content="2016-07-21">
-              2016-07-21
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/07/21/20160721/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/07/21/20160721/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <span itemprop="articleBody">
-            
-              <ul>
-<li><p>react-native创建的工程修改android包名<br>比如：react-native init hello得到的包名会是com.hello<br>想修改成com.companyname.hello,需要在android目录下修改<br>AndroidManifest.xml 里的package,以及app.gradule里的applicationId</p>
-</li>
-<li><p>react-native debug模式时候，出现<br>  debugger and device times have drifted by xxxxms,please<br>  correct this by running adb shell….<br>这是因为手机的时间和电脑的时间差的太多，调整一下就好了。。。。</p>
-</li>
-<li><p>更改npm registery</p>
-<pre><code>npm install -<span class="keyword">g</span> nrm
-nrm <span class="keyword">list</span> <span class="comment">//显示所有registery</span>
-nrm <span class="keyword">use</span> cnpm <span class="comment">//切换到cnpm</span>
-</code></pre></li>
-</ul>
-
-            
-          </span>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
 
   </section>
 
@@ -802,7 +819,7 @@ nrm <span class="keyword">use</span> cnpm <span class="comment">//切换到cnpm<
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">46</span>
+              <span class="site-state-item-count">47</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -816,7 +833,7 @@ nrm <span class="keyword">use</span> cnpm <span class="comment">//切换到cnpm<
 
           <div class="site-state-item site-state-tags">
             <a href="/tags">
-              <span class="site-state-item-count">20</span>
+              <span class="site-state-item-count">21</span>
               <span class="site-state-item-name">标签</span>
               </a>
           </div>
