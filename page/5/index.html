@@ -228,6 +228,111 @@
 
     
     
+      
+      
+
+      
+    
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/08/27/20160827/" itemprop="url">
+                  20160827
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            发表于
+            <time itemprop="dateCreated" datetime="2016-08-27T23:06:35+08:00" content="2016-08-27">
+              2016-08-27
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/08/27/20160827/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/27/20160827/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <span itemprop="articleBody">
+            
+              <h2 id="node_返回json数据">node 返回json数据</h2><pre><code><span class="keyword">var</span> http = <span class="built_in">require</span>(<span class="string">'http'</span>);
+
+<span class="keyword">var</span> data = {key: <span class="string">'value'</span>, hello: <span class="string">'world'</span>};
+
+<span class="keyword">var</span> srv = http.createServer(<span class="function"><span class="keyword">function</span> (<span class="params">req, res</span>) </span>{
+  res.writeHead(<span class="number">200</span>, {<span class="string">'Content-Type'</span>: <span class="string">'application/json'</span>});
+  res.end(<span class="built_in">JSON</span>.stringify(data));
+});
+
+srv.listen(<span class="number">8080</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{
+  <span class="built_in">console</span>.log(<span class="string">'listening on localhost:8080'</span>);
+});
+</code></pre><h2 id="iOS_真机调试">iOS 真机调试</h2><p>   进入xcode，菜单栏选择xcode –&gt; preferences （快捷键 command + ,）在Accounts选项卡添加自己的Apple ID,然后按步骤操作。</p>
+
+            
+          </span>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
 
     
       
@@ -675,104 +780,6 @@ ExitModule.<span class="built_in">exit</span>();<span class="comment">//调用�
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/07/24/20160724/" itemprop="url">
-                  20160724
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            发表于
-            <time itemprop="dateCreated" datetime="2016-07-24T20:20:53+08:00" content="2016-07-24">
-              2016-07-24
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/07/24/20160724/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/07/24/20160724/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <span itemprop="articleBody">
-            
-              <ul>
-<li><p>react-native run-android时使用genymotion，报错如下：</p>
-<pre><code>adb server <span class="property">version</span> (<span class="number">32</span>) doesn't match this client (<span class="number">36</span>); killing...
-<span class="keyword">error</span>: could <span class="keyword">not</span> install *smartsocket* listener: Address already <span class="keyword">in</span> use
-</code></pre><p>原因是genymotion的Android sdk没有配置为custom,将本地的sdk 设置上后 运行成功。</p>
-</li>
-<li><p>mac 下查看android sdk 安装的目录时候通过echo  $ANDROID_HOME</p>
-<pre><code><span class="regexp">/Users/</span>jichao<span class="regexp">/Library/</span>Android<span class="regexp">/sdk</span>
-</code></pre><p>Library是隐藏的，前往该目录需要在Finder选择 <b>前往文件夹</b><br>输入 <b>~/Library</b></p>
-</li>
-</ul>
-
-            
-          </span>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
 
   </section>
 
@@ -819,7 +826,7 @@ ExitModule.<span class="built_in">exit</span>();<span class="comment">//调用�
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">47</span>
+              <span class="site-state-item-count">48</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -833,7 +840,7 @@ ExitModule.<span class="built_in">exit</span>();<span class="comment">//调用�
 
           <div class="site-state-item site-state-tags">
             <a href="/tags">
-              <span class="site-state-item-count">21</span>
+              <span class="site-state-item-count">22</span>
               <span class="site-state-item-name">标签</span>
               </a>
           </div>
