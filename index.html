@@ -228,15 +228,95 @@
 
     
     
+
+    
       
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/06/18/mybatis批量处理/" itemprop="url">
+                  mybatis批量处理
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            发表于
+            <time itemprop="dateCreated" datetime="2017-06-18T16:52:29+08:00" content="2017-06-18">
+              2017-06-18
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2017/06/18/mybatis批量处理/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/06/18/mybatis批量处理/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body">
+
       
-        
-        
-        
       
 
       
-    
+        
+          <span itemprop="articleBody">
+            
+              <h2 id="mybatis_批量插入和更新">mybatis 批量插入和更新</h2><h3 id="1-insert">1.insert</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">insert</span> <span class="attribute">id</span>=<span class="value">"insertBatch"</span> <span class="attribute">parameterType</span>=<span class="value">"java.util.List"</span>&gt;</span></span><br><span class="line">    insert into sg_gkzb_pre_win_bid_detail (batch_id, batch_name, batch_code,</span><br><span class="line">    divide_bid_id,divide_bid_code,divide_bid_name,package_id,package_code,package_name,</span><br><span class="line">    supply_bid_id,supply_bid_person,is_calculated,approve_status)</span><br><span class="line">    values</span><br><span class="line">    <span class="tag">&lt;<span class="title">foreach</span> <span class="attribute">collection</span>=<span class="value">"list"</span> <span class="attribute">item</span>=<span class="value">"item"</span> <span class="attribute">index</span>=<span class="value">"index"</span> <span class="attribute">separator</span>=<span class="value">","</span> &gt;</span></span><br><span class="line">      (#&#123;item.batchId&#125;,#&#123;item.batchName&#125;,#&#123;item.batchCode&#125;,#&#123;item.divideBidId&#125;,</span><br><span class="line">      #&#123;item.divideBidCode&#125;,#&#123;item.divideBidName&#125;,#&#123;item.packageId&#125;,#&#123;item.packageCode&#125;,</span><br><span class="line">      #&#123;item.packageName&#125;,#&#123;item.supplyBidId&#125;,#&#123;item.supplyBidPerson&#125;,#&#123;item.isCalculated&#125;,#&#123;item.approveStatus&#125;)</span><br><span class="line">    <span class="tag">&lt;/<span class="title">foreach</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">insert</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="2-update">2.update</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">update</span> <span class="attribute">id</span>=<span class="value">"updateBatch"</span> <span class="attribute">parameterType</span>=<span class="value">"java.util.List"</span>&gt;</span></span><br><span class="line">   update sg_gkzb_pre_win_bid_detail set</span><br><span class="line">   tech_score=</span><br><span class="line">   <span class="tag">&lt;<span class="title">foreach</span> <span class="attribute">collection</span>=<span class="value">"list"</span> <span class="attribute">item</span>=<span class="value">"item"</span> <span class="attribute">index</span>=<span class="value">"index"</span> <span class="attribute">separator</span>=<span class="value">" "</span> <span class="attribute">open</span>=<span class="value">"case supply_bid_id"</span> <span class="attribute">close</span>=<span class="value">"end"</span>&gt;</span></span><br><span class="line">     when #&#123;item.supplyBidId&#125; then #&#123;item.techScore&#125;</span><br><span class="line">   <span class="tag">&lt;/<span class="title">foreach</span>&gt;</span></span><br><span class="line">   ,business_score=</span><br><span class="line">   <span class="tag">&lt;<span class="title">foreach</span> <span class="attribute">collection</span>=<span class="value">"list"</span> <span class="attribute">item</span>=<span class="value">"item"</span> <span class="attribute">index</span>=<span class="value">"index"</span> <span class="attribute">separator</span>=<span class="value">" "</span> <span class="attribute">open</span>=<span class="value">"case supply_bid_id"</span> <span class="attribute">close</span>=<span class="value">"end"</span>&gt;</span></span><br><span class="line">     when #&#123;item.supplyBidId&#125; then #&#123;item.businessScore&#125;</span><br><span class="line">   <span class="tag">&lt;/<span class="title">foreach</span>&gt;</span></span><br><span class="line">   ,price_score=</span><br><span class="line">   <span class="tag">&lt;<span class="title">foreach</span> <span class="attribute">collection</span>=<span class="value">"list"</span> <span class="attribute">item</span>=<span class="value">"item"</span> <span class="attribute">index</span>=<span class="value">"index"</span> <span class="attribute">separator</span>=<span class="value">" "</span> <span class="attribute">open</span>=<span class="value">"case supply_bid_id"</span> <span class="attribute">close</span>=<span class="value">"end"</span>&gt;</span></span><br><span class="line">     when #&#123;item.supplyBidId&#125; then #&#123;item.priceScore&#125;</span><br><span class="line">   <span class="tag">&lt;/<span class="title">foreach</span>&gt;</span></span><br><span class="line">   ,is_submit=</span><br><span class="line">   <span class="tag">&lt;<span class="title">foreach</span> <span class="attribute">collection</span>=<span class="value">"list"</span> <span class="attribute">item</span>=<span class="value">"item"</span> <span class="attribute">index</span>=<span class="value">"index"</span> <span class="attribute">separator</span>=<span class="value">" "</span> <span class="attribute">open</span>=<span class="value">"case supply_bid_id"</span> <span class="attribute">close</span>=<span class="value">"end"</span>&gt;</span></span><br><span class="line">     when #&#123;item.supplyBidId&#125; then #&#123;item.isSubmit&#125;</span><br><span class="line">   <span class="tag">&lt;/<span class="title">foreach</span>&gt;</span></span><br><span class="line">   where supply_bid_id in</span><br><span class="line">   <span class="tag">&lt;<span class="title">foreach</span> <span class="attribute">collection</span>=<span class="value">"list"</span> <span class="attribute">item</span>=<span class="value">"item"</span> <span class="attribute">index</span>=<span class="value">"index"</span></span><br><span class="line">            <span class="attribute">separator</span>=<span class="value">","</span> <span class="attribute">open</span>=<span class="value">"("</span> <span class="attribute">close</span>=<span class="value">")"</span>&gt;</span></span><br><span class="line">     #&#123;item.supplyBidId&#125;</span><br><span class="line">   <span class="tag">&lt;/<span class="title">foreach</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;/<span class="title">update</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+            
+          </span>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
 
     
       
@@ -627,182 +707,12 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/02/12/webpack/" itemprop="url">
-                  webpack
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            发表于
-            <time itemprop="dateCreated" datetime="2017-02-12T22:23:03+08:00" content="2017-02-12">
-              2017-02-12
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2017/02/12/webpack/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/02/12/webpack/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <span itemprop="articleBody">
-            
-              <p> Webpack 是javascript应用的模块打包器（module bundler）。可以通过配置文件分析项目的结构，找到所有依赖，资源后进行打包输出供浏览器使用。</p>
-<p>Webpack主要有四大核心概念：</p>
-<h3 id="Entry">Entry</h3><p>webpack打包资源的入口文件，webpack.config.js 配置文件中配置entry属性</p>
-<pre><code><span class="xml">module.exports = </span><span class="expression">{
-  <span class="variable">entry</span>: '<span class="variable">.</span><span class="end-block">/path</span><span class="end-block">/to</span><span class="end-block">/my</span><span class="end-block">/entry</span><span class="end-block">/file.js</span>'
-}</span><span class="xml">;</span>
-</code></pre><h3 id="Output">Output</h3><p>打包后的资源的存放位置，配置output属性</p>
-<pre><code><span class="keyword">var</span> path = <span class="built_in">require</span>(<span class="string">'path'</span>);
-
-<span class="module"><span class="keyword">module</span>.exports = </span>{
-      entry: <span class="string">'./path/to/my/entry/file.js'</span>,
-      output: {
-        path: path.resolve(__dirname, <span class="string">'dist'</span>),
-        filename: <span class="string">'my-first-webpack.bundle.js'</span>
-      }
-};
-</code></pre><h3 id="Loaders">Loaders</h3><p>通过调用外部脚本或工具，对各种格式的文件进行处理打包</p>
-<p>test:需要被处理的文件<br>use:loader的名称，调用处理</p>
-<pre><code><span class="keyword">var</span> path = <span class="built_in">require</span>(<span class="string">'path'</span>);
-
-<span class="keyword">const</span> config = {
-      entry: <span class="string">'./path/to/my/entry/file.js'</span>,
-      output: {
-        path: path.resolve(__dirname, <span class="string">'dist'</span>),
-        filename: <span class="string">'my-first-webpack.bundle.js'</span>
-     },
-      <span class="module"><span class="keyword">module</span>: </span>{
-           rules: [
-              {test: <span class="regexp">/\.(js|jsx)$/</span>, use: <span class="string">'babel-loader'</span>}
-        ]
-      }
-};
-
-<span class="module"><span class="keyword">module</span>.exports = config;</span>
-</code></pre><h3 id="Plugins">Plugins</h3><p>插件是用来拓展Webpack功能的，它们会在整个构建过程中生效，执行相关的任务。</p>
-<pre><code><span class="keyword">const</span> HtmlWebpackPlugin = <span class="built_in">require</span>(<span class="string">'html-webpack-plugin'</span>); <span class="comment">//installed via npm</span>
-<span class="keyword">const</span> webpack = <span class="built_in">require</span>(<span class="string">'webpack'</span>); <span class="comment">//to access built-in plugins</span>
-<span class="keyword">const</span> path = <span class="built_in">require</span>(<span class="string">'path'</span>);
-
-<span class="keyword">const</span> config = {
-      entry: <span class="string">'./path/to/my/entry/file.js'</span>,
-     output: {
-            path: path.resolve(__dirname, <span class="string">'dist'</span>),
-         filename: <span class="string">'my-first-webpack.bundle.js'</span>
-      },
-      <span class="module"><span class="keyword">module</span>: </span>{
-        rules: [
-              {test: <span class="regexp">/\.(js|jsx)$/</span>, use: <span class="string">'babel-loader'</span>}
-        ]
-      },
-     plugins: [
-        <span class="keyword">new</span> webpack.optimize.UglifyJsPlugin(),
-        <span class="keyword">new</span> HtmlWebpackPlugin({template: <span class="string">'./src/index.html'</span>})
-      ]
-};
-
-<span class="module"><span class="keyword">module</span>.exports = config;</span>
-</code></pre><p>###使用webpack构建本地服务器<br>Webpack提供一个可选的本地开发服务器，这个本地服务器基于node.js构建，可以实现更改代码后浏览器自动刷新，<br>首先得安装组件：</p>
-<pre><code>npm install --<span class="built_in">save</span>-<span class="built_in">dev</span> webpack-<span class="built_in">dev</span>-server
-</code></pre><p>然后配置</p>
-<pre><code><span class="keyword">var</span> path = <span class="built_in">require</span>(<span class="string">'path'</span>);
-
-<span class="keyword">const</span> config = {
-      entry: <span class="string">'./path/to/my/entry/file.js'</span>,
-      output: {
-        path: path.resolve(__dirname, <span class="string">'dist'</span>),
-        filename: <span class="string">'my-first-webpack.bundle.js'</span>
-     },
-      <span class="module"><span class="keyword">module</span>: </span>{
-           rules: [
-              {test: <span class="regexp">/\.(js|jsx)$/</span>, use: <span class="string">'babel-loader'</span>}
-        ]
-      }
-
-    devServer: {
-            contentBase: <span class="string">"./public"</span>,<span class="comment">//本地服务器所加载的页面所在的目录</span>
-            colors: <span class="literal">true</span>,<span class="comment">//终端中输出结果为彩色</span>
-         historyApiFallback: <span class="literal">true</span>,<span class="comment">//不跳转</span>
-         inline: <span class="literal">true</span><span class="comment">//实时刷新</span>
-      } 
-};
-
-<span class="module"><span class="keyword">module</span>.exports = config;</span>
-</code></pre>
-            
-          </span>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
 
   </section>
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/11/">11</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -843,7 +753,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">50</span>
+              <span class="site-state-item-count">51</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>

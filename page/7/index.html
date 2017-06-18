@@ -228,11 +228,111 @@
 
     
     
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/07/18/20160718/" itemprop="url">
+                  20160718
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            发表于
+            <time itemprop="dateCreated" datetime="2016-07-18T22:26:21+08:00" content="2016-07-18">
+              2016-07-18
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/07/18/20160718/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/07/18/20160718/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body">
+
       
       
 
       
-    
+        
+          <span itemprop="articleBody">
+            
+              <p>windows 下安装让mongodb以windows服务启动，在mongo的bin目录下执行：</p>
+<pre><code>mongod --dbpath "d:<span class="command">\mongodb</span><span class="command">\data</span><span class="command">\db</span>" --logpath "d:<span class="command">\mongodb</span><span class="command">\data</span><span class="command">\log</span><span class="command">\MongoDB</span>.log" --install --serviceName "MongoDB"
+</code></pre><p>启动mongodb服务：<strong>net start MongoDB</strong> <br><br>关闭mongodb服务：<strong>net stop MongoDB</strong><br></p>
+<p>基本的操作命令：<br></p>
+<ul>
+<li>mongo</li>
+<li>show dbs</li>
+<li>use dbname</li>
+<li>show collections</li>
+<li>db.colname.save({key:value})</li>
+<li>db colname.insert</li>
+<li>db.coldbname.find()</li>
+<li>db.coldbname.findOne()</li>
+<li>db.coldbname.update</li>
+<li>db.colname.remove</li>
+<li>db.colname.drop()</li>
+<li>ad.cloname.find().skip(5).limit(5)</li>
+</ul>
+
+            
+          </span>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
 
     
       
@@ -623,105 +723,12 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/07/09/android/" itemprop="url">
-                  20160709
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            发表于
-            <time itemprop="dateCreated" datetime="2016-07-09T22:43:18+08:00" content="2016-07-09">
-              2016-07-09
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/07/09/android/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/07/09/android/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <span itemprop="articleBody">
-            
-              <p>mac下配置Android环境，需要在用户目录下 新建文件</p>
-<pre><code><span class="tag">touch</span> <span class="class">.bash_profile</span>
-</code></pre><p>配置如下</p>
-<pre><code>  export <span class="constant">PATH=</span><span class="variable">${</span><span class="constant">PATH}</span><span class="symbol">:~/Library/Android/sdk/platform-tools</span>
-export <span class="constant">ANDROID_HOME=</span>~<span class="regexp">/Library/</span><span class="constant">Android/</span>sdk
-</code></pre><p>vi .bash_profile=&gt;insert=&gt;:wq</p>
-
-            
-          </span>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
 
   </section>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/6/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><span class="page-number current">7</span><a class="page-number" href="/page/8/">8</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><a class="extend next" rel="next" href="/page/8/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/6/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><span class="page-number current">7</span><a class="page-number" href="/page/8/">8</a><span class="space">&hellip;</span><a class="page-number" href="/page/11/">11</a><a class="extend next" rel="next" href="/page/8/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -762,7 +769,7 @@ export <span class="constant">ANDROID_HOME=</span>~<span class="regexp">/Library
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">50</span>
+              <span class="site-state-item-count">51</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>

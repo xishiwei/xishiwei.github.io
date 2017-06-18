@@ -228,11 +228,133 @@
 
     
     
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/08/17/20160817-1/" itemprop="url">
+                  20160817
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            发表于
+            <time itemprop="dateCreated" datetime="2016-08-17T21:32:28+08:00" content="2016-08-17">
+              2016-08-17
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/08/17/20160817-1/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/17/20160817-1/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body">
+
       
       
 
       
-    
+        
+          <span itemprop="articleBody">
+            
+              <ul>
+<li><p>react native 中 pageA-&gt;pageB 想在pageB返回时刷新pageA的内容</p>
+<p>方案一：</p>
+<pre><code>props传递
+</code></pre><p>方案二：</p>
+<pre><code>DeviceEventEmitter
+</code></pre></li>
+<li><p>sina微博 授权未安装客户端登陆出错：</p>
+<pre><code><span class="attribute">android.content.ActivityNotFoundException</span>: <span class="string">Unable to find explicit activity class {edu.gdut.myweibo/</span>
+
+<span class="css"><span class="tag">com</span><span class="class">.sina</span><span class="class">.weibo</span><span class="class">.sdk</span><span class="class">.component</span><span class="class">.WeiboSdkBrowser</span>}; <span class="tag">have</span> <span class="tag">you</span> <span class="tag">declared</span> <span class="tag">this</span> 
+
+<span class="tag">activity</span> <span class="tag">in</span> <span class="tag">your</span> <span class="tag">AndroidManifest</span><span class="class">.xml</span>?</span>
+</code></pre><p>在Manifest.xml中注入SDK的WebBrowser</p>
+<pre><code><span class="tag">&lt;<span class="title">activity</span>
+    <span class="attribute">android:name</span>=<span class="value">"com.sina.weibo.sdk.component.WeiboSdkBrowser"</span>
+    <span class="attribute">android:configChanges</span>=<span class="value">"keyboardHidden|orientation"</span>
+    <span class="attribute">android:exported</span>=<span class="value">"false"</span>
+    <span class="attribute">android:windowSoftInputMode</span>=<span class="value">"adjustResize"</span> &gt;</span>
+<span class="tag">&lt;/<span class="title">activity</span>&gt;</span>
+</code></pre></li>
+<li><p>react native 再次点击退出</p>
+<pre><code>onBackAndroid() {
+   <span class="keyword">let</span> routers = <span class="keyword">this</span>.nav.getCurrentRoutes();
+ <span class="keyword">if</span> (<span class="keyword">this</span>.nav &amp;&amp; routers.length &gt; <span class="number">1</span>) {
+       <span class="keyword">this</span>.nav.pop();
+      <span class="keyword">return</span> <span class="literal">true</span>;
+}
+
+<span class="keyword">let</span> current = <span class="keyword">new</span> <span class="built_in">Date</span>().getTime();
+    <span class="keyword">if</span> (current - last &gt; <span class="number">2000</span>) {
+  last = current;
+  ToastAndroid.show(<span class="string">'再次点击退出'</span>, <span class="number">1000</span>);
+  <span class="keyword">return</span> <span class="literal">true</span>;
+    } <span class="keyword">else</span> {
+      <span class="keyword">return</span> <span class="literal">false</span>;
+        }
+  }
+</code></pre></li>
+</ul>
+
+            
+          </span>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
 
     
       
@@ -634,117 +756,12 @@ nrm <span class="keyword">use</span> cnpm <span class="comment">//切换到cnpm<
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/07/18/20160718/" itemprop="url">
-                  20160718
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            发表于
-            <time itemprop="dateCreated" datetime="2016-07-18T22:26:21+08:00" content="2016-07-18">
-              2016-07-18
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/07/18/20160718/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/07/18/20160718/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <span itemprop="articleBody">
-            
-              <p>windows 下安装让mongodb以windows服务启动，在mongo的bin目录下执行：</p>
-<pre><code>mongod --dbpath "d:<span class="command">\mongodb</span><span class="command">\data</span><span class="command">\db</span>" --logpath "d:<span class="command">\mongodb</span><span class="command">\data</span><span class="command">\log</span><span class="command">\MongoDB</span>.log" --install --serviceName "MongoDB"
-</code></pre><p>启动mongodb服务：<strong>net start MongoDB</strong> <br><br>关闭mongodb服务：<strong>net stop MongoDB</strong><br></p>
-<p>基本的操作命令：<br></p>
-<ul>
-<li>mongo</li>
-<li>show dbs</li>
-<li>use dbname</li>
-<li>show collections</li>
-<li>db.colname.save({key:value})</li>
-<li>db colname.insert</li>
-<li>db.coldbname.find()</li>
-<li>db.coldbname.findOne()</li>
-<li>db.coldbname.update</li>
-<li>db.colname.remove</li>
-<li>db.colname.drop()</li>
-<li>ad.cloname.find().skip(5).limit(5)</li>
-</ul>
-
-            
-          </span>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
 
   </section>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/5/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/">7</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><a class="extend next" rel="next" href="/page/7/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/5/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/">7</a><span class="space">&hellip;</span><a class="page-number" href="/page/11/">11</a><a class="extend next" rel="next" href="/page/7/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -785,7 +802,7 @@ nrm <span class="keyword">use</span> cnpm <span class="comment">//切换到cnpm<
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">50</span>
+              <span class="site-state-item-count">51</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
