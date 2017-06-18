@@ -260,6 +260,95 @@
             
               
                 
+                <a class="post-title-link" href="/2017/06/18/git-lines/" itemprop="url">
+                  Git代码统计
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            发表于
+            <time itemprop="dateCreated" datetime="2017-06-18T16:39:39+08:00" content="2017-06-18">
+              2017-06-18
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2017/06/18/git-lines/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/06/18/git-lines/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <span itemprop="articleBody">
+            
+              <h3 id="Git查询某人代码量">Git查询某人代码量</h3><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git log --author=&#34;quankj&#34; --pretty=tformat: --numstat | awk &#39;&#123; add += $1; subs += $2; loc += $1 - $2 &#125; END &#123; printf &#34;added lines: %s, removed lines: %s, total lines: %s\n&#34;, add, subs, loc &#125;&#39; -</span><br></pre></td></tr></table></figure>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">frontend:255980</span><br><span class="line">backend:191065</span><br><span class="line">sum:447045</span><br><span class="line"></span><br><span class="line">sg-gkzb-fe:255980</span><br><span class="line">sg-business-gkzb-bid:66970</span><br><span class="line">basedata:64273</span><br><span class="line">orgrights:22190</span><br><span class="line">supplier:12413</span><br><span class="line">material:22319</span><br><span class="line">supplybid:2900</span><br><span class="line"></span><br><span class="line">xiDaiDai:</span><br><span class="line">quankj：</span><br><span class="line">liudfb：</span><br><span class="line">zhangkunh:</span><br><span class="line">gtg:</span><br><span class="line">zhoudong3:</span><br><span class="line">liuxiac:</span><br><span class="line">ck:1</span><br><span class="line">wangchengk:</span><br><span class="line">mixue：</span><br><span class="line">zhangmyh:</span><br><span class="line">ninghu：</span><br><span class="line">windknow:</span><br></pre></td></tr></table></figure>
+
+            
+          </span>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2017/06/16/reactnews/" itemprop="url">
                   React.js + Ant Design
                 </a>
@@ -708,97 +797,6 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/12/11/react-native-lifecycle/" itemprop="url">
-                  react-native-lifecycle
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            发表于
-            <time itemprop="dateCreated" datetime="2016-12-11T12:45:26+08:00" content="2016-12-11">
-              2016-12-11
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/12/11/react-native-lifecycle/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/12/11/react-native-lifecycle/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <span itemprop="articleBody">
-            
-              <p>开发过程中发现对React Native生命周期的理解还不够完整，导致渲染的时候性能出现问题，所以写了个例子观察了一下。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span><br><span class="line"> * Sample React Native App</span><br><span class="line"> * https://github.com/facebook/react-native</span><br><span class="line"> * @flow</span><br><span class="line"> */</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> React, &#123; Component &#125; <span class="keyword">from</span> <span class="string">'react'</span>;</span><br><span class="line"><span class="keyword">import</span> &#123;</span><br><span class="line">  AppRegistry,</span><br><span class="line">  StyleSheet,</span><br><span class="line">  Text,</span><br><span class="line">  View</span><br><span class="line">&#125; <span class="keyword">from</span> <span class="string">'react-native'</span>;</span><br><span class="line"><span class="keyword">import</span> ChildComponent <span class="keyword">from</span> <span class="string">'./child'</span>;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="class"><span class="keyword">class</span> <span class="title">Parent</span> <span class="keyword">extends</span> <span class="title">Component</span> </span>&#123;</span><br><span class="line">  constructor(props) &#123;</span><br><span class="line">    <span class="keyword">super</span>(props);</span><br><span class="line">    <span class="keyword">this</span>.state = &#123;</span><br><span class="line">    	content:<span class="string">'content'</span></span><br><span class="line">    &#125;;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  componentDidMount()&#123;</span><br><span class="line">  	<span class="built_in">console</span>.log(<span class="string">'Parent====componentDidMount'</span>)</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  render() &#123;</span><br><span class="line">  	<span class="built_in">console</span>.log(<span class="string">'Parent====render'</span>)</span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line">      <span class="xml"><span class="tag">&lt;<span class="title">View</span> <span class="attribute">style</span>=<span class="value">&#123;styles.container&#125;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">Text</span> <span class="attribute">style</span>=<span class="value">&#123;styles.welcome&#125;</span>&gt;</span></span><br><span class="line">         &#123;this.state.content&#125;</span><br><span class="line">        <span class="tag">&lt;/<span class="title">Text</span>&gt;</span></span><br><span class="line">         <span class="tag">&lt;<span class="title">ChildComponent</span> <span class="attribute">content</span>=<span class="value">&#123;this.state.content&#125;</span>/&gt;</span></span><br><span class="line">         <span class="tag">&lt;<span class="title">Text</span> <span class="attribute">style</span>=<span class="value">&#123;&#123;margin:20&#125;&#125;</span> <span class="attribute">onPress</span>=<span class="value">&#123;()=</span>&gt;</span>&#123;this.onPress()&#125;&#125;&gt;Press Me!<span class="tag">&lt;/<span class="title">Text</span>&gt;</span></span><br><span class="line">         <span class="tag">&lt;<span class="title">Text</span> <span class="attribute">style</span>=<span class="value">&#123;&#123;margin:20&#125;&#125;</span> <span class="attribute">onPress</span>=<span class="value">&#123;()=</span>&gt;</span>&#123;this.onPressME()&#125;&#125;&gt;Press!<span class="tag">&lt;/<span class="title">Text</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="title">View</span>&gt;</span></span><br><span class="line">    )</span>;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  onPress()&#123;</span><br><span class="line">  	<span class="keyword">this</span>.setState(&#123;content:<span class="string">'React Native Props'</span>&#125;);</span><br><span class="line">  &#125; </span><br><span class="line"></span><br><span class="line">  onPressME()&#123;</span><br><span class="line">  	<span class="keyword">this</span>.setState(&#123;content:<span class="string">'React Native'</span>&#125;);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> styles = StyleSheet.create(&#123;</span><br><span class="line">  container: &#123;</span><br><span class="line">    flex: <span class="number">1</span>,</span><br><span class="line">    justifyContent: <span class="string">'center'</span>,</span><br><span class="line">    alignItems: <span class="string">'center'</span>,</span><br><span class="line">    backgroundColor: <span class="string">'#F5FCFF'</span>,</span><br><span class="line">  &#125;,</span><br><span class="line">  welcome: &#123;</span><br><span class="line">    fontSize: <span class="number">20</span>,</span><br><span class="line">    textAlign: <span class="string">'center'</span>,</span><br><span class="line">    margin: <span class="number">10</span>,</span><br><span class="line">  &#125;,</span><br><span class="line">  instructions: &#123;</span><br><span class="line">    textAlign: <span class="string">'center'</span>,</span><br><span class="line">    color: <span class="string">'#333333'</span>,</span><br><span class="line">    marginBottom: <span class="number">5</span>,</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span><br><span class="line"> * Sample React Native App</span><br><span class="line"> * https://github.com/facebook/react-native</span><br><span class="line"> * @flow</span><br><span class="line"> */</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> React, &#123; Component &#125; <span class="keyword">from</span> <span class="string">'react'</span>;</span><br><span class="line"><span class="keyword">import</span> &#123;</span><br><span class="line">  AppRegistry,</span><br><span class="line">  StyleSheet,</span><br><span class="line">  Text,</span><br><span class="line">  View</span><br><span class="line">&#125; <span class="keyword">from</span> <span class="string">'react-native'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="class"><span class="keyword">class</span> <span class="title">Child</span> <span class="keyword">extends</span> <span class="title">Component</span> </span>&#123;</span><br><span class="line">  constructor(props) &#123;</span><br><span class="line">    <span class="keyword">super</span>(props);</span><br><span class="line">    <span class="keyword">this</span>.state = &#123;</span><br><span class="line">    	content:<span class="keyword">this</span>.props.content</span><br><span class="line">    &#125;;</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  componentWillMount()&#123;</span><br><span class="line">  	<span class="built_in">console</span>.log(<span class="string">'child====componentWillMount'</span>)</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">//先调用子组件的 componentDidMount()，然后调用父组件的函数</span></span><br><span class="line">  componentDidMount()&#123;</span><br><span class="line">  	<span class="built_in">console</span>.log(<span class="string">'child====componentDidMount'</span>)</span><br><span class="line">  &#125;</span><br><span class="line">	</span><br><span class="line">	<span class="comment">//1.父组件触发render后触发子组件该方法，不管属性是否改变；</span></span><br><span class="line">	<span class="comment">//2.这里setState不会触发额外的render()</span></span><br><span class="line">	componentWillReceiveProps(nextProps)&#123;</span><br><span class="line">			<span class="built_in">console</span>.log(<span class="keyword">this</span>.props.content+<span class="string">'===='</span>+<span class="string">'componentWillReceiveProps'</span>+<span class="string">'====='</span>+nextProps.content)</span><br><span class="line">			<span class="keyword">this</span>.setState(&#123;content:<span class="string">'componentWillReceiveProps'</span>&#125;);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	shouldComponentUpdate(nextProps,nextState)&#123;</span><br><span class="line">		<span class="built_in">console</span>.log(<span class="string">'shouldComponentUpdate'</span>)</span><br><span class="line">		<span class="keyword">return</span> <span class="literal">true</span></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">// 这个函数调用之后，就会把 nextProps 和 nextState 分别设置到 this.props 和 this.state 中</span></span><br><span class="line">	componentWillUpdate(nextProps,nextState)&#123;</span><br><span class="line">		<span class="built_in">console</span>.log(<span class="string">'componentWillUpdate'</span>)</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">  render() &#123;</span><br><span class="line">  	<span class="built_in">console</span>.log(<span class="string">'child render'</span>)</span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line">      <span class="xml"><span class="tag">&lt;<span class="title">View</span> <span class="attribute">style</span>=<span class="value">&#123;styles.container&#125;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">Text</span> <span class="attribute">style</span>=<span class="value">&#123;styles.welcome&#125;</span>&gt;</span></span><br><span class="line">         &#123;this.props.content&#125;</span><br><span class="line">        <span class="tag">&lt;/<span class="title">Text</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">Text</span> <span class="attribute">style</span>=<span class="value">&#123;styles.instructions&#125;</span>&gt;</span></span><br><span class="line">          To get started, edit index.android.js</span><br><span class="line">        <span class="tag">&lt;/<span class="title">Text</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="title">View</span>&gt;</span></span><br><span class="line">    )</span>;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  componentDidUpdate(prevProps,prevState)&#123;</span><br><span class="line">  	<span class="built_in">console</span>.log(prevProps.content+<span class="string">'===='</span>+<span class="string">'componentDidUpdate'</span>+<span class="string">'====='</span>+<span class="keyword">this</span>.props.content)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> styles = StyleSheet.create(&#123;</span><br><span class="line">  container: &#123;</span><br><span class="line">    </span><br><span class="line">    justifyContent: <span class="string">'center'</span>,</span><br><span class="line">    alignItems: <span class="string">'center'</span>,</span><br><span class="line">    backgroundColor: <span class="string">'#F5FCFF'</span>,</span><br><span class="line">  &#125;,</span><br><span class="line">  welcome: &#123;</span><br><span class="line">    fontSize: <span class="number">20</span>,</span><br><span class="line">    textAlign: <span class="string">'center'</span>,</span><br><span class="line">    margin: <span class="number">10</span>,</span><br><span class="line">  &#125;,</span><br><span class="line">  instructions: &#123;</span><br><span class="line">    textAlign: <span class="string">'center'</span>,</span><br><span class="line">    color: <span class="string">'#333333'</span>,</span><br><span class="line">    marginBottom: <span class="number">5</span>,</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">第一次加载：</span><br><span class="line">parent.js:<span class="number">28</span> Parent====render</span><br><span class="line">child.js:<span class="number">24</span> child====componentWillMount</span><br><span class="line">child.js:<span class="number">52</span> child render</span><br><span class="line">child.js:<span class="number">29</span> child====componentDidMount</span><br><span class="line">parent.js:<span class="number">24</span> Parent====componentDidMount</span><br><span class="line"></span><br><span class="line">点击Press Me!:</span><br><span class="line">parent.js:<span class="number">28</span> Parent====render</span><br><span class="line">child.js:<span class="number">35</span> content====componentWillReceiveProps=====React Native Props</span><br><span class="line">child.js:<span class="number">42</span> shouldComponentUpdate</span><br><span class="line">child.js:<span class="number">48</span> componentWillUpdate</span><br><span class="line">child.js:<span class="number">52</span> child render</span><br><span class="line">child.js:<span class="number">66</span> content====componentDidUpdate=====React Native Props</span><br><span class="line"></span><br><span class="line">再次点击Press Me:</span><br><span class="line">parent.js:<span class="number">28</span> Parent====render</span><br><span class="line">child.js:<span class="number">35</span> React Native Props====componentWillReceiveProps=====React Native Props</span><br><span class="line">child.js:<span class="number">42</span> shouldComponentUpdate</span><br><span class="line">child.js:<span class="number">48</span> componentWillUpdate</span><br><span class="line">child.js:<span class="number">52</span> child render</span><br><span class="line">child.js:<span class="number">66</span> React Native Props====componentDidUpdate=====React Native Props</span><br><span class="line"></span><br><span class="line">点击Press!:</span><br><span class="line">parent.js:<span class="number">28</span> Parent====render</span><br><span class="line">child.js:<span class="number">35</span> React Native Props====componentWillReceiveProps=====React Native</span><br><span class="line">child.js:<span class="number">42</span> shouldComponentUpdate</span><br><span class="line">child.js:<span class="number">48</span> componentWillUpdate</span><br><span class="line">child.js:<span class="number">52</span> child render</span><br><span class="line">child.js:<span class="number">66</span> React Native Props====componentDidUpdate=====React Native</span><br></pre></td></tr></table></figure>
-
-            
-          </span>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
 
   </section>
 
@@ -845,7 +843,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">49</span>
+              <span class="site-state-item-count">50</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>

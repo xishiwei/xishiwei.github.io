@@ -256,6 +256,122 @@
             
               
                 
+                <a class="post-title-link" href="/2016/09/25/try-redis/" itemprop="url">
+                  Try Redis
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            发表于
+            <time itemprop="dateCreated" datetime="2016-09-25T20:33:58+08:00" content="2016-09-25">
+              2016-09-25
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/09/25/try-redis/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/09/25/try-redis/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <span itemprop="articleBody">
+            
+              <h2 id="redis">redis</h2><p>Redis 是一个开源（BSD许可）的，内存中的数据结构存储系统，它可以用作数据库、缓存和消息中间件。</p>
+<h3 id="save（存储）">save（存储）</h3><p><code>set name redis</code></p>
+<h3 id="get（获取）">get（获取）</h3><p><code>get name</code></p>
+<h3 id="del（删除）">del（删除）</h3><p><code>del name</code></p>
+<h3 id="inrc（自增加一）">inrc（自增加一）</h3><figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">set</span> <span class="built_in">number</span> <span class="number">10</span></span><br><span class="line">incr <span class="built_in">number</span> =&gt; <span class="number">11</span></span><br><span class="line">del <span class="built_in">number</span></span><br><span class="line">incr <span class="built_in">number</span> =&gt;<span class="number">1</span></span><br></pre></td></tr></table></figure>
+<h3 id="expire(存储时间)">expire(存储时间)</h3><p><code>expire name 120</code></p>
+<h3 id="ttl(查看剩余时间)">ttl(查看剩余时间)</h3><p><code>ttl name =&gt;108</code></p>
+<p><strong>被删除后会输出-2，如果输出-1表示永不过期，如果重新set name value,ttl也会被reset</strong></p>
+<h3 id="rpush(list末尾添加)">rpush(list末尾添加)</h3><figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">rpush</span> friends <span class="string">"Jack"</span></span><br><span class="line">rpush friends <span class="string">"Rose"</span></span><br></pre></td></tr></table></figure>
+<h3 id="lpush(list头部添加)">lpush(list头部添加)</h3><figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">lpush</span> friends <span class="string">"Jesus"</span></span><br></pre></td></tr></table></figure>
+<h3 id="lrange(获取list)">lrange(获取list)</h3><figure class="highlight tcl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">lrange</span> friends <span class="number">0</span> -<span class="number">1</span> =&gt;</span><br><span class="line"><span class="number">1</span>) <span class="string">"Jesus"</span></span><br><span class="line"><span class="number">2</span>) <span class="string">"Jack"</span></span><br><span class="line"><span class="number">3</span>) <span class="string">"Rose"</span></span><br><span class="line"><span class="keyword">lrange</span> friends <span class="number">0</span> <span class="number">1</span></span><br><span class="line"><span class="keyword">lrange</span> friends <span class="number">1</span> <span class="number">2</span></span><br></pre></td></tr></table></figure>
+<p><strong>-1表示取到list的最后一位</strong></p>
+<h3 id="llen(获取list长度)">llen(获取list长度)</h3><p><code>llen friends =&gt; 3</code></p>
+<h3 id="lpop(移除list第一个)">lpop(移除list第一个)</h3><p><code>lpop friends =&gt;&quot;Jesus&quot;</code></p>
+<h3 id="rpop(移除list最后一个)">rpop(移除list最后一个)</h3><p><code>rpop friends</code></p>
+<h3 id="sadd(给set添加数据)">sadd(给set添加数据)</h3><figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">sadd </span>heroes <span class="string">"Iron Man"</span></span><br><span class="line"><span class="keyword">sadd </span>heroes <span class="string">"Transformers"</span></span><br><span class="line"><span class="keyword">sadd </span>heroes <span class="string">"Spider Man"</span></span><br><span class="line"><span class="keyword">sadd </span>heroes <span class="string">"Ant Man"</span></span><br></pre></td></tr></table></figure>
+<h3 id="srem(从set移除数据)">srem(从set移除数据)</h3><p><code>srem heroes &quot;Transfromers&quot;</code></p>
+<h3 id="sismember(set中是否包含)">sismember(set中是否包含)</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sismember heroes <span class="string">"Iron Man"</span> =&gt; <span class="number">1</span></span><br><span class="line">sismember heroes <span class="string">"Flash Man"</span> =&gt; <span class="number">0</span></span><br></pre></td></tr></table></figure>
+<p><strong>0表示不存在，1表示不存在</strong></p>
+<h3 id="smembers(获取set所有值)">smembers(获取set所有值)</h3><figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">smembers</span> heroes</span><br></pre></td></tr></table></figure>
+<h3 id="sunion(合并set)">sunion(合并set)</h3><figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">sadd </span><span class="keyword">beauties </span><span class="string">"Sophie"</span></span><br><span class="line"><span class="keyword">sadd </span><span class="keyword">beauties </span><span class="string">"Sheeba"</span></span><br><span class="line"><span class="label">sunion</span> heroes <span class="keyword">beauties </span>=&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="Sorted_Sets">Sorted Sets</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">zadd ranks <span class="number">3</span> <span class="string">"Python"</span></span><br><span class="line">zadd ranks <span class="number">2</span> <span class="string">"Java"</span></span><br><span class="line">zadd ranks <span class="number">4</span> <span class="string">"Ruby"</span></span><br><span class="line">zadd ranks <span class="number">1</span> <span class="string">"JavaScript"</span></span><br><span class="line">zadd ranks <span class="number">5</span> <span class="string">"Php"</span></span><br></pre></td></tr></table></figure>
+<p><strong>sorted sets多了一个sorce,根据score排序</strong></p>
+<h3 id="zragne">zragne</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">zrange ranks <span class="number">1</span> <span class="number">3</span> =&gt;</span><br><span class="line"><span class="number">1</span>) <span class="string">"Java"</span></span><br><span class="line"><span class="number">2</span>) <span class="string">"Python"</span></span><br><span class="line"><span class="number">3</span>) <span class="string">"Ruby"</span></span><br></pre></td></tr></table></figure>
+<h3 id="hset(存储对象)">hset(存储对象)</h3><figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hset <span class="keyword">user</span> <span class="title">name</span> <span class="string">"Jack"</span></span><br><span class="line">hset <span class="keyword">user</span> <span class="title">email</span> <span class="string">"jack@gmail.com"</span></span><br><span class="line">hset <span class="keyword">user</span> <span class="title">password</span> <span class="string">"rose"</span></span><br></pre></td></tr></table></figure>
+<h3 id="hgetall(获取对象所有信息)">hgetall(获取对象所有信息)</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">hgetall user =&gt;</span><br><span class="line"><span class="number">1</span>) <span class="string">"name"</span></span><br><span class="line"><span class="number">2</span>) <span class="string">"Jack"</span></span><br><span class="line"><span class="number">3</span>) <span class="string">"email"</span></span><br><span class="line"><span class="number">4</span>) <span class="string">"jack@gmail.com"</span></span><br><span class="line"><span class="number">5</span>) <span class="string">"password"</span></span><br><span class="line"><span class="number">6</span>) <span class="string">"rose"</span></span><br></pre></td></tr></table></figure>
+<h3 id="hmset(一次设置多个字段)">hmset(一次设置多个字段)</h3><figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">hmset</span> user:<span class="number">002</span> name <span class="string">"Hodor"</span> password <span class="string">"holdthedoor"</span> email <span class="string">"hodor<span class="variable">@gmail</span>.com"</span></span><br></pre></td></tr></table></figure>
+<h3 id="hget(获取单个字段)">hget(获取单个字段)</h3><figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hget user:<span class="number">002</span> <span class="property">name</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">HSET user:<span class="number">002</span> waittime <span class="number">1000</span></span><br><span class="line">HINCRBY user:<span class="number">002</span> waittime <span class="number">1</span> =&gt; <span class="number">1001</span></span><br><span class="line">HINCRBY user:<span class="number">002</span> waittime <span class="number">10</span> =&gt; <span class="number">1011</span></span><br><span class="line">HDEL user:<span class="number">002</span> waittime</span><br><span class="line">HINCRBY user:<span class="number">002</span> waittime <span class="number">1</span> =&gt; <span class="number">1</span></span><br></pre></td></tr></table></figure>
+
+            
+          </span>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/09/23/20160923/" itemprop="url">
                   20160923
                 </a>
@@ -695,133 +811,6 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/09/11/React-Native-on-Docker/" itemprop="url">
-                  React Native in Docker
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            发表于
-            <time itemprop="dateCreated" datetime="2016-09-11T20:31:33+08:00" content="2016-09-11">
-              2016-09-11
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/09/11/React-Native-on-Docker/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/09/11/React-Native-on-Docker/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <span itemprop="articleBody">
-            
-              <p>登录DockerHub账户</p>
-<pre><code><span class="variable">$ </span>docker login
-</code></pre><p>搜索repos</p>
-<pre><code><span class="variable">$ </span>docker search centos
-</code></pre><p>拉取centos镜像</p>
-<pre><code><span class="variable">$ </span>docker pull centos
-</code></pre><p>启动容器基于centos镜像</p>
-<pre><code>$ docker <span class="command">run</span> -<span class="keyword">it</span> <span class="comment">--name react-native -p 8080:8080 centos /bin/bash</span>
-</code></pre><p>进入容器:</p>
-<ul>
-<li><p>查看存在的容器</p>
-<pre><code>$ docker ps -<span class="literal">a</span>
-</code></pre></li>
-<li><p>运行容器</p>
-<pre><code>$ docker <span class="literal">start</span> containerID
-</code></pre></li>
-<li><p>进入一个在运行的容器：</p>
-<pre><code>$ docker exec -<span class="keyword">it </span>containerID /<span class="keyword">bin/bash </span>    
-</code></pre></li>
-</ul>
-<p>一系列的环境安装后，生成新的镜像：</p>
-<ul>
-<li><p>退出容器Ctrl+D|exit</p>
-</li>
-<li><p>提交修改生成新的镜像：</p>
-<pre><code>$ docker <span class="operator"><span class="keyword">commit</span> <span class="number">0</span>cd2240a8ae5(容器<span class="keyword">id</span>) docker-react-<span class="keyword">native</span>（生成的镜像名）</span>
-</code></pre></li>
-</ul>
-<p>将新生成的镜像push到仓库</p>
-<ul>
-<li><p>查看镜像ID </p>
-<pre><code><span class="variable">$ </span>docker images
-</code></pre></li>
-<li><p>给镜像添加tag</p>
-<pre><code>$ docker <span class="keyword">tag</span> <span class="title">7d9495d03763</span>(镜像id) jichao/docker-react-native:latest
-</code></pre></li>
-<li><p>推送到DockerHub(如果之前没有登录需要 $ docker login)</p>
-<pre><code>$ docker push jichao/docker-react-<span class="keyword">native</span>
-</code></pre></li>
-</ul>
-
-            
-          </span>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
 
   </section>
 
@@ -868,7 +857,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">49</span>
+              <span class="site-state-item-count">50</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>

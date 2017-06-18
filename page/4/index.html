@@ -256,6 +256,133 @@
             
               
                 
+                <a class="post-title-link" href="/2016/09/11/React-Native-on-Docker/" itemprop="url">
+                  React Native in Docker
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            发表于
+            <time itemprop="dateCreated" datetime="2016-09-11T20:31:33+08:00" content="2016-09-11">
+              2016-09-11
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/09/11/React-Native-on-Docker/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/09/11/React-Native-on-Docker/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <span itemprop="articleBody">
+            
+              <p>登录DockerHub账户</p>
+<pre><code><span class="variable">$ </span>docker login
+</code></pre><p>搜索repos</p>
+<pre><code><span class="variable">$ </span>docker search centos
+</code></pre><p>拉取centos镜像</p>
+<pre><code><span class="variable">$ </span>docker pull centos
+</code></pre><p>启动容器基于centos镜像</p>
+<pre><code>$ docker <span class="command">run</span> -<span class="keyword">it</span> <span class="comment">--name react-native -p 8080:8080 centos /bin/bash</span>
+</code></pre><p>进入容器:</p>
+<ul>
+<li><p>查看存在的容器</p>
+<pre><code>$ docker ps -<span class="literal">a</span>
+</code></pre></li>
+<li><p>运行容器</p>
+<pre><code>$ docker <span class="literal">start</span> containerID
+</code></pre></li>
+<li><p>进入一个在运行的容器：</p>
+<pre><code>$ docker exec -<span class="keyword">it </span>containerID /<span class="keyword">bin/bash </span>    
+</code></pre></li>
+</ul>
+<p>一系列的环境安装后，生成新的镜像：</p>
+<ul>
+<li><p>退出容器Ctrl+D|exit</p>
+</li>
+<li><p>提交修改生成新的镜像：</p>
+<pre><code>$ docker <span class="operator"><span class="keyword">commit</span> <span class="number">0</span>cd2240a8ae5(容器<span class="keyword">id</span>) docker-react-<span class="keyword">native</span>（生成的镜像名）</span>
+</code></pre></li>
+</ul>
+<p>将新生成的镜像push到仓库</p>
+<ul>
+<li><p>查看镜像ID </p>
+<pre><code><span class="variable">$ </span>docker images
+</code></pre></li>
+<li><p>给镜像添加tag</p>
+<pre><code>$ docker <span class="keyword">tag</span> <span class="title">7d9495d03763</span>(镜像id) jichao/docker-react-native:latest
+</code></pre></li>
+<li><p>推送到DockerHub(如果之前没有登录需要 $ docker login)</p>
+<pre><code>$ docker push jichao/docker-react-<span class="keyword">native</span>
+</code></pre></li>
+</ul>
+
+            
+          </span>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/09/08/20160908/" itemprop="url">
                   20160908
                 </a>
@@ -771,119 +898,6 @@ For more examples <span class="operator">and</span> ideas, visit:
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/09/03/20160903/" itemprop="url">
-                  20160903
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            发表于
-            <time itemprop="dateCreated" datetime="2016-09-03T11:46:06+08:00" content="2016-09-03">
-              2016-09-03
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/09/03/20160903/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/09/03/20160903/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <span itemprop="articleBody">
-            
-              <h3 id="android_studio">android studio</h3><pre><code> Error:Execution failed <span class="keyword">for</span> task <span class="string">':app:transformClassesWithDexForDebug'</span>.
- com<span class="class">.android</span><span class="class">.build</span><span class="class">.api</span><span class="class">.transform</span><span class="class">.TransformException</span>:
-com<span class="class">.android</span><span class="class">.ide</span><span class="class">.common</span><span class="class">.process</span><span class="class">.ProcessException</span>: org<span class="class">.gradle</span><span class="class">.process</span><span class="class">.internal</span><span class="class">.ExecException</span>: 
-Process <span class="string">'command '</span>C:\Program Files\Java\jdk1.<span class="number">8.0</span>_31\bin\java.exe<span class="string">''</span> 
-finished with non-zero exit value <span class="number">2</span>
-</code></pre><p>在build.gradle里添加：</p>
-<pre><code><span class="title">defaultConfig</span> {
-    <span class="title">multiDexEnabled</span> <span class="built_in">true</span>
-}
-</code></pre><h3 id="ES6">ES6</h3><h4 id="export:">export:</h4><p>命名导出</p>
-<pre><code><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">gank</span>(<span class="params">n</span>)</span>{
-    <span class="keyword">return</span> <span class="string">'hello gank'</span>;
-}
-<span class="keyword">const</span> carry = <span class="string">'carry'</span>;
-<span class="keyword">export</span> {carry}
-<span class="comment">//或者直接export const carry = 'carry'</span>
-</code></pre><p>默认导出</p>
-<pre><code><span class="title">export</span> <span class="default"><span class="keyword">default</span> gank<span class="container">(<span class="title">io</span>)</span>{</span>
-    return 'hello <span class="default"><span class="keyword">default</span>';</span>
-}
-</code></pre><p>每个文件的export default 只能有一个</p>
-<h4 id="import:">import:</h4><p>以下代码将myDefault，foo，bar导入文件中,myDefault是默认导出的项,foo,bar为命名</p>
-<p>导出的项（即my-module.js中的代码为：…;export foo;export bar;export default myDefault;）</p>
-<pre><code><span class="keyword">import</span> myDefault, {foo, bar} <span class="keyword">from</span> <span class="string">"my-module.js"</span>
-</code></pre><p>在react native 可能看见如下写法：</p>
-<pre><code><span class="keyword">import</span> React, {Component} <span class="keyword">from</span> <span class="string">'react'</span>;
-</code></pre>
-            
-          </span>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
 
   </section>
 
@@ -930,7 +944,7 @@ finished with non-zero exit value <span class="number">2</span>
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">49</span>
+              <span class="site-state-item-count">50</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>

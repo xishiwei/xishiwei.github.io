@@ -256,6 +256,97 @@
             
               
                 
+                <a class="post-title-link" href="/2016/12/11/react-native-lifecycle/" itemprop="url">
+                  react-native-lifecycle
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            发表于
+            <time itemprop="dateCreated" datetime="2016-12-11T12:45:26+08:00" content="2016-12-11">
+              2016-12-11
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/12/11/react-native-lifecycle/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/12/11/react-native-lifecycle/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <span itemprop="articleBody">
+            
+              <p>开发过程中发现对React Native生命周期的理解还不够完整，导致渲染的时候性能出现问题，所以写了个例子观察了一下。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span><br><span class="line"> * Sample React Native App</span><br><span class="line"> * https://github.com/facebook/react-native</span><br><span class="line"> * @flow</span><br><span class="line"> */</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> React, &#123; Component &#125; <span class="keyword">from</span> <span class="string">'react'</span>;</span><br><span class="line"><span class="keyword">import</span> &#123;</span><br><span class="line">  AppRegistry,</span><br><span class="line">  StyleSheet,</span><br><span class="line">  Text,</span><br><span class="line">  View</span><br><span class="line">&#125; <span class="keyword">from</span> <span class="string">'react-native'</span>;</span><br><span class="line"><span class="keyword">import</span> ChildComponent <span class="keyword">from</span> <span class="string">'./child'</span>;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="class"><span class="keyword">class</span> <span class="title">Parent</span> <span class="keyword">extends</span> <span class="title">Component</span> </span>&#123;</span><br><span class="line">  constructor(props) &#123;</span><br><span class="line">    <span class="keyword">super</span>(props);</span><br><span class="line">    <span class="keyword">this</span>.state = &#123;</span><br><span class="line">    	content:<span class="string">'content'</span></span><br><span class="line">    &#125;;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  componentDidMount()&#123;</span><br><span class="line">  	<span class="built_in">console</span>.log(<span class="string">'Parent====componentDidMount'</span>)</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  render() &#123;</span><br><span class="line">  	<span class="built_in">console</span>.log(<span class="string">'Parent====render'</span>)</span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line">      <span class="xml"><span class="tag">&lt;<span class="title">View</span> <span class="attribute">style</span>=<span class="value">&#123;styles.container&#125;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">Text</span> <span class="attribute">style</span>=<span class="value">&#123;styles.welcome&#125;</span>&gt;</span></span><br><span class="line">         &#123;this.state.content&#125;</span><br><span class="line">        <span class="tag">&lt;/<span class="title">Text</span>&gt;</span></span><br><span class="line">         <span class="tag">&lt;<span class="title">ChildComponent</span> <span class="attribute">content</span>=<span class="value">&#123;this.state.content&#125;</span>/&gt;</span></span><br><span class="line">         <span class="tag">&lt;<span class="title">Text</span> <span class="attribute">style</span>=<span class="value">&#123;&#123;margin:20&#125;&#125;</span> <span class="attribute">onPress</span>=<span class="value">&#123;()=</span>&gt;</span>&#123;this.onPress()&#125;&#125;&gt;Press Me!<span class="tag">&lt;/<span class="title">Text</span>&gt;</span></span><br><span class="line">         <span class="tag">&lt;<span class="title">Text</span> <span class="attribute">style</span>=<span class="value">&#123;&#123;margin:20&#125;&#125;</span> <span class="attribute">onPress</span>=<span class="value">&#123;()=</span>&gt;</span>&#123;this.onPressME()&#125;&#125;&gt;Press!<span class="tag">&lt;/<span class="title">Text</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="title">View</span>&gt;</span></span><br><span class="line">    )</span>;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  onPress()&#123;</span><br><span class="line">  	<span class="keyword">this</span>.setState(&#123;content:<span class="string">'React Native Props'</span>&#125;);</span><br><span class="line">  &#125; </span><br><span class="line"></span><br><span class="line">  onPressME()&#123;</span><br><span class="line">  	<span class="keyword">this</span>.setState(&#123;content:<span class="string">'React Native'</span>&#125;);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> styles = StyleSheet.create(&#123;</span><br><span class="line">  container: &#123;</span><br><span class="line">    flex: <span class="number">1</span>,</span><br><span class="line">    justifyContent: <span class="string">'center'</span>,</span><br><span class="line">    alignItems: <span class="string">'center'</span>,</span><br><span class="line">    backgroundColor: <span class="string">'#F5FCFF'</span>,</span><br><span class="line">  &#125;,</span><br><span class="line">  welcome: &#123;</span><br><span class="line">    fontSize: <span class="number">20</span>,</span><br><span class="line">    textAlign: <span class="string">'center'</span>,</span><br><span class="line">    margin: <span class="number">10</span>,</span><br><span class="line">  &#125;,</span><br><span class="line">  instructions: &#123;</span><br><span class="line">    textAlign: <span class="string">'center'</span>,</span><br><span class="line">    color: <span class="string">'#333333'</span>,</span><br><span class="line">    marginBottom: <span class="number">5</span>,</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span><br><span class="line"> * Sample React Native App</span><br><span class="line"> * https://github.com/facebook/react-native</span><br><span class="line"> * @flow</span><br><span class="line"> */</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> React, &#123; Component &#125; <span class="keyword">from</span> <span class="string">'react'</span>;</span><br><span class="line"><span class="keyword">import</span> &#123;</span><br><span class="line">  AppRegistry,</span><br><span class="line">  StyleSheet,</span><br><span class="line">  Text,</span><br><span class="line">  View</span><br><span class="line">&#125; <span class="keyword">from</span> <span class="string">'react-native'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="class"><span class="keyword">class</span> <span class="title">Child</span> <span class="keyword">extends</span> <span class="title">Component</span> </span>&#123;</span><br><span class="line">  constructor(props) &#123;</span><br><span class="line">    <span class="keyword">super</span>(props);</span><br><span class="line">    <span class="keyword">this</span>.state = &#123;</span><br><span class="line">    	content:<span class="keyword">this</span>.props.content</span><br><span class="line">    &#125;;</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  componentWillMount()&#123;</span><br><span class="line">  	<span class="built_in">console</span>.log(<span class="string">'child====componentWillMount'</span>)</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">//先调用子组件的 componentDidMount()，然后调用父组件的函数</span></span><br><span class="line">  componentDidMount()&#123;</span><br><span class="line">  	<span class="built_in">console</span>.log(<span class="string">'child====componentDidMount'</span>)</span><br><span class="line">  &#125;</span><br><span class="line">	</span><br><span class="line">	<span class="comment">//1.父组件触发render后触发子组件该方法，不管属性是否改变；</span></span><br><span class="line">	<span class="comment">//2.这里setState不会触发额外的render()</span></span><br><span class="line">	componentWillReceiveProps(nextProps)&#123;</span><br><span class="line">			<span class="built_in">console</span>.log(<span class="keyword">this</span>.props.content+<span class="string">'===='</span>+<span class="string">'componentWillReceiveProps'</span>+<span class="string">'====='</span>+nextProps.content)</span><br><span class="line">			<span class="keyword">this</span>.setState(&#123;content:<span class="string">'componentWillReceiveProps'</span>&#125;);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	shouldComponentUpdate(nextProps,nextState)&#123;</span><br><span class="line">		<span class="built_in">console</span>.log(<span class="string">'shouldComponentUpdate'</span>)</span><br><span class="line">		<span class="keyword">return</span> <span class="literal">true</span></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">// 这个函数调用之后，就会把 nextProps 和 nextState 分别设置到 this.props 和 this.state 中</span></span><br><span class="line">	componentWillUpdate(nextProps,nextState)&#123;</span><br><span class="line">		<span class="built_in">console</span>.log(<span class="string">'componentWillUpdate'</span>)</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">  render() &#123;</span><br><span class="line">  	<span class="built_in">console</span>.log(<span class="string">'child render'</span>)</span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line">      <span class="xml"><span class="tag">&lt;<span class="title">View</span> <span class="attribute">style</span>=<span class="value">&#123;styles.container&#125;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">Text</span> <span class="attribute">style</span>=<span class="value">&#123;styles.welcome&#125;</span>&gt;</span></span><br><span class="line">         &#123;this.props.content&#125;</span><br><span class="line">        <span class="tag">&lt;/<span class="title">Text</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">Text</span> <span class="attribute">style</span>=<span class="value">&#123;styles.instructions&#125;</span>&gt;</span></span><br><span class="line">          To get started, edit index.android.js</span><br><span class="line">        <span class="tag">&lt;/<span class="title">Text</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="title">View</span>&gt;</span></span><br><span class="line">    )</span>;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  componentDidUpdate(prevProps,prevState)&#123;</span><br><span class="line">  	<span class="built_in">console</span>.log(prevProps.content+<span class="string">'===='</span>+<span class="string">'componentDidUpdate'</span>+<span class="string">'====='</span>+<span class="keyword">this</span>.props.content)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> styles = StyleSheet.create(&#123;</span><br><span class="line">  container: &#123;</span><br><span class="line">    </span><br><span class="line">    justifyContent: <span class="string">'center'</span>,</span><br><span class="line">    alignItems: <span class="string">'center'</span>,</span><br><span class="line">    backgroundColor: <span class="string">'#F5FCFF'</span>,</span><br><span class="line">  &#125;,</span><br><span class="line">  welcome: &#123;</span><br><span class="line">    fontSize: <span class="number">20</span>,</span><br><span class="line">    textAlign: <span class="string">'center'</span>,</span><br><span class="line">    margin: <span class="number">10</span>,</span><br><span class="line">  &#125;,</span><br><span class="line">  instructions: &#123;</span><br><span class="line">    textAlign: <span class="string">'center'</span>,</span><br><span class="line">    color: <span class="string">'#333333'</span>,</span><br><span class="line">    marginBottom: <span class="number">5</span>,</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">第一次加载：</span><br><span class="line">parent.js:<span class="number">28</span> Parent====render</span><br><span class="line">child.js:<span class="number">24</span> child====componentWillMount</span><br><span class="line">child.js:<span class="number">52</span> child render</span><br><span class="line">child.js:<span class="number">29</span> child====componentDidMount</span><br><span class="line">parent.js:<span class="number">24</span> Parent====componentDidMount</span><br><span class="line"></span><br><span class="line">点击Press Me!:</span><br><span class="line">parent.js:<span class="number">28</span> Parent====render</span><br><span class="line">child.js:<span class="number">35</span> content====componentWillReceiveProps=====React Native Props</span><br><span class="line">child.js:<span class="number">42</span> shouldComponentUpdate</span><br><span class="line">child.js:<span class="number">48</span> componentWillUpdate</span><br><span class="line">child.js:<span class="number">52</span> child render</span><br><span class="line">child.js:<span class="number">66</span> content====componentDidUpdate=====React Native Props</span><br><span class="line"></span><br><span class="line">再次点击Press Me:</span><br><span class="line">parent.js:<span class="number">28</span> Parent====render</span><br><span class="line">child.js:<span class="number">35</span> React Native Props====componentWillReceiveProps=====React Native Props</span><br><span class="line">child.js:<span class="number">42</span> shouldComponentUpdate</span><br><span class="line">child.js:<span class="number">48</span> componentWillUpdate</span><br><span class="line">child.js:<span class="number">52</span> child render</span><br><span class="line">child.js:<span class="number">66</span> React Native Props====componentDidUpdate=====React Native Props</span><br><span class="line"></span><br><span class="line">点击Press!:</span><br><span class="line">parent.js:<span class="number">28</span> Parent====render</span><br><span class="line">child.js:<span class="number">35</span> React Native Props====componentWillReceiveProps=====React Native</span><br><span class="line">child.js:<span class="number">42</span> shouldComponentUpdate</span><br><span class="line">child.js:<span class="number">48</span> componentWillUpdate</span><br><span class="line">child.js:<span class="number">52</span> child render</span><br><span class="line">child.js:<span class="number">66</span> React Native Props====componentDidUpdate=====React Native</span><br></pre></td></tr></table></figure>
+
+            
+          </span>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/11/21/underscore使用/" itemprop="url">
                   underscore使用
                 </a>
@@ -689,122 +780,6 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/09/25/try-redis/" itemprop="url">
-                  Try Redis
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            发表于
-            <time itemprop="dateCreated" datetime="2016-09-25T20:33:58+08:00" content="2016-09-25">
-              2016-09-25
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/09/25/try-redis/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/09/25/try-redis/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <span itemprop="articleBody">
-            
-              <h2 id="redis">redis</h2><p>Redis 是一个开源（BSD许可）的，内存中的数据结构存储系统，它可以用作数据库、缓存和消息中间件。</p>
-<h3 id="save（存储）">save（存储）</h3><p><code>set name redis</code></p>
-<h3 id="get（获取）">get（获取）</h3><p><code>get name</code></p>
-<h3 id="del（删除）">del（删除）</h3><p><code>del name</code></p>
-<h3 id="inrc（自增加一）">inrc（自增加一）</h3><figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">set</span> <span class="built_in">number</span> <span class="number">10</span></span><br><span class="line">incr <span class="built_in">number</span> =&gt; <span class="number">11</span></span><br><span class="line">del <span class="built_in">number</span></span><br><span class="line">incr <span class="built_in">number</span> =&gt;<span class="number">1</span></span><br></pre></td></tr></table></figure>
-<h3 id="expire(存储时间)">expire(存储时间)</h3><p><code>expire name 120</code></p>
-<h3 id="ttl(查看剩余时间)">ttl(查看剩余时间)</h3><p><code>ttl name =&gt;108</code></p>
-<p><strong>被删除后会输出-2，如果输出-1表示永不过期，如果重新set name value,ttl也会被reset</strong></p>
-<h3 id="rpush(list末尾添加)">rpush(list末尾添加)</h3><figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">rpush</span> friends <span class="string">"Jack"</span></span><br><span class="line">rpush friends <span class="string">"Rose"</span></span><br></pre></td></tr></table></figure>
-<h3 id="lpush(list头部添加)">lpush(list头部添加)</h3><figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">lpush</span> friends <span class="string">"Jesus"</span></span><br></pre></td></tr></table></figure>
-<h3 id="lrange(获取list)">lrange(获取list)</h3><figure class="highlight tcl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">lrange</span> friends <span class="number">0</span> -<span class="number">1</span> =&gt;</span><br><span class="line"><span class="number">1</span>) <span class="string">"Jesus"</span></span><br><span class="line"><span class="number">2</span>) <span class="string">"Jack"</span></span><br><span class="line"><span class="number">3</span>) <span class="string">"Rose"</span></span><br><span class="line"><span class="keyword">lrange</span> friends <span class="number">0</span> <span class="number">1</span></span><br><span class="line"><span class="keyword">lrange</span> friends <span class="number">1</span> <span class="number">2</span></span><br></pre></td></tr></table></figure>
-<p><strong>-1表示取到list的最后一位</strong></p>
-<h3 id="llen(获取list长度)">llen(获取list长度)</h3><p><code>llen friends =&gt; 3</code></p>
-<h3 id="lpop(移除list第一个)">lpop(移除list第一个)</h3><p><code>lpop friends =&gt;&quot;Jesus&quot;</code></p>
-<h3 id="rpop(移除list最后一个)">rpop(移除list最后一个)</h3><p><code>rpop friends</code></p>
-<h3 id="sadd(给set添加数据)">sadd(给set添加数据)</h3><figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">sadd </span>heroes <span class="string">"Iron Man"</span></span><br><span class="line"><span class="keyword">sadd </span>heroes <span class="string">"Transformers"</span></span><br><span class="line"><span class="keyword">sadd </span>heroes <span class="string">"Spider Man"</span></span><br><span class="line"><span class="keyword">sadd </span>heroes <span class="string">"Ant Man"</span></span><br></pre></td></tr></table></figure>
-<h3 id="srem(从set移除数据)">srem(从set移除数据)</h3><p><code>srem heroes &quot;Transfromers&quot;</code></p>
-<h3 id="sismember(set中是否包含)">sismember(set中是否包含)</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sismember heroes <span class="string">"Iron Man"</span> =&gt; <span class="number">1</span></span><br><span class="line">sismember heroes <span class="string">"Flash Man"</span> =&gt; <span class="number">0</span></span><br></pre></td></tr></table></figure>
-<p><strong>0表示不存在，1表示不存在</strong></p>
-<h3 id="smembers(获取set所有值)">smembers(获取set所有值)</h3><figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">smembers</span> heroes</span><br></pre></td></tr></table></figure>
-<h3 id="sunion(合并set)">sunion(合并set)</h3><figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">sadd </span><span class="keyword">beauties </span><span class="string">"Sophie"</span></span><br><span class="line"><span class="keyword">sadd </span><span class="keyword">beauties </span><span class="string">"Sheeba"</span></span><br><span class="line"><span class="label">sunion</span> heroes <span class="keyword">beauties </span>=&gt;</span><br></pre></td></tr></table></figure>
-<h3 id="Sorted_Sets">Sorted Sets</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">zadd ranks <span class="number">3</span> <span class="string">"Python"</span></span><br><span class="line">zadd ranks <span class="number">2</span> <span class="string">"Java"</span></span><br><span class="line">zadd ranks <span class="number">4</span> <span class="string">"Ruby"</span></span><br><span class="line">zadd ranks <span class="number">1</span> <span class="string">"JavaScript"</span></span><br><span class="line">zadd ranks <span class="number">5</span> <span class="string">"Php"</span></span><br></pre></td></tr></table></figure>
-<p><strong>sorted sets多了一个sorce,根据score排序</strong></p>
-<h3 id="zragne">zragne</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">zrange ranks <span class="number">1</span> <span class="number">3</span> =&gt;</span><br><span class="line"><span class="number">1</span>) <span class="string">"Java"</span></span><br><span class="line"><span class="number">2</span>) <span class="string">"Python"</span></span><br><span class="line"><span class="number">3</span>) <span class="string">"Ruby"</span></span><br></pre></td></tr></table></figure>
-<h3 id="hset(存储对象)">hset(存储对象)</h3><figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hset <span class="keyword">user</span> <span class="title">name</span> <span class="string">"Jack"</span></span><br><span class="line">hset <span class="keyword">user</span> <span class="title">email</span> <span class="string">"jack@gmail.com"</span></span><br><span class="line">hset <span class="keyword">user</span> <span class="title">password</span> <span class="string">"rose"</span></span><br></pre></td></tr></table></figure>
-<h3 id="hgetall(获取对象所有信息)">hgetall(获取对象所有信息)</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">hgetall user =&gt;</span><br><span class="line"><span class="number">1</span>) <span class="string">"name"</span></span><br><span class="line"><span class="number">2</span>) <span class="string">"Jack"</span></span><br><span class="line"><span class="number">3</span>) <span class="string">"email"</span></span><br><span class="line"><span class="number">4</span>) <span class="string">"jack@gmail.com"</span></span><br><span class="line"><span class="number">5</span>) <span class="string">"password"</span></span><br><span class="line"><span class="number">6</span>) <span class="string">"rose"</span></span><br></pre></td></tr></table></figure>
-<h3 id="hmset(一次设置多个字段)">hmset(一次设置多个字段)</h3><figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">hmset</span> user:<span class="number">002</span> name <span class="string">"Hodor"</span> password <span class="string">"holdthedoor"</span> email <span class="string">"hodor<span class="variable">@gmail</span>.com"</span></span><br></pre></td></tr></table></figure>
-<h3 id="hget(获取单个字段)">hget(获取单个字段)</h3><figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hget user:<span class="number">002</span> <span class="property">name</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">HSET user:<span class="number">002</span> waittime <span class="number">1000</span></span><br><span class="line">HINCRBY user:<span class="number">002</span> waittime <span class="number">1</span> =&gt; <span class="number">1001</span></span><br><span class="line">HINCRBY user:<span class="number">002</span> waittime <span class="number">10</span> =&gt; <span class="number">1011</span></span><br><span class="line">HDEL user:<span class="number">002</span> waittime</span><br><span class="line">HINCRBY user:<span class="number">002</span> waittime <span class="number">1</span> =&gt; <span class="number">1</span></span><br></pre></td></tr></table></figure>
-
-            
-          </span>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
 
   </section>
 
@@ -851,7 +826,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">49</span>
+              <span class="site-state-item-count">50</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
