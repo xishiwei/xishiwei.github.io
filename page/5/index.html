@@ -251,6 +251,269 @@
             
               
                 
+                <a class="post-title-link" href="/2016/09/07/20160907/" itemprop="url">
+                  20160907
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            发表于
+            <time itemprop="dateCreated" datetime="2016-09-07T21:46:44+08:00" content="2016-09-07">
+              2016-09-07
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/09/07/20160907/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/09/07/20160907/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <span itemprop="articleBody">
+            
+              <p> React Native 里需要接入友盟推送,首先按照官方文档在Android Studio里导入推送Module依赖,然后在MainApplication里添加PushSDK服务，处理通知</p>
+<pre><code> <span class="keyword">private</span> <span class="literal">void</span> initPushSDk() {
+    PushAgent mPushAgent = PushAgent<span class="built_in">.</span>getInstance(getApplicationContext());
+    mPushAgent<span class="built_in">.</span>enable();
+    mPushAgent<span class="built_in">.</span>setNotificationClickHandler(notificationClickHandler);
+
+}
+
+<span class="keyword">private</span> static final <span class="built_in">String</span> a = UmengNotificationClickHandler<span class="built_in">.</span>class<span class="built_in">.</span>getName();
+<span class="comment">//友盟通知自定义点击处理</span>
+UmengNotificationClickHandler notificationClickHandler = <span class="literal">new</span> UmengNotificationClickHandler(){
+    @Override
+    <span class="keyword">public</span> <span class="literal">void</span> dealWithCustomAction(Context context, UMessage msg) {
+        launchApplication(context,msg);<span class="comment">//先启动后台应用</span>
+        WritableMap <span class="keyword">params</span> = Arguments<span class="built_in">.</span>createMap();
+        <span class="built_in">String</span> custom = msg<span class="built_in">.</span>custom;
+        <span class="keyword">params</span><span class="built_in">.</span>putString(<span class="string">"custom"</span>,custom);
+        <span class="keyword">Log</span><span class="built_in">.</span>e(<span class="string">"custome"</span>,custom);
+        ReactContext reactContext = getReactNativeHost()<span class="built_in">.</span>getReactInstanceManager()<span class="built_in">.</span>getCurrentReactContext();
+        sendEvent(reactContext, <span class="string">"umeng_notification"</span>, <span class="keyword">params</span>);
+    }
+};
+
+<span class="keyword">private</span> <span class="literal">void</span> launchApplication(Context context,UMessage msg){
+    Intent var3 = context<span class="built_in">.</span>getPackageManager()<span class="built_in">.</span>getLaunchIntentForPackage(context<span class="built_in">.</span>getPackageName());
+    <span class="keyword">if</span>(var3 == <span class="built_in">null</span>) {
+        com<span class="built_in">.</span>umeng<span class="built_in">.</span>common<span class="built_in">.</span>message<span class="built_in">.</span><span class="keyword">Log</span><span class="built_in">.</span>b(a, <span class="string">"handleMessage(): cannot find app: "</span> + context<span class="built_in">.</span>getPackageName());
+    } <span class="keyword">else</span> {
+        var3<span class="built_in">.</span>setPackage((<span class="built_in">String</span>) <span class="built_in">null</span>);
+        var3<span class="built_in">.</span>addFlags(<span class="number">268435456</span>);
+        context<span class="built_in">.</span>startActivity(var3);
+    }
+}
+
+<span class="keyword">private</span>  <span class="literal">void</span> sendEvent(ReactContext reactContext,
+                              <span class="built_in">String</span> eventName,
+                              @Nullable WritableMap <span class="keyword">params</span>) {
+    reactContext
+            <span class="built_in">.</span>getJSModule(DeviceEventManagerModule<span class="built_in">.</span>RCTDeviceEventEmitter<span class="built_in">.</span>class)
+            <span class="built_in">.</span>emit(eventName, <span class="keyword">params</span>);
+}
+</code></pre><p>React Native 主页面里监听原生里发送的事件,跳转到相应的界面：</p>
+<pre><code>componentDidMount() {
+    <span class="keyword">if</span> (Platform.OS === <span class="string">'android'</span>) {
+          BackAndroid.addEventListener(<span class="string">'hardwareBackPress'</span>, <span class="function"><span class="params">()</span> =&gt;</span> <span class="keyword">this</span>.onBackAndroid());
+    };
+    DeviceEventEmitter.addListener(<span class="string">'umeng_notification'</span>, <span class="function"><span class="params">(e: Event)</span> =&gt;</span> {
+      <span class="regexp">//</span>e为原生传递过来的参数e.custom
+    <span class="keyword">this</span>.navigator.push({
+        <span class="attribute">component</span>: ShowNotificationPage
+      });
+      });
+  }
+</code></pre><p>可能是生命周期的原因,当android回退键退出应用时,只能拉起App却无法跳转到相应的界面,因此我在回退键的事件处理上进行了拦截,让App movebacktostack,而不是让界面销毁掉，相当于Home键的功能。</p>
+<p>React Native组件之间通信一般是通过props就可以实现父控件向子控件传值,父控件获取子控件的值.<br>也可以通过React Native 中的DeviceEventEmitter处理组件之间的监听事件,方式如下：</p>
+<pre><code>componentWillUnmount() {  
+    <span class="keyword">this</span>.subscription.remove();
+  }
+
+  componentDidMount() {  
+    <span class="keyword">this</span>.subscription = DeviceEventEmitter.addListener(<span class="string">'followChanged'</span>, <span class="function"><span class="params">()</span> =&gt;</span> {
+          <span class="keyword">this</span>.onRefresh()
+        });
+
+    <span class="keyword">this</span>.onRefresh();
+  }
+
+  onRefresh() {
+        <span class="keyword">this</span>.reuqestFans(<span class="keyword">this</span>.props.mid);
+  }
+</code></pre><p>其他组件触发事件：</p>
+<pre><code>DeviceEventEmitter.<span class="keyword">emit</span>(<span class="string">'followChanged'</span>);
+</code></pre>
+            
+          </span>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/09/06/20160906/" itemprop="url">
+                  20160906
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            发表于
+            <time itemprop="dateCreated" datetime="2016-09-06T21:33:18+08:00" content="2016-09-06">
+              2016-09-06
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/09/06/20160906/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/09/06/20160906/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <span itemprop="articleBody">
+            
+              <ul>
+<li><p>react native 切换页面过快时出现黄色警告：</p>
+<pre><code><span class="function"><span class="title">setState</span><span class="params">(...)</span></span>: Can only update <span class="tag">a</span> mounted or mounting component.
+</code></pre><p>  黄色警告在release版本中是不会出现的，也不会有其他的衍生错误，暂时可以选择忽略，如果强迫要解决的话可以通过如下方法：</p>
+<pre><code>componentWillUnmount() {
+        <span class="keyword">this</span>.isUnmount = <span class="literal">true</span>;
+ }
+</code></pre><p>  在请求完数据更新数据源之前做判断：</p>
+<pre><code><span class="tag">if</span>（<span class="tag">this</span><span class="class">.isUnmount</span>）<span class="tag">return</span>;
+    <span class="tag">this</span><span class="class">.setState</span>(<span class="rules">{
+    <span class="rule"><span class="attribute">data</span>:<span class="value">responseData
+</span></span></span>})
+</code></pre><p>  还有一种办法让请求去走redux流程。</p>
+</li>
+<li><p>页面切换的过程中为了避免每次请求数据，可以通过redux维护的state来保存数据源。</p>
+</li>
+</ul>
+
+            
+          </span>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/09/04/Installation/" itemprop="url">
                   Docker Installation
                 </a>
@@ -642,221 +905,6 @@ realm.create(<span class="string">'Car'</span>, {<span class="string">make:</spa
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/08/27/20160827/" itemprop="url">
-                  20160827
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            发表于
-            <time itemprop="dateCreated" datetime="2016-08-27T23:06:35+08:00" content="2016-08-27">
-              2016-08-27
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/08/27/20160827/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/27/20160827/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <span itemprop="articleBody">
-            
-              <h2 id="node_返回json数据">node 返回json数据</h2><pre><code><span class="keyword">var</span> http = <span class="built_in">require</span>(<span class="string">'http'</span>);
-
-<span class="keyword">var</span> data = {key: <span class="string">'value'</span>, hello: <span class="string">'world'</span>};
-
-<span class="keyword">var</span> srv = http.createServer(<span class="function"><span class="keyword">function</span> (<span class="params">req, res</span>) </span>{
-  res.writeHead(<span class="number">200</span>, {<span class="string">'Content-Type'</span>: <span class="string">'application/json'</span>});
-  res.end(<span class="built_in">JSON</span>.stringify(data));
-});
-
-srv.listen(<span class="number">8080</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{
-  <span class="built_in">console</span>.log(<span class="string">'listening on localhost:8080'</span>);
-});
-</code></pre><h2 id="iOS_真机调试">iOS 真机调试</h2><p>   进入xcode，菜单栏选择xcode –&gt; preferences （快捷键 command + ,）在Accounts选项卡添加自己的Apple ID,然后按步骤操作。</p>
-
-            
-          </span>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/08/24/20160824/" itemprop="url">
-                  20160824
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            发表于
-            <time itemprop="dateCreated" datetime="2016-08-24T20:52:19+08:00" content="2016-08-24">
-              2016-08-24
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/08/24/20160824/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/24/20160824/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <span itemprop="articleBody">
-            
-              <ul>
-<li>react native TextInput  可以设置padding = 0,这样外部包裹view的的高度就等于TextInput的高度。</li>
-<li><p>使用友盟推送的时候，点击通知跳转到相关的界面，原生android 里可以打开指定的Activity,react native里没有activity给我们</p>
-<p>用,这时候可以在原生监听通知消息，通过DeviceEventEmitter发送事件和参数给JS端,然后通过navigator跳转</p>
-<p>原生中发送事件会调用如下代码：</p>
-<pre><code>   <span class="tag">private</span> <span class="tag">void</span> <span class="tag">sendEvent</span>(<span class="tag">ReactContext</span> <span class="tag">reactContext</span>,
-               <span class="tag">String</span> <span class="tag">eventName</span>,
-               <span class="at_rule">@<span class="keyword">Nullable</span> WritableMap params) </span>{
-  <span class="tag">reactContext</span>
-  <span class="class">.getJSModule</span>(<span class="tag">DeviceEventManagerModule</span><span class="class">.RCTDeviceEventEmitter</span><span class="class">.class</span>)
-  <span class="class">.emit</span>(<span class="tag">eventName</span>, <span class="tag">params</span>);
-}
-</code></pre><p> 如何在Activity/Application中获取ReactContext实例？</p>
-<pre><code>reactContext = <span class="function"><span class="title">getReactNativeHost</span><span class="params">()</span></span>.<span class="function"><span class="title">getReactInstanceManager</span><span class="params">()</span></span>.<span class="function"><span class="title">getCurrentReactContext</span><span class="params">()</span></span>
-</code></pre></li>
-<li><p>如何实现reactnative android 中按返回键不完全退出App?</p>
-<pre><code>   onBackAndroid = () =&gt; {
-<span class="keyword">const</span> nav = <span class="keyword">this</span>.navigator;
-<span class="keyword">const</span> routers = nav.getCurrentRoutes();
-<span class="keyword">if</span> (routers.length &gt; <span class="number">1</span>) {
-  nav.pop();
-  <span class="keyword">return</span> <span class="literal">true</span>;
-}
-ExitModule.<span class="built_in">exit</span>();<span class="comment">//调用原生的moveTaskToBack()方法</span>
-<span class="keyword">return</span> <span class="literal">true</span>;
-  };
-</code></pre></li>
-</ul>
-
-            
-          </span>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
 
   </section>
 
@@ -903,7 +951,7 @@ ExitModule.<span class="built_in">exit</span>();<span class="comment">//调用�
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">51</span>
+              <span class="site-state-item-count">53</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -971,7 +1019,7 @@ ExitModule.<span class="built_in">exit</span>();<span class="comment">//调用�
         <div class="copyright" >
   
   &copy; 
-  <span itemprop="copyrightYear">2017</span>
+  <span itemprop="copyrightYear">2018</span>
   <span class="with-love">
     <i class="icon-next-heart fa fa-heart"></i>
   </span>

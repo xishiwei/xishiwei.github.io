@@ -251,6 +251,216 @@
             
               
                 
+                <a class="post-title-link" href="/2017/05/04/MyBatis/" itemprop="url">
+                  MyBatis
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            发表于
+            <time itemprop="dateCreated" datetime="2017-05-04T20:33:02+08:00" content="2017-05-04">
+              2017-05-04
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2017/05/04/MyBatis/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/05/04/MyBatis/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <span itemprop="articleBody">
+            
+              <h2 id="概述">概述</h2><p>一个基于Java的半自动化持久层框架。MyBatis不会为开发者自动生成SQL执行，而是需要开发人员自己写SQL,然后通过映射配置文件，将返回返回结果映射到指定的POJO。</p>
+<h2 id="核心配置文件mybatis-config-xml">核心配置文件mybatis-config.xml</h2><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">configuration</span>&gt;</span></span><br><span class="line">	<span class="comment">&lt;!-- 实体类的别名 --&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="title">typeAliases</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="title">typeAlias</span> <span class="attribute">type</span>=<span class="value">"com.icss.mybatis.pojo.Student"</span> <span class="attribute">alias</span>=<span class="value">"Student"</span>/&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="title">typeAliases</span>&gt;</span>	</span><br><span class="line">	<span class="comment">&lt;!-- 环境管理，可以配置多个环境，默认是default="development"的环境 --&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="title">environments</span> <span class="attribute">default</span>=<span class="value">"development"</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="title">environment</span> <span class="attribute">id</span>=<span class="value">"development"</span>&gt;</span></span><br><span class="line">			<span class="comment">&lt;!-- 事务管理方式,JDBC事务 --&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="title">transactionManager</span> <span class="attribute">type</span>=<span class="value">"JDBC"</span> /&gt;</span></span><br><span class="line">			<span class="comment">&lt;!-- 数据源，type="POOLED"表示使用连接池 --&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="title">dataSource</span> <span class="attribute">type</span>=<span class="value">"POOLED"</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="title">property</span> <span class="attribute">value</span>=<span class="value">"com.mysql.jdbc.Driver"</span> <span class="attribute">name</span>=<span class="value">"driver"</span> /&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="title">property</span> <span class="attribute">value</span>=<span class="value">"jdbc:mysql://localhost/mybatis"</span> <span class="attribute">name</span>=<span class="value">"url"</span> /&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="title">property</span> <span class="attribute">value</span>=<span class="value">"root"</span> <span class="attribute">name</span>=<span class="value">"username"</span> /&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="title">property</span> <span class="attribute">value</span>=<span class="value">"123456"</span> <span class="attribute">name</span>=<span class="value">"password"</span> /&gt;</span></span><br><span class="line">			<span class="tag">&lt;/<span class="title">dataSource</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;/<span class="title">environment</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="title">environments</span>&gt;</span></span><br><span class="line"></span><br><span class="line">	<span class="comment">&lt;!--映射文件路径，可能会有多个mapper映射 --&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="title">mappers</span>&gt;</span>	</span><br><span class="line">		<span class="tag">&lt;<span class="title">mapper</span> <span class="attribute">resource</span>=<span class="value">"com/icss/mybatis/pojo/StudentMapper.xml"</span>/&gt;</span>	</span><br><span class="line">	<span class="tag">&lt;/<span class="title">mappers</span>&gt;</span>	</span><br><span class="line"><span class="tag">&lt;/<span class="title">configuration</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="实现crud基本步骤">实现crud基本步骤</h2><h3 id="1-创建POJO">1.创建POJO</h3><p>​    创建数据库表对应的Java类，此处省略</p>
+<h3 id="2-创建配置Mapper映射文件">2.创建配置Mapper映射文件</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">mapper</span> <span class="attribute">namespace</span>=<span class="value">"people"</span> &gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="title">mapper</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="3-在Mapper映射文件中配置">3.在Mapper映射文件中配置</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">mapper</span> <span class="attribute">namespace</span>=<span class="value">"people"</span> &gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">resultMap</span> <span class="attribute">id</span>=<span class="value">"BaseResultMap"</span> <span class="attribute">type</span>=<span class="value">"com.yonyou.sg.cpu.basedoc.domain.People"</span> &gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">id</span> <span class="attribute">column</span>=<span class="value">"pk_people"</span> <span class="attribute">property</span>=<span class="value">"pkPeople"</span> <span class="attribute">jdbcType</span>=<span class="value">"BIGINT"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">result</span> <span class="attribute">column</span>=<span class="value">"modifier"</span> <span class="attribute">property</span>=<span class="value">"modifier"</span> <span class="attribute">jdbcType</span>=<span class="value">"VARCHAR"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">result</span> <span class="attribute">column</span>=<span class="value">"code"</span> <span class="attribute">property</span>=<span class="value">"code"</span> <span class="attribute">jdbcType</span>=<span class="value">"VARCHAR"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">result</span> <span class="attribute">column</span>=<span class="value">"creationtime"</span> <span class="attribute">property</span>=<span class="value">"creationtime"</span> <span class="attribute">jdbcType</span>=<span class="value">"VARCHAR"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">result</span> <span class="attribute">column</span>=<span class="value">"age"</span> <span class="attribute">property</span>=<span class="value">"age"</span> <span class="attribute">jdbcType</span>=<span class="value">"VARCHAR"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">result</span> <span class="attribute">column</span>=<span class="value">"name"</span> <span class="attribute">property</span>=<span class="value">"name"</span> <span class="attribute">jdbcType</span>=<span class="value">"VARCHAR"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">result</span> <span class="attribute">column</span>=<span class="value">"modifiedtime"</span> <span class="attribute">property</span>=<span class="value">"modifiedtime"</span> <span class="attribute">jdbcType</span>=<span class="value">"VARCHAR"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">result</span> <span class="attribute">column</span>=<span class="value">"creator"</span> <span class="attribute">property</span>=<span class="value">"creator"</span> <span class="attribute">jdbcType</span>=<span class="value">"VARCHAR"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">result</span> <span class="attribute">column</span>=<span class="value">"ts"</span> <span class="attribute">property</span>=<span class="value">"ts"</span> <span class="attribute">jdbcType</span>=<span class="value">"TIMESTAMP"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">result</span> <span class="attribute">column</span>=<span class="value">"dr"</span> <span class="attribute">property</span>=<span class="value">"dr"</span> <span class="attribute">jdbcType</span>=<span class="value">"SMALLINT"</span> /&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="title">resultMap</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">select</span> <span class="attribute">id</span>=<span class="value">"getPeopleByPK"</span>  <span class="attribute">resultMap</span>=<span class="value">"BaseResultMap"</span> <span class="attribute">parameterType</span>=<span class="value">"java.lang.Long"</span>&gt;</span></span><br><span class="line">    select * from people where  pk_people=#&#123;pk&#125;</span><br><span class="line">  <span class="tag">&lt;/<span class="title">select</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">mapper</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p><resultmap>配置表列与类属性映射的结果集，type属性可以使用完整pojo类名，如果定义了类别名，也可以使用类别名<br>不需要把所有字段都映射，可以只映射一部分，主键字段必须用id元素指定</resultmap></p>
+<p>‘#{}‘语法用于插入动态数据，数据来源于调用此语句时传入的参数，参数类型由parameterType属性决定</p>
+<h3 id="4-核心配置文件中，引入Mapper">4.核心配置文件中，引入Mapper</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">mappers</span>&gt;</span>	</span><br><span class="line">		<span class="tag">&lt;<span class="title">mapper</span> <span class="attribute">resource</span>=<span class="value">"com/icss/mybatis/pojo/PeopleMapper.xml"</span>/&gt;</span>	</span><br><span class="line"><span class="tag">&lt;/<span class="title">mappers</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="5-读取核心配置文件，调用CRUD功能">5.读取核心配置文件，调用CRUD功能</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> SqlSessionFactory sessionFactory;</span><br><span class="line">  </span><br><span class="line">InputStream is = Resources.getResourceAsStream(<span class="string">"mybatis-config.xml"</span>);</span><br><span class="line"></span><br><span class="line">sessionFactory = <span class="keyword">new</span> SqlSessionFactoryBuilder().build(is);</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">这里执行Sql有两种方式：</span><br><span class="line"><span class="number">1</span>.通过namespace+<span class="function">statementId</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testInsert</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		SqlSession session = sessionFactory.openSession();</span><br><span class="line">		Student stu = <span class="keyword">new</span> Student(<span class="string">"李四"</span>,Date.valueOf(<span class="string">"1987-6-10"</span>),<span class="string">"119"</span>);</span><br><span class="line">		session.insert(<span class="string">"people.insert"</span>, stu);</span><br><span class="line">		session.commit();</span><br><span class="line">		session.close();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="number">2</span>.创建Dao接口,(Mapper的namespace路径必须与dao接口路径一致)</span><br><span class="line"> <span class="comment">//dao接口申明</span></span><br><span class="line"><span class="keyword">package</span> com.icss.mybatis.dao;</span><br><span class="line"><span class="keyword">import</span> java.util.List;</span><br><span class="line"><span class="keyword">import</span> com.icss.mybatis.pojo.Student;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">StudentMapper</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">void</span> <span class="title">insert</span><span class="params">(Student stu)</span></span>;</span><br><span class="line">	<span class="function"><span class="keyword">void</span> <span class="title">udpate</span><span class="params">(Student stu)</span></span>;</span><br><span class="line">	<span class="function"><span class="keyword">void</span> <span class="title">delete</span><span class="params">(Integer stuId)</span></span>;</span><br><span class="line">	<span class="function">Student <span class="title">queryById</span><span class="params">(Integer stuId)</span></span>;</span><br><span class="line">	<span class="function">List&lt;Student&gt; <span class="title">query</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//执行sql</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testInsert</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	SqlSession session = sessionFactory.openSession();</span><br><span class="line">	StudentMapper studentMapper = session.getMapper(StudentMapper.class);</span><br><span class="line">	Student stu = <span class="keyword">new</span> Student(<span class="string">"钱七"</span>,Date.valueOf(<span class="string">"1990-6-7"</span>),<span class="string">"114"</span>);</span><br><span class="line">	studentMapper.insert(stu);</span><br><span class="line">	session.commit();</span><br><span class="line">	session.close();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="动态SQL元素">动态SQL元素</h2><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">if</span><br><span class="line">choose(when,otherwise)</span><br><span class="line">trim</span><br><span class="line">where</span><br><span class="line">set</span><br><span class="line">foreach</span><br></pre></td></tr></table></figure>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">select</span> <span class="attribute">id</span>=<span class="value">"queryByCondition"</span> <span class="attribute">parameterType</span>=<span class="value">"com.icss.mybatis.pojo.Student"</span> <span class="attribute">resultMap</span>=<span class="value">"BaseResultMap"</span>&gt;</span></span><br><span class="line">select * from student where 1=1</span><br><span class="line"><span class="tag">&lt;<span class="title">if</span> <span class="attribute">test</span>=<span class="value">"stuName != null and stuName != ''"</span>&gt;</span></span><br><span class="line">	and stu_name=#&#123;stuName&#125;</span><br><span class="line"><span class="tag">&lt;/<span class="title">if</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">if</span> <span class="attribute">test</span>=<span class="value">"stuBirthdate != null"</span>&gt;</span></span><br><span class="line">	and stu_birthdate=#&#123;stuBirthdate&#125;</span><br><span class="line"><span class="tag">&lt;/<span class="title">if</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">if</span> <span class="attribute">test</span>=<span class="value">"stuPhone != null and stuPhone != ''"</span>&gt;</span></span><br><span class="line">	and stu_phone=#&#123;stuPhone&#125;</span><br><span class="line"><span class="tag">&lt;/<span class="title">if</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">select</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">select</span> <span class="attribute">id</span>=<span class="value">"queryByCondition2"</span> <span class="attribute">parameterType</span>=<span class="value">"com.icss.mybatis.pojo.Student"</span> <span class="attribute">resultMap</span>=<span class="value">"BaseResultMap"</span>&gt;</span></span><br><span class="line">select * from student where 1=1</span><br><span class="line"><span class="tag">&lt;<span class="title">choose</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">when</span> <span class="attribute">test</span>=<span class="value">"stuName != null and stuName != ''"</span>&gt;</span></span><br><span class="line">	and stu_name=#&#123;stuName&#125;</span><br><span class="line"><span class="tag">&lt;/<span class="title">when</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">when</span> <span class="attribute">test</span>=<span class="value">"stuBirthdate != null"</span>&gt;</span></span><br><span class="line">	and stu_birthdate=#&#123;stuBirthdate&#125;</span><br><span class="line"><span class="tag">&lt;/<span class="title">when</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">otherwise</span>&gt;</span></span><br><span class="line">	and stu_phone=#&#123;stuPhone&#125;</span><br><span class="line"><span class="tag">&lt;/<span class="title">otherwise</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">choose</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">select</span>&gt;</span></span><br><span class="line"></span><br><span class="line">choose元素相当于java语句的if … else if …else语句</span><br></pre></td></tr></table></figure>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">select</span> <span class="attribute">id</span>=<span class="value">"queryByCondition3"</span> <span class="attribute">parameterType</span>=<span class="value">"com.icss.mybatis.pojo.Student"</span> <span class="attribute">resultMap</span>=<span class="value">"BaseResultMap"</span>&gt;</span></span><br><span class="line">select * from student</span><br><span class="line"><span class="tag">&lt;<span class="title">where</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">if</span> <span class="attribute">test</span>=<span class="value">"stuName != null and stuName != ''"</span>&gt;</span></span><br><span class="line">	and stu_name=#&#123;stuName&#125;</span><br><span class="line"><span class="tag">&lt;/<span class="title">if</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">if</span> <span class="attribute">test</span>=<span class="value">"stuBirthdate != null"</span>&gt;</span></span><br><span class="line">	and stu_birthdate=#&#123;stuBirthdate&#125;</span><br><span class="line"><span class="tag">&lt;/<span class="title">if</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">if</span> <span class="attribute">test</span>=<span class="value">"stuPhone != null and stuPhone != ''"</span>&gt;</span></span><br><span class="line">	and stu_phone=#&#123;stuPhone&#125;</span><br><span class="line"><span class="tag">&lt;/<span class="title">if</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">where</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">select</span>&gt;</span></span><br><span class="line"></span><br><span class="line">使用where元素会自动根据条件的个数增删where语句and运算符，所以不需要写where 1=1之类的语句</span><br></pre></td></tr></table></figure>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 动态SQL：传入Array数组 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">select</span> <span class="attribute">id</span>=<span class="value">"queryByInArray"</span> <span class="attribute">resultMap</span>=<span class="value">"BaseResultMap"</span>&gt;</span></span><br><span class="line">   select * from student </span><br><span class="line"><span class="tag">&lt;<span class="title">if</span> <span class="attribute">test</span>=<span class="value">"array.length&gt;0"</span>&gt;</span></span><br><span class="line">where stu_id in </span><br><span class="line"><span class="tag">&lt;<span class="title">foreach</span> <span class="attribute">collection</span>=<span class="value">"array"</span> <span class="attribute">index</span>=<span class="value">"i"</span> <span class="attribute">item</span>=<span class="value">"stuId"</span> <span class="attribute">open</span>=<span class="value">"("</span> <span class="attribute">close</span>=<span class="value">")"</span> <span class="attribute">separator</span>=<span class="value">","</span>&gt;</span></span><br><span class="line">#&#123;stuId&#125;</span><br><span class="line"><span class="tag">&lt;/<span class="title">foreach</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">if</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">select</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 动态SQL：trim标签 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">select</span> <span class="attribute">id</span>=<span class="value">"queryByCondition4"</span> <span class="attribute">parameterType</span>=<span class="value">"com.icss.mybatis.pojo.Student"</span> <span class="attribute">resultMap</span>=<span class="value">"BaseResultMap"</span>&gt;</span></span><br><span class="line">select * from student</span><br><span class="line"><span class="tag">&lt;<span class="title">trim</span> <span class="attribute">prefix</span>=<span class="value">"where"</span> <span class="attribute">prefixOverrides</span>=<span class="value">"and|or"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">if</span> <span class="attribute">test</span>=<span class="value">"stuName != null and stuName != ''"</span>&gt;</span></span><br><span class="line">	and stu_name=#&#123;stuName&#125;</span><br><span class="line"><span class="tag">&lt;/<span class="title">if</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">if</span> <span class="attribute">test</span>=<span class="value">"stuBirthdate != null"</span>&gt;</span></span><br><span class="line">	and stu_birthdate=#&#123;stuBirthdate&#125;</span><br><span class="line"><span class="tag">&lt;/<span class="title">if</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">if</span> <span class="attribute">test</span>=<span class="value">"stuPhone != null and stuPhone != ''"</span>&gt;</span></span><br><span class="line">	or stu_phone=#&#123;stuPhone&#125;</span><br><span class="line"><span class="tag">&lt;/<span class="title">if</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">trim</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">select</span>&gt;</span></span><br><span class="line">trim元素的主要功能是可以在自己包含的内容前加上某些前缀，也可以在其后加上某些后缀，与之对应的属性是prefix和suffix；可以把包含内容的首部某些内容覆盖，即忽略，也可以把尾部的某些内容覆盖，对应的属性是prefixOverrides和suffixOverrides</span><br></pre></td></tr></table></figure>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 动态SQL：set更新 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">update</span> <span class="attribute">id</span>=<span class="value">"updateByCondition"</span> <span class="attribute">parameterType</span>=<span class="value">"com.icss.mybatis.pojo.Student"</span>&gt;</span></span><br><span class="line">update student</span><br><span class="line"><span class="tag">&lt;<span class="title">set</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">if</span> <span class="attribute">test</span>=<span class="value">"stuName!=null and stuName!=''"</span>&gt;</span></span><br><span class="line">stu_name=#&#123;stuName&#125;,</span><br><span class="line"><span class="tag">&lt;/<span class="title">if</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">if</span> <span class="attribute">test</span>=<span class="value">"stuBirthdate!=null"</span>&gt;</span></span><br><span class="line">stu_birthdate=#&#123;stuBirthdate&#125;,</span><br><span class="line"><span class="tag">&lt;/<span class="title">if</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">if</span> <span class="attribute">test</span>=<span class="value">"stuPhone!=null and stuPhone!=''"</span>&gt;</span></span><br><span class="line">stu_phone=#&#123;stuPhone&#125;</span><br><span class="line"><span class="tag">&lt;/<span class="title">if</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">set</span>&gt;</span></span><br><span class="line">where stu_id=#&#123;stuId&#125;</span><br><span class="line"><span class="tag">&lt;/<span class="title">update</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+            
+          </span>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/05/03/less-learn/" itemprop="url">
+                  Less
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            发表于
+            <time itemprop="dateCreated" datetime="2017-05-03T16:54:21+08:00" content="2017-05-03">
+              2017-05-03
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2017/05/03/less-learn/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/05/03/less-learn/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <span itemprop="articleBody">
+            
+              <p>css扩展语言，兼容css，因此在less文件里即可使用扩展的特性也可使用标准css</p>
+<h3 id="定义变量">定义变量</h3><figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">@color:</span>red</span><br><span class="line"></span><br><span class="line">#header&#123;<span class="attribute">background-color</span>:<span class="variable">@color</span>&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="定义函数">定义函数</h3><figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="class">.border-color</span>(<span class="variable">@color</span>)&#123;</span><br><span class="line">	<span class="attribute">border-color</span>:<span class="variable">@color</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>使用：</p>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="class">.header</span>&#123;</span><br><span class="line">	<span class="class">.border-color</span>(red)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="混合">混合</h3><figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="class">.border</span>&#123;</span><br><span class="line">  <span class="attribute">border-color</span>:red;</span><br><span class="line">  <span class="attribute">border-top</span>:solid <span class="number">1px</span> black;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>其他属性集合内部使用：</p>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="id">#menu</span>&#123;</span><br><span class="line">  <span class="attribute">color</span>:red;</span><br><span class="line">  <span class="class">.border</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="嵌套">嵌套</h3><p>标准css写法</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="id">#header</span><span class="rules">&#123;</span><br><span class="line">  <span class="rule"><span class="attribute">color</span>:<span class="value">black</span></span>;</span><br><span class="line">&#125;</span></span><br><span class="line"><span class="id">#header</span> <span class="class">.navigation</span><span class="rules">&#123;</span><br><span class="line">  <span class="rule"><span class="attribute">font-size</span>:<span class="value"><span class="number">12px</span></span></span>;</span><br><span class="line">&#125;</span></span><br><span class="line"><span class="id">#header</span> <span class="class">.logo</span><span class="rules">&#123;</span><br><span class="line">  <span class="rule"><span class="attribute">width</span>:<span class="value"><span class="number">300px</span></span></span>;</span><br><span class="line">&#125;</span></span><br></pre></td></tr></table></figure>
+<p>less的写法</p>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="id">#header</span>&#123;</span><br><span class="line">  <span class="attribute">color</span>:black;</span><br><span class="line">  <span class="class">.navigation</span>&#123;</span><br><span class="line">    <span class="attribute">font-size</span>:<span class="number">12px</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="class">.logo</span>&#123;</span><br><span class="line">    <span class="attribute">width</span>:<span class="number">300px</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="运算">运算</h3><p>任何数值，颜色和变量都可以进行运算</p>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">@base:</span><span class="number">5%</span>;</span><br><span class="line"><span class="variable">@filler:</span><span class="variable">@base</span> * <span class="number">2</span>;</span><br><span class="line"><span class="variable">@other:</span><span class="variable">@base</span> + <span class="variable">@filler</span></span><br></pre></td></tr></table></figure>
+<h3 id="作用域">作用域</h3><p>less中变量的作用域，首先会在局部查找，如果没有再去父作用域查找</p>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">@var:</span>red</span><br><span class="line">#header&#123;</span><br><span class="line">  <span class="variable">@var:</span>white;</span><br><span class="line">  <span class="id">#title</span>&#123;</span><br><span class="line">    <span class="attribute">color</span>:<span class="variable">@var</span>;<span class="comment">//white</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="导入">导入</h3><figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="at_rule">@import</span> <span class="string">"library.less"</span>;</span><br></pre></td></tr></table></figure>
+<h3 id="函数">函数</h3><p>less提供了许多的用于颜色转换，字符串处理，运算等的函数。</p>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">@base:</span><span class="number">0.5</span>;</span><br><span class="line"><span class="class">.header</span>&#123;</span><br><span class="line">  <span class="attribute">width</span>:<span class="function">percentage</span>(<span class="variable">@base</span>);<span class="comment">//50%</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+            
+          </span>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2017/02/12/webpack/" itemprop="url">
                   webpack
                 </a>
@@ -617,234 +827,6 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/10/10/20161010/" itemprop="url">
-                  React Native 触摸事件
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            发表于
-            <time itemprop="dateCreated" datetime="2016-10-10T20:39:24+08:00" content="2016-10-10">
-              2016-10-10
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/10/10/20161010/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/10/20161010/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <span itemprop="articleBody">
-            
-              <h3 id="React_Native_触摸事件">React Native 触摸事件</h3><p>响应事件：</p>
-<ul>
-<li>View.props.onStartShouldSetResponder</li>
-<li>View.props.onMoveShouldSetResponder</li>
-</ul>
-<p>两个属性的回调函数里返回true表示响应事件，组件成为事件的处理者会走回调</p>
-<ul>
-<li><p>View.props.onResponderGrant: (evt) =&gt; {}</p>
-<p>被拒绝成为处理者，执行回调：</p>
-</li>
-<li><p>View.props.onResponderReject: (evt) =&gt; {}</p>
-</li>
-</ul>
-<p>组件处理触摸事件的回调：</p>
-<ul>
-<li><p>View.props.onResponderStart: (evt) =&gt; {}</p>
-</li>
-<li><p>View.props.onResponderMove: (evt) =&gt; {}</p>
-</li>
-<li><p>View.props.onResponderRelease: (evt) =&gt; {}</p>
-</li>
-<li><p>View.props.onResponderEnd: (evt) =&gt; {}</p>
-<p>是否释放事件处理权限</p>
-</li>
-<li><p>View.props.onResponderTerminationRequest: (evt) =&gt; bool</p>
-</li>
-<li><p>View.props.onResponderTerminate: (evt) =&gt; {}</p>
-</li>
-</ul>
-<p>多个组件嵌套响应事件：</p>
-<p>如果多个父子组件都onStartShouldSetResponder返回true,那么最内层的子组件会最先响应，这是所谓的事件处理的冒泡机制，当然层层深入到子组件首先得得到父组件的同意：</p>
-<ul>
-<li>View.props.onStartShouldSetResponderCapture</li>
-<li>View.props.onMoveShouldSetResponderCapture</li>
-</ul>
-<p>回调返回true表示该组件捕获了该事件，那么子组件就无法成为事件响应者了</p>
-<h3 id="React_Native_手势识别系统PanResponder">React Native 手势识别系统PanResponder</h3><p>panresponder对触摸事件进行了封装提供的API让我们可以更方便的使用手势识别功能</p>
-<ul>
-<li>onStartShouldSetPanResponder: (e, gestureState) =&gt; bool</li>
-<li>onStartShouldSetPanResponderCapture: (e, gestureState) =&gt; bool</li>
-<li>onMoveShouldSetPanResponder: (e, gestureState) =&gt; bool</li>
-<li>onMoveShouldSetPanResponderCapture: (e, gestureState) =&gt; bool</li>
-<li>onPanResponderGrant: (e, gestureState) =&gt; {…}</li>
-<li>onPanResponderStart: (e, gestureState) =&gt; {…}</li>
-<li>onPanResponderMove: (e, gestureState) =&gt; {…}</li>
-<li>onPanResponderRelease: (e, gestureState) =&gt; {…}</li>
-<li>onPanResponderTerminationRequest: (e, gestureState) =&gt; {…}</li>
-<li>onPanResponderTerminate: (e, gestureState) =&gt; {…}</li>
-<li>onShouldBlockNativeResponder: (e, gestureState) =&gt; bool</li>
-</ul>
-<p>在最近的项目里要实现parallax的scrollview头部图像拉伸效果,GitHub上搜索后发现有实现的库，那好啊npm install —save简单粗暴，咔咔import结果Android手机分分钟没效果，遂弃之，决定自己实现一个，这里面就用到了手势识别，结合动画下拉伸缩图片，scrollview和外别view手势识别冲突的拦截等。</p>
-
-            
-          </span>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/10/02/betterthan/" itemprop="url">
-                  betterthan
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            发表于
-            <time itemprop="dateCreated" datetime="2016-10-02T11:56:13+08:00" content="2016-10-02">
-              2016-10-02
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/10/02/betterthan/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/02/betterthan/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <span itemprop="articleBody">
-            
-              <p>第一个React Native应用BetterThan终于上线了,是一款健身健康类应用,Android,iOS里面涉及到很多各自平台的原生技术点,因为React Native 主要是做UI相关,而很多东西需要原生实现别如：第三方登录分享,推送通知,视频录制播放等,所以说不是纯ReactNative应用,应用的第一个版本包含了直播,社交圈子和我的个人信息三部分,目前来看只能算作测试版本先行试水,接下来会迭代新的模块和继续填坑。</p>
-<p><img src="https://raw.githubusercontent.com/xiDaiDai/iOS_ReactNative/master/img/login.jpg" width="200" height="100" alt="图片名称"><br><img src="https://raw.githubusercontent.com/xiDaiDai/iOS_ReactNative/master/img/live.jpg" width="200" height="100" alt="图片名称"><br><img src="https://raw.githubusercontent.com/xiDaiDai/iOS_ReactNative/master/img/find.jpg" width="200" height="100" alt="图片名称" align="center"><br><img src="https://raw.githubusercontent.com/xiDaiDai/iOS_ReactNative/master/img/share.jpg" width="200" height="100" alt="图片名称" align="center"><br><img src="https://raw.githubusercontent.com/xiDaiDai/iOS_ReactNative/master/img/send.jpg" width="200" height="100" alt="图片名称" align="center"><br><img src="https://raw.githubusercontent.com/xiDaiDai/iOS_ReactNative/master/img/topic.jpg" width="200" height="100" alt="图片名称" align="center"><br><img src="https://raw.githubusercontent.com/xiDaiDai/iOS_ReactNative/master/img/mine.jpg" width="200" height="100" alt="图片名称" align="center"><br><img src="https://raw.githubusercontent.com/xiDaiDai/iOS_ReactNative/master/img/profile.jpg" width="200" height="100" alt="图片名称" align="center"><br><img src="https://raw.githubusercontent.com/xiDaiDai/iOS_ReactNative/master/img/setting.jpg" width="200" height="100" alt="图片名称" align="center"></p>
-<p>Android版本下载：<br><img src="https://raw.githubusercontent.com/xiDaiDai/iOS_ReactNative/master/img/rcode.png" width="100" height="100" alt="图片名称" align="center"></p>
-
-            
-          </span>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
 
   </section>
 
@@ -891,7 +873,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">51</span>
+              <span class="site-state-item-count">53</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -959,7 +941,7 @@
         <div class="copyright" >
   
   &copy; 
-  <span itemprop="copyrightYear">2017</span>
+  <span itemprop="copyrightYear">2018</span>
   <span class="with-love">
     <i class="icon-next-heart fa fa-heart"></i>
   </span>

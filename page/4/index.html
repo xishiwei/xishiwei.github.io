@@ -251,6 +251,235 @@
             
               
                 
+                <a class="post-title-link" href="/2016/09/22/20160922/" itemprop="url">
+                  20160922
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            发表于
+            <time itemprop="dateCreated" datetime="2016-09-22T22:30:52+08:00" content="2016-09-22">
+              2016-09-22
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/09/22/20160922/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/09/22/20160922/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <span itemprop="articleBody">
+            
+              <h2 id="Rainy_Night,秋分">Rainy Night,秋分</h2><p><img src="http://www.juhong888.com/uploads/150924/1-150924113029296.jpg" width="800" height="680" alt="秋分"></p>
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="http://music.163.com/outchain/player?type=2&id=33419618&auto=1&height=66"></iframe>
+            
+          </span>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/09/21/sublimetext3/" itemprop="url">
+                  Sublime Text3
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            发表于
+            <time itemprop="dateCreated" datetime="2016-09-21T22:19:49+08:00" content="2016-09-21">
+              2016-09-21
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/09/21/sublimetext3/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/09/21/sublimetext3/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <span itemprop="articleBody">
+            
+              <p>在开发React Native 项目时候,选择Sublime Text编辑器作为开发工具，相对来说sublime轻巧流畅，代码高亮，丰富的插件写写React Native差不多可以了。</p>
+<h3 id="1-下载">1.下载</h3><p>下载地址：<a href="http://www.sublimetext.com/3" target="_blank" rel="external">Sublime Text3</a> ,选择相应平台下载即可。</p>
+<h3 id="2-Package_Control">2.Package Control</h3><p>想方便的安装插件首先得安装package control,可通过快捷键ctrl+`，调出console,然后粘贴如下代码，点击回车等待安装。</p>
+<pre><code>import urllib.request,os,hashlib; h = <span class="string">'2915d1851351e5ee549c20394736b442'</span> + <span class="string">'8bc59f460fa1548d1514676163dafc88'</span>; pf = <span class="string">'Package Control.sublime-package'</span>; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); <span class="keyword">by</span> = urllib.request.urlopen( <span class="string">'http://packagecontrol.io/'</span> + pf.<span class="built_in">replace</span>(<span class="string">' '</span>, <span class="string">'%20'</span>)).<span class="built_in">read</span>(); dh = hashlib.sha256(<span class="keyword">by</span>).hexdigest(); print(<span class="string">'Error validating download (got %s instead of %s), please try manual install'</span> % (dh, h)) <span class="keyword">if</span> dh != h <span class="keyword">else</span> <span class="built_in">open</span>(os.path.join( ipp, pf), <span class="string">'wb'</span> ).<span class="built_in">write</span>(<span class="keyword">by</span>)
+</code></pre><h3 id="3-安装插件">3.安装插件</h3><p>快捷键Ctrl+shift+P打开安装界面,选择install package,稍等一会儿弹出插件搜索界面，输入插件名称<br>选择即可安装,react native 相关插件</p>
+<ul>
+<li>Babel</li>
+<li>Emmet</li>
+<li>Termina</li>
+<li>JsFormat</li>
+</ul>
+<h3 id="4-日常快捷键">4.日常快捷键</h3><p>MacOS:</p>
+<ul>
+<li>command+P 快速查找,输入@查找函数,输入#匹配文本</li>
+<li>command+D 多行游标，选中多个当前文本同时编辑</li>
+<li>command +F 查找内容</li>
+<li>command +Shift+F 查找并替换</li>
+<li>ctrl+command+上下箭头 移动当前行</li>
+<li>command+L 选行，可以此选择下行</li>
+<li>command+shit+L 选多行</li>
+<li>command + W 关闭当前窗口</li>
+<li>command + N 新建</li>
+<li>ctrl+G 调转到行号处</li>
+<li>command + Enter 可以在当前行下新建一行</li>
+<li>command + Shift + Enter 可以在当前行上面添加一行</li>
+<li>command + Shift + D 复制当前行</li>
+</ul>
+<p>Windows:</p>
+<ul>
+<li>ctrl+P 快速查找,输入@查找函数,输入#匹配文本</li>
+<li>ctrl+D 多行游标，选中多个当前文本同时编辑</li>
+<li>ctrl +F 查找内容</li>
+<li>ctrl +H 查找并替换</li>
+<li>ctrl+ctrl+上下箭头 移动当前行</li>
+<li>ctrl+L 选行，可以此选择下行</li>
+<li>ctrl+shit+L 选多行</li>
+<li>ctrl + W 关闭当前窗口</li>
+<li>ctrl + N 新建</li>
+<li>ctrl+G 调转到行号处</li>
+<li>ctrl + Enter 可以在当前行下新建一行</li>
+<li>ctrl + Shift + Enter 可以在当前行上面添加一行</li>
+<li>ctrl + Shift + D 复制当前行</li>
+</ul>
+<h3 id="5-设置">5.设置</h3><ul>
+<li><p>tab键空格数 Preference -&gt; Settings-User </p>
+<pre><code> // The number <span class="keyword">of</span> spaces a tab is considered equal <span class="keyword">to</span>  
+<span class="string">"tab_size"</span>: <span class="number">4</span>,  
+// Set <span class="keyword">to</span> <span class="literal">true</span> <span class="keyword">to</span> <span class="keyword">insert</span> spaces <span class="keyword">when</span> tab is pressed  
+<span class="string">"translate_tabs_to_spaces"</span>: <span class="literal">true</span>, 
+</code></pre></li>
+<li><p>删除末尾空格 Preference -&gt; Settings-User添加：</p>
+<pre><code><span class="string">"trim_trailing_white_space_on_save"</span>: <span class="literal">true</span>
+</code></pre></li>
+</ul>
+<h3 id="6-开发时候大家环境要统一,因为我之前安装了JsFormat,会自动格式化代码，结果队友的代码一过来卡卡就变了形状,版本控制合并冲突他么的就上来了,特别烦的是JSX被格式化后各种报错,暗示你有空格字符串，我了个fuck,无奈之下我配合他们ctrl+shit+p-&gt;remove_package-&gt;JsFormat卸载插件。">6.开发时候大家环境要统一,因为我之前安装了JsFormat,会自动格式化代码，结果队友的代码一过来卡卡就变了形状,版本控制合并冲突他么的就上来了,特别烦的是JSX被格式化后各种报错,暗示你有空格字符串，我了个fuck,无奈之下我配合他们ctrl+shit+p-&gt;remove package-&gt;JsFormat卸载插件。</h3>
+            
+          </span>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/09/12/Install-NVM-on-CentOS7/" itemprop="url">
                   Install NVM on CentOS7
                 </a>
@@ -562,269 +791,6 @@ Origin <span class="attribute">'http</span>://localhost:<span class="number">808
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/09/07/20160907/" itemprop="url">
-                  20160907
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            发表于
-            <time itemprop="dateCreated" datetime="2016-09-07T21:46:44+08:00" content="2016-09-07">
-              2016-09-07
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/09/07/20160907/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/09/07/20160907/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <span itemprop="articleBody">
-            
-              <p> React Native 里需要接入友盟推送,首先按照官方文档在Android Studio里导入推送Module依赖,然后在MainApplication里添加PushSDK服务，处理通知</p>
-<pre><code> <span class="keyword">private</span> <span class="literal">void</span> initPushSDk() {
-    PushAgent mPushAgent = PushAgent<span class="built_in">.</span>getInstance(getApplicationContext());
-    mPushAgent<span class="built_in">.</span>enable();
-    mPushAgent<span class="built_in">.</span>setNotificationClickHandler(notificationClickHandler);
-
-}
-
-<span class="keyword">private</span> static final <span class="built_in">String</span> a = UmengNotificationClickHandler<span class="built_in">.</span>class<span class="built_in">.</span>getName();
-<span class="comment">//友盟通知自定义点击处理</span>
-UmengNotificationClickHandler notificationClickHandler = <span class="literal">new</span> UmengNotificationClickHandler(){
-    @Override
-    <span class="keyword">public</span> <span class="literal">void</span> dealWithCustomAction(Context context, UMessage msg) {
-        launchApplication(context,msg);<span class="comment">//先启动后台应用</span>
-        WritableMap <span class="keyword">params</span> = Arguments<span class="built_in">.</span>createMap();
-        <span class="built_in">String</span> custom = msg<span class="built_in">.</span>custom;
-        <span class="keyword">params</span><span class="built_in">.</span>putString(<span class="string">"custom"</span>,custom);
-        <span class="keyword">Log</span><span class="built_in">.</span>e(<span class="string">"custome"</span>,custom);
-        ReactContext reactContext = getReactNativeHost()<span class="built_in">.</span>getReactInstanceManager()<span class="built_in">.</span>getCurrentReactContext();
-        sendEvent(reactContext, <span class="string">"umeng_notification"</span>, <span class="keyword">params</span>);
-    }
-};
-
-<span class="keyword">private</span> <span class="literal">void</span> launchApplication(Context context,UMessage msg){
-    Intent var3 = context<span class="built_in">.</span>getPackageManager()<span class="built_in">.</span>getLaunchIntentForPackage(context<span class="built_in">.</span>getPackageName());
-    <span class="keyword">if</span>(var3 == <span class="built_in">null</span>) {
-        com<span class="built_in">.</span>umeng<span class="built_in">.</span>common<span class="built_in">.</span>message<span class="built_in">.</span><span class="keyword">Log</span><span class="built_in">.</span>b(a, <span class="string">"handleMessage(): cannot find app: "</span> + context<span class="built_in">.</span>getPackageName());
-    } <span class="keyword">else</span> {
-        var3<span class="built_in">.</span>setPackage((<span class="built_in">String</span>) <span class="built_in">null</span>);
-        var3<span class="built_in">.</span>addFlags(<span class="number">268435456</span>);
-        context<span class="built_in">.</span>startActivity(var3);
-    }
-}
-
-<span class="keyword">private</span>  <span class="literal">void</span> sendEvent(ReactContext reactContext,
-                              <span class="built_in">String</span> eventName,
-                              @Nullable WritableMap <span class="keyword">params</span>) {
-    reactContext
-            <span class="built_in">.</span>getJSModule(DeviceEventManagerModule<span class="built_in">.</span>RCTDeviceEventEmitter<span class="built_in">.</span>class)
-            <span class="built_in">.</span>emit(eventName, <span class="keyword">params</span>);
-}
-</code></pre><p>React Native 主页面里监听原生里发送的事件,跳转到相应的界面：</p>
-<pre><code>componentDidMount() {
-    <span class="keyword">if</span> (Platform.OS === <span class="string">'android'</span>) {
-          BackAndroid.addEventListener(<span class="string">'hardwareBackPress'</span>, <span class="function"><span class="params">()</span> =&gt;</span> <span class="keyword">this</span>.onBackAndroid());
-    };
-    DeviceEventEmitter.addListener(<span class="string">'umeng_notification'</span>, <span class="function"><span class="params">(e: Event)</span> =&gt;</span> {
-      <span class="regexp">//</span>e为原生传递过来的参数e.custom
-    <span class="keyword">this</span>.navigator.push({
-        <span class="attribute">component</span>: ShowNotificationPage
-      });
-      });
-  }
-</code></pre><p>可能是生命周期的原因,当android回退键退出应用时,只能拉起App却无法跳转到相应的界面,因此我在回退键的事件处理上进行了拦截,让App movebacktostack,而不是让界面销毁掉，相当于Home键的功能。</p>
-<p>React Native组件之间通信一般是通过props就可以实现父控件向子控件传值,父控件获取子控件的值.<br>也可以通过React Native 中的DeviceEventEmitter处理组件之间的监听事件,方式如下：</p>
-<pre><code>componentWillUnmount() {  
-    <span class="keyword">this</span>.subscription.remove();
-  }
-
-  componentDidMount() {  
-    <span class="keyword">this</span>.subscription = DeviceEventEmitter.addListener(<span class="string">'followChanged'</span>, <span class="function"><span class="params">()</span> =&gt;</span> {
-          <span class="keyword">this</span>.onRefresh()
-        });
-
-    <span class="keyword">this</span>.onRefresh();
-  }
-
-  onRefresh() {
-        <span class="keyword">this</span>.reuqestFans(<span class="keyword">this</span>.props.mid);
-  }
-</code></pre><p>其他组件触发事件：</p>
-<pre><code>DeviceEventEmitter.<span class="keyword">emit</span>(<span class="string">'followChanged'</span>);
-</code></pre>
-            
-          </span>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/09/06/20160906/" itemprop="url">
-                  20160906
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            发表于
-            <time itemprop="dateCreated" datetime="2016-09-06T21:33:18+08:00" content="2016-09-06">
-              2016-09-06
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/09/06/20160906/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/09/06/20160906/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <span itemprop="articleBody">
-            
-              <ul>
-<li><p>react native 切换页面过快时出现黄色警告：</p>
-<pre><code><span class="function"><span class="title">setState</span><span class="params">(...)</span></span>: Can only update <span class="tag">a</span> mounted or mounting component.
-</code></pre><p>  黄色警告在release版本中是不会出现的，也不会有其他的衍生错误，暂时可以选择忽略，如果强迫要解决的话可以通过如下方法：</p>
-<pre><code>componentWillUnmount() {
-        <span class="keyword">this</span>.isUnmount = <span class="literal">true</span>;
- }
-</code></pre><p>  在请求完数据更新数据源之前做判断：</p>
-<pre><code><span class="tag">if</span>（<span class="tag">this</span><span class="class">.isUnmount</span>）<span class="tag">return</span>;
-    <span class="tag">this</span><span class="class">.setState</span>(<span class="rules">{
-    <span class="rule"><span class="attribute">data</span>:<span class="value">responseData
-</span></span></span>})
-</code></pre><p>  还有一种办法让请求去走redux流程。</p>
-</li>
-<li><p>页面切换的过程中为了避免每次请求数据，可以通过redux维护的state来保存数据源。</p>
-</li>
-</ul>
-
-            
-          </span>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
 
   </section>
 
@@ -871,7 +837,7 @@ UmengNotificationClickHandler notificationClickHandler = <span class="literal">n
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">51</span>
+              <span class="site-state-item-count">53</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -939,7 +905,7 @@ UmengNotificationClickHandler notificationClickHandler = <span class="literal">n
         <div class="copyright" >
   
   &copy; 
-  <span itemprop="copyrightYear">2017</span>
+  <span itemprop="copyrightYear">2018</span>
   <span class="with-love">
     <i class="icon-next-heart fa fa-heart"></i>
   </span>
