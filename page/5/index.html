@@ -228,6 +228,115 @@
 
     
     
+      
+      
+
+      
+    
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/09/08/20160908/" itemprop="url">
+                  20160908
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            发表于
+            <time itemprop="dateCreated" datetime="2016-09-08T20:47:04+08:00" content="2016-09-08">
+              2016-09-08
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/09/08/20160908/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/09/08/20160908/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <span itemprop="articleBody">
+            
+              <p>React Native 打开Remote Debugger请求服务器的时候出现如下错误：</p>
+<pre><code>No <span class="attribute">'Access</span>-Control-Allow-Origin' header <span class="keyword">is</span> present <span class="keyword">on</span> the requested resource. 
+Origin <span class="attribute">'http</span>://localhost:<span class="number">8081</span>' <span class="keyword">is</span> therefore <span class="keyword">not</span> allowed <span class="keyword">access</span>.
+</code></pre><p>按照google,stackoverflow,GitHub issues里的方法始终无法解决，真是让人抓狂，<br>无法在Chrome里调试，你特么逗我了，那我要你何用，拿刀来！！！最后没办法只能在Android Studio里查看<br>React Native 里console.log()和redux-logger的输出日志。<br>既然Android Studio logcat 可以打出React Native里的日志,adb logcat也可以在cmd中打React Native日志</p>
+<pre><code>adb logcat <span class="operator">-s</span> ReactNativeJS
+</code></pre><p>React Native 日志的tag为ReactNativeJS，这样就可以全部过滤了，结果过程中又发现不支持中文显示，<br>你特么够了，那只能接着解决</p>
+<ol>
+<li><p>输入 chcp 回车查看当前的编码；</p>
+</li>
+<li><p>输入chcp 65001 回车；</p>
+</li>
+<li><p>在窗体上右键选择属性来设置字体为Lucida Consola；</p>
+</li>
+<li><p>如果想换回原来的编码chcp 936</p>
+</li>
+</ol>
+<p>搜索过程中发现Android 大神 JakeWharton 对logcat封装的工具 <a href="https://github.com/JakeWharton/pidcat" target="_blank" rel="external">pidcat</a>,可以在控制台输出指定应用的日志,非常不错。</p>
+
+            
+          </span>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
 
     
       
@@ -775,136 +884,6 @@ finished with non-zero exit value <span class="number">2</span>
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/08/29/20160829/" itemprop="url">
-                  20160829
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            发表于
-            <time itemprop="dateCreated" datetime="2016-08-29T21:30:38+08:00" content="2016-08-29">
-              2016-08-29
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/08/29/20160829/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/29/20160829/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <span itemprop="articleBody">
-            
-              <h2 id="react_native_初始化项目指定version">react native 初始化项目指定version</h2><pre><code>react-native init projectname --version <span class="number">0.29</span><span class="number">.2</span>
-</code></pre><h2 id="react_native_realm">react native realm</h2><p>定义model</p>
-<pre><code><span class="keyword">var</span> Realm = <span class="built_in">require</span>(<span class="string">'realm'</span>);
-<span class="keyword">const</span> CarSchema = {
-    name: <span class="string">'Car'</span>,
-    properties: {
-    make:  <span class="string">'string'</span>,    
-    model: <span class="string">'string'</span>,
-    miles: {<span class="keyword">type</span>: <span class="string">'int'</span>, <span class="keyword">default</span>: <span class="number">0</span>},
-    }
-};
-<span class="keyword">const</span> PersonSchema = {
-    name: <span class="string">'Person'</span>,
-    properties: {
-    name:     <span class="string">'string'</span>,
-    birthday: <span class="string">'date'</span>,
-    cars:     {<span class="keyword">type</span>: <span class="string">'list'</span>, objectType: <span class="string">'Car'</span>},
-    picture:  {<span class="keyword">type</span>: <span class="string">'data'</span>, optional: <span class="literal">true</span>}, <span class="comment">// optional property</span>
-    }
-};
-
-<span class="comment">// Initialize a Realm with Car and Person models</span>
-<span class="keyword">let</span> realm = <span class="keyword">new</span> Realm({schema: [CarSchema, PersonSchema]});
-</code></pre><p>创建model</p>
-<pre><code>let realm = <span class="keyword">new</span> Realm({<span class="string">schema:</span> [CarSchema]);
-
-realm.write(() =&gt; {
-realm.create(<span class="string">'Car'</span>, {<span class="string">make:</span> <span class="string">'Honda'</span>, <span class="string">model:</span> <span class="string">'Accord'</span>, <span class="string">drive:</span> <span class="string">'awd'</span>});
-});
-</code></pre><p>通过主键创建更新对象</p>
-<pre><code><span class="tag">realm</span><span class="class">.write</span>(() =&gt; {
-<span class="comment">// Create a book object</span>
-<span class="tag">realm</span><span class="class">.create</span>(<span class="string">'Book'</span>, {<span class="attribute">id</span>: <span class="number">1</span>, <span class="attribute">title</span>: <span class="string">'Recipes'</span>, <span class="attribute">price</span>: <span class="number">35</span>});
-
-<span class="comment">// Update book with new price keyed off the id</span>
-<span class="tag">realm</span><span class="class">.create</span>(<span class="string">'Book'</span>, {<span class="attribute">id</span>: <span class="number">1</span>, <span class="attribute">price</span>: <span class="number">55</span>}, true);
-});
-</code></pre><p>查询</p>
-<pre><code><span class="keyword">let</span> hondas = realm.objects(<span class="string">'Car</span>').filtered(<span class="string">'make</span> = <span class="string">"Honda"</span>');
-<span class="keyword">let</span> cars = realm.objects(<span class="string">'Car</span>');
-
-<span class="comment">// get first 5 Car objects</span>
-<span class="keyword">let</span> firstCars = cars.slice(<span class="number">0</span>, <span class="number">5</span>);
-</code></pre>
-            
-          </span>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
 
   </section>
 
@@ -951,7 +930,7 @@ realm.create(<span class="string">'Car'</span>, {<span class="string">make:</spa
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">53</span>
+              <span class="site-state-item-count">54</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -965,7 +944,7 @@ realm.create(<span class="string">'Car'</span>, {<span class="string">make:</spa
 
           <div class="site-state-item site-state-tags">
             <a href="/tags">
-              <span class="site-state-item-count">23</span>
+              <span class="site-state-item-count">24</span>
               <span class="site-state-item-name">标签</span>
               </a>
           </div>

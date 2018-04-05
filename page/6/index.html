@@ -228,6 +228,141 @@
 
     
     
+      
+      
+
+      
+    
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/08/29/20160829/" itemprop="url">
+                  20160829
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            发表于
+            <time itemprop="dateCreated" datetime="2016-08-29T21:30:38+08:00" content="2016-08-29">
+              2016-08-29
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/08/29/20160829/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/29/20160829/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <span itemprop="articleBody">
+            
+              <h2 id="react_native_初始化项目指定version">react native 初始化项目指定version</h2><pre><code>react-native init projectname --version <span class="number">0.29</span><span class="number">.2</span>
+</code></pre><h2 id="react_native_realm">react native realm</h2><p>定义model</p>
+<pre><code><span class="keyword">var</span> Realm = <span class="built_in">require</span>(<span class="string">'realm'</span>);
+<span class="keyword">const</span> CarSchema = {
+    name: <span class="string">'Car'</span>,
+    properties: {
+    make:  <span class="string">'string'</span>,    
+    model: <span class="string">'string'</span>,
+    miles: {<span class="keyword">type</span>: <span class="string">'int'</span>, <span class="keyword">default</span>: <span class="number">0</span>},
+    }
+};
+<span class="keyword">const</span> PersonSchema = {
+    name: <span class="string">'Person'</span>,
+    properties: {
+    name:     <span class="string">'string'</span>,
+    birthday: <span class="string">'date'</span>,
+    cars:     {<span class="keyword">type</span>: <span class="string">'list'</span>, objectType: <span class="string">'Car'</span>},
+    picture:  {<span class="keyword">type</span>: <span class="string">'data'</span>, optional: <span class="literal">true</span>}, <span class="comment">// optional property</span>
+    }
+};
+
+<span class="comment">// Initialize a Realm with Car and Person models</span>
+<span class="keyword">let</span> realm = <span class="keyword">new</span> Realm({schema: [CarSchema, PersonSchema]});
+</code></pre><p>创建model</p>
+<pre><code>let realm = <span class="keyword">new</span> Realm({<span class="string">schema:</span> [CarSchema]);
+
+realm.write(() =&gt; {
+realm.create(<span class="string">'Car'</span>, {<span class="string">make:</span> <span class="string">'Honda'</span>, <span class="string">model:</span> <span class="string">'Accord'</span>, <span class="string">drive:</span> <span class="string">'awd'</span>});
+});
+</code></pre><p>通过主键创建更新对象</p>
+<pre><code><span class="tag">realm</span><span class="class">.write</span>(() =&gt; {
+<span class="comment">// Create a book object</span>
+<span class="tag">realm</span><span class="class">.create</span>(<span class="string">'Book'</span>, {<span class="attribute">id</span>: <span class="number">1</span>, <span class="attribute">title</span>: <span class="string">'Recipes'</span>, <span class="attribute">price</span>: <span class="number">35</span>});
+
+<span class="comment">// Update book with new price keyed off the id</span>
+<span class="tag">realm</span><span class="class">.create</span>(<span class="string">'Book'</span>, {<span class="attribute">id</span>: <span class="number">1</span>, <span class="attribute">price</span>: <span class="number">55</span>}, true);
+});
+</code></pre><p>查询</p>
+<pre><code><span class="keyword">let</span> hondas = realm.objects(<span class="string">'Car</span>').filtered(<span class="string">'make</span> = <span class="string">"Honda"</span>');
+<span class="keyword">let</span> cars = realm.objects(<span class="string">'Car</span>');
+
+<span class="comment">// get first 5 Car objects</span>
+<span class="keyword">let</span> firstCars = cars.slice(<span class="number">0</span>, <span class="number">5</span>);
+</code></pre>
+            
+          </span>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
 
     
       
@@ -685,96 +820,6 @@ ExitModule.<span class="built_in">exit</span>();<span class="comment">//调用�
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/07/28/友盟三方登录/" itemprop="url">
-                  开始了，同志们！
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            发表于
-            <time itemprop="dateCreated" datetime="2016-07-28T22:43:49+08:00" content="2016-07-28">
-              2016-07-28
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/07/28/友盟三方登录/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/07/28/友盟三方登录/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <span itemprop="articleBody">
-            
-              <p>最近要上react native 项目，需要用到微博，QQ,微信三方登录，准备封装友盟的sdk,过程是相当不爽，<br>各个平台的key,appid都特么没有，还得使用上个项目的环境测试也是没谁了，友盟sdk5.0+的新版本不知道是我太傻还是友盟的sdk不够完善，尽然各种不走回调方法，论坛也是比较寂寥。</p>
-<p>这是第一个react native 要上线的项目，启动过程比较艰难感觉，两个平台并行开发还要共用很多react代码，git版本控制让我觉得双平台并行开发有点烦，实在是没有先只开发一个平台，然后修改来的爽快。</p>
-<p>整个项目目测比较复杂，业务比较多和繁琐，单独一个模块领出来就足可以造一个app了，这么重的应用我特么想互相伤害，定于九月底出第一版本，目测项目会被延期毕业。工作管理使用的Tower,挺不错的办公协作软件，可是在这关键的时刻我要请假回家，玩几天，谁怕谁！</p>
-
-            
-          </span>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
 
   </section>
 
@@ -821,7 +866,7 @@ ExitModule.<span class="built_in">exit</span>();<span class="comment">//调用�
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">53</span>
+              <span class="site-state-item-count">54</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -835,7 +880,7 @@ ExitModule.<span class="built_in">exit</span>();<span class="comment">//调用�
 
           <div class="site-state-item site-state-tags">
             <a href="/tags">
-              <span class="site-state-item-count">23</span>
+              <span class="site-state-item-count">24</span>
               <span class="site-state-item-name">标签</span>
               </a>
           </div>

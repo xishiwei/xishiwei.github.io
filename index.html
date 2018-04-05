@@ -228,6 +228,15 @@
 
     
     
+      
+      
+        
+        
+        
+      
+
+      
+    
 
     
       
@@ -251,8 +260,8 @@
             
               
                 
-                <a class="post-title-link" href="/2018/03/30/quicksort/" itemprop="url">
-                  未命名
+                <a class="post-title-link" href="/2018/04/06/tips/" itemprop="url">
+                  tips
                 </a>
               
             
@@ -262,8 +271,8 @@
         <div class="post-meta">
           <span class="post-time">
             发表于
-            <time itemprop="dateCreated" datetime="2018-03-30T09:38:35+08:00" content="2018-03-30">
-              2018-03-30
+            <time itemprop="dateCreated" datetime="2018-04-06T01:02:29+08:00" content="2018-04-06">
+              2018-04-06
             </time>
           </span>
 
@@ -273,8 +282,166 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2018/03/30/quicksort/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2018/03/30/quicksort/" itemprop="commentsCount"></span>
+                <a href="/2018/04/06/tips/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2018/04/06/tips/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <span itemprop="articleBody">
+            
+              <p>浏览器输入url后发生了什么？</p>
+<p>1.域名解析，找到服务器ip地址</p>
+<p>2.主机与服务器三次握手建立连接</p>
+<p>3.浏览器根据url发送http请求，服务器返回响应页面资源</p>
+<p>4.加载页面中的其他资源请求：img,css,javascript等等</p>
+<p>ajax产生的背景</p>
+<p>web应用程序一次http请求对应一个页面，请求更新数据时会刷新整个页面，</p>
+<p>ajax</p>
+<p>XMLHttpRequest</p>
+<p>ajax优点</p>
+<p>异步通信，响应迅速;无需刷新页面，在页面内与服务器通信；按需请求数据分担服务器压力；</p>
+<p>ajax缺点</p>
+<p>破坏了浏览器回退功能；安全问题;破坏了程序的异常机制，给调试带来困难；</p>
+<p>H5的新特性</p>
+<ol>
+<li>用于绘画 canvas 元素。</li>
+</ol>
+<ol>
+<li>用于媒介回放的 video 和 audio 元素。</li>
+</ol>
+<ol>
+<li><p>本地离线存储 localStorage 长期存储数据，浏览器关闭后数据不丢失；</p>
+<p>sessionStorage 的数据在浏览器关闭后自动删除。</p>
+</li>
+<li><p>语意化更好的内容元素，比如 article、footer、header、nav、section</p>
+</li>
+</ol>
+<ol>
+<li>表单控件，calendar、date、time、email、url、search</li>
+</ol>
+<p>css3</p>
+<ol>
+<li>CSS3实现圆角（border-radius），阴影（box-shadow），边框图片border-image</li>
+<li><p>对文字加特效（text-shadow、），强制文本换行（word-wrap），线性渐变（linear-gradient）</p>
+<p>3.旋转,缩放,定位,倾斜：transform:rotate(90deg) scale(0.85,0.90) translate(0px,-30px) skew(-9deg,0deg);</p>
+</li>
+<li><p>增加了更多的CSS选择器、多背景、rgba()；</p>
+</li>
+<li>在CSS3中唯一引入的伪元素是 ::selection ；</li>
+<li>媒体查询(@media)，多栏布局（flex） </li>
+</ol>
+<p>web前端优化</p>
+<p>css放置head里js放置body底部;减少http请求,压缩js文件等，合并css,js,雪碧图；图片懒加载；</p>
+<p>cdn加速；反向代理；</p>
+<p>优化减少dom操作，避免无谓的循环合理使用return等结束操作</p>
+<p>盒模型</p>
+<p>content,padding,border,margin</p>
+<p>w3c height,width content 不包含其他部分；ie width,height包含content,padding,border</p>
+<p>隐藏元素</p>
+<p>display:none</p>
+<p>visibility:hidden</p>
+<p>opacity:0</p>
+<p>z-index:-1</p>
+<p>x的y次方</p>
+<p>var getSum = function(x,y){<br>​    var sum = 0;<br>​    if(y==1){<br>​        sum = x;<br>​    }else if(y&gt;1){<br>​        sum = getSum(x, y-1)*x;<br>​    }<br>​    return sum;<br>}</p>
+<p>箭头函数与function</p>
+<p>箭头函数this指向创建环境，function里this指向调用环境</p>
+<p>使用箭头函数 不能用于构造函数，即不能被new</p>
+<p>由于js的内存机制，function的级别最高，而用箭头函数定义函数的时候，需要var(let const定义的时候更不必说)关键词，而var所定义的变量不能得到变量提升，故箭头函数一定要定义于调用之前</p>
+<p>模块化</p>
+<p>匿名自执行函数</p>
+<p>require.js sea.js</p>
+<p>import/export</p>
+<p>var min=Math.min.apply(null,array);</p>
+<p>var max=Math.max.apply(null,array)</p>
+<p>Array.prototype.push.apply(arr1,arr2);</p>
+<p>实现三角</p>
+<p>style=”width:0;height:0;border:7px solid transparent;border-top-color:#2DCB70;”</p>
+<p>轮播图</p>
+<p>style.transform或者style.left</p>
+<p>在最后克隆第一张图片，实现平滑过渡</p>
+
+            
+          </span>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/12/06/quicksort/" itemprop="url">
+                  JS快速排序
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            发表于
+            <time itemprop="dateCreated" datetime="2017-12-06T19:08:29+08:00" content="2017-12-06">
+              2017-12-06
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2017/12/06/quicksort/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/12/06/quicksort/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -339,8 +506,8 @@
             
               
                 
-                <a class="post-title-link" href="/2018/03/30/js/" itemprop="url">
-                  未命名
+                <a class="post-title-link" href="/2017/08/06/js/" itemprop="url">
+                  JS原型,原型链
                 </a>
               
             
@@ -350,8 +517,8 @@
         <div class="post-meta">
           <span class="post-time">
             发表于
-            <time itemprop="dateCreated" datetime="2018-03-30T09:38:35+08:00" content="2018-03-30">
-              2018-03-30
+            <time itemprop="dateCreated" datetime="2017-08-06T22:18:35+08:00" content="2017-08-06">
+              2017-08-06
             </time>
           </span>
 
@@ -361,8 +528,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2018/03/30/js/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2018/03/30/js/" itemprop="commentsCount"></span>
+                <a href="/2017/08/06/js/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/08/06/js/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -384,8 +551,7 @@
         
           <span itemprop="articleBody">
             
-              <hr>
-<p>实例的构造函数属性指向构造函数</p>
+              <p>实例的构造函数属性指向构造函数</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params">name,age</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">this</span>.name = name;</span><br><span class="line">  <span class="keyword">this</span>.age = age;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> person = <span class="keyword">new</span> Person()</span><br><span class="line"></span><br><span class="line">person.constructor == Person<span class="comment">//true</span></span><br></pre></td></tr></table></figure>
 <p>JavaScript中每个函数对象都有一个prototype属性，指向函数的原型对象</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Person.prototype.construtor == Person</span><br></pre></td></tr></table></figure>
@@ -594,95 +760,6 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/06/16/reactnews/" itemprop="url">
-                  React.js + Ant Design
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            发表于
-            <time itemprop="dateCreated" datetime="2017-06-16T14:09:49+08:00" content="2017-06-16">
-              2017-06-16
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2017/06/16/reactnews/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/06/16/reactnews/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <span itemprop="articleBody">
-            
-              <p>学习React的时候,跟着教程做的一个简单的新闻站点,使用了Ant Design React组件库,适配移动和PC端,最后发布在leanCloud上。<br>地址: <a href="http://reactnews.leanapp.cn" target="_blank" rel="external">http://reactnews.leanapp.cn</a></p>
-<p>最近一直在开发国网招投标项目,把我这辈子的班都加了。。。。。。</p>
-
-            
-          </span>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
 
   </section>
 
@@ -729,7 +806,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">53</span>
+              <span class="site-state-item-count">54</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -743,7 +820,7 @@
 
           <div class="site-state-item site-state-tags">
             <a href="/tags">
-              <span class="site-state-item-count">23</span>
+              <span class="site-state-item-count">24</span>
               <span class="site-state-item-name">标签</span>
               </a>
           </div>
